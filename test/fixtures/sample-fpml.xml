@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fpml:trade xmlns:fpml="http://www.fpml.org/FpML-5/confirmation">
+  <fpml:tradeHeader>
+    <fpml:tradeDate>2026-01-10</fpml:tradeDate>
+  </fpml:tradeHeader>
+  <fpml:buyerPartyReference href="party1" />
+  <fpml:sellerPartyReference href="party2" />
+  <fpml:swap>
+    <fpml:swapStream>
+      <fpml:payerPartyReference href="party1" />
+      <fpml:receiverPartyReference href="party2" />
+      <fpml:calculationPeriodAmount>
+        <fpml:floatingRateCalculation>
+          <fpml:floatingRateIndex>USD-LIBOR-BBA</fpml:floatingRateIndex>
+          <fpml:indexTenor>3M</fpml:indexTenor>
+        </fpml:floatingRateCalculation>
+      </fpml:calculationPeriodAmount>
+    </fpml:swapStream>
+  </fpml:swap>
+  <fpml:premium>
+    <fpml:payerPartyReference href="party1" />
+  </fpml:premium>
+</fpml:trade>

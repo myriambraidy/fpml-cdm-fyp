@@ -197,8 +197,7 @@ export const floatingRateIndexResolverLogic = (
       transformation: 'map_spread',
       confidence: 95,
       reasoning: 'Spread field → CDM floatingRate.spread (added to floating rate)',
-      indexCategory: 'unknown',
-      unitType: 'rate'
+      indexCategory: 'unknown'
     }
   }
 
@@ -208,8 +207,7 @@ export const floatingRateIndexResolverLogic = (
       transformation: 'map_multiplier',
       confidence: 90,
       reasoning: 'Multiplier field → CDM floatingRate.multiplier',
-      indexCategory: 'unknown',
-      unitType: 'multiplier'
+      indexCategory: 'unknown'
     }
   }
 
