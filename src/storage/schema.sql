@@ -17,6 +17,9 @@ CREATE TABLE IF NOT EXISTS fields (
   path TEXT NOT NULL,
   value TEXT,
   context TEXT,
+  is_array INTEGER,
+  min_occurs INTEGER,
+  max_occurs TEXT,
   FOREIGN KEY (upload_id) REFERENCES uploads(id)
 );
 
@@ -30,7 +33,9 @@ CREATE TABLE IF NOT EXISTS proposals (
   confidence INTEGER NOT NULL,
   reasoning TEXT NOT NULL,
   skill_invoked TEXT NOT NULL,
-  status TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending',
+  needs_review INTEGER NOT NULL DEFAULT 0,
+  payload_json TEXT NOT NULL DEFAULT '{}',
   created_at TEXT NOT NULL,
   FOREIGN KEY (upload_id) REFERENCES uploads(id),
   FOREIGN KEY (field_id) REFERENCES fields(id)

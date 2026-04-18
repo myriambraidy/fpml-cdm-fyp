@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FPML → CDM — Upload</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Upload FPML or JSON</h1>
+      <p class="hint">Choose a file, then upload and generate mapping proposals.</p>
+      <form id="form">
+        <label>
+          Format
+          <select name="formatType" id="formatType">
+            <option value="xml">XML</option>
+            <option value="json">JSON</option>
+          </select>
+        </label>
+        <label>
+          File
+          <input type="file" id="file" required />
+        </label>
+        <button type="submit">Upload</button>
+      </form>
+      <p id="status"></p>
+      <p>
+        <button type="button" id="mapBtn" disabled>Map fields</button>
+      </p>
+    </main>
+    <script>
+      let uploadId = null
+      const status = document.getElementById('status')
+      const mapBtn = document.getElementById('mapBtn')
+      document.getElementById('form').onsubmit = async (e) => {
+        e.preventDefault()
+        status.textContent = 'Uploading…'
+        mapBtn.disabled = true
+        uploadId = null
+        const fd = new FormData()
+        fd.set('formatType', document.getElementById('formatType').value)
+        fd.set('file', document.getElementById('file').files[0])
+        const r = await fetch('/api/upload', { method: 'POST', body: fd })
+        const j = await r.json()
+        if (!r.ok) {
+          status.textContent = 'Error: ' + (j.error || r.status)
+          return
+        }
+        uploadId = j.uploadId
+        status.textContent = 'Uploaded. Fields: ' + j.fieldsCount + '. uploadId: ' + uploadId
+        mapBtn.disabled = false
+      }
+      mapBtn.onclick = async () => {
+        if (!uploadId) return
+        status.textContent = 'Mapping…'
+        const r = await fetch('/api/mapping', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ uploadId }),
+        })
+        const j = await r.json()
+        if (!r.ok) {
+          status.textContent = 'Error: ' + (j.error || r.status)
+          return
+        }
+        status.textContent = 'Mapped ' + j.proposals.length + ' proposals.'
+        window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadId)
+      }
+    </script>
+  </body>
+</html>

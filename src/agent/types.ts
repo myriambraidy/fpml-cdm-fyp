@@ -1,0 +1,92 @@
+import type { Field } from '../parser/types'
+
+export interface LLMMessage {
+  role: 'system' | 'user' | 'assistant'
+  content: string
+}
+
+export interface LLMTool {
+  name: string
+  description: string
+  input_schema: Record<string, unknown>
+}
+
+export interface LLMToolCall {
+  id: string
+  name: string
+  input: Record<string, unknown>
+}
+
+export interface LLMResponse {
+  content: string
+  tool_calls?: LLMToolCall[]
+}
+
+export interface LLMClient {
+  call(params: {
+    messages: LLMMessage[]
+    tools?: LLMTool[]
+    model?: string
+  }): Promise<LLMResponse>
+}
+
+export class LLMConfigurationError extends Error {
+  override readonly name = 'LLMConfigurationError'
+  constructor(message = 'OPENROUTER_API_KEY is required for live LLM calls') {
+    super(message)
+  }
+}
+
+export class LLMTimeoutError extends Error {
+  override readonly name = 'LLMTimeoutError'
+  constructor(message = 'LLM request timed out') {
+    super(message)
+  }
+}
+
+export class LLMHTTPError extends Error {
+  override readonly name = 'LLMHTTPError'
+  constructor(
+    readonly status: number,
+    readonly bodySnippet: string
+  ) {
+    super(`OpenRouter HTTP ${status}: ${bodySnippet.slice(0, 500)}`)
+  }
+}
+
+export class LLMProtocolError extends Error {
+  override readonly name = 'LLMProtocolError'
+  constructor(message: string) {
+    super(message)
+  }
+}
+
+/** One evaluated skill output for analyst / review UI (DEC-03). */
+export interface CandidateProposal {
+  skillName: string
+  cdmPath: string
+  transformation: string
+  confidence: number
+  reasoning: string
+}
+
+export interface OrchestrationTrace {
+  partyOrder: readonly string[]
+  llmCallCount: number
+  arbitrationNotes: string[]
+  retries: number
+}
+
+export interface MappingProposal {
+  sourceField: Field
+  cdmPath: string
+  transformation: string
+  confidence: number
+  reasoning: string
+  skillInvoked: string
+  structuralHints: Record<string, unknown>
+  candidateSkills: string[]
+  candidateProposals: CandidateProposal[]
+  needsReview: boolean
+  trace: OrchestrationTrace
+}

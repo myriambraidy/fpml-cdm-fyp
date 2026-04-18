@@ -1,0 +1,140 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #0f1419;
+  color: #e6edf3;
+}
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+h1 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.hint {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+label {
+  display: block;
+  margin: 0.75rem 0;
+}
+select,
+input[type='file'] {
+  margin-top: 0.25rem;
+}
+button {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  background: #238636;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+button.secondary {
+  background: #6e7681;
+}
+a {
+  color: #58a6ff;
+}
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.tbl th,
+.tbl td {
+  border: 1px solid #30363d;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+.tbl code {
+  word-break: break-all;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+.toolbar label.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+}
+.stats {
+  margin: 1rem 0;
+}
+.statcards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.badge {
+  background: #21262d;
+  border: 1px solid #30363d;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+.skill-dist {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.col-check {
+  width: 2rem;
+}
+button.ghost {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #58a6ff;
+}
+tr.row-auto {
+  opacity: 0.75;
+  background: #161b22;
+}
+tr.row-warn {
+  background: #2d2a1d;
+}
+tr.row-reject {
+  background: #2d1b1b;
+}
+tr.row-ok {
+  background: #15231a;
+}
+tr.row-pending {
+  background: #0f1419;
+}
+tr.row-focus {
+  outline: 2px solid #58a6ff;
+  outline-offset: -2px;
+}
+.inline-inp {
+  width: 100%;
+  max-width: 320px;
+  margin: 0.15rem 0;
+  padding: 0.25rem;
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+}
+kbd {
+  padding: 0.1rem 0.35rem;
+  background: #21262d;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+#shortcuts.hint {
+  margin-left: auto;
+  font-size: 0.75rem;
+}
