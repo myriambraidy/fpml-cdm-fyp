@@ -32,6 +32,10 @@
         <button type="button" id="btnApproveHigh" title="Pending rows with confidence ≥ 80">
           Approve pending ≥ 80
         </button>
+        <label class="check" title="If unchecked, export fails while any proposal is still pending"
+          ><input type="checkbox" id="exportAllowPartial" /> Allow partial export</label
+        >
+        <button type="button" id="btnExport">Download export JSON</button>
         <span id="shortcuts" class="hint"
           ><kbd>j</kbd>/<kbd>k</kbd> move · <kbd>a</kbd> approve · <kbd>r</kbd> reject ·
           <kbd>e</kbd> edit · <kbd>Shift+A</kbd> approve selected</span
@@ -90,6 +94,34 @@
           .filter(p => p.status === 'pending' && Number(p.confidence) >= 80)
           .map(p => p.id)
         batchAction('approve', ids)
+      }
+      document.getElementById('btnExport').onclick = async () => {
+        if (!uploadId) return
+        const allowPartial = document.getElementById('exportAllowPartial').checked
+        const r = await fetch('/api/export/' + encodeURIComponent(uploadId), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ allowPartial }),
+        })
+        if (r.status === 422) {
+          const j = await r.json().catch(() => ({}))
+          alert(
+            'INCOMPLETE_REVIEW — approve/reject all pending or enable "Allow partial export".\n' +
+              (j.pendingProposalIds ? j.pendingProposalIds.length + ' pending ids.' : '')
+          )
+          return
+        }
+        if (!r.ok) {
+          alert('Export failed: ' + r.status + ' ' + (await r.text()))
+          return
+        }
+        const j = await r.json()
+        const blob = new Blob([JSON.stringify(j.package, null, 2)], { type: 'application/json' })
+        const a = document.createElement('a')
+        a.href = URL.createObjectURL(blob)
+        a.download = 'rosetta-package-' + uploadId.slice(0, 8) + '.json'
+        a.click()
+        URL.revokeObjectURL(a.href)
       }
 
       function collectCheckedIds() {

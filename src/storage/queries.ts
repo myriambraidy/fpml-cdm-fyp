@@ -392,3 +392,150 @@ export function batchReviewActions(
   run()
   return { approvedMappingIds }
 }
+
+// --- Week 4 export ---
+
+export interface ApprovedMappingExportRow {
+  proposalId: string
+  fieldPath: string
+  fieldName: string
+  fieldValue: string | null
+  cdmPath: string
+  transformation: string
+  skillInvoked: string
+  confidence: number
+  approvedBy: string
+  approvedAt: string
+}
+
+export function listApprovedMappingsForExport(uploadId: string): ApprovedMappingExportRow[] {
+  const rows = db
+    .prepare(
+      `SELECT p.id AS proposal_id, f.path AS field_path, f.name AS field_name, f.value AS field_value,
+              am.cdm_path, am.transformation, p.skill_invoked, p.confidence, am.approved_by, am.approved_at
+       FROM approved_mappings am
+       JOIN proposals p ON p.id = am.proposal_id
+       JOIN fields f ON f.id = p.field_id
+       WHERE p.upload_id = ?
+       ORDER BY am.approved_at`
+    )
+    .all(uploadId) as Array<Record<string, unknown>>
+
+  return rows.map(r => ({
+    proposalId: r.proposal_id as string,
+    fieldPath: r.field_path as string,
+    fieldName: r.field_name as string,
+    fieldValue: (r.field_value as string | null) ?? null,
+    cdmPath: r.cdm_path as string,
+    transformation: r.transformation as string,
+    skillInvoked: r.skill_invoked as string,
+    confidence: Number(r.confidence),
+    approvedBy: r.approved_by as string,
+    approvedAt: r.approved_at as string,
+  }))
+}
+
+export interface SkippedProposalRow {
+  proposalId: string
+  fieldPath: string
+  fieldName: string
+  status: string
+}
+
+export function listSkippedProposalsForExport(uploadId: string): SkippedProposalRow[] {
+  const rows = db
+    .prepare(
+      `SELECT p.id AS proposal_id, f.path AS field_path, f.name AS field_name, p.status
+       FROM proposals p
+       JOIN fields f ON f.id = p.field_id
+       LEFT JOIN approved_mappings am ON am.proposal_id = p.id
+       WHERE p.upload_id = ? AND am.id IS NULL`
+    )
+    .all(uploadId) as Array<Record<string, unknown>>
+
+  return rows.map(r => ({
+    proposalId: r.proposal_id as string,
+    fieldPath: r.field_path as string,
+    fieldName: r.field_name as string,
+    status: r.status as string,
+  }))
+}
+
+function countScalar(sql: string, uploadId: string): number {
+  const row = db.prepare(sql).get(uploadId) as { n: number | bigint } | undefined
+  if (!row) return 0
+  return Number(row.n)
+}
+
+export function countPendingProposals(uploadId: string): number {
+  return countScalar(
+    `SELECT COUNT(*) AS n FROM proposals WHERE upload_id = ? AND status = 'pending'`,
+    uploadId
+  )
+}
+
+export function listPendingProposalIds(uploadId: string): string[] {
+  const rows = db
+    .prepare(
+      `SELECT id FROM proposals WHERE upload_id = ? AND status = 'pending' ORDER BY created_at`
+    )
+    .all(uploadId) as { id: string }[]
+  return rows.map(r => r.id)
+}
+
+export function countProposalsForUpload(uploadId: string): number {
+  return countScalar(`SELECT COUNT(*) AS n FROM proposals WHERE upload_id = ?`, uploadId)
+}
+
+export function getUploadMeta(
+  uploadId: string
+): { filename: string; formatType: 'xml' | 'json' } | undefined {
+  const row = db
+    .prepare(`SELECT filename, format_type FROM uploads WHERE id = ?`)
+    .get(uploadId) as { filename: string; format_type: string } | undefined
+  if (!row) return undefined
+  const ft = row.format_type
+  if (ft !== 'xml' && ft !== 'json') {
+    return { filename: row.filename, formatType: 'xml' }
+  }
+  return { filename: row.filename, formatType: ft }
+}
+
+export function insertExportWithAudit(args: {
+  exportId: string
+  uploadId: string
+  rosettaJson: string
+  exportedBy: string
+  auditMetadata: Record<string, unknown>
+}): void {
+  const now = new Date().toISOString()
+  const run = db.transaction(() => {
+    db.prepare(
+      `INSERT INTO exports (id, upload_id, rosetta_json, exported_by, exported_at)
+       VALUES (?, ?, ?, ?, ?)`
+    ).run(args.exportId, args.uploadId, args.rosettaJson, args.exportedBy, now)
+    db.prepare(
+      `INSERT INTO audit_log (id, entity_type, entity_id, action, user, timestamp, metadata)
+       VALUES (?, 'export', ?, 'exported', ?, ?, ?)`
+    ).run(
+      crypto.randomUUID(),
+      args.exportId,
+      args.exportedBy,
+      now,
+      JSON.stringify(args.auditMetadata)
+    )
+  })
+  run()
+}
+
+export function getLatestExportForUpload(
+  uploadId: string
+): { exportId: string; exportedAt: string; rosettaJson: string } | undefined {
+  const row = db
+    .prepare(
+      `SELECT id AS export_id, exported_at, rosetta_json FROM exports WHERE upload_id = ? ORDER BY exported_at DESC LIMIT 1`
+    )
+    .get(uploadId) as { export_id: string; exported_at: string; rosetta_json: string } | undefined
+  if (!row) return undefined
+  return { exportId: row.export_id, exportedAt: row.exported_at, rosettaJson: row.rosetta_json }
+}

@@ -1321,7 +1321,7 @@ Explicitly deferred to keep prototype focused:
 
 ## Implementation Timeline (4-6 Weeks)
 
-### Week 0: Skills Generation (DURING PLANNING - DONE BY CLAUDE CODE) 
+### Week 0: Skills Generation (DURING PLANNING - DONE BY CLAUDE CODE)
 
 - Fetch FPML 5.12 documentation ([https://www.fpml.org/tools/](https://www.fpml.org/tools/))
 - Fetch CDM 6 documentation ([https://cdm.finos.org/docs/home/](https://cdm.finos.org/docs/home/))
@@ -1340,7 +1340,7 @@ Explicitly deferred to keep prototype focused:
 
 ---
 
-### Week 1: Foundation + Skill Review - DONEEEE 
+### Week 1: Foundation + Skill Review - DONEEEE
 
 - Project setup (Bun, Hono, Zod, OpenRouter)
 - Directory structure
@@ -1353,7 +1353,7 @@ Explicitly deferred to keep prototype focused:
 
 ### Week 2: Agent Orchestration
 
-- LLM client abstraction (OpenRouter)
+- phase LLM client abstraction (OpenRouter)
 - Skills → Claude tools conversion
 - Agent orchestrator (field → skill matching → invocation)
 - Integration tests (agent orchestration)

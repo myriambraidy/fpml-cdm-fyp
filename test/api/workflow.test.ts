@@ -115,3 +115,100 @@ describe('Week 3 API', () => {
     expect(n1).toBe(n2)
   })
 })
+
+describe('Week 4 export API', () => {
+  const app = createApp({ llmClient: undefined })
+  let uploadId: string
+
+  async function approveAllPending(uid: string) {
+    const list = (await (await app.request(`/api/review/${uid}`)).json()) as {
+      proposals: { id: string; status: string }[]
+    }
+    for (const p of list.proposals.filter(x => x.status === 'pending')) {
+      const res = await app.request(`/api/review/proposals/${p.id}/approve`, {
+        method: 'PATCH',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({}),
+      })
+      expect(res.status).toBe(200)
+    }
+  }
+
+  it('W4-T1: upload + map for export flow', async () => {
+    const xml = readFileSync('test/fixtures/sample-fpml.xml', 'utf8')
+    const fd = new FormData()
+    fd.set('formatType', 'xml')
+    fd.set('file', new Blob([xml], { type: 'text/xml' }), 'sample-fpml-export.xml')
+
+    const up = await app.request('/api/upload', { method: 'POST', body: fd })
+    expect(up.status).toBe(200)
+    uploadId = ((await up.json()) as { uploadId: string }).uploadId
+
+    const map = await app.request('/api/mapping', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ uploadId }),
+    })
+    expect(map.status).toBe(200)
+  })
+
+  it('W4-T2: POST export strict → 422 when pending remain', async () => {
+    const res = await app.request(`/api/export/${uploadId}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({}),
+    })
+    expect(res.status).toBe(422)
+    const j = (await res.json()) as { error: string; pendingProposalIds: string[] }
+    expect(j.error).toBe('INCOMPLETE_REVIEW')
+    expect(j.pendingProposalIds.length).toBeGreaterThan(0)
+  })
+
+  it('W4-T3: POST export allowPartial → 200', async () => {
+    const res = await app.request(`/api/export/${uploadId}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ allowPartial: true }),
+    })
+    expect(res.status).toBe(200)
+    const j = (await res.json()) as {
+      exportId: string
+      package: { version: string; document: { uploadId: string }; coverage: { skipped: unknown[] } }
+    }
+    expect(j.exportId).toBeString()
+    expect(j.package.version).toBe('1.0.0-prototype')
+    expect(j.package.document.uploadId).toBe(uploadId)
+    expect(j.package.coverage.skipped.length).toBeGreaterThan(0)
+  })
+
+  it('W4-T4: GET latest export', async () => {
+    const res = await app.request(`/api/export/${uploadId}`, { method: 'GET' })
+    expect(res.status).toBe(200)
+    const j = (await res.json()) as { exportId: string; exportedAt: string; package: { version: string } }
+    expect(j.package.version).toBe('1.0.0-prototype')
+    expect(j.exportedAt).toBeString()
+  })
+
+  it('W4-T5: approve all pending then strict export → 200', async () => {
+    await approveAllPending(uploadId)
+    const res = await app.request(`/api/export/${uploadId}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({}),
+    })
+    expect(res.status).toBe(200)
+    const j = (await res.json()) as {
+      package: { mappings: unknown[]; coverage: { skipped: unknown[]; totalProposals: number } }
+    }
+    expect(j.package.mappings.length).toBeGreaterThan(0)
+    expect(j.package.coverage.skipped.length).toBe(0)
+  })
+
+  it('W4-T6: GET unknown upload → 404', async () => {
+    const res = await app.request(
+      '/api/export/00000000-0000-4000-8000-000000000000',
+      { method: 'GET' }
+    )
+    expect(res.status).toBe(404)
+  })
+})
