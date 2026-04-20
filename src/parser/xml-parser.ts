@@ -36,6 +36,7 @@ const emitField = (
   value: string | undefined,
   ancestors: string[],
   parentName: string | undefined,
+  parentPath: string | undefined,
   attributes: Record<string, string | undefined>
 ): void => {
   const href = attributes.href
@@ -46,6 +47,7 @@ const emitField = (
     type: value !== undefined ? inferType(value) : 'object',
     context: {
       parentName,
+      parentPath,
       ancestors,
       attributes,
       href,
@@ -59,6 +61,7 @@ const walkXml = (
   path: string,
   ancestors: string[],
   parentName: string | undefined,
+  parentPath: string | undefined,
   out: Field[]
 ): void => {
   if (Array.isArray(node)) {
@@ -69,13 +72,14 @@ const walkXml = (
       isArray: true,
       context: {
         parentName,
+        parentPath,
         ancestors,
         length: node.length,
       },
     })
 
     node.forEach((child, index) => {
-      walkXml(child, nodeName, `${path}[${index}]`, ancestors, parentName, out)
+      walkXml(child, nodeName, `${path}[${index}]`, ancestors, parentName, path, out)
     })
     return
   }
@@ -88,6 +92,7 @@ const walkXml = (
       node == null ? undefined : String(node),
       ancestors,
       parentName,
+      parentPath,
       {}
     )
     return
@@ -113,12 +118,21 @@ const walkXml = (
   const hasDirectText = childEntries.length === 0 && textValue !== undefined
 
   if (hasDirectText || isAttributeOnlyNode) {
-    emitField(out, nodeName, path, textValue, ancestors, parentName, attributes)
+    emitField(out, nodeName, path, textValue, ancestors, parentName, parentPath, attributes)
   }
 
   for (const [childName, childValue] of childEntries) {
+    if (childName === '?xml') continue
     const childPath = `${path}/${childName}`
-    walkXml(childValue, childName, childPath, [...ancestors, nodeName], nodeName, out)
+    walkXml(
+      childValue,
+      childName,
+      childPath,
+      [...ancestors, nodeName],
+      nodeName,
+      path,
+      out
+    )
   }
 }
 
@@ -132,7 +146,8 @@ export const parseXML = (xml: string): Field[] => {
   const fields: Field[] = []
 
   for (const [rootName, rootNode] of Object.entries(parsed)) {
-    walkXml(rootNode, rootName, `/${rootName}`, [], undefined, fields)
+    if (rootName === '?xml') continue
+    walkXml(rootNode, rootName, `/${rootName}`, [], undefined, undefined, fields)
   }
 
   return normalizeFields(fields)

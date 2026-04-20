@@ -7,6 +7,7 @@
 
 // Week 1: Must-have skills (party, temporal, cardinality, units)
 import './party-resolver'
+import './fpml-header-metadata'
 import './temporal-mapper'
 import './cardinality-checker'
 import './unit-normalizer'

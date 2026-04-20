@@ -11,7 +11,23 @@ export const unitNormalizerSkill: Skill = {
   description: 'Maps currency codes, quantity units, amounts, prices, and rates from FPML to CDM unit structures. Handles ISO 4217 currencies, commodity units (BBL, MT, MWh), and financial multipliers.',
   inputSchema: UnitNormalizerInput,
   outputSchema: UnitNormalizerOutput,
-  fn: unitNormalizerLogic,
+  fn: input => {
+    const output = unitNormalizerLogic(input)
+    return {
+      ...output,
+      meaning: output.meaning ?? 'unit-and-amount-mapping',
+      economicCategory: output.economicCategory ?? 'price_quantity',
+      ambiguityFlags:
+        output.confidence < 70
+          ? [...(output.ambiguityFlags ?? []), 'unit_mapping_needs_review']
+          : output.ambiguityFlags,
+      inferenceBasis: output.inferenceBasis ?? 'unit_normalizer_rule_set',
+      patternSource: output.patternSource ?? 'fpml_unit_patterns',
+      confidenceRationale:
+        output.confidenceRationale ??
+        `Derived from unit and amount heuristics with confidence ${output.confidence}.`,
+    }
+  },
   triggers: {
     keywords: [
       'currency',

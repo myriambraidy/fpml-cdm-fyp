@@ -2,72 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Review mappings</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <h1>Review proposals</h1>
-      <p><a href="/index.html">← Upload</a></p>
+    <main class="page page-review">
+      <section class="shell shell-review">
+        <header class="page-topbar">
+          <div>
+            <p class="eyebrow">Review</p>
+            <h1>Mapping proposals</h1>
+          </div>
+          <a class="button-link" href="/index.html">Back</a>
+        </header>
 
-      <section id="stats" class="stats" aria-label="Summary"></section>
+        <p id="meta" class="meta-line"></p>
+        <section id="stats" class="stats-panel" aria-label="Summary"></section>
 
-      <div class="toolbar">
-        <label
-          >Filter
-          <select id="filterStatus">
-            <option value="all">All</option>
-            <option value="pending">Pending</option>
-            <option value="auto_approved">Auto-approved</option>
-            <option value="approved">Approved</option>
-            <option value="rejected">Rejected</option>
-            <option value="edited">Edited</option>
-          </select>
-        </label>
-        <label class="check"
-          ><input type="checkbox" id="selectAllPending" /> Select all pending</label
-        >
-        <button type="button" id="btnBatchApprove">Approve selected</button>
-        <button type="button" id="btnBatchReject" class="secondary">Reject selected</button>
-        <button type="button" id="btnApproveHigh" title="Pending rows with confidence ≥ 80">
-          Approve pending ≥ 80
-        </button>
-        <label class="check" title="If unchecked, export fails while any proposal is still pending"
-          ><input type="checkbox" id="exportAllowPartial" /> Allow partial export</label
-        >
-        <button type="button" id="btnExport">Download export JSON</button>
-        <span id="shortcuts" class="hint"
-          ><kbd>j</kbd>/<kbd>k</kbd> move · <kbd>a</kbd> approve · <kbd>r</kbd> reject ·
-          <kbd>e</kbd> edit · <kbd>Shift+A</kbd> approve selected</span
-        >
-      </div>
+        <section class="toolbar-panel" aria-label="Review controls">
+          <div class="toolbar-group">
+            <label class="field field-compact">
+              <span>Status</span>
+              <select id="filterStatus">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="auto_approved">Auto-approved</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="edited">Edited</option>
+              </select>
+            </label>
 
-      <p id="meta"></p>
-      <table id="tbl" class="tbl">
-        <thead>
-          <tr>
-            <th class="col-check"></th>
-            <th>Path</th>
-            <th>CDM</th>
-            <th>Skill</th>
-            <th>Conf</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+            <label class="check check-muted">
+              <input type="checkbox" id="selectAllPending" />
+              <span>Select all pending</span>
+            </label>
+
+            <label class="check check-muted">
+              <input type="checkbox" id="exportAllowPartial" />
+              <span>Allow partial export</span>
+            </label>
+          </div>
+
+          <div class="toolbar-group toolbar-actions">
+            <button type="button" id="btnBatchApprove" class="button-primary">Approve selected</button>
+            <button type="button" id="btnBatchReject" class="button-secondary">Reject selected</button>
+            <button type="button" id="btnApproveHigh" class="button-ghost">Approve 80+</button>
+            <button type="button" id="btnExport" class="button-secondary">Export JSON</button>
+            <button type="button" id="btnCdm" class="button-ghost">CDM orchestrator</button>
+          </div>
+
+          <div class="toolbar-group toolbar-foot">
+            <p id="actionStatus" class="table-status" aria-live="polite">Ready.</p>
+            <p id="shortcuts" class="shortcut-line">
+              <kbd>j</kbd>
+              <kbd>k</kbd>
+              <span>move</span>
+              <kbd>a</kbd>
+              <span>approve</span>
+              <kbd>r</kbd>
+              <span>reject</span>
+              <kbd>e</kbd>
+              <span>edit</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="surface table-shell">
+          <table class="review-table">
+            <thead>
+              <tr>
+                <th class="cell-check"></th>
+                <th>Source</th>
+                <th>CDM</th>
+                <th>Confidence</th>
+                <th>Status</th>
+                <th>Skill</th>
+                <th class="cell-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reviewBody"></tbody>
+          </table>
+        </section>
+      </section>
     </main>
+
     <script>
       const params = new URLSearchParams(window.location.search)
       const uploadId = params.get('uploadId')
       const meta = document.getElementById('meta')
-      const tbody = document.querySelector('#tbl tbody')
       const statsEl = document.getElementById('stats')
       const filterStatus = document.getElementById('filterStatus')
+      const reviewBody = document.getElementById('reviewBody')
+      const actionStatus = document.getElementById('actionStatus')
+      const selectAllPending = document.getElementById('selectAllPending')
+      const btnBatchApprove = document.getElementById('btnBatchApprove')
+      const btnBatchReject = document.getElementById('btnBatchReject')
+      const btnApproveHigh = document.getElementById('btnApproveHigh')
+      const btnExport = document.getElementById('btnExport')
+      const btnCdm = document.getElementById('btnCdm')
+      const exportAllowPartial = document.getElementById('exportAllowPartial')
+      const actionButtons = [btnBatchApprove, btnBatchReject, btnApproveHigh, btnExport, btnCdm]
+
       let rawProposals = []
       let focusedIdx = -1
       let displayRows = []
+      let editingId = null
+      let busy = false
 
       if (!uploadId) {
         meta.textContent = 'Missing uploadId in query string.'
@@ -76,318 +118,471 @@
       }
 
       filterStatus.onchange = () => render()
-      document.getElementById('selectAllPending').onchange = e => {
-        const on = e.target.checked
-        displayRows.forEach((p, i) => {
-          if (p.status === 'pending') {
-            const cb = tbody.rows[i]?.querySelector('input.row-check')
-            if (cb) cb.checked = on
-          }
+
+      selectAllPending.onchange = event => {
+        const on = event.target.checked
+        displayRows.forEach((proposal, index) => {
+          if (proposal.status !== 'pending') return
+          const checkbox = reviewBody.rows[index]?.querySelector('input.row-check')
+          if (checkbox) checkbox.checked = on
         })
       }
-      document.getElementById('btnBatchApprove').onclick = () =>
-        batchAction('approve', collectCheckedIds())
-      document.getElementById('btnBatchReject').onclick = () =>
-        batchAction('reject', collectCheckedIds())
-      document.getElementById('btnApproveHigh').onclick = () => {
+
+      btnBatchApprove.onclick = () => batchAction('approve', collectCheckedIds())
+      btnBatchReject.onclick = () => batchAction('reject', collectCheckedIds())
+
+      btnApproveHigh.onclick = () => {
         const ids = displayRows
-          .filter(p => p.status === 'pending' && Number(p.confidence) >= 80)
-          .map(p => p.id)
+          .filter(proposal => proposal.status === 'pending' && Number(proposal.confidence) >= 80)
+          .map(proposal => proposal.id)
         batchAction('approve', ids)
       }
-      document.getElementById('btnExport').onclick = async () => {
-        if (!uploadId) return
-        const allowPartial = document.getElementById('exportAllowPartial').checked
-        const r = await fetch('/api/export/' + encodeURIComponent(uploadId), {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ allowPartial }),
-        })
-        if (r.status === 422) {
-          const j = await r.json().catch(() => ({}))
-          alert(
-            'INCOMPLETE_REVIEW — approve/reject all pending or enable "Allow partial export".\n' +
-              (j.pendingProposalIds ? j.pendingProposalIds.length + ' pending ids.' : '')
-          )
-          return
+
+      btnExport.onclick = async () => {
+        if (!uploadId || busy) return
+
+        setBusy(true, 'Exporting review package...')
+        try {
+          const response = await fetch('/api/export/' + encodeURIComponent(uploadId), {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ allowPartial: exportAllowPartial.checked }),
+          })
+
+          if (response.status === 422) {
+            const json = await response.json().catch(() => ({}))
+            setBusy(false, 'Review is incomplete.')
+            alert(
+              'INCOMPLETE_REVIEW - approve or reject all pending proposals, or enable partial export.\n' +
+                (json.pendingProposalIds ? json.pendingProposalIds.length + ' pending ids.' : '')
+            )
+            return
+          }
+
+          if (!response.ok) {
+            setBusy(false, 'Export failed.')
+            alert('Export failed: ' + response.status + ' ' + (await response.text()))
+            return
+          }
+
+          const json = await response.json()
+          const blob = new Blob([JSON.stringify(json.package, null, 2)], {
+            type: 'application/json',
+          })
+          const link = document.createElement('a')
+          link.href = URL.createObjectURL(blob)
+          link.download = 'rosetta-package-' + uploadId.slice(0, 8) + '.json'
+          link.click()
+          URL.revokeObjectURL(link.href)
+          setBusy(false, 'Export complete.')
+        } catch (error) {
+          setBusy(false, 'Export failed.')
+          alert('Export failed.')
         }
-        if (!r.ok) {
-          alert('Export failed: ' + r.status + ' ' + (await r.text()))
-          return
-        }
-        const j = await r.json()
-        const blob = new Blob([JSON.stringify(j.package, null, 2)], { type: 'application/json' })
-        const a = document.createElement('a')
-        a.href = URL.createObjectURL(blob)
-        a.download = 'rosetta-package-' + uploadId.slice(0, 8) + '.json'
-        a.click()
-        URL.revokeObjectURL(a.href)
+      }
+
+      btnCdm.onclick = () => {
+        if (!uploadId || busy) return
+        actionStatus.textContent = 'Opening CDM orchestrator...'
+        window.location.href = '/cdm-orchestrator.html?uploadId=' + encodeURIComponent(uploadId)
       }
 
       function collectCheckedIds() {
         const ids = []
-        tbody.querySelectorAll('input.row-check:checked').forEach(cb => ids.push(cb.dataset.id))
+        reviewBody.querySelectorAll('input.row-check:checked').forEach(checkbox => {
+          ids.push(checkbox.dataset.id)
+        })
         return ids
       }
 
       async function batchAction(action, proposalIds) {
-        if (!proposalIds.length) return
-        const r = await fetch('/api/review/' + encodeURIComponent(uploadId) + '/batch', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            action,
-            proposalIds,
-            notes: action === 'approve' ? 'batch approve' : '',
-            correction: action === 'reject' ? 'batch reject' : undefined,
-          }),
-        })
-        if (!r.ok) {
-          alert('batch failed: ' + (await r.text()))
-          return
+        if (!proposalIds.length || busy) return
+
+        setBusy(true, action === 'approve' ? 'Approving selected rows...' : 'Rejecting selected rows...')
+        try {
+          const response = await fetch('/api/review/' + encodeURIComponent(uploadId) + '/batch', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              action,
+              proposalIds,
+              notes: action === 'approve' ? 'batch approve' : '',
+              correction: action === 'reject' ? 'batch reject' : undefined,
+            }),
+          })
+
+          if (!response.ok) {
+            setBusy(false, 'Batch action failed.')
+            alert('Batch action failed: ' + (await response.text()))
+            return
+          }
+
+          editingId = null
+          await load(action === 'approve' ? 'Selected rows approved.' : 'Selected rows rejected.')
+        } catch (error) {
+          setBusy(false, 'Batch action failed.')
+          alert('Batch action failed.')
         }
-        await load()
       }
 
-      async function load() {
-        meta.textContent = 'Loading…'
-        const r = await fetch('/api/review/' + encodeURIComponent(uploadId))
-        const j = await r.json()
-        if (!r.ok) {
-          meta.textContent = 'Error'
-          return
+      async function load(successMessage) {
+        if (!busy) setBusy(true, 'Loading proposals...')
+
+        try {
+          const response = await fetch('/api/review/' + encodeURIComponent(uploadId))
+          const json = await response.json().catch(() => ({}))
+
+          if (!response.ok) {
+            meta.textContent = 'Could not load proposals.'
+            setBusy(false, 'Could not load proposals.')
+            return
+          }
+
+          rawProposals = json.proposals || []
+          meta.textContent =
+            'Upload ' + uploadId + ' / ' + rawProposals.length + ' proposals ready for review'
+          buildStats()
+          render()
+          setBusy(false, successMessage || 'Ready.')
+        } catch (error) {
+          meta.textContent = 'Could not load proposals.'
+          setBusy(false, 'Could not load proposals.')
         }
-        rawProposals = j.proposals || []
-        meta.textContent = 'Upload: ' + uploadId + ' — ' + rawProposals.length + ' proposals'
-        buildStats()
-        render()
       }
 
       function buildStats() {
-        const n = rawProposals.length
-        const by = {}
-        let sumC = 0
-        const skills = {}
-        rawProposals.forEach(p => {
-          by[p.status] = (by[p.status] || 0) + 1
-          sumC += Number(p.confidence) || 0
-          const s = p.skillInvoked || 'unknown'
-          skills[s] = (skills[s] || 0) + 1
+        const total = rawProposals.length
+        const byStatus = {}
+        let confidenceSum = 0
+
+        rawProposals.forEach(proposal => {
+          byStatus[proposal.status] = (byStatus[proposal.status] || 0) + 1
+          confidenceSum += Number(proposal.confidence) || 0
         })
-        const avg = n ? (sumC / n).toFixed(1) : '—'
-        const skillStr = Object.entries(skills)
-          .sort((a, b) => b[1] - a[1])
-          .map(([k, v]) => k + ': ' + v)
-          .join(' · ')
+
+        const averageConfidence = total ? (confidenceSum / total).toFixed(1) : '-'
+
         statsEl.innerHTML =
-          '<div class="statcards">' +
-          '<span class="badge">Total <strong>' +
-          n +
-          '</strong></span>' +
-          '<span class="badge">Pending <strong>' +
-          (by['pending'] || 0) +
-          '</strong></span>' +
-          '<span class="badge">Auto <strong>' +
-          (by['auto_approved'] || 0) +
-          '</strong></span>' +
-          '<span class="badge">Approved <strong>' +
-          (by['approved'] || 0) +
-          '</strong></span>' +
-          '<span class="badge">Rejected <strong>' +
-          (by['rejected'] || 0) +
-          '</strong></span>' +
-          '<span class="badge">Edited <strong>' +
-          (by['edited'] || 0) +
-          '</strong></span>' +
-          '<span class="badge">Avg conf <strong>' +
-          avg +
-          '</strong></span>' +
-          '</div>' +
-          (skillStr ? '<p class="skill-dist">' + escapeHtml(skillStr) + '</p>' : '')
+          '<div class="stat-grid">' +
+          statCard('Total', total) +
+          statCard('Pending', byStatus.pending || 0) +
+          statCard('Approved', byStatus.approved || 0) +
+          statCard('Rejected', byStatus.rejected || 0) +
+          statCard('Edited', byStatus.edited || 0) +
+          statCard('Avg confidence', averageConfidence) +
+          '</div>'
+      }
+
+      function statCard(label, value) {
+        return (
+          '<article class="stat-card">' +
+          '<span class="stat-label">' +
+          escapeHtml(String(label)) +
+          '</span>' +
+          '<strong class="stat-value">' +
+          escapeHtml(String(value)) +
+          '</strong>' +
+          '</article>'
+        )
       }
 
       function filterList(list) {
-        const f = filterStatus.value
-        if (f === 'all') return list
-        return list.filter(p => p.status === f)
+        const filter = filterStatus.value
+        if (filter === 'all') return list
+        return list.filter(proposal => proposal.status === filter)
       }
 
       function sortDisplay(list) {
         return [...list].sort((a, b) => {
-          const nr = (b.needsReview ? 1 : 0) - (a.needsReview ? 1 : 0)
-          if (nr !== 0) return nr
+          const needsReviewDelta = (b.needsReview ? 1 : 0) - (a.needsReview ? 1 : 0)
+          if (needsReviewDelta !== 0) return needsReviewDelta
           return Number(a.confidence) - Number(b.confidence)
         })
       }
 
-      function rowClass(p) {
-        if (p.status === 'auto_approved') return 'row-auto'
-        if (p.status === 'rejected') return 'row-reject'
-        if (p.status === 'edited' || p.status === 'approved') return 'row-ok'
-        if (p.status === 'pending' && p.needsReview) return 'row-warn'
-        return 'row-pending'
-      }
-
       function render() {
         displayRows = sortDisplay(filterList(rawProposals))
-        tbody.innerHTML = ''
-        displayRows.forEach((p, idx) => {
+        reviewBody.innerHTML = ''
+
+        if (!displayRows.length) {
           const row = document.createElement('tr')
-          row.className = rowClass(p)
-          row.dataset.idx = String(idx)
-          const pl = p.payload || {}
-          const sf = pl.sourceField || {}
-          const cdm = escapeHtml(String(p.cdmPath || ''))
-          const pending = p.status === 'pending'
-          const auto = p.status === 'auto_approved'
+          row.innerHTML = '<td colspan="7" class="table-empty">No proposals in this view.</td>'
+          reviewBody.appendChild(row)
+          focusedIdx = -1
+          return
+        }
+
+        displayRows.forEach((proposal, index) => {
+          const row = document.createElement('tr')
+          row.className = 'table-row ' + rowClass(proposal)
+          row.dataset.idx = String(index)
+          row.tabIndex = 0
+
+          const payload = proposal.payload || {}
+          const sourceField = payload.sourceField || {}
+          const pending = proposal.status === 'pending'
+          const autoApproved = proposal.status === 'auto_approved'
+          const isEditing = editingId === proposal.id
+
           row.innerHTML =
-            '<td class="col-check">' +
+            '<td class="cell-check">' +
             (pending
-              ? '<input type="checkbox" class="row-check" data-id="' +
-                escapeHtml(p.id) +
-                '" />'
+              ? '<input type="checkbox" class="row-check" data-id="' + escapeHtml(proposal.id) + '" />'
               : '') +
             '</td>' +
-            '<td><code>' +
-            escapeHtml(String(sf.path || '')) +
+            '<td class="cell-code"><code>' +
+            escapeHtml(String(sourceField.path || '')) +
             '</code></td>' +
-            '<td class="cdm-cell"><code class="cdm-display">' +
-            cdm +
-            '</code></td>' +
-            '<td>' +
-            escapeHtml(String(p.skillInvoked || '')) +
+            '<td class="cell-cdm">' +
+            renderCdmCell(proposal, isEditing) +
             '</td>' +
             '<td>' +
-            Number(p.confidence) +
+            escapeHtml(String(Number(proposal.confidence))) +
             '</td>' +
+            '<td><span class="status-pill">' +
+            escapeHtml(String(proposal.status).replace(/_/g, ' ')) +
+            '</span></td>' +
             '<td>' +
-            escapeHtml(String(p.status || '')) +
+            escapeHtml(String(proposal.skillInvoked || 'unknown')) +
             '</td>' +
-            '<td class="actions"></td>'
-          const actions = row.querySelector('.actions')
-          if (pending) {
-            addBtn(actions, 'Approve', () => patch('approve', p.id))
-            addBtn(actions, 'Reject', () => patch('reject', p.id), 'secondary')
-          }
-          if (pending || auto) {
-            addBtn(actions, 'Edit', () => startEdit(p, row), 'ghost')
-          }
-          tbody.appendChild(row)
+            '<td class="cell-actions">' +
+            renderActions(pending, autoApproved, isEditing) +
+            '</td>'
+
+          row.addEventListener('click', event => {
+            if (event.target.closest('button, input')) return
+            focusedIdx = index
+            updateFocus()
+          })
+
+          row.addEventListener('focus', () => {
+            focusedIdx = index
+            updateFocus()
+          })
+
+          wireRowActions(row, proposal, isEditing)
+          reviewBody.appendChild(row)
         })
-        focusedIdx = displayRows.length ? 0 : -1
+
+        focusedIdx = displayRows.length ? Math.max(0, Math.min(focusedIdx, displayRows.length - 1)) : -1
         updateFocus()
       }
 
-      function addBtn(parent, label, onClick, cls) {
-        const b = document.createElement('button')
-        b.type = 'button'
-        b.textContent = label
-        if (cls) b.className = cls
-        b.onclick = e => {
-          e.stopPropagation()
-          onClick()
+      function renderCdmCell(proposal, isEditing) {
+        if (!isEditing) {
+          const transformation = proposal.transformation ? String(proposal.transformation) : ''
+          return (
+            '<code>' +
+            escapeHtml(String(proposal.cdmPath || '')) +
+            '</code>' +
+            (transformation
+              ? '<div class="cell-subtext">' + escapeHtml(transformation) + '</div>'
+              : '')
+          )
         }
-        parent.appendChild(b)
+
+        return (
+          '<div class="inline-editor">' +
+          '<input class="inline-inp" data-f="cdm" value="' +
+          escapeAttr(proposal.cdmPath || '') +
+          '" />' +
+          '<input class="inline-inp" data-f="tx" value="' +
+          escapeAttr(proposal.transformation || '') +
+          '" />' +
+          '</div>'
+        )
       }
 
-      function startEdit(p, row) {
-        const cell = row.querySelector('.cdm-cell')
-        const cur = p.cdmPath || ''
-        const curT = p.transformation || ''
-        cell.innerHTML =
-          '<input class="inline-inp" data-f="cdm" value="' +
-          escapeAttr(cur) +
-          '" /><br/>' +
-          '<input class="inline-inp" data-f="tx" value="' +
-          escapeAttr(curT) +
-          '" />' +
-          '<button type="button" class="save-edit">Save</button>' +
-          '<button type="button" class="cancel-edit secondary">Cancel</button>'
-        cell.querySelector('.save-edit').onclick = async () => {
-          const cdm = cell.querySelector('[data-f=cdm]').value
-          const tx = cell.querySelector('[data-f=tx]').value
-          const r = await fetch('/api/review/proposals/' + encodeURIComponent(p.id) + '/edit', {
-            method: 'PATCH',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ cdmPath: cdm, transformation: tx, notes: 'edited in UI' }),
-          })
-          if (!r.ok) {
-            alert('edit failed')
+      function renderActions(pending, autoApproved, isEditing) {
+        if (isEditing) {
+          return (
+            '<div class="actions">' +
+            '<button type="button" class="button-primary action-save">Save</button>' +
+            '<button type="button" class="button-secondary action-cancel">Cancel</button>' +
+            '</div>'
+          )
+        }
+
+        const buttons = []
+        if (pending) {
+          buttons.push('<button type="button" class="button-primary action-approve">Approve</button>')
+          buttons.push('<button type="button" class="button-secondary action-reject">Reject</button>')
+        }
+        if (pending || autoApproved) {
+          buttons.push('<button type="button" class="button-ghost action-edit">Edit</button>')
+        }
+        return '<div class="actions">' + buttons.join('') + '</div>'
+      }
+
+      function wireRowActions(row, proposal, isEditing) {
+        if (isEditing) {
+          row.querySelector('.action-save').onclick = () => saveEdit(row, proposal)
+          row.querySelector('.action-cancel').onclick = () => {
+            editingId = null
+            render()
+          }
+          return
+        }
+
+        const approveBtn = row.querySelector('.action-approve')
+        const rejectBtn = row.querySelector('.action-reject')
+        const editBtn = row.querySelector('.action-edit')
+
+        if (approveBtn) approveBtn.onclick = () => patch('approve', proposal.id)
+        if (rejectBtn) rejectBtn.onclick = () => patch('reject', proposal.id)
+        if (editBtn) {
+          editBtn.onclick = () => {
+            editingId = proposal.id
+            render()
+          }
+        }
+      }
+
+      async function saveEdit(row, proposal) {
+        if (busy) return
+
+        const cdmPath = row.querySelector('[data-f=cdm]').value
+        const transformation = row.querySelector('[data-f=tx]').value
+
+        setBusy(true, 'Saving edit...')
+        try {
+          const response = await fetch(
+            '/api/review/proposals/' + encodeURIComponent(proposal.id) + '/edit',
+            {
+              method: 'PATCH',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify({
+                cdmPath,
+                transformation,
+                notes: 'edited in UI',
+              }),
+            }
+          )
+
+          if (!response.ok) {
+            setBusy(false, 'Edit failed.')
+            alert('Edit failed.')
             return
           }
-          await load()
+
+          editingId = null
+          await load('Edit saved.')
+        } catch (error) {
+          setBusy(false, 'Edit failed.')
+          alert('Edit failed.')
         }
-        cell.querySelector('.cancel-edit').onclick = () => render()
       }
 
-      function escapeAttr(s) {
-        return String(s)
+      async function patch(kind, proposalId) {
+        if (busy) return
+
+        setBusy(true, kind === 'approve' ? 'Approving row...' : 'Rejecting row...')
+        try {
+          const path =
+            kind === 'approve'
+              ? '/api/review/proposals/' + encodeURIComponent(proposalId) + '/approve'
+              : '/api/review/proposals/' + encodeURIComponent(proposalId) + '/reject'
+
+          const body =
+            kind === 'approve'
+              ? JSON.stringify({ notes: 'approved in UI' })
+              : JSON.stringify({ correction: 'rejected in UI', notes: '' })
+
+          const response = await fetch(path, {
+            method: 'PATCH',
+            headers: { 'content-type': 'application/json' },
+            body,
+          })
+
+          if (!response.ok) {
+            setBusy(false, 'Update failed.')
+            alert('Update failed: ' + response.status)
+            return
+          }
+
+          editingId = null
+          await load(kind === 'approve' ? 'Row approved.' : 'Row rejected.')
+        } catch (error) {
+          setBusy(false, 'Update failed.')
+          alert('Update failed.')
+        }
+      }
+
+      function rowClass(proposal) {
+        if (proposal.status === 'rejected') return 'row-reject'
+        if (proposal.status === 'edited' || proposal.status === 'approved') return 'row-ok'
+        if (proposal.status === 'pending' && proposal.needsReview) return 'row-warn'
+        if (proposal.status === 'auto_approved') return 'row-auto'
+        return 'row-pending'
+      }
+
+      function setBusy(nextBusy, message) {
+        busy = nextBusy
+        actionStatus.textContent = message
+        actionStatus.classList.toggle('is-loading', nextBusy)
+        actionButtons.forEach(button => {
+          button.disabled = nextBusy
+        })
+        filterStatus.disabled = nextBusy
+        selectAllPending.disabled = nextBusy
+        exportAllowPartial.disabled = nextBusy
+      }
+
+      function escapeAttr(value) {
+        return String(value)
           .replace(/&/g, '&amp;')
           .replace(/"/g, '&quot;')
           .replace(/</g, '&lt;')
       }
 
-      async function patch(kind, proposalId) {
-        const path =
-          kind === 'approve'
-            ? '/api/review/proposals/' + encodeURIComponent(proposalId) + '/approve'
-            : '/api/review/proposals/' + encodeURIComponent(proposalId) + '/reject'
-        const body =
-          kind === 'approve'
-            ? JSON.stringify({ notes: 'approved in UI' })
-            : JSON.stringify({ correction: 'rejected in UI', notes: '' })
-        const r = await fetch(path, {
-          method: 'PATCH',
-          headers: { 'content-type': 'application/json' },
-          body,
-        })
-        if (!r.ok) {
-          alert('failed: ' + r.status)
-          return
-        }
-        await load()
+      function escapeHtml(value) {
+        return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       }
 
-      function escapeHtml(s) {
-        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      }
+      document.addEventListener('keydown', event => {
+        if (event.target.matches('input, textarea, select')) return
+        if (!displayRows.length || busy) return
 
-      document.addEventListener('keydown', e => {
-        if (e.target.matches('input, textarea, select')) return
-        if (!displayRows.length) return
-        if (e.key === 'j') {
-          e.preventDefault()
+        if (event.key === 'j') {
+          event.preventDefault()
           focusedIdx = Math.min(focusedIdx + 1, displayRows.length - 1)
           updateFocus()
         }
-        if (e.key === 'k') {
-          e.preventDefault()
+
+        if (event.key === 'k') {
+          event.preventDefault()
           focusedIdx = Math.max(focusedIdx - 1, 0)
           updateFocus()
         }
-        const pid = displayRows[focusedIdx]?.id
-        if (e.key === 'a' && !e.shiftKey && pid) {
-          e.preventDefault()
-          patch('approve', pid)
+
+        const proposal = displayRows[focusedIdx]
+        const proposalId = proposal?.id
+
+        if (event.key === 'a' && !event.shiftKey && proposalId) {
+          event.preventDefault()
+          patch('approve', proposalId)
         }
-        if (e.key === 'r' && pid) {
-          e.preventDefault()
-          patch('reject', pid)
+
+        if (event.key === 'r' && proposalId) {
+          event.preventDefault()
+          patch('reject', proposalId)
         }
-        if (e.key === 'e' && pid) {
-          e.preventDefault()
-          const row = tbody.rows[focusedIdx]
-          if (row) startEdit(displayRows[focusedIdx], row)
+
+        if (event.key === 'e' && proposalId) {
+          event.preventDefault()
+          editingId = proposalId
+          render()
         }
-        if (e.shiftKey && (e.key === 'a' || e.key === 'A')) {
-          e.preventDefault()
-          document.getElementById('btnBatchApprove').click()
+
+        if (event.shiftKey && (event.key === 'a' || event.key === 'A')) {
+          event.preventDefault()
+          btnBatchApprove.click()
         }
       })
 
       function updateFocus() {
-        ;[...tbody.rows].forEach((r, i) => {
-          r.classList.toggle('row-focus', i === focusedIdx)
+        ;[...reviewBody.rows].forEach((row, index) => {
+          row.classList.toggle('row-focus', index === focusedIdx)
         })
       }
     </script>

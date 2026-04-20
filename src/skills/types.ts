@@ -13,9 +13,11 @@ export interface Skill {
   outputSchema: z.ZodSchema
   fn: (input: any) => any | Promise<any>
   triggers: {
-    keywords?: string[]      // Field name contains any of these → trigger
-    fieldTypes?: string[]     // Field type matches any of these → trigger
-    patterns?: RegExp[]       // Field name matches regex → trigger
+    keywords?: string[] // Field name contains any of these → trigger
+    fieldTypes?: string[] // Field type matches any of these → trigger
+    patterns?: RegExp[] // Field name matches regex → trigger
+    /** Lowercased field path must contain one of these substrings (FPML path or JSONPath). */
+    pathKeywords?: string[]
   }
 }
 
@@ -38,7 +40,24 @@ export const BaseSkillOutput = z.object({
   transformation: z.string(),              // Transformation note (e.g., "map_party_role")
   confidence: z.number().min(0).max(100),  // Confidence score 0-100
   reasoning: z.string(),                   // Human-readable explanation
-  todos: z.array(z.string()).optional()    // TODO items for user review
+  todos: z.array(z.string()).optional(),    // TODO items for user review
+  meaning: z.string().optional(),
+  economicCategory: z.string().optional(),
+  dateKind: z.string().optional(),
+  ambiguityFlags: z.array(z.string()).optional(),
+  alternatives: z
+    .array(
+      z.object({
+        cdmPath: z.string(),
+        confidence: z.number().min(0).max(100),
+        rationale: z.string(),
+      })
+    )
+    .optional(),
+  inferenceBasis: z.string().optional(),
+  patternSource: z.string().optional(),
+  confidenceRationale: z.string().optional(),
+  analystQuestion: z.string().optional(),
 })
 
 export type BaseSkillInput = z.infer<typeof BaseSkillInput>

@@ -6,6 +6,9 @@ import type {
 } from './types'
 import { ROSETTA_PACKAGE_VERSION } from './types'
 import type { ApprovedMappingExportRow, SkippedProposalRow } from '../storage/queries'
+import { findMappingCollisions } from '../diagnostics/mapping-collisions'
+import type { CoverageFinding } from '../diagnostics/report'
+import { isAssemblyReady } from '../mapping-ir/transform'
 
 export function buildRosettaPackage(args: {
   document: RosettaDocumentHeader
@@ -14,6 +17,9 @@ export function buildRosettaPackage(args: {
   skipped: SkippedProposalRow[]
   audit: Omit<ExportAuditSnapshot, 'counts'>
 }): RosettaMappingPackage {
+  const richIrFor = (row: ApprovedMappingExportRow) =>
+    row.ir && isAssemblyReady(row.ir) ? row.ir : undefined
+
   const mappings = args.approved.map(r => ({
     source: {
       path: r.fieldPath,
@@ -28,6 +34,14 @@ export function buildRosettaPackage(args: {
       approvedBy: r.approvedBy,
       approvedAt: r.approvedAt,
     },
+    targetTemplate: richIrFor(r)?.target.pathTemplate,
+    leafKind: richIrFor(r)?.target.leafKind,
+    mappingValue: richIrFor(r)?.value,
+    semantics: richIrFor(r)?.semantics,
+    grouping: richIrFor(r)?.grouping,
+    arrayBinding: richIrFor(r)?.arrayBinding,
+    diagnostics: richIrFor(r)?.diagnostics,
+    irVersion: richIrFor(r)?.version,
   }))
 
   const coverage: ExportCoverage = {
@@ -47,11 +61,31 @@ export function buildRosettaPackage(args: {
     })),
   }
 
+  const coverageDiagnostics: CoverageFinding[] = args.skipped.map(s => ({
+    code: 'diagnostic_suppressed_export',
+    severity: 'warn',
+    sourcePath: s.fieldPath,
+    message: `Proposal ${s.proposalId} with status ${s.status} was not exported`,
+  }))
+
+  const mappingIrs = args.approved
+    .map(row => row.ir)
+    .filter((ir): ir is NonNullable<typeof ir> => ir != null)
+
+  const diagnostics =
+    mappingIrs.length > 0 || coverageDiagnostics.length > 0
+      ? {
+          collisions: mappingIrs.length > 0 ? findMappingCollisions(mappingIrs) : [],
+          coverage: coverageDiagnostics,
+        }
+      : undefined
+
   return {
     version: ROSETTA_PACKAGE_VERSION,
     document: args.document,
     mappings,
     coverage,
+    diagnostics,
     audit: {
       ...args.audit,
       counts: { mappings: mappings.length, skipped: coverage.skipped.length },

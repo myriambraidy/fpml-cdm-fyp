@@ -15,6 +15,7 @@ const walkJson = (
   value: unknown,
   path: string,
   ancestors: string[],
+  parentPath: string | undefined,
   out: Field[]
 ): void => {
   if (Array.isArray(value)) {
@@ -26,13 +27,14 @@ const walkJson = (
       isArray: true,
       context: {
         parentName: ancestors.at(-2),
+        parentPath,
         ancestors: [...ancestors],
         length: value.length,
       },
     })
 
     value.forEach((item, index) => {
-      walkJson(item, `${path}[${index}]`, ancestors, out)
+      walkJson(item, `${path}[${index}]`, ancestors, path, out)
     })
     return
   }
@@ -40,7 +42,7 @@ const walkJson = (
   if (value !== null && typeof value === 'object') {
     for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
       const childPath = path === '$' ? `$.${key}` : `${path}.${key}`
-      walkJson(child, childPath, [...ancestors, key], out)
+      walkJson(child, childPath, [...ancestors, key], path, out)
     }
     return
   }
@@ -52,6 +54,7 @@ const walkJson = (
     type: inferType(value),
     context: {
       parentName: ancestors.at(-2),
+      parentPath,
       ancestors: [...ancestors],
     },
   })
@@ -60,6 +63,6 @@ const walkJson = (
 export const parseJSON = (raw: string): Field[] => {
   const parsed = JSON.parse(raw) as unknown
   const fields: Field[] = []
-  walkJson(parsed, '$', [], fields)
+  walkJson(parsed, '$', [], undefined, fields)
   return normalizeFields(fields)
 }

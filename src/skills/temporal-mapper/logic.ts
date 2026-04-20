@@ -36,6 +36,21 @@ export const temporalMapperLogic = (input: TemporalMapperInput): TemporalMapperO
   const path = input.fieldPath.toLowerCase()
   const contextStr = JSON.stringify(input.context || {}).toLowerCase()
 
+  if (
+    lowerName === 'creationtimestamp' ||
+    lowerName === 'creation_timestamp' ||
+    (path.includes('/header') && lowerName.includes('timestamp'))
+  ) {
+    return {
+      cdmPath: 'packageMeta.fpmlHeader.creationTimestamp',
+      transformation: 'map_fpml_creation_timestamp',
+      confidence: path.includes('/header') ? 80 : 65,
+      reasoning:
+        'FPML creationTimestamp is document provenance (zoned dateTime), not an economic schedule date — stored under packageMeta.fpmlHeader.',
+      dateType: 'document_timestamp',
+    }
+  }
+
   // ========================================
   // TRADE-LEVEL DATES (High Confidence)
   // ========================================

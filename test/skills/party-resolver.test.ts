@@ -29,4 +29,13 @@ describe('party_resolver', () => {
     })
     expect(result.confidence).toBeLessThanOrEqual(60)
   })
+
+  it('maps partyReference in trade header to counterparty partyReference', () => {
+    const result = partyResolverLogic({
+      fieldName: 'partyReference',
+      fieldPath: '/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference',
+    })
+    expect(result.cdmPath).toBe('tradableProduct.counterparty[0].partyReference')
+    expect(result.transformation).toBe('map_fpml_party_href')
+  })
 })

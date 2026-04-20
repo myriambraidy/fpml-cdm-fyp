@@ -3,8 +3,8 @@ import '../../src/skills'
 import { getAllSkills, matchSkills } from '../../src/skills/registry'
 
 describe('skill registry', () => {
-  it('loads all 6 skills', () => {
-    expect(getAllSkills()).toHaveLength(6)
+  it('loads all 7 skills', () => {
+    expect(getAllSkills()).toHaveLength(7)
   })
 
   it('cardinality_checker does not auto-trigger by design', () => {
@@ -18,5 +18,12 @@ describe('skill registry', () => {
 
     const swapMatches = matchSkills({ name: 'swapStream', type: 'object', path: '/trade/swapStream' })
     expect(swapMatches.some(skill => skill.name === 'ir_swap_resolver')).toBeTrue()
+
+    const headerConv = matchSkills({
+      name: 'conversationId',
+      type: 'string',
+      path: '/FpML/header/conversationId',
+    })
+    expect(headerConv.some(skill => skill.name === 'fpml_header_metadata')).toBeTrue()
   })
 })

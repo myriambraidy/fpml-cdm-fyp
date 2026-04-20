@@ -27,4 +27,13 @@ describe('temporal_mapper', () => {
     })
     expect(result.confidence).toBeLessThanOrEqual(50)
   })
+
+  it('maps FPML header creationTimestamp to packageMeta', () => {
+    const result = temporalMapperLogic({
+      fieldName: 'creationTimestamp',
+      fieldPath: '/FpML/header/creationTimestamp',
+    })
+    expect(result.cdmPath).toBe('packageMeta.fpmlHeader.creationTimestamp')
+    expect(result.transformation).toBe('map_fpml_creation_timestamp')
+  })
 })

@@ -8,6 +8,7 @@ import type { Skill } from '../skills/types'
 const SKILL_PRIORITY: readonly string[] = [
   'ir_swap_resolver',
   'floating_rate_index_resolver',
+  'fpml_header_metadata',
   'party_resolver',
   'temporal_mapper',
   'unit_normalizer',

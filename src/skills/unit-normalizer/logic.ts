@@ -31,6 +31,30 @@ export const unitNormalizerLogic = (input: UnitNormalizerInput): UnitNormalizerO
   const lowerName = input.fieldName.toLowerCase()
   const value = input.fieldValue?.toUpperCase() || ''
 
+  if (lowerName === 'tradeid' || lowerName.endsWith('tradeid')) {
+    const idx = input.fieldPath.match(/\[(\d+)\]/g)?.pop()?.match(/(\d+)/)?.[1]
+    const suffix = idx != null ? `_${idx}` : ''
+    return {
+      cdmPath: `packageMeta.fpmlTradeId${suffix}`,
+      transformation: 'map_fpml_trade_identifier',
+      confidence: 55,
+      reasoning:
+        'Trade-level identifier from FPML (e.g. party-scoped tradeId) — not always the CDM trade identifier shape; mirrored to packageMeta until roster rules land.',
+      unitType: 'unknown',
+    }
+  }
+
+  if (lowerName === 'quotebasis' || (lowerName.includes('quote') && lowerName.endsWith('basis'))) {
+    return {
+      cdmPath: 'packageMeta.fpmlFxQuotedCurrencyPair.quoteBasis',
+      transformation: 'map_fpml_quote_basis',
+      confidence: 72,
+      reasoning:
+        'FX quote basis (Currency2PerCurrency1, etc.) maps to quoted-currency-pair semantics; packageMeta until FX payout IR is wired to priceQuantity.',
+      unitType: 'unknown',
+    }
+  }
+
   // ========================================
   // CURRENCY (ISO 4217 codes)
   // ========================================

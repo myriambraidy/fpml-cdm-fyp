@@ -1,3 +1,13 @@
+import type {
+  ArrayBindingHint,
+  GroupingHint,
+  MappingDiagnostic,
+  MappingSemanticMeta,
+  MappingValue,
+  TargetPathTemplate,
+} from '../mapping-ir/types'
+import type { AssemblyDiagnostics } from '../diagnostics/report'
+
 export interface RosettaMappingEntry {
   source: { path: string; name: string; value?: string }
   target: { cdmPath: string; transformation: string }
@@ -8,6 +18,14 @@ export interface RosettaMappingEntry {
     approvedBy: string
     approvedAt: string
   }
+  targetTemplate?: TargetPathTemplate
+  leafKind?: 'scalar' | 'enum' | 'reference' | 'object_marker' | 'schedule_marker'
+  mappingValue?: MappingValue
+  semantics?: MappingSemanticMeta
+  grouping?: GroupingHint[]
+  arrayBinding?: ArrayBindingHint
+  diagnostics?: MappingDiagnostic[]
+  irVersion?: 'v2'
 }
 
 export interface SkippedField {
@@ -40,7 +58,7 @@ export interface RosettaDocumentHeader {
   formatType: 'xml' | 'json'
 }
 
-export const ROSETTA_PACKAGE_VERSION = '1.0.0-prototype' as const
+export const ROSETTA_PACKAGE_VERSION = '1.1.0-prototype' as const
 
 export interface RosettaMappingPackage {
   version: typeof ROSETTA_PACKAGE_VERSION
@@ -48,4 +66,5 @@ export interface RosettaMappingPackage {
   mappings: RosettaMappingEntry[]
   coverage: ExportCoverage
   audit: ExportAuditSnapshot
+  diagnostics?: AssemblyDiagnostics
 }

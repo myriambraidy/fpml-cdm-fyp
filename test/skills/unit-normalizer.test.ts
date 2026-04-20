@@ -29,4 +29,22 @@ describe('unit_normalizer', () => {
     })
     expect(result.cdmEnum).toBe('UnitEnum.BBL')
   })
+
+  it('maps tradeId under partyTradeIdentifier to packageMeta', () => {
+    const result = unitNormalizerLogic({
+      fieldName: 'tradeId',
+      fieldPath: '/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId',
+      fieldValue: 'tid-1',
+    })
+    expect(result.cdmPath).toBe('packageMeta.fpmlTradeId_0')
+  })
+
+  it('maps quoteBasis to packageMeta FX hint', () => {
+    const result = unitNormalizerLogic({
+      fieldName: 'quoteBasis',
+      fieldPath: '/FpML/trade/fxSingleLeg/exchangeRate/quotedCurrencyPair/quoteBasis',
+      fieldValue: 'Currency2PerCurrency1',
+    })
+    expect(result.cdmPath).toBe('packageMeta.fpmlFxQuotedCurrencyPair.quoteBasis')
+  })
 })

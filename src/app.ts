@@ -5,6 +5,7 @@ import { createUploadRouter } from './api/upload'
 import { createMappingRouter } from './api/mapping'
 import { createReviewRouter } from './api/review'
 import { createExportRouter } from './api/export'
+import { createCdmOrchestratorRouter } from './api/cdm-orchestrator'
 
 import './skills'
 import './storage/db'
@@ -22,6 +23,7 @@ export function createApp(deps: AppDeps) {
   app.route('/api', createMappingRouter(deps))
   app.route('/api', createReviewRouter(deps))
   app.route('/api', createExportRouter(deps))
+  app.route('/api', createCdmOrchestratorRouter(deps))
 
   app.use('/*', serveStatic({ root: './public' }))
 

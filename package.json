@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.16.0",
+    "ajv": "^8.18.0",
+    "ajv-draft-04": "^1.0.0",
     "fast-xml-parser": "^4.3.6",
     "hono": "^4.3.0",
     "zod": "^3.23.0",

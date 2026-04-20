@@ -11,7 +11,23 @@ export const partyResolverSkill: Skill = {
   description: 'Maps party role fields (buyer, seller, payer, payee, counterparty) from FPML to CDM party structures. Handles both semantic roles and directional payment references.',
   inputSchema: PartyResolverInput,
   outputSchema: PartyResolverOutput,
-  fn: partyResolverLogic,
+  fn: input => {
+    const output = partyResolverLogic(input)
+    return {
+      ...output,
+      meaning: output.meaning ?? 'party-role-mapping',
+      economicCategory: output.economicCategory ?? 'counterparty',
+      ambiguityFlags:
+        output.confidence < 70
+          ? [...(output.ambiguityFlags ?? []), 'low_confidence_party_resolution']
+          : output.ambiguityFlags,
+      inferenceBasis: output.inferenceBasis ?? 'party_resolver_rule_set',
+      patternSource: output.patternSource ?? 'fpml_party_patterns',
+      confidenceRationale:
+        output.confidenceRationale ??
+        `Derived from party role heuristics with confidence ${output.confidence}.`,
+    }
+  },
   triggers: {
     keywords: [
       'buyer',

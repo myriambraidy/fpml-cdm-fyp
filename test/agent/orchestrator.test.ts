@@ -146,4 +146,82 @@ describe('MappingAgent', () => {
     expect(p.candidateProposals.length).toBeGreaterThan(0)
     expect(p.skillInvoked).toBe(p.candidateProposals[0]!.skillName)
   })
+  it('T10: grouped JSON parties emit entity-scoped counterparty proposals', async () => {
+    const agent = new MappingAgent()
+    const proposals = await agent.generateMappings([
+      { name: 'role', path: '$.trade.parties[0].role', value: 'buyer' },
+      { name: 'id', path: '$.trade.parties[0].id', value: 'party1' },
+      { name: 'role', path: '$.trade.parties[1].role', value: 'seller' },
+      { name: 'id', path: '$.trade.parties[1].id', value: 'party2' },
+    ])
+
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'entity' &&
+          proposal.sourceEntityType === 'party' &&
+          proposal.cdmPath === 'tradableProduct.counterparty[0].partyReference'
+      )
+    ).toBeTrue()
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'entity' &&
+          proposal.sourceEntityType === 'party' &&
+          proposal.cdmPath === 'tradableProduct.counterparty[1].partyReference'
+      )
+    ).toBeTrue()
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'field' &&
+          proposal.sourceField.path === '$.trade.parties[0].role'
+      )
+    ).toBeFalse()
+  })
+
+  it('T11: grouped stream and premium entities specialize payer paths', async () => {
+    const agent = new MappingAgent()
+    const proposals = await agent.generateMappings([
+      {
+        name: 'payerPartyReference',
+        path: '/trade/swap/swapStream[0]/payerPartyReference',
+        value: 'party1',
+      },
+      {
+        name: 'receiverPartyReference',
+        path: '/trade/swap/swapStream[0]/receiverPartyReference',
+        value: 'party2',
+      },
+      {
+        name: 'payerPartyReference',
+        path: '/trade/premium/payerPartyReference',
+        value: 'party1',
+      },
+    ])
+
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'entity' &&
+          proposal.cdmPath ===
+            'tradableProduct.product.contractualProduct.economicTerms.payout[0].payerReceiver.payer'
+      )
+    ).toBeTrue()
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'entity' &&
+          proposal.cdmPath ===
+            'tradableProduct.product.contractualProduct.economicTerms.premium[0].payerReceiver.payer'
+      )
+    ).toBeTrue()
+    expect(
+      proposals.some(
+        proposal =>
+          proposal.scope === 'field' &&
+          proposal.cdmPath === 'payout.payerReceiver.payer'
+      )
+    ).toBeFalse()
+  })
 })

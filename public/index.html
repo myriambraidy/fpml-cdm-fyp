@@ -2,69 +2,209 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>FPML → CDM — Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FPML to CDM Upload</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <h1>Upload FPML or JSON</h1>
-      <p class="hint">Choose a file, then upload and generate mapping proposals.</p>
-      <form id="form">
-        <label>
-          Format
-          <select name="formatType" id="formatType">
-            <option value="xml">XML</option>
-            <option value="json">JSON</option>
-          </select>
-        </label>
-        <label>
-          File
-          <input type="file" id="file" required />
-        </label>
-        <button type="submit">Upload</button>
-      </form>
-      <p id="status"></p>
-      <p>
-        <button type="button" id="mapBtn" disabled>Map fields</button>
-      </p>
+    <main class="page page-upload">
+      <section class="shell shell-upload">
+        <header class="masthead">
+          <div class="brand-mark">F</div>
+          <div>
+            <p class="eyebrow">FPML to CDM</p>
+            <h1>Generate mapping proposals</h1>
+          </div>
+        </header>
+
+        <p class="lead lead-compact">
+          Upload one source file and continue directly into review. The flow stays intentionally
+          minimal: choose file, generate proposals, review results.
+        </p>
+
+        <section class="surface surface-hero">
+          <form id="form" class="stack-form">
+            <input
+              type="file"
+              id="file"
+              class="sr-only"
+              accept=".xml,.json,application/xml,text/xml,application/json"
+              required
+            />
+
+            <label for="file" id="fileDropzone" class="dropzone dropzone-dark">
+              <span class="dropzone-title">Select XML or JSON</span>
+              <span class="dropzone-copy">Drag and drop here, or click to browse your file.</span>
+            </label>
+
+            <div id="selectedFile" class="file-chip" hidden></div>
+
+            <button type="submit" id="submitBtn" class="button-primary button-large" disabled>
+              Generate proposals
+            </button>
+          </form>
+
+          <div class="status-panel" id="statusPanel" data-state="idle">
+            <div class="status-indicator" aria-hidden="true"></div>
+            <div>
+              <p class="status-label">Status</p>
+              <p id="status" class="status-text">Choose a file to begin.</p>
+            </div>
+          </div>
+        </section>
+      </section>
     </main>
+
     <script>
       let uploadId = null
+      const form = document.getElementById('form')
+      const fileInput = document.getElementById('file')
+      const fileDropzone = document.getElementById('fileDropzone')
+      const selectedFile = document.getElementById('selectedFile')
+      const submitBtn = document.getElementById('submitBtn')
       const status = document.getElementById('status')
-      const mapBtn = document.getElementById('mapBtn')
-      document.getElementById('form').onsubmit = async (e) => {
-        e.preventDefault()
-        status.textContent = 'Uploading…'
-        mapBtn.disabled = true
-        uploadId = null
-        const fd = new FormData()
-        fd.set('formatType', document.getElementById('formatType').value)
-        fd.set('file', document.getElementById('file').files[0])
-        const r = await fetch('/api/upload', { method: 'POST', body: fd })
-        const j = await r.json()
-        if (!r.ok) {
-          status.textContent = 'Error: ' + (j.error || r.status)
-          return
-        }
-        uploadId = j.uploadId
-        status.textContent = 'Uploaded. Fields: ' + j.fieldsCount + '. uploadId: ' + uploadId
-        mapBtn.disabled = false
-      }
-      mapBtn.onclick = async () => {
-        if (!uploadId) return
-        status.textContent = 'Mapping…'
-        const r = await fetch('/api/mapping', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ uploadId }),
+      const statusPanel = document.getElementById('statusPanel')
+
+      fileInput.addEventListener('change', updateSelectedFile)
+
+      ;['dragenter', 'dragover'].forEach(eventName => {
+        fileDropzone.addEventListener(eventName, event => {
+          event.preventDefault()
+          fileDropzone.classList.add('is-dragging')
         })
-        const j = await r.json()
-        if (!r.ok) {
-          status.textContent = 'Error: ' + (j.error || r.status)
+      })
+
+      ;['dragleave', 'drop'].forEach(eventName => {
+        fileDropzone.addEventListener(eventName, event => {
+          event.preventDefault()
+          fileDropzone.classList.remove('is-dragging')
+        })
+      })
+
+      fileDropzone.addEventListener('drop', event => {
+        const droppedFile = event.dataTransfer?.files?.[0]
+        if (!droppedFile) return
+        const transfer = new DataTransfer()
+        transfer.items.add(droppedFile)
+        fileInput.files = transfer.files
+        updateSelectedFile()
+      })
+
+      form.onsubmit = async event => {
+        event.preventDefault()
+
+        const file = fileInput.files?.[0]
+        if (!file) {
+          setStatus('error', 'Choose a file to continue.')
           return
         }
-        status.textContent = 'Mapped ' + j.proposals.length + ' proposals.'
-        window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadId)
+
+        const formatType = detectFormat(file)
+        if (!formatType) {
+          setStatus('error', 'Only .xml and .json files are supported right now.')
+          return
+        }
+
+        submitBtn.disabled = true
+        submitBtn.textContent = 'Generating...'
+        uploadId = null
+
+        try {
+          setStatus('loading', 'Uploading file...')
+
+          const fd = new FormData()
+          fd.set('formatType', formatType)
+          fd.set('file', file)
+
+          const uploadResponse = await fetch('/api/upload', { method: 'POST', body: fd })
+          const uploadJson = await uploadResponse.json().catch(() => ({}))
+
+          if (!uploadResponse.ok) {
+            setStatus('error', 'Upload failed: ' + (uploadJson.error || uploadResponse.status))
+            submitBtn.disabled = false
+            submitBtn.textContent = 'Generate proposals'
+            return
+          }
+
+          uploadId = uploadJson.uploadId
+          setStatus(
+            'loading',
+            'Upload complete. Generating ' + uploadJson.fieldsCount + ' mapping candidates...'
+          )
+
+          const mappingResponse = await fetch('/api/mapping', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ uploadId }),
+          })
+          const mappingJson = await mappingResponse.json().catch(() => ({}))
+
+          if (!mappingResponse.ok) {
+            setStatus('error', 'Mapping failed: ' + (mappingJson.error || mappingResponse.status))
+            submitBtn.disabled = false
+            submitBtn.textContent = 'Generate proposals'
+            return
+          }
+
+          setStatus(
+            'success',
+            'Generated ' + mappingJson.proposals.length + ' proposals. Opening review...'
+          )
+          window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadId)
+        } catch (error) {
+          setStatus('error', 'Something went wrong while generating proposals.')
+          submitBtn.disabled = false
+          submitBtn.textContent = 'Generate proposals'
+        }
+      }
+
+      function updateSelectedFile() {
+        const file = fileInput.files?.[0]
+
+        if (!file) {
+          selectedFile.hidden = true
+          selectedFile.textContent = ''
+          submitBtn.disabled = true
+          submitBtn.textContent = 'Generate proposals'
+          setStatus('idle', 'Choose a file to begin.')
+          return
+        }
+
+        const formatType = detectFormat(file)
+        const sizeKb = Math.max(1, Math.round(file.size / 1024))
+
+        selectedFile.hidden = false
+        selectedFile.textContent =
+          file.name +
+          '  /  ' +
+          sizeKb +
+          ' KB' +
+          (formatType ? '  /  ' + formatType.toUpperCase() : '  /  Unsupported format')
+
+        submitBtn.disabled = !formatType
+        submitBtn.textContent = 'Generate proposals'
+
+        if (!formatType) {
+          setStatus('error', 'This file type is not supported.')
+          return
+        }
+
+        setStatus('idle', 'Ready to generate proposals.')
+      }
+
+      function setStatus(state, message) {
+        statusPanel.dataset.state = state
+        status.textContent = message
+      }
+
+      function detectFormat(file) {
+        const name = String(file.name || '').toLowerCase()
+        const type = String(file.type || '').toLowerCase()
+
+        if (name.endsWith('.xml') || type.includes('xml')) return 'xml'
+        if (name.endsWith('.json') || type.includes('json')) return 'json'
+
+        return null
       }
     </script>
   </body>

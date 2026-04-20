@@ -85,3 +85,30 @@ CREATE TABLE IF NOT EXISTS audit_log (
   timestamp TEXT NOT NULL,
   metadata TEXT
 );
+
+-- CDM synthesis / repair runs
+CREATE TABLE IF NOT EXISTS cdm_orchestrator_runs (
+  id TEXT PRIMARY KEY,
+  upload_id TEXT NOT NULL,
+  export_id TEXT,
+  input_rosetta_json TEXT NOT NULL,
+  input_source_xml TEXT NOT NULL,
+  input_fields_json TEXT NOT NULL,
+  output_cdm_json TEXT,
+  envelope_json TEXT NOT NULL,
+  status TEXT NOT NULL,
+  attempts_json TEXT NOT NULL,
+  repair_trace_json TEXT NOT NULL,
+  structural_validation_ok INTEGER NOT NULL,
+  structural_errors_json TEXT NOT NULL,
+  semantic_validation_ok INTEGER NOT NULL,
+  semantic_errors_json TEXT NOT NULL,
+  validator_kind TEXT NOT NULL,
+  validator_version TEXT,
+  openrouter_model TEXT NOT NULL,
+  prompt_version TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  created_by TEXT NOT NULL,
+  FOREIGN KEY (upload_id) REFERENCES uploads(id),
+  FOREIGN KEY (export_id) REFERENCES exports(id)
+);

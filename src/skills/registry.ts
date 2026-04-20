@@ -42,7 +42,7 @@ export const matchSkills = (field: {
   const matched: Skill[] = []
 
   for (const skill of registry.values()) {
-    if (shouldTrigger(field, skill.triggers)) {
+    if (shouldTrigger({ name: field.name, type: field.type, path: field.path }, skill.triggers)) {
       matched.push(skill)
     }
   }
@@ -54,7 +54,7 @@ export const matchSkills = (field: {
  * Determine if a skill should trigger for a given field
  */
 const shouldTrigger = (
-  field: { name: string; type?: string },
+  field: { name: string; type?: string; path?: string },
   triggers: Skill['triggers']
 ): boolean => {
   // Check keywords (case-insensitive)
@@ -75,6 +75,13 @@ const shouldTrigger = (
   // Check regex patterns
   if (triggers.patterns) {
     if (triggers.patterns.some(pattern => pattern.test(field.name))) {
+      return true
+    }
+  }
+
+  if (triggers.pathKeywords && field.path) {
+    const p = field.path.toLowerCase()
+    if (triggers.pathKeywords.some(kw => p.includes(kw.toLowerCase()))) {
       return true
     }
   }

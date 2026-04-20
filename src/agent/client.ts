@@ -50,6 +50,15 @@ export class FetchOpenRouterClient implements LLMClient {
     messages: LLMMessage[]
     tools?: LLMTool[]
     model?: string
+    maxTokens?: number
+    responseFormat?: {
+      type: 'json_schema'
+      json_schema: {
+        name: string
+        strict?: boolean
+        schema: Record<string, unknown>
+      }
+    }
   }): Promise<LLMResponse> {
     for (let attempt = 0; ; attempt++) {
       try {
@@ -72,14 +81,27 @@ export class FetchOpenRouterClient implements LLMClient {
     messages: LLMMessage[]
     tools?: LLMTool[]
     model?: string
+    maxTokens?: number
+    responseFormat?: {
+      type: 'json_schema'
+      json_schema: {
+        name: string
+        strict?: boolean
+        schema: Record<string, unknown>
+      }
+    }
   }): Promise<LLMResponse> {
     const baseBody: Record<string, unknown> = {
       model: params.model ?? this.model,
-      max_tokens: this.maxTokens,
+      max_tokens: params.maxTokens ?? this.maxTokens,
       messages: params.messages.map(m => ({
         role: m.role,
         content: m.content,
       })),
+    }
+
+    if (params.responseFormat) {
+      baseBody.response_format = params.responseFormat
     }
 
     if (!params.tools?.length) {

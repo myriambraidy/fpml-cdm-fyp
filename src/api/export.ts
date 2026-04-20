@@ -1,18 +1,6 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { env } from '../config'
-import {
-  uploadExists,
-  listApprovedMappingsForExport,
-  listSkippedProposalsForExport,
-  countPendingProposals,
-  listPendingProposalIds,
-  countProposalsForUpload,
-  getUploadMeta,
-  insertExportWithAudit,
-  getLatestExportForUpload,
-} from '../storage/queries'
-import { buildRosettaPackage } from '../exporter/build-package'
-import { buildExportAuditSnapshot } from '../exporter/audit-snapshot'
+import { uploadExists, getLatestExportForUpload } from '../storage/queries'
+import { createMappingExportForUpload } from '../exporter/create-mapping-export-for-upload'
 import type { RosettaMappingPackage } from '../exporter/types'
 import type { AppDeps } from '../app'
 
@@ -79,47 +67,21 @@ export function createExportRouter(_deps: AppDeps) {
       return c.json({ error: 'upload_not_found' }, 404)
     }
 
-    if (!body.allowPartial && countPendingProposals(uploadId) > 0) {
+    const created = createMappingExportForUpload(uploadId, {
+      allowPartial: body.allowPartial ?? false,
+    })
+    if (!created.ok) {
+      if (created.error === 'upload_not_found') {
+        return c.json({ error: 'upload_not_found' }, 404)
+      }
       return c.json(
-        {
-          error: 'INCOMPLETE_REVIEW',
-          pendingProposalIds: listPendingProposalIds(uploadId),
-        },
+        { error: 'INCOMPLETE_REVIEW', pendingProposalIds: created.pendingProposalIds },
         422
       )
     }
 
-    const meta = getUploadMeta(uploadId)
-    if (!meta) {
-      return c.json({ error: 'upload_not_found' }, 404)
-    }
-
-    const approved = listApprovedMappingsForExport(uploadId)
-    const skipped = listSkippedProposalsForExport(uploadId)
-    const totalProposalCount = countProposalsForUpload(uploadId)
-    const baseAudit = buildExportAuditSnapshot({ uploadId, filename: meta.filename })
-    const pkg = buildRosettaPackage({
-      document: { uploadId, filename: meta.filename, formatType: meta.formatType },
-      totalProposalCount,
-      approved,
-      skipped,
-      audit: baseAudit,
-    })
-
-    const exportId = crypto.randomUUID()
-    insertExportWithAudit({
-      exportId,
-      uploadId,
-      rosettaJson: JSON.stringify(pkg),
-      exportedBy: env.ANALYST_EMAIL,
-      auditMetadata: {
-        uploadId,
-        mappings: pkg.mappings.length,
-        skipped: pkg.coverage.skipped.length,
-      },
-    })
-
-    return c.json({ exportId, package: pkg }, 200)
+    const pkg = JSON.parse(created.row.rosettaJson) as RosettaMappingPackage
+    return c.json({ exportId: created.row.exportId, package: pkg }, 200)
   })
 
   router.openapi(exportGetRoute, async c => {

@@ -1,4 +1,5 @@
 import type { Field } from '../parser/types'
+import type { MappingIR } from '../mapping-ir/types'
 
 export interface LLMMessage {
   role: 'system' | 'user' | 'assistant'
@@ -27,6 +28,16 @@ export interface LLMClient {
     messages: LLMMessage[]
     tools?: LLMTool[]
     model?: string
+    /** Override client default `max_tokens` (e.g. CDM orchestrator needs a larger completion budget). */
+    maxTokens?: number
+    responseFormat?: {
+      type: 'json_schema'
+      json_schema: {
+        name: string
+        strict?: boolean
+        schema: Record<string, unknown>
+      }
+    }
   }): Promise<LLMResponse>
 }
 
@@ -68,6 +79,8 @@ export interface CandidateProposal {
   transformation: string
   confidence: number
   reasoning: string
+  ir?: MappingIR
+  rawOutput?: Record<string, unknown>
 }
 
 export interface OrchestrationTrace {
@@ -89,4 +102,8 @@ export interface MappingProposal {
   candidateProposals: CandidateProposal[]
   needsReview: boolean
   trace: OrchestrationTrace
+  scope: 'field' | 'entity'
+  sourceEntityKey?: string
+  sourceEntityType?: 'party' | 'stream' | 'premium' | 'schedule'
+  ir: MappingIR
 }

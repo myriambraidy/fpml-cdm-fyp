@@ -11,7 +11,24 @@ export const temporalMapperSkill: Skill = {
   description: 'Maps date and time fields from FPML to CDM temporal structures. Handles trade dates, lifecycle dates, exercise dates, calculation periods, payment schedules, and valuation dates.',
   inputSchema: TemporalMapperInput,
   outputSchema: TemporalMapperOutput,
-  fn: temporalMapperLogic,
+  fn: input => {
+    const output = temporalMapperLogic(input)
+    return {
+      ...output,
+      meaning: output.meaning ?? 'temporal-field-mapping',
+      dateKind: output.dateKind ?? output.dateType,
+      economicCategory: output.economicCategory ?? 'temporal',
+      ambiguityFlags:
+        output.confidence < 70
+          ? [...(output.ambiguityFlags ?? []), 'temporal_mapping_needs_review']
+          : output.ambiguityFlags,
+      inferenceBasis: output.inferenceBasis ?? 'temporal_mapper_rule_set',
+      patternSource: output.patternSource ?? 'fpml_temporal_patterns',
+      confidenceRationale:
+        output.confidenceRationale ??
+        `Derived from temporal field heuristics with confidence ${output.confidence}.`,
+    }
+  },
   triggers: {
     keywords: [
       'date',

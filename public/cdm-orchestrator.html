@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CDM orchestrator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="shell shell-review">
+        <header class="page-topbar">
+          <div>
+            <p class="eyebrow">CDM</p>
+            <h1>CDM orchestrator</h1>
+          </div>
+          <a id="backLink" class="button-link" href="/review.html">Back</a>
+        </header>
+
+        <div class="toolbar-panel">
+          <div class="toolbar-group">
+            <label class="check check-muted" title="Sets X-Cdm-Debug: 1 and mirrors trace in the Debug panel"
+              ><input type="checkbox" id="chkDebug" checked /> Debug trace</label
+            >
+            <label
+              class="check check-muted"
+              title="Same as Review → partial export: include pending proposals in the auto-built Rosetta package"
+              ><input type="checkbox" id="chkAllowPartial" /> Allow partial (pending OK)</label
+            >
+            <button type="button" id="btnRun" class="button-primary">Run synthesis</button>
+            <button type="button" id="btnValidate" class="button-secondary">Re-validate editor</button>
+          </div>
+          <p class="hint">
+            CDM synthesis uses the configured LLM when <code>OPENROUTER_API_KEY</code> is set (JSON-schema
+            envelope). Turn off with <code>CDM_ORCHESTRATOR_USE_LLM=0</code> to force deterministic draft only.
+          </p>
+          <p id="requestStatus" class="table-status" aria-live="polite">Ready.</p>
+        </div>
+
+        <p id="meta" class="meta-line"></p>
+        <section id="summary" class="stats-panel"></section>
+        <section class="grid-two">
+          <div>
+            <h2>CDM JSON</h2>
+            <textarea id="editor" class="json-editor" spellcheck="false"></textarea>
+          </div>
+          <div>
+            <h2>Validation</h2>
+            <pre id="validation" class="panel"></pre>
+            <h2>Attempts</h2>
+            <pre id="attempts" class="panel"></pre>
+            <h2>Run insights</h2>
+            <pre id="insights" class="panel"></pre>
+            <h2>Debug trace</h2>
+            <p class="hint">
+              Server timeline + LLM sizes. Enable checkbox or set <code>CDM_ORCHESTRATOR_DEBUG=1</code>.
+            </p>
+            <pre id="debug" class="panel"></pre>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search)
+      const uploadId = params.get('uploadId')
+      const meta = document.getElementById('meta')
+      const summary = document.getElementById('summary')
+      const editor = document.getElementById('editor')
+      const validationEl = document.getElementById('validation')
+      const attemptsEl = document.getElementById('attempts')
+      const insightsEl = document.getElementById('insights')
+      const debugEl = document.getElementById('debug')
+      const chkDebug = document.getElementById('chkDebug')
+      const chkAllowPartial = document.getElementById('chkAllowPartial')
+      const requestStatus = document.getElementById('requestStatus')
+      const btnRun = document.getElementById('btnRun')
+      const btnValidate = document.getElementById('btnValidate')
+
+      document.getElementById('backLink').href =
+        '/review.html?uploadId=' + encodeURIComponent(uploadId || '')
+
+      if (!uploadId) {
+        meta.textContent = 'Missing uploadId in query string.'
+      } else {
+        loadRuns()
+      }
+
+      btnRun.onclick = async () => {
+        setRequestState(true, 'Running synthesis...')
+        meta.textContent = 'Running orchestrator...'
+
+        try {
+          const headers = { 'content-type': 'application/json' }
+          if (chkDebug.checked) headers['X-Cdm-Debug'] = '1'
+
+          const response = await fetch(
+            '/api/cdm-orchestrator/' + encodeURIComponent(uploadId) + '/run',
+            {
+              method: 'POST',
+              headers,
+              body: JSON.stringify({ allowPartial: chkAllowPartial.checked }),
+            }
+          )
+          const json = await response.json().catch(() => ({}))
+
+          if (!response.ok) {
+            meta.textContent =
+              'Run failed: ' + (json.error || response.status) + ' - see Debug trace if any'
+            debugEl.textContent = JSON.stringify(
+              {
+                httpStatus: response.status,
+                body: json,
+                hint: '500 often means LLM or repair failed before a JSON body was returned',
+              },
+              null,
+              2
+            )
+            setRequestState(false, 'Run failed.')
+            return
+          }
+
+          renderRun(json)
+          await loadRuns('Run complete.')
+        } catch (error) {
+          meta.textContent = 'Run failed.'
+          debugEl.textContent = 'Request failed before a valid response was returned.'
+          setRequestState(false, 'Run failed.')
+        }
+      }
+
+      btnValidate.onclick = async () => {
+        let cdm
+
+        try {
+          cdm = JSON.parse(editor.value || '{}')
+        } catch (error) {
+          validationEl.textContent = 'Editor contains invalid JSON: ' + error.message
+          setRequestState(false, 'Validation failed.')
+          return
+        }
+
+        setRequestState(true, 'Validating editor JSON...')
+
+        try {
+          const response = await fetch(
+            '/api/cdm-orchestrator/' + encodeURIComponent(uploadId) + '/validate',
+            {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify({ cdm }),
+            }
+          )
+          const json = await response.json().catch(() => ({}))
+          validationEl.textContent = JSON.stringify(json, null, 2)
+          setRequestState(false, response.ok ? 'Validation complete.' : 'Validation failed.')
+        } catch (error) {
+          validationEl.textContent = 'Validation request failed.'
+          setRequestState(false, 'Validation failed.')
+        }
+      }
+
+      async function loadRuns(doneMessage) {
+        try {
+          const response = await fetch('/api/cdm-orchestrator/' + encodeURIComponent(uploadId) + '/runs')
+          const json = await response.json().catch(() => ({}))
+
+          if (!response.ok) {
+            meta.textContent = 'Could not load runs'
+            setRequestState(false, 'Could not load runs.')
+            return
+          }
+
+          const runs = json.runs || []
+          summary.innerHTML =
+            '<div class="stat-grid">' +
+            '<article class="stat-card"><span class="stat-label">Runs</span><strong class="stat-value">' +
+            runs.length +
+            '</strong></article>' +
+            (runs[0]
+              ? '<article class="stat-card"><span class="stat-label">Latest</span><strong class="stat-value">' +
+                '<span class="run-status-pill ' +
+                statusClass(runs[0].status) +
+                '">' +
+                escapeHtml(runs[0].status) +
+                '</span>' +
+                '</strong></article>'
+              : '') +
+            '</div>'
+
+          if (runs[0]) {
+            const detail = await fetch(
+              '/api/cdm-orchestrator/' +
+                encodeURIComponent(uploadId) +
+                '/runs/' +
+                encodeURIComponent(runs[0].id)
+            )
+            const detailJson = await detail.json().catch(() => ({}))
+            if (detail.ok) renderStoredRun(detailJson.run)
+          }
+
+          setRequestState(false, doneMessage || 'Ready.')
+        } catch (error) {
+          meta.textContent = 'Could not load runs'
+          setRequestState(false, 'Could not load runs.')
+        }
+      }
+
+      function renderRun(run) {
+        meta.innerHTML =
+          'Run status: <span class="run-status-pill ' +
+          statusClass(run.status) +
+          '">' +
+          escapeHtml(run.status) +
+          '</span>'
+        editor.value = JSON.stringify(run.cdmPayload || run.cdm || {}, null, 2)
+        validationEl.textContent = JSON.stringify(run.validation, null, 2)
+        attemptsEl.textContent = JSON.stringify(
+          { attempts: run.attempts, repairTrace: run.repairTrace, openQuestions: run.openQuestions },
+          null,
+          2
+        )
+        renderInsights({
+          status: run.status,
+          recommendations: run.recommendations || [],
+          ambiguities: run.ambiguities || [],
+          openQuestions: run.openQuestions || [],
+          assemblyDiagnostics: run.assemblyDiagnostics,
+        })
+        debugEl.textContent = run.debug
+          ? JSON.stringify(run.debug, null, 2)
+          : '(no debug payload - turn on Debug trace or CDM_ORCHESTRATOR_DEBUG=1)'
+      }
+
+      function renderStoredRun(run) {
+        const envelope = safeJsonParse(run.envelopeJson)
+        meta.innerHTML =
+          'Latest stored run: <span class="run-status-pill ' +
+          statusClass(run.status) +
+          '">' +
+          escapeHtml(run.status) +
+          '</span> at ' +
+          escapeHtml(String(run.createdAt || 'unknown'))
+        editor.value = run.outputCdmJson ? JSON.stringify(JSON.parse(run.outputCdmJson), null, 2) : '{}'
+        validationEl.textContent = JSON.stringify(
+          {
+            structural: {
+              ok: run.structuralValidationOk,
+              errors: JSON.parse(run.structuralErrorsJson),
+            },
+            semantic: {
+              ok: run.semanticValidationOk,
+              errors: JSON.parse(run.semanticErrorsJson),
+              validatorKind: run.validatorKind,
+              validatorVersion: run.validatorVersion,
+            },
+          },
+          null,
+          2
+        )
+        attemptsEl.textContent = JSON.stringify(
+          {
+            attempts: JSON.parse(run.attemptsJson),
+            repairTrace: JSON.parse(run.repairTraceJson),
+          },
+          null,
+          2
+        )
+        renderInsights({
+          status: run.status,
+          recommendations: envelope.recommendations || [],
+          ambiguities: envelope.ambiguities || [],
+          openQuestions: envelope.openQuestions || [],
+          assemblyDiagnostics: envelope.assemblyDiagnostics,
+        })
+        debugEl.textContent =
+          '(stored runs do not include debug trace - run again with Debug trace enabled)'
+      }
+
+      function setRequestState(isLoading, message) {
+        requestStatus.textContent = message
+        requestStatus.classList.toggle('is-loading', isLoading)
+        btnRun.disabled = isLoading
+        btnValidate.disabled = isLoading
+        chkDebug.disabled = isLoading
+        chkAllowPartial.disabled = isLoading
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      }
+
+      function safeJsonParse(raw) {
+        try {
+          return JSON.parse(raw || '{}')
+        } catch (error) {
+          return {}
+        }
+      }
+
+      function statusClass(status) {
+        if (status === 'compliant') return 'run-status-ok'
+        if (status === 'needs_analyst_review') return 'run-status-warn'
+        if (status === 'repair_exhausted') return 'run-status-warn'
+        if (status === 'semantically_invalid') return 'run-status-warn'
+        if (status === 'structurally_invalid') return 'run-status-bad'
+        if (status === 'invalid_envelope' || status === 'invalid_json') return 'run-status-bad'
+        return 'run-status-neutral'
+      }
+
+      function renderInsights(data) {
+        insightsEl.textContent = JSON.stringify(
+          {
+            status: data.status,
+            openQuestions: data.openQuestions || [],
+            recommendations: data.recommendations || [],
+            ambiguities: data.ambiguities || [],
+            assemblyDiagnostics: data.assemblyDiagnostics || {},
+          },
+          null,
+          2
+        )
+      }
+    </script>
+  </body>
+</html>

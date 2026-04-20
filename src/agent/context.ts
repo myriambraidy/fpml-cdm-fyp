@@ -1,4 +1,6 @@
 import type { Field } from '../parser/types'
+import { buildSourceModel } from '../source-model/build-groups'
+import type { SourceModel } from '../source-model/types'
 
 /**
  * Document-level state for orchestration (DEC-05, plans/week2-implementation-plan.md §0).
@@ -6,6 +8,7 @@ import type { Field } from '../parser/types'
  */
 export interface OrchestrationContext {
   readonly partyOrder: readonly string[]
+  readonly sourceModel: SourceModel
 }
 
 /**
@@ -35,5 +38,8 @@ export const buildOrchestrationContext = (fields: Field[]): OrchestrationContext
     }
   }
 
-  return { partyOrder }
+  return {
+    partyOrder,
+    sourceModel: buildSourceModel(fields),
+  }
 }

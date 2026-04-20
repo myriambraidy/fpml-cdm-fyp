@@ -2,6 +2,8 @@ import type { MappingProposal } from '../agent/types'
 import type { Field } from '../parser/types'
 import { env } from '../config'
 import { db } from './db'
+import type { MappingIR } from '../mapping-ir/types'
+import { parseLegacyCdmPath } from '../mapping-ir/transform'
 
 const SYSTEM_AUTO = 'system:auto'
 
@@ -341,6 +343,14 @@ export function editProposal(
     const payload = JSON.parse(row.payload_json) as MappingProposal
     payload.cdmPath = cdmPath
     payload.transformation = transformation
+    if (payload.ir) {
+      payload.ir.transformation = transformation
+      payload.ir.target.legacyPath = cdmPath
+      payload.ir.target.pathTemplate = parseLegacyCdmPath(
+        cdmPath,
+        payload.ir.semantics
+      ).pathTemplate
+    }
 
     db.prepare(
       `UPDATE proposals SET cdm_path = ?, transformation = ?, status = 'edited', payload_json = ? WHERE id = ?`
@@ -406,13 +416,15 @@ export interface ApprovedMappingExportRow {
   confidence: number
   approvedBy: string
   approvedAt: string
+  ir?: MappingIR
 }
 
 export function listApprovedMappingsForExport(uploadId: string): ApprovedMappingExportRow[] {
   const rows = db
     .prepare(
       `SELECT p.id AS proposal_id, f.path AS field_path, f.name AS field_name, f.value AS field_value,
-              am.cdm_path, am.transformation, p.skill_invoked, p.confidence, am.approved_by, am.approved_at
+              am.cdm_path, am.transformation, p.skill_invoked, p.confidence, am.approved_by, am.approved_at,
+              p.payload_json
        FROM approved_mappings am
        JOIN proposals p ON p.id = am.proposal_id
        JOIN fields f ON f.id = p.field_id
@@ -432,6 +444,14 @@ export function listApprovedMappingsForExport(uploadId: string): ApprovedMapping
     confidence: Number(r.confidence),
     approvedBy: r.approved_by as string,
     approvedAt: r.approved_at as string,
+    ir: (() => {
+      try {
+        const payload = JSON.parse(r.payload_json as string) as MappingProposal
+        return payload.ir
+      } catch {
+        return undefined
+      }
+    })(),
   }))
 }
 
@@ -538,4 +558,177 @@ export function getLatestExportForUpload(
     .get(uploadId) as { export_id: string; exported_at: string; rosetta_json: string } | undefined
   if (!row) return undefined
   return { exportId: row.export_id, exportedAt: row.exported_at, rosettaJson: row.rosetta_json }
+}
+
+export function getUploadContent(uploadId: string): string | undefined {
+  const row = db
+    .prepare(`SELECT content FROM uploads WHERE id = ?`)
+    .get(uploadId) as { content: string } | undefined
+  return row?.content
+}
+
+export interface StoredCdmOrchestratorRun {
+  id: string
+  uploadId: string
+  exportId?: string
+  status: string
+  outputCdmJson?: string
+  envelopeJson: string
+  attemptsJson: string
+  repairTraceJson: string
+  structuralValidationOk: boolean
+  structuralErrorsJson: string
+  semanticValidationOk: boolean
+  semanticErrorsJson: string
+  validatorKind: string
+  validatorVersion?: string
+  openrouterModel: string
+  promptVersion: string
+  createdAt: string
+  createdBy: string
+}
+
+export function insertCdmOrchestratorRun(args: {
+  id: string
+  uploadId: string
+  exportId?: string
+  inputRosettaJson: string
+  inputSourceXml: string
+  inputFieldsJson: string
+  outputCdmJson?: string | null
+  envelopeJson: string
+  status: string
+  attemptsJson: string
+  repairTraceJson: string
+  structuralValidationOk: boolean
+  structuralErrorsJson: string
+  semanticValidationOk: boolean
+  semanticErrorsJson: string
+  validatorKind: string
+  validatorVersion?: string | null
+  openrouterModel: string
+  promptVersion: string
+  createdBy: string
+}): void {
+  const now = new Date().toISOString()
+  const run = db.transaction(() => {
+    db.prepare(
+      `INSERT INTO cdm_orchestrator_runs
+       (id, upload_id, export_id, input_rosetta_json, input_source_xml, input_fields_json,
+        output_cdm_json, envelope_json, status, attempts_json, repair_trace_json,
+        structural_validation_ok, structural_errors_json, semantic_validation_ok, semantic_errors_json,
+        validator_kind, validator_version, openrouter_model, prompt_version, created_at, created_by)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    ).run(
+      args.id,
+      args.uploadId,
+      args.exportId ?? null,
+      args.inputRosettaJson,
+      args.inputSourceXml,
+      args.inputFieldsJson,
+      args.outputCdmJson ?? null,
+      args.envelopeJson,
+      args.status,
+      args.attemptsJson,
+      args.repairTraceJson,
+      args.structuralValidationOk ? 1 : 0,
+      args.structuralErrorsJson,
+      args.semanticValidationOk ? 1 : 0,
+      args.semanticErrorsJson,
+      args.validatorKind,
+      args.validatorVersion ?? null,
+      args.openrouterModel,
+      args.promptVersion,
+      now,
+      args.createdBy
+    )
+    db.prepare(
+      `INSERT INTO audit_log (id, entity_type, entity_id, action, user, timestamp, metadata)
+       VALUES (?, 'cdm_run', ?, 'created', ?, ?, ?)`
+    ).run(
+      crypto.randomUUID(),
+      args.id,
+      args.createdBy,
+      now,
+      JSON.stringify({
+        status: args.status,
+        structuralValidationOk: args.structuralValidationOk,
+        semanticValidationOk: args.semanticValidationOk,
+      })
+    )
+  })
+  run()
+}
+
+export function listCdmOrchestratorRuns(uploadId: string): StoredCdmOrchestratorRun[] {
+  const rows = db
+    .prepare(
+      `SELECT id, upload_id, export_id, status, output_cdm_json, envelope_json, attempts_json,
+              repair_trace_json, structural_validation_ok, structural_errors_json,
+              semantic_validation_ok, semantic_errors_json, validator_kind, validator_version,
+              openrouter_model, prompt_version, created_at, created_by
+       FROM cdm_orchestrator_runs
+       WHERE upload_id = ?
+       ORDER BY created_at DESC`
+    )
+    .all(uploadId) as Array<Record<string, unknown>>
+
+  return rows.map(row => ({
+    id: row.id as string,
+    uploadId: row.upload_id as string,
+    exportId: (row.export_id as string | null) ?? undefined,
+    status: row.status as string,
+    outputCdmJson: (row.output_cdm_json as string | null) ?? undefined,
+    envelopeJson: row.envelope_json as string,
+    attemptsJson: row.attempts_json as string,
+    repairTraceJson: row.repair_trace_json as string,
+    structuralValidationOk: Boolean(row.structural_validation_ok),
+    structuralErrorsJson: row.structural_errors_json as string,
+    semanticValidationOk: Boolean(row.semantic_validation_ok),
+    semanticErrorsJson: row.semantic_errors_json as string,
+    validatorKind: row.validator_kind as string,
+    validatorVersion: (row.validator_version as string | null) ?? undefined,
+    openrouterModel: row.openrouter_model as string,
+    promptVersion: row.prompt_version as string,
+    createdAt: row.created_at as string,
+    createdBy: row.created_by as string,
+  }))
+}
+
+export function getCdmOrchestratorRun(
+  uploadId: string,
+  runId: string
+): StoredCdmOrchestratorRun | undefined {
+  const row = db
+    .prepare(
+      `SELECT id, upload_id, export_id, status, output_cdm_json, envelope_json, attempts_json,
+              repair_trace_json, structural_validation_ok, structural_errors_json,
+              semantic_validation_ok, semantic_errors_json, validator_kind, validator_version,
+              openrouter_model, prompt_version, created_at, created_by
+       FROM cdm_orchestrator_runs
+       WHERE upload_id = ? AND id = ?`
+    )
+    .get(uploadId, runId) as Record<string, unknown> | undefined
+
+  if (!row) return undefined
+  return {
+    id: row.id as string,
+    uploadId: row.upload_id as string,
+    exportId: (row.export_id as string | null) ?? undefined,
+    status: row.status as string,
+    outputCdmJson: (row.output_cdm_json as string | null) ?? undefined,
+    envelopeJson: row.envelope_json as string,
+    attemptsJson: row.attempts_json as string,
+    repairTraceJson: row.repair_trace_json as string,
+    structuralValidationOk: Boolean(row.structural_validation_ok),
+    structuralErrorsJson: row.structural_errors_json as string,
+    semanticValidationOk: Boolean(row.semantic_validation_ok),
+    semanticErrorsJson: row.semantic_errors_json as string,
+    validatorKind: row.validator_kind as string,
+    validatorVersion: (row.validator_version as string | null) ?? undefined,
+    openrouterModel: row.openrouter_model as string,
+    promptVersion: row.prompt_version as string,
+    createdAt: row.created_at as string,
+    createdBy: row.created_by as string,
+  }
 }

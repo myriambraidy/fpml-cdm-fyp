@@ -26,6 +26,8 @@ export const TemporalMapperOutput = BaseSkillOutput.extend({
     'reset_date',
     'fixing_date',
     'calculation_period',
+    /** FPML document/header timestamps (provenance), not economic schedule dates */
+    'document_timestamp',
     'unknown'
   ]),
   isAdjustable: z.boolean().optional(),      // Has business day adjustments

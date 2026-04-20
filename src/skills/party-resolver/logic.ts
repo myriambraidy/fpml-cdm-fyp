@@ -43,6 +43,61 @@ export const partyResolverLogic = (input: PartyResolverInput): PartyResolverOutp
   const path = input.fieldPath.toLowerCase()
 
   // ========================================
+  // FPML PARTY REFERENCES & IDENTIFIERS
+  // ========================================
+
+  if (lowerName === 'partyreference' || lowerName.endsWith('partyreference')) {
+    const inTradeHeader =
+      path.includes('tradeheader') ||
+      path.includes('partytradeidentifier') ||
+      path.includes('trade/tradeheader')
+    return {
+      cdmPath: 'tradableProduct.counterparty[0].partyReference',
+      transformation: 'map_fpml_party_href',
+      confidence: inTradeHeader ? 58 : 48,
+      reasoning:
+        'FPML partyReference (href) anchors a legal entity on the trade; defaulting to primary counterparty slot — confirm against /party roster.',
+      partyRole: 'counterparty',
+      cdmCounterpartyRole: 'PARTY_1',
+      todos: ['Verify counterparty index vs document party blocks'],
+    }
+  }
+
+  if (lowerName.includes('partytradeidentifier') && !lowerName.includes('partyreference')) {
+    return {
+      cdmPath: 'packageMeta.fpmlPartyTradeIdentifier',
+      transformation: 'map_fpml_party_trade_identifier',
+      confidence: 45,
+      reasoning:
+        'PartyTradeIdentifier is document-level linkage (USI-style); mirrored to packageMeta — not a direct TradeState leaf.',
+      partyRole: 'unknown',
+    }
+  }
+
+  if (lowerName === 'partyid' || lowerName.endsWith('partyid')) {
+    const idx = path.match(/party\[(\d+)\]/i)?.[1] ?? '0'
+    return {
+      cdmPath: `packageMeta.fpmlPartyIds.p${idx}`,
+      transformation: 'map_fpml_party_id',
+      confidence: 62,
+      reasoning:
+        'FPML partyId identifies the legal entity block; CDM party roster is assembled separately — store under packageMeta.fpmlPartyIds until roster merge exists.',
+      partyRole: 'unknown',
+    }
+  }
+
+  if (lowerName === 'party' && (path.endsWith('/party') || /\/party$/i.test(path))) {
+    return {
+      cdmPath: 'packageMeta.fpmlPartyContainer',
+      transformation: 'fpml_party_block',
+      confidence: 30,
+      reasoning:
+        'Top-level FPML party container groups legal entities; no single TradeState field — packageMeta marker.',
+      partyRole: 'unknown',
+    }
+  }
+
+  // ========================================
   // MECHANICAL MAPPINGS (High Confidence)
   // ========================================
 

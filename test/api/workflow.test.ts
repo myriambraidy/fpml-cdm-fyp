@@ -176,7 +176,7 @@ describe('Week 4 export API', () => {
       package: { version: string; document: { uploadId: string }; coverage: { skipped: unknown[] } }
     }
     expect(j.exportId).toBeString()
-    expect(j.package.version).toBe('1.0.0-prototype')
+    expect(j.package.version).toBe('1.1.0-prototype')
     expect(j.package.document.uploadId).toBe(uploadId)
     expect(j.package.coverage.skipped.length).toBeGreaterThan(0)
   })
@@ -185,7 +185,7 @@ describe('Week 4 export API', () => {
     const res = await app.request(`/api/export/${uploadId}`, { method: 'GET' })
     expect(res.status).toBe(200)
     const j = (await res.json()) as { exportId: string; exportedAt: string; package: { version: string } }
-    expect(j.package.version).toBe('1.0.0-prototype')
+    expect(j.package.version).toBe('1.1.0-prototype')
     expect(j.exportedAt).toBeString()
   })
 
