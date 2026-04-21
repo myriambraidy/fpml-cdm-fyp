@@ -12,7 +12,9 @@
     "test:skills": "bun test test/skills/",
     "test:agent": "bun test test/agent/",
     "test:api": "bun test test/api/",
-    "agent:harness": "bun scripts/run-agent.ts"
+    "agent:harness": "bun scripts/run-agent.ts",
+    "fetch:cdm-json": "bun scripts/fetch-cdm-json.ts",
+    "build:cdm-parallel": "bun scripts/build-cdm-parallel.ts"
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.16.0",

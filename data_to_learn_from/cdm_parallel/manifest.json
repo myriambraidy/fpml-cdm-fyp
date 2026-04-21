@@ -1,0 +1,2671 @@
+{
+  "generatedAt": "2026-04-21T10:43:53.637Z",
+  "sourceRoots": {
+    "fpml": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmIngestOutput": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm\\rosetta-source\\src\\main\\resources\\ingest\\output\\fpml-confirmation-to-trade-state",
+    "curatedOutput": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel"
+  },
+  "notes": [
+    "This curated folder is built from the CDM ingest output that already mirrors many FpML example filenames.",
+    "Only conservative matches are included: exact basename matches, normalized matches, and a few explicit aliases.",
+    "Unmatched FpML files remain listed in the manifest so an agent can distinguish missing coverage from missing parsing."
+  ],
+  "summary": {
+    "totalFpmlFiles": 366,
+    "totalCdmCandidates": 310,
+    "matchedFiles": 162,
+    "missingFiles": 204,
+    "byStrategy": {
+      "exact": 139,
+      "normalized": 19,
+      "alias": 4,
+      "missing": 204
+    },
+    "byCategory": {
+      "bond-options": {
+        "total": 3,
+        "matched": 3,
+        "missing": 0
+      },
+      "commodity-derivatives": {
+        "total": 23,
+        "matched": 23,
+        "missing": 0
+      },
+      "correlation-swaps": {
+        "total": 4,
+        "matched": 4,
+        "missing": 0
+      },
+      "credit-derivatives": {
+        "total": 41,
+        "matched": 40,
+        "missing": 1
+      },
+      "dividend-swaps": {
+        "total": 3,
+        "matched": 3,
+        "missing": 0
+      },
+      "equity-forwards": {
+        "total": 1,
+        "matched": 0,
+        "missing": 1
+      },
+      "equity-options": {
+        "total": 27,
+        "matched": 27,
+        "missing": 0
+      },
+      "equity-swaps": {
+        "total": 19,
+        "matched": 18,
+        "missing": 1
+      },
+      "fx-derivatives": {
+        "total": 26,
+        "matched": 25,
+        "missing": 1
+      },
+      "inflation-swaps": {
+        "total": 5,
+        "matched": 5,
+        "missing": 0
+      },
+      "interest-rate-derivatives": {
+        "total": 35,
+        "matched": 11,
+        "missing": 24
+      },
+      "loan": {
+        "total": 19,
+        "matched": 0,
+        "missing": 19
+      },
+      "messaging": {
+        "total": 130,
+        "matched": 0,
+        "missing": 130
+      },
+      "total-return-swaps": {
+        "total": 3,
+        "matched": 3,
+        "missing": 0
+      },
+      "valuation": {
+        "total": 20,
+        "matched": 0,
+        "missing": 20
+      },
+      "variance-swaps": {
+        "total": 7,
+        "matched": 0,
+        "missing": 7
+      }
+    }
+  },
+  "entries": [
+    {
+      "fpmlRelativePath": "bond-options\\bond-option.xml",
+      "cdmRelativePath": "bond-options\\bond-option.json",
+      "sourceBaseName": "bond-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "bond-options\\cb-option-2.xml",
+      "cdmRelativePath": "bond-options\\cb-option-2.json",
+      "sourceBaseName": "cb-option-2",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "bond-options\\cb-option.xml",
+      "cdmRelativePath": "bond-options\\cb-option.json",
+      "sourceBaseName": "cb-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex1-gas-swap-daily-delivery-prices-last.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex1-gas-swap-daily-delivery-prices-last.json",
+      "sourceBaseName": "com-ex01-gas-swap-daily-delivery-prices-last",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex10-physical-oil-pipeline-crude-wti-floating-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex10-physical-oil-pipeline-crude-wti-floating-price.json",
+      "sourceBaseName": "com-ex10-physical-oil-pipeline-crude-wti-floating-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex11-physical-oil-pipeline-heating-oil-fixed-price.json",
+      "sourceBaseName": "com-ex11-physical-oil-pipeline-heating-oil-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex12-physical-gas-europe-zbt-fixed-price.json",
+      "sourceBaseName": "com-ex12-physical-gas-europe-zbt-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.json",
+      "sourceBaseName": "com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex14-physical-gas-europe-ttf-fixed-price.json",
+      "sourceBaseName": "com-ex14-physical-gas-europe-ttf-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.json",
+      "sourceBaseName": "com-ex15-physical-oil-pipeline-crude-wcs-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex16-physical-power-us-eei-floating-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex16-physical-power-us-eei-floating-price.json",
+      "sourceBaseName": "com-ex16-physical-power-us-eei-floating-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex17-physical-power-uk-gtma-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex17-physical-power-uk-gtma-fixed-price.json",
+      "sourceBaseName": "com-ex17-physical-power-uk-gtma-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex18-physical-power-us-eei-fixed-price-shaped-volume.json",
+      "sourceBaseName": "com-ex18-physical-power-us-eei-fixed-price-shaped-volume",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex19-physical-bullion-forward.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex19-physical-bullion-forward.json",
+      "sourceBaseName": "com-ex19-physical-bullion-forward",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex2-gas-swap-prices-first-day.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex2-gas-swap-prices-first-day.json",
+      "sourceBaseName": "com-ex02-gas-swap-prices-first-day",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex20-physical-coal-us-fixed-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex20-physical-coal-us-fixed-price.json",
+      "sourceBaseName": "com-ex20-physical-coal-us-fixed-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.json",
+      "sourceBaseName": "com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex22-physical-gas-option-multiple-expiration.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex22-physical-gas-option-multiple-expiration.json",
+      "sourceBaseName": "com-ex22-physical-gas-option-multiple-expiration",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex23-physical-power-option-daily-expiration-efet.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex23-physical-power-option-daily-expiration-efet.json",
+      "sourceBaseName": "com-ex23-physical-power-option-daily-expiration-efet",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex3-gas-swap-prices-last-three-days.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex3-gas-swap-prices-last-three-days.json",
+      "sourceBaseName": "com-ex03-gas-swap-prices-last-three-days",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex4-electricity-swap-hourly-off-peak.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex4-electricity-swap-hourly-off-peak.json",
+      "sourceBaseName": "com-ex04-electricity-swap-hourly-off-peak",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex5-gas-v-electricity-spark-spread.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex5-gas-v-electricity-spark-spread.json",
+      "sourceBaseName": "com-ex05-gas-v-electricity-spark-spread",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex6-gas-call-option.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex6-gas-call-option.json",
+      "sourceBaseName": "com-ex06-gas-call-option",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex7-gas-put-option.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex7-gas-put-option.json",
+      "sourceBaseName": "com-ex07-gas-put-option",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex8-oil-call-option-strip.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex8-oil-call-option-strip.json",
+      "sourceBaseName": "com-ex08-oil-call-option-strip",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "commodity-derivatives\\com-ex9-oil-put-option-american.xml",
+      "cdmRelativePath": "commodity-derivatives\\com-ex9-oil-put-option-american.json",
+      "sourceBaseName": "com-ex09-oil-put-option-american",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "correlation-swaps\\eqcs-ex01-correlation-swap.xml",
+      "cdmRelativePath": "correlation-swaps\\eqcs-ex01-correlation-swap.json",
+      "sourceBaseName": "eqcs-ex01-correlation-swap",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.xml",
+      "cdmRelativePath": "correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.json",
+      "sourceBaseName": "eqcs-ex02-correlation-swap-confirmation",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.xml",
+      "cdmRelativePath": "correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.json",
+      "sourceBaseName": "eqcs-ex03-correlation-swap-confirmation",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.xml",
+      "cdmRelativePath": "correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.json",
+      "sourceBaseName": "eqcs-ex04-correlation-swap-confirmation",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex01-long-asia-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex01-long-asia-corp-fixreg.json",
+      "sourceBaseName": "cd-ex01-long-asia-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex02-2003-short-asia-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex02-2003-short-asia-corp-fixreg.json",
+      "sourceBaseName": "cd-ex02-2003-short-asia-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex02-short-asia-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex02-short-asia-corp-fixreg.json",
+      "sourceBaseName": "cd-ex02-short-asia-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex03-long-aussie-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex03-long-aussie-corp-fixreg.json",
+      "sourceBaseName": "cd-ex03-long-aussie-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex04-short-aussie-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex04-short-aussie-corp-fixreg.json",
+      "sourceBaseName": "cd-ex04-short-aussie-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex05-long-emasia-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex05-long-emasia-corp-fixreg.json",
+      "sourceBaseName": "cd-ex05-long-emasia-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex06-long-emeur-sov-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex06-long-emeur-sov-fixreg.json",
+      "sourceBaseName": "cd-ex06-long-emeur-sov-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex07-2003-long-euro-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex07-2003-long-euro-corp-fixreg.json",
+      "sourceBaseName": "cd-ex07-2003-long-euro-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex07-long-euro-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex07-long-euro-corp-fixreg.json",
+      "sourceBaseName": "cd-ex07-long-euro-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex08-2003-short-euro-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex08-2003-short-euro-corp-fixreg.json",
+      "sourceBaseName": "cd-ex08-2003-short-euro-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex08-short-euro-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex08-short-euro-corp-fixreg.json",
+      "sourceBaseName": "cd-ex08-short-euro-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex09-long-euro-sov-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex09-long-euro-sov-fixreg.json",
+      "sourceBaseName": "cd-ex09-long-euro-sov-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex10-2003-long-us-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex10-2003-long-us-corp-fixreg.json",
+      "sourceBaseName": "cd-ex10-2003-long-us-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex10-long-us-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex10-long-us-corp-fixreg.json",
+      "sourceBaseName": "cd-ex10-long-us-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex11-2003-short-us-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex11-2003-short-us-corp-fixreg.json",
+      "sourceBaseName": "cd-ex11-2003-short-us-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex11-short-us-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex11-short-us-corp-fixreg.json",
+      "sourceBaseName": "cd-ex11-short-us-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex12-long-emasia-sov-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex12-long-emasia-sov-fixreg.json",
+      "sourceBaseName": "cd-ex12-long-emasia-sov-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex13-long-asia-sov-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex13-long-asia-sov-fixreg.json",
+      "sourceBaseName": "cd-ex13-long-asia-sov-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex14-long-emlatin-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex14-long-emlatin-corp-fixreg.json",
+      "sourceBaseName": "cd-ex14-long-emlatin-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex15-long-emlatin-sov-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex15-long-emlatin-sov-fixreg.json",
+      "sourceBaseName": "cd-ex15-long-emlatin-sov-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex16-short-us-corp-fixreg-recovery-factor.json",
+      "sourceBaseName": "cd-ex16-short-us-corp-fixreg-recovery-factor",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex17-short-us-corp-portfolio-compression.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex17-short-us-corp-portfolio-compression.json",
+      "sourceBaseName": "cd-ex17-short-us-corp-portfolio-compression",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-ex18-standard-north-american-corp.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-ex18-standard-north-american-corp.json",
+      "sourceBaseName": "cd-ex18-standard-north-american-corp",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-indamt-ex01-short-us-corp-fixreg.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-indamt-ex01-short-us-corp-fixreg.json",
+      "sourceBaseName": "cd-indamt-ex01-short-us-corp-fixreg",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-swaption-1.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-swaption-1.json",
+      "sourceBaseName": "cd-swaption-1",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cd-swaption-2.xml",
+      "cdmRelativePath": "credit-derivatives\\cd-swaption-2.json",
+      "sourceBaseName": "cd-swaption-2",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cdcen-ex01-credit-event-notice-message.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cdindex-ex01-cdx.xml",
+      "cdmRelativePath": "credit-derivatives\\cdindex-ex01-cdx.json",
+      "sourceBaseName": "cdindex-ex01-cdx",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cdindex-ex02-iTraxx.xml",
+      "cdmRelativePath": "credit-derivatives\\cdindex-ex02-iTraxx.json",
+      "sourceBaseName": "cdindex-ex02-iTraxx",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cdindex-ex03-iTraxx-contractual-supplement.xml",
+      "cdmRelativePath": "credit-derivatives\\cdindex-ex03-iTraxx-contractual-supplement.json",
+      "sourceBaseName": "cdindex-ex03-iTraxx-contractual-supplement",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-basket-tranche.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-basket-tranche.json",
+      "sourceBaseName": "cds-basket-tranche",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-basket.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-basket.json",
+      "sourceBaseName": "cds-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-custom-basket.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-custom-basket.json",
+      "sourceBaseName": "cds-custom-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-ELCDS-ReferenceObligation.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-ELCDS-ReferenceObligation.json",
+      "sourceBaseName": "cds-ELCDS-ReferenceObligation",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-index-tranche.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-index-tranche.json",
+      "sourceBaseName": "cds-index-tranche",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-loan-ReferenceObligation.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-loan-ReferenceObligation.json",
+      "sourceBaseName": "cds-loan-ReferenceObligation",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-loan-SecuredList.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-loan-SecuredList.json",
+      "sourceBaseName": "cds-loan-SecuredList",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-mortgage-CMBS.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-mortgage-CMBS.json",
+      "sourceBaseName": "cds-mortgage-CMBS",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cds-mortgage-RMBS.xml",
+      "cdmRelativePath": "credit-derivatives\\cds-mortgage-RMBS.json",
+      "sourceBaseName": "cds-mortgage-RMBS",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\cdx-index-option.xml",
+      "cdmRelativePath": "credit-derivatives\\cdx-index-option.json",
+      "sourceBaseName": "cdx-index-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "credit-derivatives\\itraxx-index-option.xml",
+      "cdmRelativePath": "credit-derivatives\\itraxx-index-option.json",
+      "sourceBaseName": "itraxx-index-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "dividend-swaps\\div-ex01-dividend-swap.xml",
+      "cdmRelativePath": "dividend-swaps\\div-ex01-dividend-swap.json",
+      "sourceBaseName": "div-ex01-dividend-swap",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "dividend-swaps\\div-ex02-dividend-swap-collateral.xml",
+      "cdmRelativePath": "dividend-swaps\\div-ex02-dividend-swap-collateral.json",
+      "sourceBaseName": "div-ex02-dividend-swap-collateral",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+      "cdmRelativePath": "dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+      "sourceBaseName": "div-ex03-dividend-swap-short-form-japanese-underlyer",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-forwards\\eqf-ex01-forward-stock-long-form.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex-27-equityOptionTransactionSupplement-EMEA-interdealer.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex-27-equityOptionTransactionSupplement-EMEA-interdealer.json",
+      "sourceBaseName": "eqd-ex27-equityOptionTransactionSupplement-EMEA-interdealer",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex01-american-call-stock-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex01-american-call-stock-long-form.json",
+      "sourceBaseName": "eqd-ex01-american-call-stock-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex02-calendar-spread-short-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex02-calendar-spread-short-form.json",
+      "sourceBaseName": "eqd-ex02-calendar-spread-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex03-call-or-put-spread-short-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex03-call-or-put-spread-short-form.json",
+      "sourceBaseName": "eqd-ex03-call-or-put-spread-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex04-european-call-index-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex04-european-call-index-long-form.json",
+      "sourceBaseName": "eqd-ex04-european-call-index-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex05-asian-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex05-asian-long-form.json",
+      "sourceBaseName": "eqd-ex05-asian-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex06-averaging-in-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex06-averaging-in-long-form.json",
+      "sourceBaseName": "eqd-ex06-averaging-in-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex07-barrier-knockout-rebate-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex07-barrier-knockout-rebate-long-form.json",
+      "sourceBaseName": "eqd-ex07-barrier-knockout-rebate-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex08-basket-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex08-basket-long-form.json",
+      "sourceBaseName": "eqd-ex08-basket-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex09-bermuda-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex09-bermuda-long-form.json",
+      "sourceBaseName": "eqd-ex09-bermuda-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex10-binary-barrier-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex10-binary-barrier-long-form.json",
+      "sourceBaseName": "eqd-ex10-binary-barrier-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex11-quanto-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex11-quanto-long-form.json",
+      "sourceBaseName": "eqd-ex11-quanto-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex12-vanilla-short-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex12-vanilla-short-form.json",
+      "sourceBaseName": "eqd-ex12-vanilla-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex13-1996-american-call-stock.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex13-1996-american-call-stock.json",
+      "sourceBaseName": "eqd-ex13-1996-american-call-stock",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex14-american-call-stock-passthrough-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex14-american-call-stock-passthrough-long-form.json",
+      "sourceBaseName": "eqd-ex14-american-call-stock-passthrough-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex15-basket-passthrough-long-form.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex15-basket-passthrough-long-form.json",
+      "sourceBaseName": "eqd-ex15-basket-passthrough-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex16-equityOptionTransactionSupplement.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex16-equityOptionTransactionSupplement.json",
+      "sourceBaseName": "eqd-ex16-equityOptionTransactionSupplement",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share.json",
+      "sourceBaseName": "eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index.json",
+      "sourceBaseName": "eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex19-dividend-adjustment.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex19-dividend-adjustment.json",
+      "sourceBaseName": "eqd-ex19-dividend-adjustment",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex20-nested-basket.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex20-nested-basket.json",
+      "sourceBaseName": "eqd-ex20-nested-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex21-flat-weight-basket.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex21-flat-weight-basket.json",
+      "sourceBaseName": "eqd-ex21-flat-weight-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates.json",
+      "sourceBaseName": "eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet.json",
+      "sourceBaseName": "eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule.json",
+      "sourceBaseName": "eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features.json",
+      "sourceBaseName": "eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-options\\eqd-ex26-mixed-asset-basket.xml",
+      "cdmRelativePath": "equity-options\\eqd-ex26-mixed-asset-basket.json",
+      "sourceBaseName": "eqd-ex26-mixed-asset-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex01-single-underlyer-execution-long-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex01-single-underlyer-execution-long-form.json",
+      "sourceBaseName": "eqs-ex01-single-underlyer-execution-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex02-composite-basket-long-form.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex03-index-quanto-long-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex03-index-quanto-long-form.json",
+      "sourceBaseName": "eqs-ex03-index-quanto-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex04-zero-strike-long-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex04-zero-strike-long-form.json",
+      "sourceBaseName": "eqs-ex04-zero-strike-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex05-single-stock-plus-fee-long-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex05-single-stock-plus-fee-long-form.json",
+      "sourceBaseName": "eqs-ex05-single-stock-plus-fee-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex06-single-index-long-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex06-single-index-long-form.json",
+      "sourceBaseName": "eqs-ex06-single-index-long-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex07-long-form-with-stub.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex07-long-form-with-stub.json",
+      "sourceBaseName": "eqs-ex07-long-form-with-stub",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex08-composite-basket-long-form-separate-spreads.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex08-composite-basket-long-form-separate-spreads.json",
+      "sourceBaseName": "eqs-ex08-composite-basket-long-form-separate-spreads",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex09-compounding-swap.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex09-compounding-swap.json",
+      "sourceBaseName": "eqs-ex09-compounding-swap",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex10-short-form-interestLeg-driving-schedule-dates.json",
+      "sourceBaseName": "eqs-ex10-short-form-interestLeg-driving-schedule-dates",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex11-on-european-index-underlyer-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex11-on-european-index-underlyer-short-form.json",
+      "sourceBaseName": "eqs-ex12-on-european-index-underlyer-short-form",
+      "strategy": "alias",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex12-on-european-index-underlyer-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex12-on-european-index-underlyer-short-form.json",
+      "sourceBaseName": "eqs-ex12-on-european-index-underlyer-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex13-pan-asia-interdealer-share-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex13-pan-asia-interdealer-share-swap-short-form.json",
+      "sourceBaseName": "eqs-ex13-pan-asia-interdealer-share-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex14-european-interdealer-share-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex14-european-interdealer-share-swap-short-form.json",
+      "sourceBaseName": "eqs-ex14-european-interdealer-share-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form.json",
+      "sourceBaseName": "eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form.json",
+      "sourceBaseName": "eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex17-cfd.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex17-cfd.json",
+      "sourceBaseName": "eqs-ex17-cfd",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex18-pan-asia-interdealer-index-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex18-pan-asia-interdealer-index-swap-short-form.json",
+      "sourceBaseName": "eqs-ex18-pan-asia-interdealer-index-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "equity-swaps\\eqs-ex19-european-interdealer-fair-value-share-swap-short-form.xml",
+      "cdmRelativePath": "equity-swaps\\eqs-ex19-european-interdealer-fair-value-share-swap-short-form.json",
+      "sourceBaseName": "eqs-ex19-european-interdealer-fair-value-share-swap-short-form",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex01-fx-spot.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex01-fx-spot.json",
+      "sourceBaseName": "fx-ex01-fx-spot",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex02-spot-cross-w-side-rates.json",
+      "sourceBaseName": "fx-ex02-spot-cross-w-side-rates",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex03-fx-fwd.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex03-fx-fwd.json",
+      "sourceBaseName": "fx-ex03-fx-fwd",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex04-fx-fwd-w-settlement.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex04-fx-fwd-w-settlement.json",
+      "sourceBaseName": "fx-ex04-fx-fwd-w-settlement",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex05-fx-fwd-w-ssi.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex05-fx-fwd-w-ssi.json",
+      "sourceBaseName": "fx-ex05-fx-fwd-w-ssi",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex06-fx-fwd-w-splits.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex06-fx-fwd-w-splits.json",
+      "sourceBaseName": "fx-ex06-fx-fwd-w-splits",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex07-non-deliverable-forward.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex07-non-deliverable-forward.json",
+      "sourceBaseName": "fx-ex07-non-deliverable-forward",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex08-fx-swap.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex08-fx-swap.json",
+      "sourceBaseName": "fx-ex08-fx-swap",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex09-euro-opt.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex09-euro-opt.json",
+      "sourceBaseName": "fx-ex09-euro-opt",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex10-amer-opt.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex10-amer-opt.json",
+      "sourceBaseName": "fx-ex10-amer-opt",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex11-non-deliverable-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex11-non-deliverable-option.json",
+      "sourceBaseName": "fx-ex11-non-deliverable-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex12-fx-barrier-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex12-fx-barrier-option.json",
+      "sourceBaseName": "fx-ex12-fx-barrier-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex13-fx-dbl-barrier-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex13-fx-dbl-barrier-option.json",
+      "sourceBaseName": "fx-ex13-fx-dbl-barrier-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex14-euro-digital-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex14-euro-digital-option.json",
+      "sourceBaseName": "fx-ex14-euro-digital-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex15-euro-range-digital-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex15-euro-range-digital-option.json",
+      "sourceBaseName": "fx-ex15-euro-range-digital-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex16-one-touch-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex16-one-touch-option.json",
+      "sourceBaseName": "fx-ex16-one-touch-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex17-no-touch-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex17-no-touch-option.json",
+      "sourceBaseName": "fx-ex17-no-touch-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex18-double-one-touch-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex18-double-one-touch-option.json",
+      "sourceBaseName": "fx-ex18-double-one-touch-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex19-double-no-touch-option.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex19-double-no-touch-option.json",
+      "sourceBaseName": "fx-ex19-double-no-touch-option",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex20-avg-rate-option-parametric.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex20-avg-rate-option-parametric.json",
+      "sourceBaseName": "fx-ex20-avg-rate-option-parametric",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex21-avg-rate-option-specific.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex21-avg-rate-option-specific.json",
+      "sourceBaseName": "fx-ex22-avg-rate-option-specific",
+      "strategy": "alias",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex22-straddle.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex22-straddle.json",
+      "sourceBaseName": "fx-ex23-straddle",
+      "strategy": "alias",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\fx-ex23-delta-hedge.xml",
+      "cdmRelativePath": "fx-derivatives\\fx-ex23-delta-hedge.json",
+      "sourceBaseName": "fx-ex24-delta-hedge",
+      "strategy": "alias",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\td-ex01-simple-term-deposit.xml",
+      "cdmRelativePath": "fx-derivatives\\td-ex01-simple-term-deposit.json",
+      "sourceBaseName": "td-ex01-simple-term-deposit",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\td-ex02-term-deposit-w-settlement-etc.xml",
+      "cdmRelativePath": "fx-derivatives\\td-ex02-term-deposit-w-settlement-etc.json",
+      "sourceBaseName": "td-ex02-term-deposit-w-settlement-etc",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "fx-derivatives\\td-ex03-dual-currency-deposit-strategy.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "inflation-swaps\\inflation-swap-ex01-yoy.xml",
+      "cdmRelativePath": "inflation-swaps\\inflation-swap-ex01-yoy.json",
+      "sourceBaseName": "inflation-swap-ex01-yoy",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.xml",
+      "cdmRelativePath": "inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.json",
+      "sourceBaseName": "inflation-swap-ex02-yoy-bond-reference",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "inflation-swaps\\inflation-swap-ex03-yoy-initial-level.xml",
+      "cdmRelativePath": "inflation-swaps\\inflation-swap-ex03-yoy-initial-level.json",
+      "sourceBaseName": "inflation-swap-ex03-yoy-initial-level",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "inflation-swaps\\inflation-swap-ex04-yoy-interp.xml",
+      "cdmRelativePath": "inflation-swaps\\inflation-swap-ex04-yoy-interp.json",
+      "sourceBaseName": "inflation-swap-ex04-yoy-interp",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "inflation-swaps\\inflation-swap-ex05-zc.xml",
+      "cdmRelativePath": "inflation-swaps\\inflation-swap-ex05-zc.json",
+      "sourceBaseName": "inflation-swap-ex05-zc",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex01-vanilla-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex01-vanilla-swap.json",
+      "sourceBaseName": "ird-ex01-vanilla-swap-versioned",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex02-stub-amort-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex02-stub-amort-swap.json",
+      "sourceBaseName": "ird-ex02-stub-amort-swap-versioned",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex03-compound-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex03-compound-swap.json",
+      "sourceBaseName": "ird-ex03-compound-swap-versioned",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex04-arrears-stepup-fee-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex04-arrears-stepup-fee-swap.json",
+      "sourceBaseName": "ird-ex04-arrears-stepup-fee-swap-usi-uti",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex05-long-stub-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex05-long-stub-swap.json",
+      "sourceBaseName": "ird-ex05-long-stub-swap-uti",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex06-xccy-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex06-xccy-swap.json",
+      "sourceBaseName": "ird-ex06-xccy-swap-uti",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex07-ois-swap.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex07-ois-swap.json",
+      "sourceBaseName": "ird-ex07-ois-swap-uti",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex08-fra.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex08-fra.json",
+      "sourceBaseName": "ird-ex08-fra",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex09-euro-swaption-explicit.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex09-euro-swaption-explicit.json",
+      "sourceBaseName": "ird-ex09-euro-swaption-explicit-versioned",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex10-euro-swaption-relative.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex10-euro-swaption-relative.json",
+      "sourceBaseName": "ird-ex10-euro-swaption-relative-usi",
+      "strategy": "normalized",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex11-euro-swaption-partial-auto-ex.xml",
+      "cdmRelativePath": "interest-rate-derivatives\\ird-ex11-euro-swaption-partial-auto-ex.json",
+      "sourceBaseName": "ird-ex11-euro-swaption-partial-auto-ex",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex12-euro-swaption-straddle-cash.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex13-euro-swaption-cash-with-cfs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex14-berm-swaption.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex15-amer-swaption.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex16-mand-term-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex17-opt-euro-term-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex18-opt-berm-term-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex19-opt-amer-term-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex20-euro-cancel-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex21-euro-extend-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex22-cap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex23-floor.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex24-collar.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex25-fxnotional-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex26-fxnotional-swap-with-cfs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex27-inverse-floater.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex28-bullet-payments.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex29-non-deliverable-settlement-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex30-swap-comp-avg-relative-date.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex31-non-deliverable-settlement-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex32-zero-coupon-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex33-BRL-CDI-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex34-MXN-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "interest-rate-derivatives\\ird-ex35-inverse-floater-inverse-vs-floating.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex01-drawdown-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex02-drawdown-notice-citi.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex03-drawdown-notice-boa.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex04-interest-payment-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex05-interest-payment-notice-gs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex06-interest-payment-notice-boa.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex07-interest-payment-notice-jpm-1.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex08-interest-payment-notice-jpm-2.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex09-repayment-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex10-repayment-notice-gs-1.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex11-repayment-notice-gs-2.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex12-one-off-fee-notice-jpm.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex13-rollover-notice-ubs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex14-rollover-notice-ubs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex15-pricing-change-notice-ubs.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex16-lc-issuance-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex17-lc-balance-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex18-lc-amendment-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "loan\\loan-ex19-lc-termination-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex19-cds-long-form-allocation-accounts.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex20-cds-short-form-allocation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex22-cds-long-form-allocation-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex23-cds-long-form-allocation-amended.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex24-cds-long-form-allocation-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\allocations\\msg-ex25-cds-request-allocation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\amendments\\msg-ex15-cd-request-amendment-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex28-cashflow-assertion-most-simple.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex29-cashflow-assertion-assetSwap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex30-cashflow-assertion-ird.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex31-cashflow-match-result-ird-01.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex32-cashflow-match-result-ird-02.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex33-cashflow-match-result-ird-03.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex34-cashflow-assertion-cds-Termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex35-cashflow-assertion-cds-Coupon.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex36-cashflow-assertion-cds2.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex37-cashflow-match-result-cds2-01.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex38-cashflow-match-result-cds2-02.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex39-cashflow-match-result-cds2-03.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex40-cashflow-assertion-eqs-InterestReset.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex41-cashflow-assertion-eqs-InterestEquityReset.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex42-cashflow-assertion-eqs-InterestEquityDividendReset.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex43-cashflow-assertion-eqs-PartialTermination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex44-cashflow-match-result-eqs-PartialTermination-01.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex45-cashflow-match-result-eqs-PartialTermination-02.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex46-cashflow-match-result-eqs-PartialTermination-03.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex47-cashflow-assertion-CompoundingSwap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex48-cashflow-assertion-XCcy-PrincipalExchange.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex49-cashflow-assertion-EquityOption.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex50-cashflow-assertion-multiple-trades-cds.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex51-cashflow-assertion-multiple-trades-equity-option.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex52-cashflow-assertion-multiple-trades-multi-currency-cds.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex53-cashflow-cancel-multiple-trades-cds.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\cash-flow-matching\\msg-ex54-cashflow-match-result-multiple-trades-cds.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\confirmations\\msg-ex01-request-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\confirmations\\msg-ex02-trade-confirmed.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\confirmations\\msg-ex05-eqd-cash-share-request-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\confirmations\\msg-ex06-eqd-index-option-request-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\confirmations\\msg-ex07-eqd-physical-share-request-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex100-contract-partial-termination-payment-breakdown.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex101-contract-amended.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex102-contract-amended-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex103-contract-changed.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex104-contract-changed-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex51-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex52-contract-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex53-contract-novated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex54-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex55-contract-full-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex56-contract-increased.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex57-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex58-contract-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex59-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex60-contract-created-corrected.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex61-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex62-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex63-contract-partial-termination-correction.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex64-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex65-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex66-contract-partial-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex67-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex68-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex69-contract-increased.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex70-contract-novated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex71-contract-novated-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex72-contract-novated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex73-contract-created.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex74-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex75-contract-partial-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex76-contract-novated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex77-contract-novated-corrected.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex78-contract-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex91-contract-partial-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex92-contract-partial-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex93-contract-novated-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex94-contract-novated-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex95-contract-increased-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex96-contract-increased-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex97-contract-full-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex98-contract-full-termination-cancelled.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\contract-notifications\\msg-ex99-contract-novated-payment-breakdown.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\increases\\msg-ex04-eqd-option-increase.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\increases\\msg-ex12-cd-request-increase-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\msg-ex03-portfolio.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\msg-ex21-credit-event-notice.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\msg-ex50-message-rejected.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\msg-ex90-trade-execution-date-time.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\novations\\msg-ex26-alleged-novation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\novations\\msg-ex27-request-consent-novation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\party-roles\\msg-ex16-fx-single-leg-roles-accounts.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\party-roles\\msg-ex17-two-sided-swap-roles-accounts.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\party-roles\\msg-ex18-cds-2003-short-us-corp-broker-role.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex57-inc-update-1-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex58-inc-update-2-positions-acknowledged.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex59-inc-update-3-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex60-inc-update-4-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex61-inc-update-5-positions-acknowledged.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex62-inc-update-6-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex63-inc-update-7-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex65-inc-update-9-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex66-inc-update-10-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex67-inc-update-11-position1-updated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex68-inc-update-12-positions-acknowledged.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex69-inc-update-13-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex70-inc-update-14-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex71-inc-update-15-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex72-inc-update-16-portfolio-requested.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex73-inc-update-17-positions-reported.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex74-inc-update-18-positions-requested.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex75-inc-update-19-positions-reported.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex76-snapshot-1-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex77-snapshot-2-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex78-snapshot-3-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex79-snapshot-4-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex80-snapshot-5-positions-asserted-updated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex81-snapshot-6-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex82-snapshot-7-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex83-force-1-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex84-force-2-positions-asserted.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex85-force-3-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex86-force-4-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex87-force-6-positions-asserted-force.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex88-force-6-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\portfolio-reconciliation\\msg-ex89-force-7-positions-match-results.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex08-eqd-option-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex09-eqd-option-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex10-eqd-swap-partial-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex11-eqd-swap-full-termination.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex13-cd-request-full-termination-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "messaging\\terminations\\msg-ex14-cd-request-partial-termination-confirmation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "total-return-swaps\\trs-ex01-equity-basket.xml",
+      "cdmRelativePath": "total-return-swaps\\trs-ex01-equity-basket.json",
+      "sourceBaseName": "trs-ex01-equity-basket",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "total-return-swaps\\trs-ex02-single-equity.xml",
+      "cdmRelativePath": "total-return-swaps\\trs-ex02-single-equity.json",
+      "sourceBaseName": "trs-ex02-single-equity",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+      "cdmRelativePath": "total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+      "sourceBaseName": "trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates",
+      "strategy": "exact",
+      "status": "matched"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex01a-request-trade-val.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex01a-return-trade-val.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex02a-request-port-val.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex02a-return-port-val.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex02b-request-port-val-and-sens.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex02b-return-port-val-and-sens.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex03a-request-sensitivity-generation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex03a-return-sensitivities-and-description.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex03a-return-sensitivities.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex03b-request-sensitivity-generation.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex03b-return-sensitivities-with-definition.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex04-cds-sens-on-scenario-request.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex06-option-sens-on-scenario-request.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex07-sens-on-scenario-report.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex08-sens-on-scenario-request.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex09-simple-scenario-val-report.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex10-simple-scenario-val-request.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex11-uc4C-sens-on-scenario-report.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex12-uc4C-sens-on-scenario-request.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "valuation\\pr-ex13-position-report.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex01-variance-swap-index.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex02-variance-swap-single-stock-deprecated.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex02-variance-swap-single-stock.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex03-conditional-variance-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex04-dispersion-variance-swap.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex05-dispersion-variance-swap-transaction-supplement.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    },
+    {
+      "fpmlRelativePath": "variance-swaps\\eqvs-ex06-variance-option-transaction-supplement.xml",
+      "cdmRelativePath": null,
+      "sourceBaseName": null,
+      "strategy": "missing",
+      "status": "missing"
+    }
+  ]
+}
