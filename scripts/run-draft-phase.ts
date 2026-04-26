@@ -7,7 +7,7 @@ import { runDraftPhase } from '../src/draft'
 const WORKSPACE_ROOT = process.cwd()
 const FPML_ROOT = 'data_to_learn_from/fpml'
 const CDM_ROOT = 'data_to_learn_from/cdm_parallel'
-const SELECTED_FOLDER = 'interest-rate-derivatives'
+const SELECTED_FOLDER = 'variance-swaps'
 const OUTPUT_DIR = 'data/drafts'
 const MAX_PAIRS: number | undefined = undefined
 const USE_LIVE_LLM = true

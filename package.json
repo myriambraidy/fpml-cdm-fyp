@@ -13,8 +13,10 @@
     "test:skills": "bun test test/skills/",
     "test:agent": "bun test test/agent/",
     "test:api": "bun test test/api/",
+    "test:cookbook": "bun test test/cookbook/",
     "agent:harness": "bun scripts/run-agent.ts",
     "draft:run": "bun scripts/run-draft-phase.ts",
+    "cookbook:run": "bun scripts/run-cookbook-phase.ts",
     "fetch:cdm-json": "bun scripts/fetch-cdm-json.ts",
     "build:cdm-parallel": "bun scripts/build-cdm-parallel.ts"
   },
