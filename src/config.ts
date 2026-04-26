@@ -17,6 +17,19 @@ const EnvSchema = z.object({
   OPENROUTER_API_KEY: z.string().optional(),
   /** OpenRouter model id; override if your account exposes different slugs. */
   OPENROUTER_MODEL: z.string().default('minimax/minimax-m2.7'),
+  DRAFT_MODEL: z.string().default('openai/gpt-5-mini'),
+  DRAFT_SYNTHESIS_MODEL: z.string().default('openai/gpt-5-mini'),
+  DRAFT_PAIR_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(3000),
+  DRAFT_PAIR_MAX_RETRIES: z.coerce.number().int().min(0).max(3).default(1),
+  DRAFT_PAIR_CONCURRENCY: z.coerce.number().int().min(1).max(64).default(4),
+  DRAFT_SYNTHESIS_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(5000),
+  DRAFT_SYNTHESIS_MAX_RETRIES: z.coerce.number().int().min(0).max(2).default(1),
+  DRAFT_STORE_FAILED_RAW_RESPONSES: z.preprocess((v: unknown) => {
+    if (v === true || v === 1) return true
+    if (v === false || v === 0) return false
+    if (typeof v === 'string') return ['1', 'true', 'yes', 'on'].includes(v.toLowerCase().trim())
+    return true
+  }, z.boolean().default(true)),
   CDM_ORCHESTRATOR_MODEL: z.string().optional(),
   /**
    * Completion token budget for CDM synthesis/repair only (full FPML + large `cdm` JSON).

@@ -4,28 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Review mappings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <main class="page page-review">
-      <section class="shell shell-review">
-        <header class="page-topbar">
+      <section class="shell shell-review shell-simple">
+        <header class="page-topbar page-topbar-compact">
           <div>
-            <p class="eyebrow">Review</p>
-            <h1>Mapping proposals</h1>
+            <h1>Review mappings</h1>
+            <p class="subtle-copy">Check each mapping and keep only what looks right.</p>
           </div>
-          <a class="button-link" href="/index.html">Back</a>
+          <a class="button-link button-small" href="/index.html">Upload another file</a>
         </header>
 
-        <p id="meta" class="meta-line"></p>
-        <section id="stats" class="stats-panel" aria-label="Summary"></section>
+        <section id="stats" class="summary-strip" aria-label="Summary"></section>
 
-        <section class="toolbar-panel" aria-label="Review controls">
-          <div class="toolbar-group">
-            <label class="field field-compact">
-              <span>Status</span>
+        <section class="review-controls" aria-label="Review controls">
+          <div class="controls-meta">
+            <label class="field field-inline">
+              <span>Show</span>
               <select id="filterStatus">
-                <option value="all">All</option>
+                <option value="all">All mappings</option>
                 <option value="pending">Pending</option>
                 <option value="auto_approved">Auto-approved</option>
                 <option value="approved">Approved</option>
@@ -35,55 +40,28 @@
             </label>
 
             <label class="check check-muted">
-              <input type="checkbox" id="selectAllPending" />
-              <span>Select all pending</span>
-            </label>
-
-            <label class="check check-muted">
               <input type="checkbox" id="exportAllowPartial" />
               <span>Allow partial export</span>
             </label>
           </div>
 
-          <div class="toolbar-group toolbar-actions">
-            <button type="button" id="btnBatchApprove" class="button-primary">Approve selected</button>
-            <button type="button" id="btnBatchReject" class="button-secondary">Reject selected</button>
-            <button type="button" id="btnApproveHigh" class="button-ghost">Approve 80+</button>
-            <button type="button" id="btnExport" class="button-secondary">Export JSON</button>
-            <button type="button" id="btnCdm" class="button-ghost">CDM orchestrator</button>
-          </div>
-
-          <div class="toolbar-group toolbar-foot">
-            <p id="actionStatus" class="table-status" aria-live="polite">Ready.</p>
-            <p id="shortcuts" class="shortcut-line">
-              <kbd>j</kbd>
-              <kbd>k</kbd>
-              <span>move</span>
-              <kbd>a</kbd>
-              <span>approve</span>
-              <kbd>r</kbd>
-              <span>reject</span>
-              <kbd>e</kbd>
-              <span>edit</span>
-            </p>
+          <div class="controls-actions">
+            <button type="button" id="btnExport" class="button-primary">Export JSON</button>
+            <button type="button" id="btnCdm" class="button-secondary">Open CDM</button>
           </div>
         </section>
 
-        <section class="surface table-shell">
-          <table class="review-table">
-            <thead>
-              <tr>
-                <th class="cell-check"></th>
-                <th>Source</th>
-                <th>CDM</th>
-                <th>Confidence</th>
-                <th>Status</th>
-                <th>Skill</th>
-                <th class="cell-actions">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="reviewBody"></tbody>
-          </table>
+        <p id="actionStatus" class="table-status" aria-live="polite">Loading mappings...</p>
+
+        <section class="table-shell mapping-table-shell" aria-label="Mappings">
+          <div class="mapping-table-head">
+            <span>Status</span>
+            <span>FpML field</span>
+            <span>Mapped to</span>
+            <span>Rule</span>
+            <span>Actions</span>
+          </div>
+          <section id="reviewList" class="mapping-table-body" aria-live="polite"></section>
         </section>
       </section>
     </main>
@@ -91,52 +69,29 @@
     <script>
       const params = new URLSearchParams(window.location.search)
       const uploadId = params.get('uploadId')
-      const meta = document.getElementById('meta')
       const statsEl = document.getElementById('stats')
       const filterStatus = document.getElementById('filterStatus')
-      const reviewBody = document.getElementById('reviewBody')
-      const actionStatus = document.getElementById('actionStatus')
-      const selectAllPending = document.getElementById('selectAllPending')
-      const btnBatchApprove = document.getElementById('btnBatchApprove')
-      const btnBatchReject = document.getElementById('btnBatchReject')
-      const btnApproveHigh = document.getElementById('btnApproveHigh')
+      const exportAllowPartial = document.getElementById('exportAllowPartial')
       const btnExport = document.getElementById('btnExport')
       const btnCdm = document.getElementById('btnCdm')
-      const exportAllowPartial = document.getElementById('exportAllowPartial')
-      const actionButtons = [btnBatchApprove, btnBatchReject, btnApproveHigh, btnExport, btnCdm]
+      const actionStatus = document.getElementById('actionStatus')
+      const reviewList = document.getElementById('reviewList')
+      const actionButtons = [btnExport, btnCdm]
 
       let rawProposals = []
-      let focusedIdx = -1
       let displayRows = []
       let editingId = null
       let busy = false
 
       if (!uploadId) {
-        meta.textContent = 'Missing uploadId in query string.'
+        setBusy(false, 'Missing upload id.')
+        reviewList.innerHTML =
+          '<div class="empty-state mapping-empty-state">This review link is missing an upload id.</div>'
       } else {
         load()
       }
 
       filterStatus.onchange = () => render()
-
-      selectAllPending.onchange = event => {
-        const on = event.target.checked
-        displayRows.forEach((proposal, index) => {
-          if (proposal.status !== 'pending') return
-          const checkbox = reviewBody.rows[index]?.querySelector('input.row-check')
-          if (checkbox) checkbox.checked = on
-        })
-      }
-
-      btnBatchApprove.onclick = () => batchAction('approve', collectCheckedIds())
-      btnBatchReject.onclick = () => batchAction('reject', collectCheckedIds())
-
-      btnApproveHigh.onclick = () => {
-        const ids = displayRows
-          .filter(proposal => proposal.status === 'pending' && Number(proposal.confidence) >= 80)
-          .map(proposal => proposal.id)
-        batchAction('approve', ids)
-      }
 
       btnExport.onclick = async () => {
         if (!uploadId || busy) return
@@ -153,7 +108,7 @@
             const json = await response.json().catch(() => ({}))
             setBusy(false, 'Review is incomplete.')
             alert(
-              'INCOMPLETE_REVIEW - approve or reject all pending proposals, or enable partial export.\n' +
+              'INCOMPLETE_REVIEW - approve or reject all pending mappings, or enable partial export.\n' +
                 (json.pendingProposalIds ? json.pendingProposalIds.length + ' pending ids.' : '')
             )
             return
@@ -183,106 +138,61 @@
 
       btnCdm.onclick = () => {
         if (!uploadId || busy) return
-        actionStatus.textContent = 'Opening CDM orchestrator...'
+        setBusy(false, 'Opening CDM page...')
         window.location.href = '/cdm-orchestrator.html?uploadId=' + encodeURIComponent(uploadId)
       }
 
-      function collectCheckedIds() {
-        const ids = []
-        reviewBody.querySelectorAll('input.row-check:checked').forEach(checkbox => {
-          ids.push(checkbox.dataset.id)
-        })
-        return ids
-      }
-
-      async function batchAction(action, proposalIds) {
-        if (!proposalIds.length || busy) return
-
-        setBusy(true, action === 'approve' ? 'Approving selected rows...' : 'Rejecting selected rows...')
-        try {
-          const response = await fetch('/api/review/' + encodeURIComponent(uploadId) + '/batch', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({
-              action,
-              proposalIds,
-              notes: action === 'approve' ? 'batch approve' : '',
-              correction: action === 'reject' ? 'batch reject' : undefined,
-            }),
-          })
-
-          if (!response.ok) {
-            setBusy(false, 'Batch action failed.')
-            alert('Batch action failed: ' + (await response.text()))
-            return
-          }
-
-          editingId = null
-          await load(action === 'approve' ? 'Selected rows approved.' : 'Selected rows rejected.')
-        } catch (error) {
-          setBusy(false, 'Batch action failed.')
-          alert('Batch action failed.')
-        }
-      }
-
       async function load(successMessage) {
-        if (!busy) setBusy(true, 'Loading proposals...')
+        if (!busy) setBusy(true, 'Loading mappings...')
 
         try {
           const response = await fetch('/api/review/' + encodeURIComponent(uploadId))
           const json = await response.json().catch(() => ({}))
 
           if (!response.ok) {
-            meta.textContent = 'Could not load proposals.'
-            setBusy(false, 'Could not load proposals.')
+            reviewList.innerHTML =
+              '<div class="empty-state mapping-empty-state">Could not load mappings.</div>'
+            setBusy(false, 'Could not load mappings.')
             return
           }
 
           rawProposals = json.proposals || []
-          meta.textContent =
-            'Upload ' + uploadId + ' / ' + rawProposals.length + ' proposals ready for review'
           buildStats()
           render()
-          setBusy(false, successMessage || 'Ready.')
+          setBusy(false, successMessage || '')
         } catch (error) {
-          meta.textContent = 'Could not load proposals.'
-          setBusy(false, 'Could not load proposals.')
+          reviewList.innerHTML =
+            '<div class="empty-state mapping-empty-state">Could not load mappings.</div>'
+          setBusy(false, 'Could not load mappings.')
         }
       }
 
       function buildStats() {
         const total = rawProposals.length
         const byStatus = {}
-        let confidenceSum = 0
 
         rawProposals.forEach(proposal => {
           byStatus[proposal.status] = (byStatus[proposal.status] || 0) + 1
-          confidenceSum += Number(proposal.confidence) || 0
         })
 
-        const averageConfidence = total ? (confidenceSum / total).toFixed(1) : '-'
-
         statsEl.innerHTML =
-          '<div class="stat-grid">' +
-          statCard('Total', total) +
-          statCard('Pending', byStatus.pending || 0) +
-          statCard('Approved', byStatus.approved || 0) +
-          statCard('Rejected', byStatus.rejected || 0) +
-          statCard('Edited', byStatus.edited || 0) +
-          statCard('Avg confidence', averageConfidence) +
-          '</div>'
+          summaryItem('Upload', uploadId ? uploadId.slice(0, 8) : '-') +
+          summaryItem('Total', total) +
+          summaryItem('Pending', byStatus.pending || 0) +
+          summaryItem('Approved', (byStatus.approved || 0) + (byStatus.auto_approved || 0)) +
+          summaryItem('Rejected', byStatus.rejected || 0)
       }
 
-      function statCard(label, value) {
+      function summaryItem(label, value) {
         return (
-          '<article class="stat-card">' +
-          '<span class="stat-label">' +
+          '<div class="summary-item">' +
+          '<span class="mapping-label">' +
           escapeHtml(String(label)) +
           '</span>' +
-          '<strong class="stat-value">' +
+          '<strong>' +
           escapeHtml(String(value)) +
           '</strong>' +
-          '</article>'
+          '</div>'
         )
       }
 
@@ -293,125 +203,148 @@
       }
 
       function sortDisplay(list) {
+        const order = {
+          pending: 0,
+          auto_approved: 1,
+          edited: 2,
+          approved: 3,
+          rejected: 4,
+        }
+
         return [...list].sort((a, b) => {
-          const needsReviewDelta = (b.needsReview ? 1 : 0) - (a.needsReview ? 1 : 0)
-          if (needsReviewDelta !== 0) return needsReviewDelta
+          const weightA = order[a.status] ?? 9
+          const weightB = order[b.status] ?? 9
+          if (weightA !== weightB) return weightA - weightB
           return Number(a.confidence) - Number(b.confidence)
         })
       }
 
       function render() {
         displayRows = sortDisplay(filterList(rawProposals))
-        reviewBody.innerHTML = ''
+        reviewList.innerHTML = ''
 
         if (!displayRows.length) {
-          const row = document.createElement('tr')
-          row.innerHTML = '<td colspan="7" class="table-empty">No proposals in this view.</td>'
-          reviewBody.appendChild(row)
-          focusedIdx = -1
+          reviewList.innerHTML =
+            '<div class="empty-state mapping-empty-state">No mappings in this view.</div>'
           return
         }
 
         displayRows.forEach((proposal, index) => {
-          const row = document.createElement('tr')
-          row.className = 'table-row ' + rowClass(proposal)
-          row.dataset.idx = String(index)
-          row.tabIndex = 0
-
+          const row = document.createElement('article')
+          const isEditing = editingId === proposal.id
+          const statusClass = 'status-' + String(proposal.status)
           const payload = proposal.payload || {}
           const sourceField = payload.sourceField || {}
-          const pending = proposal.status === 'pending'
-          const autoApproved = proposal.status === 'auto_approved'
-          const isEditing = editingId === proposal.id
 
+          row.className = 'mapping-row ' + statusClass
           row.innerHTML =
-            '<td class="cell-check">' +
-            (pending
-              ? '<input type="checkbox" class="row-check" data-id="' + escapeHtml(proposal.id) + '" />'
-              : '') +
-            '</td>' +
-            '<td class="cell-code"><code>' +
-            escapeHtml(String(sourceField.path || '')) +
-            '</code></td>' +
-            '<td class="cell-cdm">' +
-            renderCdmCell(proposal, isEditing) +
-            '</td>' +
-            '<td>' +
+            '<div class="mapping-cell">' +
+            '<div class="mapping-status-wrap">' +
+            '<span class="status-pill ' +
+            statusClass +
+            '">' +
+            escapeHtml(formatStatus(proposal.status)) +
+            '</span>' +
+            '<span class="confidence-pill">' +
             escapeHtml(String(Number(proposal.confidence))) +
-            '</td>' +
-            '<td><span class="status-pill">' +
-            escapeHtml(String(proposal.status).replace(/_/g, ' ')) +
-            '</span></td>' +
-            '<td>' +
-            escapeHtml(String(proposal.skillInvoked || 'unknown')) +
-            '</td>' +
-            '<td class="cell-actions">' +
-            renderActions(pending, autoApproved, isEditing) +
-            '</td>'
-
-          row.addEventListener('click', event => {
-            if (event.target.closest('button, input')) return
-            focusedIdx = index
-            updateFocus()
-          })
-
-          row.addEventListener('focus', () => {
-            focusedIdx = index
-            updateFocus()
-          })
+            '</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="mapping-cell">' +
+            '<p class="mapping-value mono" title="' +
+            escapeAttr(String(sourceField.path || '')) +
+            '">' +
+            escapeHtml(String(sourceField.path || '')) +
+            '</p>' +
+            '</div>' +
+            '<div class="mapping-cell">' +
+            renderTargetBlock(proposal, isEditing) +
+            '</div>' +
+            '<div class="mapping-cell">' +
+            renderRuleBlock(proposal, isEditing) +
+            '</div>' +
+            '<div class="mapping-cell mapping-actions-cell">' +
+            renderActions(proposal, isEditing) +
+            '</div>'
 
           wireRowActions(row, proposal, isEditing)
-          reviewBody.appendChild(row)
+          reviewList.appendChild(row)
         })
-
-        focusedIdx = displayRows.length ? Math.max(0, Math.min(focusedIdx, displayRows.length - 1)) : -1
-        updateFocus()
       }
 
-      function renderCdmCell(proposal, isEditing) {
+      function renderTargetBlock(proposal, isEditing) {
         if (!isEditing) {
-          const transformation = proposal.transformation ? String(proposal.transformation) : ''
           return (
-            '<code>' +
+            '<p class="mapping-value mono" title="' +
+            escapeAttr(String(proposal.cdmPath || '')) +
+            '">' +
             escapeHtml(String(proposal.cdmPath || '')) +
-            '</code>' +
-            (transformation
-              ? '<div class="cell-subtext">' + escapeHtml(transformation) + '</div>'
-              : '')
+            '</p>'
           )
         }
 
         return (
-          '<div class="inline-editor">' +
-          '<input class="inline-inp" data-f="cdm" value="' +
+          '<div class="inline-editor inline-editor-compact">' +
+          '<input class="inline-inp mono inline-inp-compact" data-f="cdm" value="' +
           escapeAttr(proposal.cdmPath || '') +
-          '" />' +
-          '<input class="inline-inp" data-f="tx" value="' +
-          escapeAttr(proposal.transformation || '') +
-          '" />' +
+          '" placeholder="CDM path" />' +
           '</div>'
         )
       }
 
-      function renderActions(pending, autoApproved, isEditing) {
+      function renderRuleBlock(proposal, isEditing) {
+        if (!isEditing) {
+          return (
+            '<p class="mapping-value mapping-rule-text" title="' +
+            escapeAttr(String(proposal.transformation || 'Direct mapping')) +
+            '">' +
+            escapeHtml(String(proposal.transformation || 'Direct mapping')) +
+            '</p>'
+          )
+        }
+
+        return (
+          '<div class="inline-editor inline-editor-compact">' +
+          '<input class="inline-inp inline-inp-compact" data-f="tx" value="' +
+          escapeAttr(proposal.transformation || '') +
+          '" placeholder="Rule" />' +
+          '</div>'
+        )
+      }
+
+      function renderActions(proposal, isEditing) {
         if (isEditing) {
           return (
-            '<div class="actions">' +
-            '<button type="button" class="button-primary action-save">Save</button>' +
-            '<button type="button" class="button-secondary action-cancel">Cancel</button>' +
+            '<div class="actions actions-compact">' +
+            '<button type="button" class="button-primary icon-button action-save" aria-label="Save">&#10003;</button>' +
+            '<button type="button" class="button-secondary icon-button action-cancel" aria-label="Cancel">&#10005;</button>' +
             '</div>'
           )
         }
 
         const buttons = []
-        if (pending) {
-          buttons.push('<button type="button" class="button-primary action-approve">Approve</button>')
-          buttons.push('<button type="button" class="button-secondary action-reject">Reject</button>')
+
+        if (proposal.status === 'pending') {
+          buttons.push(
+            '<button type="button" class="button-primary icon-button action-approve" aria-label="Approve">&#10003;</button>'
+          )
+          buttons.push(
+            '<button type="button" class="button-secondary icon-button action-reject" aria-label="Reject">&#10005;</button>'
+          )
+          buttons.push(
+            '<button type="button" class="button-ghost button-small action-edit">Edit</button>'
+          )
+        } else if (proposal.status === 'auto_approved') {
+          buttons.push(
+            '<button type="button" class="button-ghost button-small action-edit">Edit</button>'
+          )
+        } else if (proposal.status !== 'rejected') {
+          buttons.push(
+            '<button type="button" class="button-ghost button-small action-edit">Edit</button>'
+          )
         }
-        if (pending || autoApproved) {
-          buttons.push('<button type="button" class="button-ghost action-edit">Edit</button>')
-        }
-        return '<div class="actions">' + buttons.join('') + '</div>'
+
+        return '<div class="actions actions-compact">' + buttons.join('') + '</div>'
       }
 
       function wireRowActions(row, proposal, isEditing) {
@@ -476,7 +409,7 @@
       async function patch(kind, proposalId) {
         if (busy) return
 
-        setBusy(true, kind === 'approve' ? 'Approving row...' : 'Rejecting row...')
+        setBusy(true, kind === 'approve' ? 'Approving mapping...' : 'Rejecting mapping...')
         try {
           const path =
             kind === 'approve'
@@ -501,19 +434,11 @@
           }
 
           editingId = null
-          await load(kind === 'approve' ? 'Row approved.' : 'Row rejected.')
+          await load(kind === 'approve' ? 'Mapping approved.' : 'Mapping rejected.')
         } catch (error) {
           setBusy(false, 'Update failed.')
           alert('Update failed.')
         }
-      }
-
-      function rowClass(proposal) {
-        if (proposal.status === 'rejected') return 'row-reject'
-        if (proposal.status === 'edited' || proposal.status === 'approved') return 'row-ok'
-        if (proposal.status === 'pending' && proposal.needsReview) return 'row-warn'
-        if (proposal.status === 'auto_approved') return 'row-auto'
-        return 'row-pending'
       }
 
       function setBusy(nextBusy, message) {
@@ -524,8 +449,11 @@
           button.disabled = nextBusy
         })
         filterStatus.disabled = nextBusy
-        selectAllPending.disabled = nextBusy
         exportAllowPartial.disabled = nextBusy
+      }
+
+      function formatStatus(status) {
+        return String(status).replace(/_/g, ' ')
       }
 
       function escapeAttr(value) {
@@ -537,53 +465,6 @@
 
       function escapeHtml(value) {
         return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      }
-
-      document.addEventListener('keydown', event => {
-        if (event.target.matches('input, textarea, select')) return
-        if (!displayRows.length || busy) return
-
-        if (event.key === 'j') {
-          event.preventDefault()
-          focusedIdx = Math.min(focusedIdx + 1, displayRows.length - 1)
-          updateFocus()
-        }
-
-        if (event.key === 'k') {
-          event.preventDefault()
-          focusedIdx = Math.max(focusedIdx - 1, 0)
-          updateFocus()
-        }
-
-        const proposal = displayRows[focusedIdx]
-        const proposalId = proposal?.id
-
-        if (event.key === 'a' && !event.shiftKey && proposalId) {
-          event.preventDefault()
-          patch('approve', proposalId)
-        }
-
-        if (event.key === 'r' && proposalId) {
-          event.preventDefault()
-          patch('reject', proposalId)
-        }
-
-        if (event.key === 'e' && proposalId) {
-          event.preventDefault()
-          editingId = proposalId
-          render()
-        }
-
-        if (event.shiftKey && (event.key === 'a' || event.key === 'A')) {
-          event.preventDefault()
-          btnBatchApprove.click()
-        }
-      })
-
-      function updateFocus() {
-        ;[...reviewBody.rows].forEach((row, index) => {
-          row.classList.toggle('row-focus', index === focusedIdx)
-        })
       }
     </script>
   </body>

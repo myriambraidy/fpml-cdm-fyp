@@ -3,52 +3,40 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FPML to CDM Upload</title>
+    <title>FpML to CDM Mapping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <main class="page page-upload">
       <section class="shell shell-upload">
-        <header class="masthead">
-          <div class="brand-mark">F</div>
-          <div>
-            <p class="eyebrow">FPML to CDM</p>
-            <h1>Generate mapping proposals</h1>
+        <section class="surface-hero">
+          <div class="upload-intro">
+            <h1>FpML to CDM Mapping</h1>
+            <p class="subtle-copy">upload the FpML file you want to convert</p>
           </div>
-        </header>
 
-        <p class="lead lead-compact">
-          Upload one source file and continue directly into review. The flow stays intentionally
-          minimal: choose file, generate proposals, review results.
-        </p>
-
-        <section class="surface surface-hero">
-          <form id="form" class="stack-form">
+          <div class="stack-form">
             <input
               type="file"
               id="file"
               class="sr-only"
               accept=".xml,.json,application/xml,text/xml,application/json"
-              required
             />
 
             <label for="file" id="fileDropzone" class="dropzone dropzone-dark">
-              <span class="dropzone-title">Select XML or JSON</span>
-              <span class="dropzone-copy">Drag and drop here, or click to browse your file.</span>
+              <span class="dropzone-title">Upload file</span>
+              <span class="dropzone-copy">Click to upload or drag and drop</span>
             </label>
 
-            <div id="selectedFile" class="file-chip" hidden></div>
-
-            <button type="submit" id="submitBtn" class="button-primary button-large" disabled>
-              Generate proposals
-            </button>
-          </form>
-
-          <div class="status-panel" id="statusPanel" data-state="idle">
-            <div class="status-indicator" aria-hidden="true"></div>
-            <div>
-              <p class="status-label">Status</p>
-              <p id="status" class="status-text">Choose a file to begin.</p>
+            <p id="selectedFile" class="file-chip" aria-live="polite"></p>
+            <div id="statusLine" class="status-line" data-state="idle">
+              <p id="status" class="status-text">Choose an XML or JSON file to begin.</p>
             </div>
           </div>
         </section>
@@ -56,21 +44,23 @@
     </main>
 
     <script>
-      let uploadId = null
-      const form = document.getElementById('form')
       const fileInput = document.getElementById('file')
       const fileDropzone = document.getElementById('fileDropzone')
       const selectedFile = document.getElementById('selectedFile')
-      const submitBtn = document.getElementById('submitBtn')
       const status = document.getElementById('status')
-      const statusPanel = document.getElementById('statusPanel')
+      const statusLine = document.getElementById('statusLine')
 
-      fileInput.addEventListener('change', updateSelectedFile)
+      let isUploading = false
+
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files?.[0]
+        if (file) handleFileSelection(file)
+      })
 
       ;['dragenter', 'dragover'].forEach(eventName => {
         fileDropzone.addEventListener(eventName, event => {
           event.preventDefault()
-          fileDropzone.classList.add('is-dragging')
+          if (!isUploading) fileDropzone.classList.add('is-dragging')
         })
       })
 
@@ -83,35 +73,36 @@
 
       fileDropzone.addEventListener('drop', event => {
         const droppedFile = event.dataTransfer?.files?.[0]
-        if (!droppedFile) return
+        if (!droppedFile || isUploading) return
         const transfer = new DataTransfer()
         transfer.items.add(droppedFile)
         fileInput.files = transfer.files
-        updateSelectedFile()
+        handleFileSelection(droppedFile)
       })
 
-      form.onsubmit = async event => {
-        event.preventDefault()
-
-        const file = fileInput.files?.[0]
-        if (!file) {
-          setStatus('error', 'Choose a file to continue.')
-          return
-        }
-
+      async function handleFileSelection(file) {
         const formatType = detectFormat(file)
+        const sizeKb = Math.max(1, Math.round(file.size / 1024))
+
+        selectedFile.textContent =
+          file.name +
+          ' / ' +
+          sizeKb +
+          ' KB' +
+          (formatType ? ' / ' + formatType.toUpperCase() : ' / Unsupported format')
+
         if (!formatType) {
           setStatus('error', 'Only .xml and .json files are supported right now.')
           return
         }
 
-        submitBtn.disabled = true
-        submitBtn.textContent = 'Generating...'
-        uploadId = null
+        if (isUploading) return
+
+        isUploading = true
+        fileDropzone.classList.add('is-disabled')
+        setStatus('loading', 'Uploading file...')
 
         try {
-          setStatus('loading', 'Uploading file...')
-
           const fd = new FormData()
           fd.set('formatType', formatType)
           fd.set('file', file)
@@ -121,79 +112,40 @@
 
           if (!uploadResponse.ok) {
             setStatus('error', 'Upload failed: ' + (uploadJson.error || uploadResponse.status))
-            submitBtn.disabled = false
-            submitBtn.textContent = 'Generate proposals'
+            resetIdleState()
             return
           }
 
-          uploadId = uploadJson.uploadId
-          setStatus(
-            'loading',
-            'Upload complete. Generating ' + uploadJson.fieldsCount + ' mapping candidates...'
-          )
+          setStatus('loading', 'Generating mapping candidates...')
 
           const mappingResponse = await fetch('/api/mapping', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ uploadId }),
+            body: JSON.stringify({ uploadId: uploadJson.uploadId }),
           })
           const mappingJson = await mappingResponse.json().catch(() => ({}))
 
           if (!mappingResponse.ok) {
             setStatus('error', 'Mapping failed: ' + (mappingJson.error || mappingResponse.status))
-            submitBtn.disabled = false
-            submitBtn.textContent = 'Generate proposals'
+            resetIdleState()
             return
           }
 
-          setStatus(
-            'success',
-            'Generated ' + mappingJson.proposals.length + ' proposals. Opening review...'
-          )
-          window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadId)
+          setStatus('success', 'Opening review...')
+          window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadJson.uploadId)
         } catch (error) {
-          setStatus('error', 'Something went wrong while generating proposals.')
-          submitBtn.disabled = false
-          submitBtn.textContent = 'Generate proposals'
+          setStatus('error', 'Something went wrong while generating mappings.')
+          resetIdleState()
         }
       }
 
-      function updateSelectedFile() {
-        const file = fileInput.files?.[0]
-
-        if (!file) {
-          selectedFile.hidden = true
-          selectedFile.textContent = ''
-          submitBtn.disabled = true
-          submitBtn.textContent = 'Generate proposals'
-          setStatus('idle', 'Choose a file to begin.')
-          return
-        }
-
-        const formatType = detectFormat(file)
-        const sizeKb = Math.max(1, Math.round(file.size / 1024))
-
-        selectedFile.hidden = false
-        selectedFile.textContent =
-          file.name +
-          '  /  ' +
-          sizeKb +
-          ' KB' +
-          (formatType ? '  /  ' + formatType.toUpperCase() : '  /  Unsupported format')
-
-        submitBtn.disabled = !formatType
-        submitBtn.textContent = 'Generate proposals'
-
-        if (!formatType) {
-          setStatus('error', 'This file type is not supported.')
-          return
-        }
-
-        setStatus('idle', 'Ready to generate proposals.')
+      function resetIdleState() {
+        isUploading = false
+        fileDropzone.classList.remove('is-disabled')
       }
 
       function setStatus(state, message) {
-        statusPanel.dataset.state = state
+        statusLine.dataset.state = state
         status.textContent = message
       }
 
