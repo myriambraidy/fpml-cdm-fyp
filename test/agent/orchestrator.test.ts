@@ -25,6 +25,7 @@ describe('MappingAgent', () => {
     expect(calls).toBe(0)
     expect(p.skillInvoked).toBe('party_resolver')
     expect(p.candidateProposals).toHaveLength(0)
+    expect(Array.isArray(p.cookbookRuleIds)).toBeTrue()
   })
 
   it('T2: multi-match + LLM valid tool picks floating_rate_index_resolver', async () => {

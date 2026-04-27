@@ -294,12 +294,25 @@
 
       function renderRuleBlock(proposal, isEditing) {
         if (!isEditing) {
+          const payload = proposal.payload || {}
+          const cookbookFamily = payload.cookbookFamily || '-'
+          const ruleIds = Array.isArray(payload.cookbookRuleIds)
+            ? payload.cookbookRuleIds.slice(0, 3).join(', ')
+            : ''
+          const assumptionCount = Array.isArray(payload.assumptionNotes) ? payload.assumptionNotes.length : 0
           return (
+            '<div>' +
             '<p class="mapping-value mapping-rule-text" title="' +
             escapeAttr(String(proposal.transformation || 'Direct mapping')) +
             '">' +
             escapeHtml(String(proposal.transformation || 'Direct mapping')) +
-            '</p>'
+            '</p>' +
+            '<p class="mapping-rule-text subtle-copy">Cookbook: ' +
+            escapeHtml(String(cookbookFamily)) +
+            (ruleIds ? ' | Rules: ' + escapeHtml(ruleIds) : '') +
+            (assumptionCount > 0 ? ' | Assumptions: ' + escapeHtml(String(assumptionCount)) : '') +
+            '</p>' +
+            '</div>'
           )
         }
 

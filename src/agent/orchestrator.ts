@@ -12,6 +12,12 @@ import {
 } from './prompts'
 import { env } from '../config'
 import {
+  loadCookbookRuntimeBundle,
+  readCookbookRuntimeConfig,
+  renderCookbookContext,
+  selectCookbookContext,
+} from '../cookbook-runtime'
+import {
   buildMappingIR,
   canonicalTargetToPath,
   parseLegacyCdmPath,
@@ -41,6 +47,7 @@ import type {
   MappingProposal,
   OrchestrationTrace,
 } from './types'
+import { inferProductFamily } from '../source-model/product-family'
 
 /** Exported for T7 — Zod safe-parse on skill input. */
 export const safeParseSkillInput = (skill: Skill, input: unknown) =>
@@ -61,6 +68,41 @@ function makeTrace(partyOrder: readonly string[]): OrchestrationTrace {
     llmCallCount: 0,
     arbitrationNotes: [],
     retries: 0,
+  }
+}
+
+interface CookbookPromptContext {
+  family: string | null
+  ruleIds: string[]
+  guidance: string | null
+}
+
+async function loadCookbookPromptContext(fields: Field[]): Promise<CookbookPromptContext> {
+  const runtimeConfig = readCookbookRuntimeConfig(process.cwd())
+  if (!runtimeConfig.enabled) {
+    return { family: null, ruleIds: [], guidance: null }
+  }
+  const inferredFamily = inferProductFamily({
+    fpml: '',
+    fields,
+    mappings: [],
+  })
+  try {
+    const bundle = await loadCookbookRuntimeBundle(runtimeConfig.rootPath)
+    const selection = selectCookbookContext({
+      bundle,
+      productFamily: inferredFamily,
+      maxChars: Math.max(2000, Math.floor(runtimeConfig.maxChars * 0.3)),
+      includeReviewOnly: runtimeConfig.includeReviewOnly,
+    })
+    const rendered = renderCookbookContext(selection)
+    return {
+      family: rendered.familySlug,
+      ruleIds: rendered.ruleIds,
+      guidance: rendered.text,
+    }
+  } catch {
+    return { family: null, ruleIds: [], guidance: null }
   }
 }
 
@@ -722,22 +764,34 @@ export class MappingAgent {
   }
 
   async generateMappings(fields: Field[]): Promise<MappingProposal[]> {
+    const cookbookContext = await loadCookbookPromptContext(fields)
     const docCtx = buildOrchestrationContext(fields)
     const entityProposals = this.generateEntityMappings(fields, docCtx)
-    const fieldProposals = await this.generateFieldMappings(fields, docCtx)
-    return reconcileProposals({
+    const fieldProposals = await this.generateFieldMappings(fields, docCtx, cookbookContext.guidance)
+    const reconciled = reconcileProposals({
       entityProposals,
       fieldProposals,
     })
+    for (const proposal of reconciled) {
+      proposal.cookbookFamily = cookbookContext.family
+      proposal.cookbookRuleIds = cookbookContext.ruleIds
+      const assumptions = proposal.assumptionNotes ?? []
+      if ((proposal.cookbookRuleIds?.length ?? 0) === 0) {
+        assumptions.push('No cookbook rule id available for this mapping decision.')
+      }
+      proposal.assumptionNotes = assumptions
+    }
+    return reconciled
   }
 
   private async generateFieldMappings(
     fields: Field[],
-    docCtx: OrchestrationContext
+    docCtx: OrchestrationContext,
+    cookbookGuidance: string | null
   ): Promise<MappingProposal[]> {
     const proposals: MappingProposal[] = []
     for (const field of fields) {
-      const proposal = await this.mapField(field, docCtx)
+      const proposal = await this.mapField(field, docCtx, cookbookGuidance)
       const entity = preferredEntityForField(field, docCtx)
       proposal.sourceEntityKey = entity?.entityKey
       proposal.sourceEntityType =
@@ -777,7 +831,8 @@ export class MappingAgent {
 
   private async mapField(
     field: Field,
-    docCtx: OrchestrationContext
+    docCtx: OrchestrationContext,
+    cookbookGuidance: string | null
   ): Promise<MappingProposal> {
     const trace: OrchestrationTrace = {
       ...makeTrace(docCtx.partyOrder),
@@ -867,7 +922,8 @@ export class MappingAgent {
         sorted,
         candidateSkills,
         candidates,
-        trace
+          trace,
+          cookbookGuidance
       )
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
@@ -1059,7 +1115,8 @@ export class MappingAgent {
     sorted: Skill[],
     candidateSkills: string[],
     candidates: CandidateProposal[],
-    trace: OrchestrationTrace
+    trace: OrchestrationTrace,
+    cookbookGuidance: string | null
   ): Promise<MappingProposal> {
     const tools = getToolsFromSkills(sorted)
     const allowed = new Set(sorted.map(s => s.name))
@@ -1087,7 +1144,8 @@ export class MappingAgent {
         content: buildMultiMatchUserPrompt(
           field,
           candidateSkills,
-          structuralHints
+          structuralHints,
+          cookbookGuidance
         ),
       },
     ]
@@ -1117,7 +1175,8 @@ export class MappingAgent {
             field,
             candidateSkills,
             structuralHints,
-            reason
+            reason,
+            cookbookGuidance
           ),
         },
       ]

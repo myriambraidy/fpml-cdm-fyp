@@ -325,8 +325,10 @@ describe('CdmOrchestrator', () => {
     const payload = capturedUserPayload[0] as {
       productFamilyHint?: string
       expectedPayouts?: string[]
+      cookbookContext?: { text?: string; familySlug?: string }
     }
     expect(payload.productFamilyHint).toBe('fx')
     expect(payload.expectedPayouts).toContain('SettlementPayout')
+    expect(payload.cookbookContext).toBeDefined()
   })
 })

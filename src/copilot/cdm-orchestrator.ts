@@ -22,6 +22,13 @@ import type { MappingIR } from '../mapping-ir/types'
 import type { MappingSemanticMeta } from '../mapping-ir/types'
 import { isAssemblyReady, parseLegacyCdmPath } from '../mapping-ir/transform'
 import { expectedPayoutFamilies, inferProductFamily, type ProductFamily } from '../source-model/product-family'
+import {
+  loadCookbookRuntimeBundle,
+  readCookbookRuntimeConfig,
+  renderCookbookContext,
+  selectCookbookContext,
+  type CookbookRuntimeRenderResult,
+} from '../cookbook-runtime'
 
 const LlmEnvelopeSchema = z.object({
   reasoning: z.string(),
@@ -371,7 +378,8 @@ function buildInitialPrompt(
   draft: Record<string, unknown>,
   assemblyDiagnostics: CdmOrchestratorResult['assemblyDiagnostics'] | undefined,
   productFamilyHint: ProductFamily,
-  expectedPayouts: string[]
+  expectedPayouts: string[],
+  cookbookContext: CookbookRuntimeRenderResult | null
 ): LLMMessage[] {
   const strictSystemPrompt = [
     `You are a strict CDM constructor for root type ${env.CDM_ORCHESTRATOR_ROOT_TYPE}.`,
@@ -407,12 +415,28 @@ function buildInitialPrompt(
           assemblyDiagnostics,
           productFamilyHint,
           expectedPayouts,
+          cookbookContext,
         },
         null,
         2
       ),
     },
   ]
+}
+
+async function buildCookbookContext(
+  productFamilyHint: ProductFamily
+): Promise<CookbookRuntimeRenderResult | null> {
+  const runtimeConfig = readCookbookRuntimeConfig(process.cwd())
+  if (!runtimeConfig.enabled) return null
+  const bundle = await loadCookbookRuntimeBundle(runtimeConfig.rootPath)
+  const selection = selectCookbookContext({
+    bundle,
+    productFamily: productFamilyHint,
+    maxChars: runtimeConfig.maxChars,
+    includeReviewOnly: runtimeConfig.includeReviewOnly,
+  })
+  return renderCookbookContext(selection)
 }
 
 function buildRepairPrompt(
@@ -652,6 +676,7 @@ export class CdmOrchestrator {
       mappings: approvedMappings,
     })
     const expectedPayouts = expectedPayoutFamilies(productFamilyHint)
+    const cookbookContext = await buildCookbookContext(productFamilyHint).catch(() => null)
     const allowedIdentifierValues = env.CDM_ENFORCE_GROUNDED_IDENTIFIERS
       ? collectSourceIdentifierCandidates({
           fields: args.fields,
@@ -670,6 +695,11 @@ export class CdmOrchestrator {
       rootType: env.CDM_ORCHESTRATOR_ROOT_TYPE,
       productFamilyHint,
       expectedPayouts,
+      cookbookContext: {
+        family: cookbookContext?.familySlug ?? null,
+        status: cookbookContext?.status ?? null,
+        ruleIds: cookbookContext?.ruleIds.length ?? 0,
+      },
       caps: {
         structural: env.CDM_MAX_STRUCTURAL_REPAIRS,
         semantic: env.CDM_MAX_SEMANTIC_REPAIRS,
@@ -688,7 +718,8 @@ export class CdmOrchestrator {
           draft,
           mergedAssemblyDiagnostics,
           productFamilyHint,
-          expectedPayouts
+          expectedPayouts,
+          cookbookContext
         ),
         {
           reasoning: 'deterministic draft generated from approved mappings',
@@ -709,6 +740,7 @@ export class CdmOrchestrator {
         provenance: {
           ...assembly.provenance,
           normalizedFacts,
+          cookbook: cookbookContext,
         },
         reasoning: message,
         sourceEvidence,
@@ -847,6 +879,7 @@ export class CdmOrchestrator {
           provenance: {
             ...assembly.provenance,
             normalizedFacts,
+            cookbook: cookbookContext,
           },
           reasoning,
           sourceEvidence: envelope.sourceEvidence,
@@ -914,6 +947,7 @@ export class CdmOrchestrator {
       provenance: {
         ...assembly.provenance,
         normalizedFacts,
+        cookbook: cookbookContext,
       },
       reasoning,
       sourceEvidence: envelope.sourceEvidence,

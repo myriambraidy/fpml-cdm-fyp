@@ -105,5 +105,8 @@ export interface MappingProposal {
   scope: 'field' | 'entity'
   sourceEntityKey?: string
   sourceEntityType?: 'party' | 'stream' | 'premium' | 'schedule'
+  cookbookRuleIds?: string[]
+  cookbookFamily?: string | null
+  assumptionNotes?: string[]
   ir: MappingIR
 }

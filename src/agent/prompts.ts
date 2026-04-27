@@ -2,7 +2,7 @@ import type { Field } from '../parser/types'
 
 /** Short system prompt for tool-style multi-skill arbitration (OpenRouter chat). */
 export const buildMultiMatchSystemPrompt = (): string =>
-  'You map FPML fields to CDM via the provided tools only. When tools are listed, call exactly one whose name is in the allowed skill set; do not invent CDM paths or skill names.'
+  'You map FPML fields to CDM via the provided tools only. When tools are listed, call exactly one whose name is in the allowed skill set; do not invent CDM paths or skill names. Cookbook guidance is advisory context and must never override deterministic tool semantics.'
 
 const STRICT_SUFFIX = `
 
@@ -12,7 +12,8 @@ Arguments may omit keys; the server merges canonical field data. Do not invent f
 export const buildMultiMatchUserPrompt = (
   field: Field,
   allowedSkillNames: string[],
-  structuralHints: Record<string, unknown>
+  structuralHints: Record<string, unknown>,
+  cookbookGuidance?: string | null
 ): string => {
   return `Map this field to CDM by selecting the single best skill tool.
 
@@ -27,6 +28,7 @@ Field:
 
 Cardinality / structural pre-pass:
 ${JSON.stringify(structuralHints)}
+${cookbookGuidance ? `\nCookbook runtime guidance:\n${cookbookGuidance}` : ''}
 ${STRICT_SUFFIX}`
 }
 
@@ -34,9 +36,10 @@ export const buildMultiMatchRetryPrompt = (
   field: Field,
   allowedSkillNames: string[],
   structuralHints: Record<string, unknown>,
-  reason: string
+  reason: string,
+  cookbookGuidance?: string | null
 ): string => {
-  return `${buildMultiMatchUserPrompt(field, allowedSkillNames, structuralHints)}
+  return `${buildMultiMatchUserPrompt(field, allowedSkillNames, structuralHints, cookbookGuidance)}
 
 Previous attempt failed: ${reason}
 Retry: respond with exactly one tool call whose name is in the allowed list.`
