@@ -20,6 +20,9 @@
     "cookbook:run": "bun scripts/run-cookbook-phase.ts",
     "cookbook:llm": "bun scripts/run-cookbook-llm-phase.ts",
     "fetch:cdm-json": "bun scripts/fetch-cdm-json.ts",
+    "fetch:rosetta-source": "bun scripts/data-web-scraping/fetch-rosetta-source.ts",
+    "index:rosetta-source": "bun scripts/data-web-scraping/index-rosetta-source.ts",
+    "docs:rosetta-source": "bun scripts/data-web-scraping/build-rosetta-docpacks.ts",
     "build:cdm-parallel": "bun scripts/build-cdm-parallel.ts"
   },
   "dependencies": {
