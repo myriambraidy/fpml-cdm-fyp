@@ -152,6 +152,19 @@ Suggested output envelope:
 }
 ```
 
+## Current UI Status
+
+The active browser UI is a placeholder for the future deterministic runtime
+flow:
+
+1. upload an FpML XML file
+2. open the conversion screen
+3. click Generate CDM
+
+The Generate CDM action currently returns a `Java mapper coming soon` response.
+It does not call an LLM and does not generate CDM yet. The previous runtime LLM
+review/orchestrator pages are not part of the active UI flow.
+
 ## Compliance Language
 
 Use `CDM compliant` only when all of these are true:

@@ -38,6 +38,18 @@ The existing Bun/TypeScript codebase contains useful prototype assets:
 Those prototypes are still valuable as research and scaffolding, but they are no
 longer the target production architecture.
 
+## Current UI Status
+
+The active UI supports the future deterministic runtime flow:
+
+1. Upload an FpML XML file.
+2. Open the conversion screen.
+3. Click Generate CDM.
+
+The Generate CDM action currently returns a placeholder response because the
+deterministic Java mapper is not implemented yet. The previous runtime LLM
+review/orchestrator pages are no longer part of the active UI flow.
+
 ## Main Documents
 
 - `docs/architecture.md` - current three-stage architecture

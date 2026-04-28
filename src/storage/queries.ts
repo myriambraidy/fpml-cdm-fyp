@@ -23,6 +23,13 @@ export interface UploadRow {
   uploadedBy: string
 }
 
+export interface UploadMetadata {
+  id: string
+  filename: string
+  formatType: 'xml' | 'json'
+  uploadedAt: string
+}
+
 export function saveUpload(row: UploadRow): void {
   db.prepare(
     `INSERT INTO uploads (id, filename, content, format_type, uploaded_at, uploaded_by)
@@ -63,6 +70,32 @@ export function saveFields(uploadId: string, fields: Field[]): void {
     }
   })
   tx(fields)
+}
+
+export function getUploadMetadata(uploadId: string): UploadMetadata | undefined {
+  const row = db
+    .prepare(
+      `SELECT id, filename, format_type, uploaded_at
+       FROM uploads
+       WHERE id = ?`
+    )
+    .get(uploadId) as
+    | {
+        id: string
+        filename: string
+        format_type: 'xml' | 'json'
+        uploaded_at: string
+      }
+    | undefined
+
+  if (!row) return undefined
+
+  return {
+    id: row.id,
+    filename: row.filename,
+    formatType: row.format_type,
+    uploadedAt: row.uploaded_at,
+  }
 }
 
 export function uploadExists(uploadId: string): boolean {

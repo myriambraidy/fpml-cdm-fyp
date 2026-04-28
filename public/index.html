@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FpML to CDM Mapping</title>
+    <title>FpML to CDM</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,8 +17,8 @@
       <section class="shell shell-upload">
         <section class="surface-hero">
           <div class="upload-intro">
-            <h1>FpML to CDM Mapping</h1>
-            <p class="subtle-copy">upload the FpML file you want to convert</p>
+            <h1>FpML to CDM</h1>
+            <p class="subtle-copy">Upload an FpML XML file to prepare conversion.</p>
           </div>
 
           <div class="stack-form">
@@ -26,7 +26,7 @@
               type="file"
               id="file"
               class="sr-only"
-              accept=".xml,.json,application/xml,text/xml,application/json"
+              accept=".xml,application/xml,text/xml"
             />
 
             <label for="file" id="fileDropzone" class="dropzone dropzone-dark">
@@ -36,7 +36,7 @@
 
             <p id="selectedFile" class="file-chip" aria-live="polite"></p>
             <div id="statusLine" class="status-line" data-state="idle">
-              <p id="status" class="status-text">Choose an XML or JSON file to begin.</p>
+              <p id="status" class="status-text">Choose an FpML XML file to begin.</p>
             </div>
           </div>
         </section>
@@ -89,10 +89,10 @@
           ' / ' +
           sizeKb +
           ' KB' +
-          (formatType ? ' / ' + formatType.toUpperCase() : ' / Unsupported format')
+          (formatType ? ' / XML' : ' / Unsupported format')
 
         if (!formatType) {
-          setStatus('error', 'Only .xml and .json files are supported right now.')
+          setStatus('error', 'Only FpML XML files are supported.')
           return
         }
 
@@ -116,25 +116,10 @@
             return
           }
 
-          setStatus('loading', 'Generating mapping candidates...')
-
-          const mappingResponse = await fetch('/api/mapping', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ uploadId: uploadJson.uploadId }),
-          })
-          const mappingJson = await mappingResponse.json().catch(() => ({}))
-
-          if (!mappingResponse.ok) {
-            setStatus('error', 'Mapping failed: ' + (mappingJson.error || mappingResponse.status))
-            resetIdleState()
-            return
-          }
-
-          setStatus('success', 'Opening review...')
-          window.location.href = '/review.html?uploadId=' + encodeURIComponent(uploadJson.uploadId)
+          setStatus('success', 'Upload complete.')
+          window.location.href = '/conversion.html?uploadId=' + encodeURIComponent(uploadJson.uploadId)
         } catch (error) {
-          setStatus('error', 'Something went wrong while generating mappings.')
+          setStatus('error', 'Something went wrong while uploading the file.')
           resetIdleState()
         }
       }
@@ -154,7 +139,6 @@
         const type = String(file.type || '').toLowerCase()
 
         if (name.endsWith('.xml') || type.includes('xml')) return 'xml'
-        if (name.endsWith('.json') || type.includes('json')) return 'json'
 
         return null
       }

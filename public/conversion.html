@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generate CDM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page page-conversion">
+      <section class="shell shell-upload">
+        <header class="page-topbar page-topbar-compact">
+          <div>
+            <h1>Generate CDM</h1>
+            <p class="subtle-copy">FpML upload is ready for deterministic conversion.</p>
+          </div>
+          <a class="button-link button-small" href="/index.html">Upload another file</a>
+        </header>
+
+        <section class="conversion-panel">
+          <div class="summary-strip conversion-summary" aria-label="Upload summary">
+            <div class="summary-item">
+              <span class="mapping-label">Upload</span>
+              <strong id="filenameLabel">-</strong>
+            </div>
+            <div class="summary-item">
+              <span class="mapping-label">Mapper</span>
+              <strong>Coming soon</strong>
+            </div>
+          </div>
+
+          <div id="generationStatus" class="status-line" data-state="idle">
+            <p id="status" class="status-text"></p>
+          </div>
+
+          <button type="button" id="btnGenerate" class="button-primary button-large">
+            Generate CDM
+          </button>
+
+          <pre id="resultPanel" class="panel result-panel"></pre>
+        </section>
+      </section>
+    </main>
+
+      <script>
+      const params = new URLSearchParams(window.location.search)
+      const uploadId = params.get('uploadId')
+      const filenameLabel = document.getElementById('filenameLabel')
+      const statusLine = document.getElementById('generationStatus')
+      const status = document.getElementById('status')
+      const btnGenerate = document.getElementById('btnGenerate')
+      const resultPanel = document.getElementById('resultPanel')
+
+      if (!uploadId) {
+        filenameLabel.textContent = '-'
+        btnGenerate.disabled = true
+        setStatus('error', 'Missing upload id.')
+      } else {
+        loadUpload()
+      }
+
+      async function loadUpload() {
+        try {
+          const response = await fetch('/api/conversion/' + encodeURIComponent(uploadId))
+          const json = await response.json().catch(() => ({}))
+
+          if (!response.ok || !json.upload) {
+            filenameLabel.textContent = '-'
+            btnGenerate.disabled = true
+            setStatus('error', json.error || 'Upload not found.')
+            return
+          }
+
+          filenameLabel.textContent = json.upload.filename || '-'
+        } catch {
+          filenameLabel.textContent = '-'
+          btnGenerate.disabled = true
+          setStatus('error', 'Could not load upload details.')
+        }
+      }
+
+      btnGenerate.onclick = async () => {
+        if (!uploadId) return
+
+        btnGenerate.disabled = true
+        setStatus('loading', 'Preparing Java mapper request...')
+
+        try {
+          const response = await fetch(
+            '/api/conversion/' + encodeURIComponent(uploadId) + '/generate',
+            { method: 'POST' }
+          )
+          const json = await response.json().catch(() => ({}))
+
+          setStatus(
+            json.status === 'not_implemented' ? 'success' : response.ok ? 'success' : 'error',
+            json.message || 'Java mapper coming soon.'
+          )
+          resultPanel.textContent = JSON.stringify(json, null, 2)
+        } catch {
+          setStatus('error', 'Could not reach conversion service.')
+          resultPanel.textContent = ''
+        } finally {
+          btnGenerate.disabled = false
+        }
+      }
+
+      function setStatus(state, message) {
+        statusLine.dataset.state = state
+        status.textContent = message
+      }
+    </script>
+  </body>
+</html>

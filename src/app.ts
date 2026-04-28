@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { serveStatic } from 'hono/bun'
 import type { LLMClient } from './agent/types'
 import { createUploadRouter } from './api/upload'
+import { createConversionRouter } from './api/conversion'
 import { createMappingRouter } from './api/mapping'
 import { createReviewRouter } from './api/review'
 import { createExportRouter } from './api/export'
@@ -20,6 +21,7 @@ export function createApp(deps: AppDeps) {
   app.get('/health', c => c.json({ ok: true }))
 
   app.route('/api', createUploadRouter(deps))
+  app.route('/api', createConversionRouter(deps))
   app.route('/api', createMappingRouter(deps))
   app.route('/api', createReviewRouter(deps))
   app.route('/api', createExportRouter(deps))
