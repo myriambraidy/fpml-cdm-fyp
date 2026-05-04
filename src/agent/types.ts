@@ -65,8 +65,30 @@ export class LLMHTTPError extends Error {
   }
 }
 
+export type LLMProtocolErrorKind =
+  | 'empty_body'
+  | 'json_parse'
+  | 'not_json_object'
+  | 'missing_choices'
+  | 'missing_message'
+
 export class LLMProtocolError extends Error {
   override readonly name = 'LLMProtocolError'
+  readonly kind?: LLMProtocolErrorKind
+  readonly httpStatus?: number
+
+  constructor(
+    message: string,
+    opts?: { kind?: LLMProtocolErrorKind; httpStatus?: number }
+  ) {
+    super(message)
+    this.kind = opts?.kind
+    this.httpStatus = opts?.httpStatus
+  }
+}
+
+export class LLMProviderError extends Error {
+  override readonly name = 'LLMProviderError'
   constructor(message: string) {
     super(message)
   }

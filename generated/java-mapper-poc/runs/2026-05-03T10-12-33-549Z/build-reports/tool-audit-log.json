@@ -1,0 +1,220 @@
+[
+  {
+    "tool": "get_scope_evidence",
+    "inputSummary": "",
+    "outputSummary": "# Product Scope\n\nSelected product family: fx-derivatives\nImplementation strategy: staged-by-product-group\nDefault current implementation group: fx-single-leg\nCandidate next groups: fx-swap, fx-simple-option\n\n## Product Groups\n\n- fx-single-leg: 7 fixture(s), good-first-target. Default starting group for staged FX-family generation.\n- fx-swap: 1 fixture(s), candidate. Natural next FX group after single-leg handling.\n- fx-simple-option: 3 fixture(s), candidate. Candidate after simpler linear FX pro\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\evidence-packet.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=00-product-scope.json",
+    "outputSummary": "Read path outside allowed roots: 00-product-scope.json",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=00-input-brief.md",
+    "outputSummary": "Read path outside allowed roots: 00-input-brief.md",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=data_to_learn_from/fpml/fx-derivatives",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-settlement.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex05-fx-fwd-w-ssi.xm\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=data_to_learn_from/cdm_parallel/fx-derivatives",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\fx-derivatives\\fx-ex01-fx-spot.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\fx-derivatives\\fx-ex03-fx-fwd.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\fx-derivatives\\fx-ex04-fx-fwd-w-settlement.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_par\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\fx-derivatives"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_snippets",
+    "inputSummary": "",
+    "outputSummary": "# Rosetta Pack: FX\n\n## Purpose\n\nUse this pack to find Rosetta context for FX FpML ingestion and model support.\n\n## Relevant Raw Files\n\n- `rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxdigitaloption-func.rosetta`\n- `rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxoption-func.rosetta`\n- `rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta`\n- `rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxswap-func.ro\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\docs\\product-families\\fx.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\docs\\shared-ingest.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "write_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\planner-plan.md",
+    "outputSummary": "write_file path must be relative to the current run root; do not include generated/",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "write_file",
+    "inputSummary": "path=planner-plan.md",
+    "outputSummary": "write_file path not allowed for planner: planner-plan.md. Allowed: agent-workspace/round-01/planner-plan.md",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## FX derivatives implementation plan\n\nThis plan is for the initial staged generation of FX derivatives mapper targeting the `fx-single-leg` implementation group as the default starting point. The s\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md",
+    "outputSummary": "# Plan Validation\n\nStatus: passed\n\n## Blocking Issues\n\n- none\n\n## Warnings\n\n- none\n\n## Validation details\n\n- Mode: structured-section\n- Parsed in-scope groups: fx-single-leg\n- Parsed out-of-scope groups: fx-swap, fx-simple-option, fx-digital-option, fx-barrier-option, fx-average-rate-option, fx-strategy\n",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json",
+    "outputSummary": "{\n  \"productFamily\": \"fx-derivatives\",\n  \"familyBoundary\": \"fx-derivatives\",\n  \"implementationStrategy\": \"staged-by-product-group\",\n  \"currentImplementationGroup\": \"fx-single-leg\",\n  \"candidateNextGroups\": [\n    \"fx-swap\",\n    \"fx-simple-option\"\n  ],\n  \"classifiedFixtures\": [\n    {\n      \"fpmlPath\": \"data_to_learn_from\\\\fpml\\\\fx-derivatives\\\\fx-ex01-fx-spot.xml\",\n      \"expectedCdmPath\": \"data_to_learn_from\\\\cdm_parallel\\\\fx-derivatives\\\\fx-ex01-fx-spot.json\",\n      \"productGroup\": \"fx-single-le\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\evidence-packet.md",
+    "outputSummary": "# Evidence Packet\n\nGenerated: 2026-05-03T10:12:33.608Z\n\n# Product Scope\n\nSelected product family: fx-derivatives\nImplementation strategy: staged-by-product-group\nDefault current implementation group: fx-single-leg\nCandidate next groups: fx-swap, fx-simple-option\n\n## Product Groups\n\n- fx-single-leg: 7 fixture(s), good-first-target. Default starting group for staged FX-family generation.\n- fx-swap: 1 fixture(s), candidate. Natural next FX group after single-leg handling.\n- fx-simple-option: 3 fixt\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\evidence-packet.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## FX derivatives implementation plan\n\nThis plan is for the initial staged generation of FX derivatives mapper targeting the `fx-single-leg` implementation group as the default starting point. The s\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md",
+    "outputSummary": "# Plan Validation\n\nStatus: passed\n\n## Blocking Issues\n\n- none\n\n## Warnings\n\n- none\n\n## Validation details\n\n- Mode: structured-section\n- Parsed in-scope groups: fx-single-leg\n- Parsed out-of-scope groups: fx-swap, fx-simple-option, fx-digital-option, fx-barrier-option, fx-average-rate-option, fx-strategy\n",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json",
+    "outputSummary": "{\n  \"productFamily\": \"fx-derivatives\",\n  \"familyBoundary\": \"fx-derivatives\",\n  \"implementationStrategy\": \"staged-by-product-group\",\n  \"currentImplementationGroup\": \"fx-single-leg\",\n  \"candidateNextGroups\": [\n    \"fx-swap\",\n    \"fx-simple-option\"\n  ],\n  \"classifiedFixtures\": [\n    {\n      \"fpmlPath\": \"data_to_learn_from\\\\fpml\\\\fx-derivatives\\\\fx-ex01-fx-spot.xml\",\n      \"expectedCdmPath\": \"data_to_learn_from\\\\cdm_parallel\\\\fx-derivatives\\\\fx-ex01-fx-spot.json\",\n      \"productGroup\": \"fx-single-le\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\evidence-packet.md",
+    "outputSummary": "# Evidence Packet\n\nGenerated: 2026-05-03T10:12:33.608Z\n\n# Product Scope\n\nSelected product family: fx-derivatives\nImplementation strategy: staged-by-product-group\nDefault current implementation group: fx-single-leg\nCandidate next groups: fx-swap, fx-simple-option\n\n## Product Groups\n\n- fx-single-leg: 7 fixture(s), good-first-target. Default starting group for staged FX-family generation.\n- fx-swap: 1 fixture(s), candidate. Natural next FX group after single-leg handling.\n- fx-simple-option: 3 fixt\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\evidence-packet.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## FX derivatives implementation plan\n\nThis plan is for the initial staged generation of FX derivatives mapper targeting the `fx-single-leg` implementation group as the default starting point. The s\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md",
+    "outputSummary": "# Plan Validation\n\nStatus: passed\n\n## Blocking Issues\n\n- none\n\n## Warnings\n\n- none\n\n## Validation details\n\n- Mode: structured-section\n- Parsed in-scope groups: fx-single-leg\n- Parsed out-of-scope groups: fx-swap, fx-simple-option, fx-digital-option, fx-barrier-option, fx-average-rate-option, fx-strategy\n",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\plan-validation.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json",
+    "outputSummary": "{\n  \"productFamily\": \"fx-derivatives\",\n  \"familyBoundary\": \"fx-derivatives\",\n  \"implementationStrategy\": \"staged-by-product-group\",\n  \"currentImplementationGroup\": \"fx-single-leg\",\n  \"candidateNextGroups\": [\n    \"fx-swap\",\n    \"fx-simple-option\"\n  ],\n  \"classifiedFixtures\": [\n    {\n      \"fpmlPath\": \"data_to_learn_from\\\\fpml\\\\fx-derivatives\\\\fx-ex01-fx-spot.xml\",\n      \"expectedCdmPath\": \"data_to_learn_from\\\\cdm_parallel\\\\fx-derivatives\\\\fx-ex01-fx-spot.json\",\n      \"productGroup\": \"fx-single-le\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## FX derivatives implementation plan\n\nThis plan is for the initial staged generation of FX derivatives mapper targeting the `fx-single-leg` implementation group as the default starting point. The s\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\critic-review.md",
+    "outputSummary": "## Review of Planner Plan (round-01)\n\n### 1. Machine-checked implementation scope verification\n\n✅ **In scope section correctly matches `00-product-scope.json`:**\n\n- `currentImplementationGroup: \"fx-single-leg\"` is correctly listed in **In scope** bullets.\n- All other groups (`fx-swap`, `fx-simple-option`, `fx-digital-option`, `fx-barrier-option`, `fx-average-rate-option`, `fx-strategy`, `non-fx`) are correctly listed in **Explicitly out of scope**.\n\n✅ **Fixture list matches `00-product-scope.jso\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\agent-workspace\\round-01\\critic-review.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "validate_generated_output",
+    "inputSummary": "",
+    "outputSummary": "Missing files:\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\generated-cdm.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\mapping-report.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\validation-report.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\traceability-report.json\nC:\\Users\\U\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\generated-cdm.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\mapping-report.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\validation-report.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\traceability-report.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T10-12-33-549Z\\reports\\unsupported-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": false
+  }
+]

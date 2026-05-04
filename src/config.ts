@@ -17,6 +17,36 @@ const EnvSchema = z.object({
   OPENROUTER_API_KEY: z.string().optional(),
   /** OpenRouter model id; override if your account exposes different slugs. */
   OPENROUTER_MODEL: z.string().default('minimax/minimax-m2.7'),
+  JAVA_GENERATOR_MODEL: z.string().default('minimax/minimax-m2.7'),
+  JAVA_GENERATOR_MAX_TOKENS: z.coerce
+    .number()
+    .int()
+    .positive()
+    .max(128_000)
+    .default(20_000),
+  JAVA_GENERATOR_PLANNER_MODEL: z.string().default('qwen/qwen3-coder-30b-a3b-instruct'),
+  JAVA_GENERATOR_CRITIC_MODEL: z.string().default('qwen/qwen3-coder-next'),
+  JAVA_GENERATOR_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
+  JAVA_GENERATOR_IMPLEMENTER_MODEL: z.string().default('minimax/minimax-m2.7'),
+  JAVA_GENERATOR_REPAIR_MODEL: z.string().default('minimax/minimax-m2.7'),
+  JAVA_GENERATOR_BUILD_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
+  JAVA_GENERATOR_PLANNER_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_CRITIC_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_REVIEWER_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_IMPLEMENTER_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_REPAIR_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_BUILD_REVIEWER_FALLBACK_MODEL: z.string().optional(),
+  JAVA_GENERATOR_PLANNER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(9000),
+  JAVA_GENERATOR_CRITIC_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(5000),
+  JAVA_GENERATOR_REVIEWER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(5000),
+  JAVA_GENERATOR_IMPLEMENTER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(16_000),
+  JAVA_GENERATOR_REPAIR_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(12_000),
+  JAVA_GENERATOR_BUILD_REVIEWER_MAX_TOKENS: z.coerce
+    .number()
+    .int()
+    .positive()
+    .max(128_000)
+    .default(4000),
   DRAFT_MODEL: z.string().default('openai/gpt-5-mini'),
   DRAFT_SYNTHESIS_MODEL: z.string().default('openai/gpt-5-mini'),
   DRAFT_PAIR_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(3000),
@@ -38,7 +68,27 @@ const EnvSchema = z.object({
   CDM_ORCHESTRATOR_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(8192),
   LLM_MAX_TOKENS: z.coerce.number().int().positive().default(1024),
   LLM_TIMEOUT_MS: z.coerce.number().int().positive().default(60_000),
+  /** @deprecated Prefer LLM_HTTP_TRANSIENT_MAX_RETRIES for OpenRouter 429/502/503/504; still read by older configs. */
   LLM_MAX_RETRIES: z.coerce.number().int().min(0).max(5).default(1),
+  /**
+   * Retries after OpenRouter HTTP 429 (rate limit) and transient 502/503/504 before failing the call.
+   * Each value is an extra attempt after the first failure (e.g. 5 => up to 6 requests).
+   */
+  LLM_HTTP_TRANSIENT_MAX_RETRIES: z.coerce.number().int().min(0).max(15).default(5),
+  /** Retries for 2xx responses with empty/non-JSON bodies or missing choices (each post is retried up to 1 + this many times). */
+  LLM_PROTOCOL_MAX_RETRIES: z.coerce.number().int().min(0).max(10).default(3),
+  LLM_PROTOCOL_RETRY_BASE_MS: z.coerce.number().int().min(50).max(60_000).default(500),
+  LLM_PROTOCOL_LOG_DIAGNOSTICS: z.preprocess((v: unknown) => {
+    if (v === false || v === 0) return false
+    if (typeof v === 'string') {
+      const s = v.toLowerCase().trim()
+      if (['0', 'false', 'no', 'off'].includes(s)) return false
+      if (['1', 'true', 'yes', 'on'].includes(s)) return true
+      return true
+    }
+    if (v === true || v === 1) return true
+    return true
+  }, z.boolean().default(true)),
   CDM_JSON_SCHEMA_DIR: z.string().default('./data/cdm-schema'),
   CDM_ORCHESTRATOR_ROOT_TYPE: z
     .enum(['Trade', 'TradeState', 'BusinessEvent'])

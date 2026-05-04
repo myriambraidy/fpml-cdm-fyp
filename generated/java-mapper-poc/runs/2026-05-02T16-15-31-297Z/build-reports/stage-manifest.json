@@ -1,0 +1,45 @@
+[
+  {
+    "stage": "preflight",
+    "status": "passed",
+    "artifact": "generated\\java-mapper-poc\\runs\\2026-05-02T16-15-31-297Z\\agent-workspace\\evidence-packet.md",
+    "startedAt": "2026-05-02T16:15:31.355Z",
+    "endedAt": "2026-05-02T16:15:31.355Z",
+    "toolCalls": 0,
+    "failedToolCalls": 0,
+    "message": "Workspace created."
+  },
+  {
+    "stage": "planner",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "startedAt": "2026-05-02T16:15:31.361Z",
+    "endedAt": "2026-05-02T16:18:38.729Z",
+    "toolCalls": 7,
+    "failedToolCalls": 3,
+    "message": "outputChars=5198"
+  },
+  {
+    "stage": "critic",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-02T16:18:38.739Z",
+    "endedAt": "2026-05-02T16:19:03.351Z",
+    "toolCalls": 15,
+    "failedToolCalls": 0,
+    "message": "outputChars=2527"
+  },
+  {
+    "stage": "critique-reviewer",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-02T16:19:03.361Z",
+    "endedAt": "2026-05-02T16:19:26.133Z",
+    "toolCalls": 4,
+    "failedToolCalls": 0,
+    "message": "outputChars=4300"
+  }
+]

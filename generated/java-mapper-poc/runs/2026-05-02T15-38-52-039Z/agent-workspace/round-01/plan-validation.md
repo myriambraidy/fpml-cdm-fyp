@@ -1,0 +1,16 @@
+# Plan Validation
+
+Status: failed
+
+## Blocking Issues
+
+- Plan selects unknown FX product group: fx-derivatives
+- Plan selects unknown FX product group: fx-spot
+- Plan selects unknown FX product group: fx-fwd
+- Plan selects unknown FX product group: fx-fwd-w-settlement
+- Plan selects unknown FX product group: fx-fwd-w-ssi
+- Plan selects unknown FX product group: fx-fwd-w-splits
+
+## Warnings
+
+- none

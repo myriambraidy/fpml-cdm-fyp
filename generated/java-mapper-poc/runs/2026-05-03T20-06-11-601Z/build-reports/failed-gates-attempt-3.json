@@ -1,0 +1,93 @@
+[
+  {
+    "name": "typescript-typecheck",
+    "command": "bun run typecheck",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "$ node ./node_modules/typescript/lib/tsc.js --noEmit\n"
+  },
+  {
+    "name": "generated-project-structure",
+    "command": "check generated Maven project structure",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated Maven project structure is present."
+  },
+  {
+    "name": "generated-shell-contract",
+    "command": "check generated Java shell contract",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated shell contract passed."
+  },
+  {
+    "name": "source-hygiene",
+    "command": "scan generated source for invalid generated text",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Source hygiene passed."
+  },
+  {
+    "name": "generated-java-static-sanity",
+    "command": "scan generated Java for known invalid fragments",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated Java static sanity passed."
+  },
+  {
+    "name": "java-reference-check",
+    "command": "check generated Java references",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated Java references passed."
+  },
+  {
+    "name": "maven-dependency-preflight",
+    "command": "mvn -q -DskipTests dependency:go-offline",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": ""
+  },
+  {
+    "name": "maven-compile",
+    "command": "mvn -q -DskipTests compile",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": ""
+  },
+  {
+    "name": "maven-test-compile",
+    "command": "mvn -q -DskipTests test-compile",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": ""
+  },
+  {
+    "name": "maven-test",
+    "command": "mvn test",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "[INFO] Scanning for projects...\r\n[INFO] \r\n[INFO] --------------------< com.fpml.cdm:fpml-cdm-mapper >--------------------\r\n[INFO] Building fpml-cdm-mapper 0.1.0\r\n[INFO]   from pom.xml\r\n[INFO] --------------------------------[ jar ]---------------------------------\r\n[INFO] \r\n[INFO] --- resources:3.3.1:resources (default-resources) @ fpml-cdm-mapper ---\r\n[INFO] skip non existing resourceDirectory C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\src\\main\\resources\r\n[INFO] \r\n[INFO] --- compiler:3.11.0:compile (default-compile) @ fpml-cdm-mapper ---\r\n[INFO] Nothing to compile - all classes are up to date\r\n[INFO] \r\n[INFO] --- resources:3.3.1:testResources (default-testResources) @ fpml-cdm-mapper ---\r\n[INFO] skip non existing resourceDirectory C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\src\\test\\resources\r\n[INFO] \r\n[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ fpml-cdm-mapper ---\r\n[INFO] Nothing to compile - all classes are up to date\r\n[INFO] \r\n[INFO] --- surefire:3.2.2:test (default-test) @ fpml-cdm-mapper ---\r\n[INFO] No tests to run.\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] BUILD SUCCESS\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] Total time:  0.794 s\r\n[INFO] Finished at: 2026-05-03T23:40:50+03:00\r\n[INFO] ------------------------------------------------------------------------\r\n"
+  },
+  {
+    "name": "maven-package",
+    "command": "mvn package",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "[INFO] Scanning for projects...\r\n[INFO] \r\n[INFO] --------------------< com.fpml.cdm:fpml-cdm-mapper >--------------------\r\n[INFO] Building fpml-cdm-mapper 0.1.0\r\n[INFO]   from pom.xml\r\n[INFO] --------------------------------[ jar ]---------------------------------\r\n[INFO] \r\n[INFO] --- resources:3.3.1:resources (default-resources) @ fpml-cdm-mapper ---\r\n[INFO] skip non existing resourceDirectory C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\src\\main\\resources\r\n[INFO] \r\n[INFO] --- compiler:3.11.0:compile (default-compile) @ fpml-cdm-mapper ---\r\n[INFO] Nothing to compile - all classes are up to date\r\n[INFO] \r\n[INFO] --- resources:3.3.1:testResources (default-testResources) @ fpml-cdm-mapper ---\r\n[INFO] skip non existing resourceDirectory C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\src\\test\\resources\r\n[INFO] \r\n[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ fpml-cdm-mapper ---\r\n[INFO] Nothing to compile - all classes are up to date\r\n[INFO] \r\n[INFO] --- surefire:3.2.2:test (default-test) @ fpml-cdm-mapper ---\r\n[INFO] No tests to run.\r\n[INFO] \r\n[INFO] --- jar:3.4.1:jar (default-jar) @ fpml-cdm-mapper ---\r\n[INFO] \r\n[INFO] --- shade:3.5.1:shade (default) @ fpml-cdm-mapper ---\r\n[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.15.3 in the shaded jar.\r\n[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.15.3 in the shaded jar.\r\n[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.15.3 in the shaded jar.\r\n[INFO] Dependency-reduced POM written at: C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\dependency-reduced-pom.xml\r\n[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.\r\n[WARNING] jackson-core-2.15.3.jar, jackson-databind-2.15.3.jar define 1 overlapping classes: \r\n[WARNING]   - META-INF.versions.9.module-info\r\n[WARNING] jackson-annotations-2.15.3.jar, jackson-core-2.15.3.jar, jackson-databind-2.15.3.jar define 2 overlapping resources: \r\n[WARNING]   - META-INF/LICENSE\r\n[WARNING]   - META-INF/NOTICE\r\n[WARNING] fpml-cdm-mapper-0.1.0.jar, jackson-annotations-2.15.3.jar, jackson-core-2.15.3.jar, jackson-databind-2.15.3.jar define 1 overlapping resource: \r\n[WARNING]   - META-INF/MANIFEST.MF\r\n[WARNING] maven-shade-plugin has detected that some files are\r\n[WARNING] present in two or more JARs. When this happens, only one\r\n[WARNING] single version of the file is copied to the uber jar.\r\n[WARNING] Usually this is not harmful and you can skip these warnings,\r\n[WARNING] otherwise try to manually exclude artifacts based on\r\n[WARNING] mvn dependency:tree -Ddetail=true and the above output.\r\n[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/\r\n[INFO] Replacing C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\target\\fpml-cdm-mapper.jar with C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\target\\fpml-cdm-mapper-0.1.0-shaded.jar\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] BUILD SUCCESS\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] Total time:  1.406 s\r\n[INFO] Finished at: 2026-05-03T23:40:52+03:00\r\n[INFO] ------------------------------------------------------------------------\r\n"
+  },
+  {
+    "name": "jar-runtime:fx-ex01-fx-spot",
+    "command": "java -jar target/fpml-cdm-mapper.jar fixtures/fx-ex01-fx-spot.xml --output outputs/fx-ex01-fx-spot.json --reports reports/fx-ex01-fx-spot",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "Exception in thread \"main\" java.nio.file.NoSuchFileException: outputs\\fx-ex01-fx-spot.json\r\n\tat java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)\r\n\tat java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)\r\n\tat java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)\r\n\tat java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234)\r\n\tat java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)\r\n\tat java.base/java.nio.file.Files.newOutputStream(Files.java:227)\r\n\tat java.base/java.nio.file.Files.write(Files.java:3497)\r\n\tat java.base/java.nio.file.Files.writeString(Files.java:3719)\r\n\tat java.base/java.nio.file.Files.writeString(Files.java:3659)\r\n\tat com.fpml.cdm.fx.mapper.Main.main(Main.java:14)\r\n"
+  },
+  {
+    "name": "output-validation",
+    "command": "validate runtime fixture CDM JSON and sidecar reports",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "Missing files:\noutputs/fx-ex01-fx-spot.json\nreports/fx-ex01-fx-spot/mapping-report.json\nreports/fx-ex01-fx-spot/validation-report.json\nreports/fx-ex01-fx-spot/traceability-report.json\nreports/fx-ex01-fx-spot/unsupported-scope.json"
+  }
+]

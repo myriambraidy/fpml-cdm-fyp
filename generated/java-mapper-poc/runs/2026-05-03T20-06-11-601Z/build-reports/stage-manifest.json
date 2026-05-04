@@ -1,0 +1,128 @@
+[
+  {
+    "stage": "preflight",
+    "status": "passed",
+    "artifact": "generated\\java-mapper-poc\\runs\\2026-05-03T20-06-11-601Z\\agent-workspace\\evidence-packet.md",
+    "startedAt": "2026-05-03T20:06:11.802Z",
+    "endedAt": "2026-05-03T20:06:11.802Z",
+    "toolCalls": 0,
+    "failedToolCalls": 0,
+    "message": "Workspace and Java shell created."
+  },
+  {
+    "stage": "planner",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "startedAt": "2026-05-03T20:06:11.810Z",
+    "endedAt": "2026-05-03T20:08:17.012Z",
+    "toolCalls": 34,
+    "failedToolCalls": 3,
+    "message": "outputChars=7654"
+  },
+  {
+    "stage": "critic",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-03T20:08:17.023Z",
+    "endedAt": "2026-05-03T20:08:59.146Z",
+    "toolCalls": 12,
+    "failedToolCalls": 0,
+    "message": "outputChars=3366"
+  },
+  {
+    "stage": "critique-reviewer",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-03T20:08:59.152Z",
+    "endedAt": "2026-05-03T20:09:11.980Z",
+    "toolCalls": 4,
+    "failedToolCalls": 2,
+    "message": "outputChars=2259"
+  },
+  {
+    "stage": "planner",
+    "round": 2,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "startedAt": "2026-05-03T20:09:12.005Z",
+    "endedAt": "2026-05-03T20:10:24.483Z",
+    "toolCalls": 9,
+    "failedToolCalls": 2,
+    "message": "outputChars=7633"
+  },
+  {
+    "stage": "critic",
+    "round": 2,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-03T20:10:24.494Z",
+    "endedAt": "2026-05-03T20:10:50.914Z",
+    "toolCalls": 7,
+    "failedToolCalls": 0,
+    "message": "outputChars=3200"
+  },
+  {
+    "stage": "critique-reviewer",
+    "round": 2,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-03T20:10:50.919Z",
+    "endedAt": "2026-05-03T20:11:24.297Z",
+    "toolCalls": 4,
+    "failedToolCalls": 0,
+    "message": "outputChars=4709"
+  },
+  {
+    "stage": "implementer",
+    "status": "passed",
+    "model": "minimax/minimax-m2.7",
+    "startedAt": "2026-05-03T20:11:24.322Z",
+    "endedAt": "2026-05-03T20:15:33.996Z",
+    "toolCalls": 23,
+    "failedToolCalls": 5,
+    "message": "outputChars=24485"
+  },
+  {
+    "stage": "repair",
+    "status": "passed",
+    "model": "minimax/minimax-m2.7",
+    "startedAt": "2026-05-03T20:15:39.044Z",
+    "endedAt": "2026-05-03T20:30:16.780Z",
+    "toolCalls": 6,
+    "failedToolCalls": 0,
+    "message": "outputChars=1517"
+  },
+  {
+    "stage": "repair",
+    "status": "passed",
+    "model": "minimax/minimax-m2.7",
+    "startedAt": "2026-05-03T20:31:47.896Z",
+    "endedAt": "2026-05-03T20:40:36.655Z",
+    "toolCalls": 7,
+    "failedToolCalls": 4,
+    "message": "outputChars=1850"
+  },
+  {
+    "stage": "repair",
+    "status": "passed",
+    "model": "minimax/minimax-m2.7",
+    "startedAt": "2026-05-03T20:40:53.674Z",
+    "endedAt": "2026-05-03T20:46:24.065Z",
+    "toolCalls": 9,
+    "failedToolCalls": 6,
+    "message": "outputChars=2501"
+  },
+  {
+    "stage": "build-reviewer",
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-03T20:46:41.314Z",
+    "endedAt": "2026-05-03T20:47:12.389Z",
+    "toolCalls": 14,
+    "failedToolCalls": 13,
+    "message": "outputChars=3483"
+  }
+]

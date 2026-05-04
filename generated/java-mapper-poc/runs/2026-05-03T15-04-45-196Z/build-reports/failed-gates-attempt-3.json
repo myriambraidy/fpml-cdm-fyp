@@ -1,0 +1,58 @@
+[
+  {
+    "name": "typescript-typecheck",
+    "command": "bun run typecheck",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "$ node ./node_modules/typescript/lib/tsc.js --noEmit\n"
+  },
+  {
+    "name": "generated-project-structure",
+    "command": "check generated Maven project structure",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated Maven project structure is present."
+  },
+  {
+    "name": "source-hygiene",
+    "command": "scan generated source for invalid generated text",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Source hygiene passed."
+  },
+  {
+    "name": "java-reference-check",
+    "command": "check generated Java references",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "Generated Java references passed."
+  },
+  {
+    "name": "maven-test",
+    "command": "mvn test",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "[INFO] Scanning for projects...\r\n[INFO] \r\n[INFO] ------------------< com.fpml.fx:fx-single-leg-mapper >------------------\r\n[INFO] Building FX Single Leg Mapper 1.0.0\r\n[INFO]   from pom.xml\r\n[INFO] --------------------------------[ jar ]---------------------------------\r\nDownloading from central: https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.13.0/xmlunit-core-2.13.0.pom\r\n[WARNING] The POM for org.xmlunit:xmlunit-core:jar:2.13.0 is missing, no dependency information available\r\nDownloading from central: https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.13.0/xmlunit-core-2.13.0.jar\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] BUILD FAILURE\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] Total time:  1.494 s\r\n[INFO] Finished at: 2026-05-03T18:36:39+03:00\r\n[INFO] ------------------------------------------------------------------------\r\n[ERROR] Failed to execute goal on project fx-single-leg-mapper: Could not resolve dependencies for project com.fpml.fx:fx-single-leg-mapper:jar:1.0.0\r\n[ERROR] dependency: org.xmlunit:xmlunit-core:jar:2.13.0 (test)\r\n[ERROR] \tCould not find artifact org.xmlunit:xmlunit-core:jar:2.13.0 in central (https://repo.maven.apache.org/maven2)\r\n[ERROR] \r\n[ERROR] -> [Help 1]\r\n[ERROR] \r\n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\r\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\r\n[ERROR] \r\n[ERROR] For more information about the errors and possible solutions, please read the following articles:\r\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException\r\n"
+  },
+  {
+    "name": "maven-package",
+    "command": "mvn package",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "[INFO] Scanning for projects...\r\n[INFO] \r\n[INFO] ------------------< com.fpml.fx:fx-single-leg-mapper >------------------\r\n[INFO] Building FX Single Leg Mapper 1.0.0\r\n[INFO]   from pom.xml\r\n[INFO] --------------------------------[ jar ]---------------------------------\r\n[WARNING] The POM for org.xmlunit:xmlunit-core:jar:2.13.0 is missing, no dependency information available\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] BUILD FAILURE\r\n[INFO] ------------------------------------------------------------------------\r\n[INFO] Total time:  0.289 s\r\n[INFO] Finished at: 2026-05-03T18:36:41+03:00\r\n[INFO] ------------------------------------------------------------------------\r\n[ERROR] Failed to execute goal on project fx-single-leg-mapper: Could not resolve dependencies for project com.fpml.fx:fx-single-leg-mapper:jar:1.0.0\r\n[ERROR] dependency: org.xmlunit:xmlunit-core:jar:2.13.0 (test)\r\n[ERROR] \torg.xmlunit:xmlunit-core:jar:2.13.0 was not found in https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced\r\n[ERROR] \r\n[ERROR] -> [Help 1]\r\n[ERROR] \r\n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\r\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\r\n[ERROR] \r\n[ERROR] For more information about the errors and possible solutions, please read the following articles:\r\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException\r\n"
+  },
+  {
+    "name": "jar-runtime",
+    "command": "java -jar target/fpml-cdm-mapper.jar fixtures/fx-ex01-fx-spot.xml --output generated-cdm.json --reports reports",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "Error: Unable to access jarfile target/fpml-cdm-mapper.jar\r\n"
+  },
+  {
+    "name": "output-validation",
+    "command": "validate generated-cdm.json and sidecar reports",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "Missing files:\ngenerated-cdm.json\nreports/mapping-report.json\nreports/validation-report.json\nreports/traceability-report.json\nreports/unsupported-scope.json"
+  }
+]

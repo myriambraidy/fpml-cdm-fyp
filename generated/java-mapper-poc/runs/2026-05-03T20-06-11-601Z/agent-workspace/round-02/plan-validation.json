@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "blockingIssues": [],
+  "warnings": [],
+  "details": {
+    "mode": "structured-section",
+    "parsedInScopeGroups": [
+      "fx-single-leg"
+    ],
+    "parsedOutOfScopeGroups": [
+      "fx-swap",
+      "fx-simple-option",
+      "fx-digital-option",
+      "fx-barrier-option",
+      "fx-average-rate-option",
+      "fx-strategy"
+    ],
+    "parsedRuntimeFixtureIds": [
+      "fx-ex01-fx-spot"
+    ]
+  }
+}

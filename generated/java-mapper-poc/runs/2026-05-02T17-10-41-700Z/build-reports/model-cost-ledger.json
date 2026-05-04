@@ -1,0 +1,60 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 313659,
+    "outputChars": 4841,
+    "llmCalls": 1,
+    "toolCalls": 8,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 3,
+    "durationMs": 306051
+  },
+  {
+    "role": "critic",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 318050,
+    "outputChars": 1499,
+    "llmCalls": 1,
+    "toolCalls": 4,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 0,
+    "durationMs": 23860
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 318796,
+    "outputChars": 4085,
+    "llmCalls": 1,
+    "toolCalls": 5,
+    "cachedToolCalls": 3,
+    "failedToolCalls": 0,
+    "durationMs": 30271
+  },
+  {
+    "role": "implementer",
+    "model": "minimax/minimax-m2.7",
+    "inputChars": 337780,
+    "outputChars": 5075,
+    "llmCalls": 1,
+    "toolCalls": 12,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 4,
+    "durationMs": 1618971
+  },
+  {
+    "role": "repair",
+    "model": "minimax/minimax-m2.7",
+    "inputChars": 344403,
+    "outputChars": 2712,
+    "llmCalls": 1,
+    "toolCalls": 19,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 0,
+    "durationMs": 230122
+  }
+]

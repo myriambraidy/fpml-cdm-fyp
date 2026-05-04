@@ -23,7 +23,8 @@
     "fetch:rosetta-source": "bun scripts/data-web-scraping/fetch-rosetta-source.ts",
     "index:rosetta-source": "bun scripts/data-web-scraping/index-rosetta-source.ts",
     "docs:rosetta-source": "bun scripts/data-web-scraping/build-rosetta-docpacks.ts",
-    "build:cdm-parallel": "bun scripts/build-cdm-parallel.ts"
+    "build:cdm-parallel": "bun scripts/build-cdm-parallel.ts",
+    "java-agent:run": "bun scripts/run-java-generator-agent.ts"
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.16.0",

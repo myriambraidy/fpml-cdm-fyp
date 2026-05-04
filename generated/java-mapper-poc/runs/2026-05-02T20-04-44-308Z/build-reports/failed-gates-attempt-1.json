@@ -1,0 +1,44 @@
+[
+  {
+    "name": "typescript-typecheck",
+    "command": "bun run typecheck",
+    "status": "passed",
+    "exitCode": 0,
+    "outputSnippet": "$ node ./node_modules/typescript/lib/tsc.js --noEmit\n"
+  },
+  {
+    "name": "generated-project-structure",
+    "command": "check generated Maven project structure",
+    "status": "failed",
+    "exitCode": 1,
+    "outputSnippet": "Missing required generated project paths:\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-02T20-04-44-308Z\\src\\test\\java"
+  },
+  {
+    "name": "maven-test",
+    "command": "mvn test",
+    "status": "skipped",
+    "exitCode": 0,
+    "outputSnippet": "Skipped because generated project structure failed."
+  },
+  {
+    "name": "maven-package",
+    "command": "mvn package",
+    "status": "skipped",
+    "exitCode": 0,
+    "outputSnippet": "Skipped because generated project structure failed."
+  },
+  {
+    "name": "jar-runtime",
+    "command": "java -jar target/fpml-cdm-mapper.jar fixtures/fx-ex01-fx-spot.xml --output generated-cdm.json --reports reports",
+    "status": "skipped",
+    "exitCode": 0,
+    "outputSnippet": "Skipped because generated project structure failed."
+  },
+  {
+    "name": "output-validation",
+    "command": "validate generated-cdm.json and sidecar reports",
+    "status": "skipped",
+    "exitCode": 0,
+    "outputSnippet": "Skipped because generated project structure failed."
+  }
+]
