@@ -57,7 +57,7 @@ function extractFxGroupListAfterLabel(
   const listBlock = stop === -1 ? rest : rest.slice(0, stop)
   const groups: string[] = []
   for (const line of listBlock.split('\n')) {
-    const m = /^\s*[-*]\s+(fx-[a-z-]+)\s*$/.exec(line)
+    const m = /^\s*[-*]\s+([a-z][a-z0-9-]+)\s*$/.exec(line)
     if (m) groups.push(m[1])
   }
   return { groups, foundLabel: true }
@@ -87,8 +87,16 @@ export function validatePlannerPlan(args: {
     }
   }
 
-  if (/runtime\s+llm/i.test(args.planMarkdown)) {
+  if (appearsToAllowRuntimeLlm(args.planMarkdown)) {
     blockingIssues.push('Plan appears to allow a runtime LLM dependency.')
+  }
+  if (/supports?\s+(all\s+)?fx\s+derivatives/i.test(args.planMarkdown)) {
+    blockingIssues.push(
+      'Plan must not claim support for all FX derivatives while the implementation group is fx-single-leg.'
+    )
+  }
+  if (/ObjectNode|ArrayNode/.test(args.planMarkdown) && /main\s+CDM|CDM\s+output|internal\s+CDM/i.test(args.planMarkdown)) {
+    blockingIssues.push('Plan must not use Jackson tree nodes as the internal CDM model.')
   }
 
   const sectionSlice = sliceImplementationScopeSection(args.planMarkdown)
@@ -116,6 +124,12 @@ export function validatePlannerPlan(args: {
       )
     } else {
       for (const slug of inScope.groups) {
+        if (slug === args.scope.productFamily) {
+          blockingIssues.push(
+            `${args.scope.productFamily} is the product family context, not an implementation group.`
+          )
+          continue
+        }
         if (!isKnownImplementationGroup(args.scope, slug)) {
           blockingIssues.push(`In-scope implementation group is not defined in product scope: ${slug}`)
         }
@@ -217,4 +231,18 @@ ${detailsSection}`
 function mentionsPath(markdown: string, path: string): boolean {
   const fileName = path.split(/[\\/]/).at(-1)
   return markdown.includes(path) || (fileName !== undefined && markdown.includes(fileName))
+}
+
+function appearsToAllowRuntimeLlm(markdown: string): boolean {
+  return markdown
+    .split(/\r?\n/)
+    .some(line => mentionsRuntimeLlm(line) && !forbidsRuntimeLlm(line))
+}
+
+function mentionsRuntimeLlm(line: string): boolean {
+  return /\bruntime\s+(?:llm|ai)\b|\b(?:llm|ai)\s+(?:fallback|dependency|service|model|api)\b/iu.test(line)
+}
+
+function forbidsRuntimeLlm(line: string): boolean {
+  return /\b(no|not|never|without|zero|forbid(?:s|den)?|forbidden|prohibit(?:s|ed)?|prohibited)\b|\bmust\s+not\b|\bmust\s+contain\s+zero\b/iu.test(line)
 }

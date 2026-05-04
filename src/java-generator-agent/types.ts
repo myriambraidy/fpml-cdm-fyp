@@ -1,4 +1,5 @@
 import type { RuntimeFixture } from './java-contract'
+import type { CdmRosettaPreflightReport } from './cdm-rosetta-preflight'
 
 export type GeneratorRole =
   | 'planner'
@@ -31,6 +32,7 @@ export type GeneratorRunConfig = {
   fixturePaths: string[]
   expectedCdmPaths: string[]
   runtimeFixtures: RuntimeFixture[]
+  cdmRosettaPreflight?: CdmRosettaPreflightReport
   roleModels: Record<GeneratorRole, RoleModelConfig>
 }
 
@@ -43,6 +45,8 @@ export type GeneratorWorkspace = {
   evidencePacketJsonPath: string
   evidenceIndexPath: string
   javaShellContractPath: string
+  rosettaGenerationContextPath: string
+  cdmRosettaPreflightPath: string
   runLogPath: string
   acceptedPlanPath: string
   implementationPlanPath: string

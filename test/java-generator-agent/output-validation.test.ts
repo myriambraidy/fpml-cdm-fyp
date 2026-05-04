@@ -70,15 +70,17 @@ describe('java generator output validation', () => {
 
 async function writeOutputSet(config: GeneratorRunConfig, cdmJson: string): Promise<void> {
   await mkdir(join(config.runOutputDir, 'outputs'), { recursive: true })
-  await mkdir(join(config.runOutputDir, 'reports', 'fx-ex01-fx-spot'), { recursive: true })
-  await Bun.write(join(config.runOutputDir, 'outputs', 'fx-ex01-fx-spot.json'), cdmJson)
-  for (const report of [
-    'mapping-report.json',
-    'validation-report.json',
-    'traceability-report.json',
-    'unsupported-scope.json',
-  ]) {
-    await Bun.write(join(config.runOutputDir, 'reports', 'fx-ex01-fx-spot', report), '{}')
+  for (const fixture of config.runtimeFixtures) {
+    await mkdir(join(config.runOutputDir, 'reports', fixture.id), { recursive: true })
+    await Bun.write(join(config.runOutputDir, 'outputs', `${fixture.id}.json`), cdmJson)
+    for (const report of [
+      'mapping-report.json',
+      'validation-report.json',
+      'traceability-report.json',
+      'unsupported-scope.json',
+    ]) {
+      await Bun.write(join(config.runOutputDir, 'reports', fixture.id, report), '{}')
+    }
   }
 }
 

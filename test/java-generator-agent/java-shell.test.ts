@@ -26,7 +26,7 @@ describe('java generator shell', () => {
         join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/FpmlToCdmMapper.java')
       ).text()
 
-      expect(pom).toContain('<artifactId>fpml-cdm-mapper</artifactId>')
+      expect(pom).toContain('<artifactId>fpml-cdm-rosetta-mapper</artifactId>')
       expect(pom).toContain('<maven.compiler.release>11</maven.compiler.release>')
       expect(pom).toContain('<mainClass>com.fpml.cdm.fx.mapper.Main</mainClass>')
       expect(main).toContain('new GeneratedFpmlToCdmMapper()')

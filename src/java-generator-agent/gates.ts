@@ -1,10 +1,11 @@
-import { mkdir, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
-import { GENERATED_JAVA_VERSION } from './java-contract'
+import { GENERATED_JAR_NAME, GENERATED_JAVA_VERSION } from './java-contract'
 import { runJavaReferenceGate } from './java-reference-gate'
 import { runGeneratedJavaStaticSanityGate } from './java-static-sanity'
 import { truncateForLog } from './markdown'
 import { validateGeneratedOutput } from './output-validation'
+import { rosettaValidatorJarPath, validateCdmJsonFileWithRosetta } from './rosetta-validator-bridge'
 import { runSourceHygieneGate } from './source-hygiene'
 import type { RuntimeFixture } from './java-contract'
 import type { GateResult, GeneratorRunConfig } from './types'
@@ -12,6 +13,7 @@ import type { GateResult, GeneratorRunConfig } from './types'
 export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]> {
   const results: GateResult[] = []
   results.push(await runGate('typescript-typecheck', 'bun run typecheck', resolve('.')))
+  results.push(await validateCdmRosettaPreflight(config))
   results.push(await validateGeneratedProjectStructure(config))
   results.push(await validateGeneratedShellContract(config))
   results.push(await runSourceHygieneGate(config))
@@ -47,7 +49,17 @@ export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]
               pushSkippedRuntimeGates(results, config, 'Skipped because Maven package failed.')
             } else {
               results.push(...(await runJarRuntimeGates(config)))
-              results.push(await validateGeneratedOutput(config))
+              const outputValidation = await validateGeneratedOutput(config)
+              results.push(outputValidation)
+              if (outputValidation.status === 'passed') {
+                results.push(...(await runRosettaValidationGates(config)))
+              } else {
+                pushSkippedRosettaValidationGates(
+                  results,
+                  config,
+                  'Skipped because generated output validation failed.'
+                )
+              }
             }
           }
         }
@@ -89,6 +101,35 @@ export async function validateGeneratedProjectStructure(config: GeneratorRunConf
     status: 'passed',
     exitCode: 0,
     outputSnippet: 'Generated Maven project structure is present.',
+  }
+}
+
+export async function validateCdmRosettaPreflight(config: GeneratorRunConfig): Promise<GateResult> {
+  const report = config.cdmRosettaPreflight
+  if (report === undefined) {
+    return {
+      name: 'cdm-rosetta-preflight',
+      command: 'check CDM/Rosetta Java dependency preflight',
+      status: 'failed',
+      exitCode: 1,
+      outputSnippet: 'Missing CDM/Rosetta preflight report in generator config.',
+    }
+  }
+  if (report.status !== 'passed') {
+    return {
+      name: 'cdm-rosetta-preflight',
+      command: 'check CDM/Rosetta Java dependency preflight',
+      status: 'failed',
+      exitCode: 1,
+      outputSnippet: report.diagnostics.join('\n'),
+    }
+  }
+  return {
+    name: 'cdm-rosetta-preflight',
+    command: 'check CDM/Rosetta Java dependency preflight',
+    status: 'passed',
+    exitCode: 0,
+    outputSnippet: `Using ${report.cdmArtifact.groupId}:${report.cdmArtifact.artifactId}:${report.cdmArtifact.version}`,
   }
 }
 
@@ -169,7 +210,7 @@ export async function runGate(name: string, command: string, cwd: string): Promi
 }
 
 function jarRuntimeCommand(fixture: Pick<RuntimeFixture, 'id' | 'fixtureFileName'>): string {
-  return `java -jar target/fpml-cdm-mapper.jar fixtures/${fixture.fixtureFileName} --output outputs/${fixture.id}.json --reports reports/${fixture.id}`
+  return `java -jar target/${GENERATED_JAR_NAME}.jar fixtures/${fixture.fixtureFileName} --output outputs/${fixture.id}.json --reports reports/${fixture.id}`
 }
 
 const DEFAULT_JAR_RUNTIME_FIXTURE: Pick<RuntimeFixture, 'id' | 'fixtureFileName'> = {
@@ -200,6 +241,54 @@ async function runJarRuntimeGates(config: GeneratorRunConfig): Promise<GateResul
   const results: GateResult[] = []
   for (const fixture of fixtures) {
     results.push(await runGate(`jar-runtime:${fixture.id}`, jarRuntimeCommand(fixture), config.runOutputDir))
+  }
+  return results
+}
+
+async function runRosettaValidationGates(config: GeneratorRunConfig): Promise<GateResult[]> {
+  const fixtures = config.runtimeFixtures.length === 0 ? [DEFAULT_JAR_RUNTIME_FIXTURE] : config.runtimeFixtures
+  const results: GateResult[] = []
+  const jarPath = config.cdmRosettaPreflight?.validatorModule?.jarPath ?? rosettaValidatorJarPath()
+  for (const fixture of fixtures) {
+    const inputPath = resolve(config.runOutputDir, 'outputs', `${fixture.id}.json`)
+    const command = `java -jar ${jarPath} outputs/${fixture.id}.json --type tradeState`
+    try {
+      await readFile(inputPath, 'utf8')
+      const validation = await validateCdmJsonFileWithRosetta({ inputPath, type: 'tradeState', jarPath })
+      if (validation.valid) {
+        results.push({
+          name: `rosetta-validation:${fixture.id}`,
+          command,
+          status: 'passed',
+          exitCode: 0,
+          outputSnippet: 'CDM/Rosetta Java validation passed.',
+        })
+      } else {
+        const failures = validation.failures.map(failure =>
+          [
+            failure.name,
+            failure.path,
+            failure.failureMessage,
+          ].filter(Boolean).join(' | ')
+        )
+        results.push({
+          name: `rosetta-validation:${fixture.id}`,
+          command,
+          status: 'failed',
+          exitCode: 1,
+          outputSnippet: truncateForLog(failures.join('\n'), 6000),
+        })
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error)
+      results.push({
+        name: `rosetta-validation:${fixture.id}`,
+        command,
+        status: 'failed',
+        exitCode: 1,
+        outputSnippet: truncateForLog(message, 6000),
+      })
+    }
   }
   return results
 }
@@ -257,4 +346,19 @@ function pushSkippedRuntimeGates(results: GateResult[], config: GeneratorRunConf
     }
   }
   results.push(skippedGate('output-validation', 'validate generated-cdm.json and sidecar reports', reason))
+  pushSkippedRosettaValidationGates(results, config, reason)
+}
+
+function pushSkippedRosettaValidationGates(results: GateResult[], config: GeneratorRunConfig, reason: string): void {
+  const fixtures = config.runtimeFixtures.length === 0 ? [DEFAULT_JAR_RUNTIME_FIXTURE] : config.runtimeFixtures
+  const jarPath = config.cdmRosettaPreflight?.validatorModule?.jarPath ?? rosettaValidatorJarPath()
+  for (const fixture of fixtures) {
+    results.push(
+      skippedGate(
+        `rosetta-validation:${fixture.id}`,
+        `java -jar ${jarPath} outputs/${fixture.id}.json --type tradeState`,
+        reason
+      )
+    )
+  }
 }

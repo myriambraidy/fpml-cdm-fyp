@@ -320,8 +320,27 @@ Layer 1:
 
 Layer 2:
 
-- official CDM Java model serialization where practical
-- Rosetta/CDM validation once the local validator API is understood
+- official CDM Java model serialization through `org.finos.cdm:cdm-java`
+- Rosetta/CDM validation through the local `rosetta-validator/` shaded jar
+
+The repository has two Rosetta inputs with different jobs:
+
+```text
+data/rosetta-source/latest/
+  -> .rosetta source, docs, and extracted blocks for LLM mapping context
+
+rosetta-validator/
+  -> Maven module pinned to CDM 6.7.0
+  -> shaded Java validator jar
+  -> optional generated/ source root for agent-written Java builders
+```
+
+The generator preflight passes only after the repo-local validator jar exists or
+can be built. Runtime outputs are then validated as `TradeState` JSON by running:
+
+```text
+java -jar rosetta-validator/target/rosetta-validator-1.0.0.jar outputs/<fixture>.json --type tradeState
+```
 
 ### Reviewer/Repair Loop
 

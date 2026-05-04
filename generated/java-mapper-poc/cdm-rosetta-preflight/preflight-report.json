@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "mode": "repo-local-rosetta-validator",
+  "generatedAt": "2026-05-04T14:07:08.376Z",
+  "reportPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\cdm-rosetta-preflight\\preflight-report.json",
+  "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\cdm-rosetta-preflight\\preflight-report.md",
+  "cdmArtifact": {
+    "groupId": "org.finos.cdm",
+    "artifactId": "cdm-java",
+    "version": "6.7.0"
+  },
+  "validatorModule": {
+    "pomPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\rosetta-validator\\pom.xml",
+    "jarPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\rosetta-validator\\target\\rosetta-validator-1.0.0.jar",
+    "buildCommand": "mvn -q -DskipTests package"
+  },
+  "modelRootCandidates": [
+    "cdm.event.common.TradeState",
+    "cdm.event.common.Trade"
+  ],
+  "requiredClasses": {
+    "Trade": "cdm.event.common.Trade",
+    "TradeState": "cdm.event.common.TradeState",
+    "NonTransferableProduct": "cdm.product.template.NonTransferableProduct",
+    "EconomicTerms": "cdm.product.template.EconomicTerms",
+    "Payout": "cdm.product.template.Payout",
+    "SettlementPayout": "cdm.product.common.settlement.SettlementPayout",
+    "ResolvablePriceQuantity": "cdm.observable.asset.ResolvablePriceQuantity"
+  },
+  "serializer": {
+    "strategy": "maven-compile-gated-jackson-serialization",
+    "notes": "Use the CDM model object as the internal representation and serialize it at the runtime boundary."
+  },
+  "diagnostics": [
+    "rosetta-validator Maven module was found and packaged successfully.",
+    "Built C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\rosetta-validator\\target\\rosetta-validator-1.0.0.jar."
+  ]
+}

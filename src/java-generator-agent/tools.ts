@@ -5,6 +5,12 @@ import { parseJSON } from '../parser/json-parser'
 import { parseXML } from '../parser/xml-parser'
 import { GENERATED_IMPL_PACKAGE, GENERATED_IMPL_SOURCE_ROOT } from './java-contract'
 import { truncateForLog } from './markdown'
+import { renderCdmRosettaPreflightMarkdown } from './cdm-rosetta-preflight'
+import {
+  buildRosettaGenerationContext,
+  renderRosettaCallGraph,
+  renderRosettaGenerationContext,
+} from './rosetta-context'
 import type {
   ActiveStageContext,
   GeneratorRunConfig,
@@ -29,6 +35,9 @@ type ToolName =
   | 'get_expected_cdm_summary'
   | 'get_rosetta_snippets'
   | 'get_rosetta_snippet'
+  | 'get_rosetta_generation_context'
+  | 'get_rosetta_call_graph'
+  | 'get_cdm_rosetta_preflight'
   | 'get_unsupported_products'
 
 type ToolInput = {
@@ -92,6 +101,9 @@ export const GENERATOR_LLM_TOOLS: LLMTool[] = [
   toolSchema('get_rosetta_snippet', 'Return a specific Rosetta function snippet by function name.', [
     ['functionName', 'string'],
   ]),
+  toolSchema('get_rosetta_generation_context', 'Return authoritative Rosetta FX single-leg function context.', []),
+  toolSchema('get_rosetta_call_graph', 'Return the detected Rosetta helper call graph.', []),
+  toolSchema('get_cdm_rosetta_preflight', 'Return the CDM/Rosetta Java dependency preflight report.', []),
   toolSchema('get_unsupported_products', 'Return non-FX and unknown product classifications.', []),
 ]
 
@@ -201,6 +213,9 @@ async function executeTool(
   if (name === 'get_expected_cdm_summary') return parseJsonSummaryTool(context.config, input)
   if (name === 'get_rosetta_snippets') return getRosettaSnippetsTool(context.config)
   if (name === 'get_rosetta_snippet') return getRosettaSnippetTool(context.config, input)
+  if (name === 'get_rosetta_generation_context') return getRosettaGenerationContextTool(context.config)
+  if (name === 'get_rosetta_call_graph') return getRosettaCallGraphTool()
+  if (name === 'get_cdm_rosetta_preflight') return getCdmRosettaPreflightTool(context.config)
   if (name === 'get_unsupported_products') return getUnsupportedProductsTool(context.config)
   return { ok: false, output: `Unknown tool: ${name}`, sourcePaths: [] }
 }
@@ -380,16 +395,61 @@ async function getContextPacketTool(config: GeneratorRunConfig, input: ToolInput
   const rosettaSection = topic.toLowerCase().includes('rosetta')
     ? `\n\n${(await getRosettaSnippetsTool(config)).output}`
     : ''
+  const authoritativeRosettaSection = topic.toLowerCase().includes('rosetta')
+    ? `\n\n${(await getRosettaGenerationContextTool(config)).output}`
+    : ''
   return {
     ok: true,
     output: truncateForLog(
-      [`# Context Packet`, `Role: ${role}`, `Topic: ${topic}`, ...contents, fixtureSections, rosettaSection].join(
-        '\n\n'
-      ),
+      [
+        `# Context Packet`,
+        `Role: ${role}`,
+        `Topic: ${topic}`,
+        ...contents,
+        fixtureSections,
+        rosettaSection,
+        authoritativeRosettaSection,
+      ].join('\n\n'),
       32_000
     ),
     sourcePaths: paths,
   }
+}
+
+async function getRosettaGenerationContextTool(config: GeneratorRunConfig): Promise<ToolResult> {
+  const path = resolve(config.runOutputDir, 'agent-workspace', 'rosetta-generation-context.md')
+  if (await exists(path)) {
+    const content = await readFile(path, 'utf8')
+    return { ok: true, output: truncateForLog(content, 48_000), sourcePaths: [path] }
+  }
+  const context = await buildRosettaGenerationContext()
+  return {
+    ok: true,
+    output: truncateForLog(renderRosettaGenerationContext(context), 48_000),
+    sourcePaths: [resolve('data/rosetta-source/latest/extracted/blocks.json')],
+  }
+}
+
+async function getRosettaCallGraphTool(): Promise<ToolResult> {
+  const context = await buildRosettaGenerationContext()
+  return {
+    ok: true,
+    output: truncateForLog(renderRosettaCallGraph(context), 24_000),
+    sourcePaths: [resolve('data/rosetta-source/latest/extracted/blocks.json')],
+  }
+}
+
+async function getCdmRosettaPreflightTool(config: GeneratorRunConfig): Promise<ToolResult> {
+  if (config.cdmRosettaPreflight !== undefined) {
+    return {
+      ok: true,
+      output: truncateForLog(renderCdmRosettaPreflightMarkdown(config.cdmRosettaPreflight), 16_000),
+      sourcePaths: [config.cdmRosettaPreflight.markdownPath],
+    }
+  }
+  const path = resolve(config.runOutputDir, 'agent-workspace', 'cdm-rosetta-preflight.md')
+  const content = await readFile(path, 'utf8')
+  return { ok: true, output: truncateForLog(content, 16_000), sourcePaths: [path] }
 }
 
 async function getRosettaSnippetsTool(config: GeneratorRunConfig): Promise<ToolResult> {

@@ -76,3 +76,25 @@ Run tests:
 ```bash
 bun test
 ```
+
+## CDM/Rosetta Java Validator
+
+The generator uses the local `rosetta-validator/` Maven module as its compiled
+CDM/Rosetta classpath anchor. The `.rosetta` files under
+`data/rosetta-source/latest` remain LLM context and mapping authority; the Maven
+module supplies the executable Java model and validator.
+
+Build the shaded validator jar:
+
+```bash
+bun run rosetta:build
+```
+
+Check the generator preflight:
+
+```bash
+bun run rosetta:preflight
+```
+
+The generated Java promotion gates now validate runtime CDM JSON with the
+validator jar after structural output validation passes.

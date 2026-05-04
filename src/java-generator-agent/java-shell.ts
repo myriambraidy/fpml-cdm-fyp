@@ -1,10 +1,12 @@
 import { copyFile, mkdir, stat, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import {
+  GENERATED_ARTIFACT_ID,
   GENERATED_BASE_PACKAGE,
   GENERATED_IMPL_CLASS,
   GENERATED_IMPL_PACKAGE,
   GENERATED_IMPL_SOURCE_ROOT,
+  GENERATED_JAR_NAME,
   GENERATED_JAVA_VERSION,
 } from './java-contract'
 import type { GeneratorRunConfig } from './types'
@@ -17,7 +19,7 @@ export async function createJavaProjectShell(config: GeneratorRunConfig): Promis
   await mkdir(join(config.runOutputDir, 'build-reports'), { recursive: true })
 
   await copyFixtures(config)
-  await writeIfMissing(join(config.runOutputDir, 'pom.xml'), renderPom())
+  await writeIfMissing(join(config.runOutputDir, 'pom.xml'), renderPom(config))
   await writeIfMissing(
     join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/FpmlToCdmMapper.java'),
     renderMapperInterface()
@@ -32,14 +34,23 @@ export async function createJavaProjectShell(config: GeneratorRunConfig): Promis
   )
 }
 
-function renderPom(): string {
+function renderPom(config: GeneratorRunConfig): string {
+  const cdmDependency =
+    config.cdmRosettaPreflight?.status === 'passed'
+      ? `    <dependency>
+      <groupId>${config.cdmRosettaPreflight.cdmArtifact.groupId}</groupId>
+      <artifactId>${config.cdmRosettaPreflight.cdmArtifact.artifactId}</artifactId>
+      <version>${config.cdmRosettaPreflight.cdmArtifact.version}</version>
+    </dependency>
+`
+      : ''
   return `<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.fpml.cdm</groupId>
-  <artifactId>fpml-cdm-mapper</artifactId>
+  <artifactId>${GENERATED_ARTIFACT_ID}</artifactId>
   <version>0.1.0</version>
   <packaging>jar</packaging>
 
@@ -53,7 +64,7 @@ function renderPom(): string {
   </properties>
 
   <dependencies>
-    <dependency>
+${cdmDependency}    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>\${jackson.version}</version>
@@ -89,7 +100,7 @@ function renderPom(): string {
               <goal>shade</goal>
             </goals>
             <configuration>
-              <finalName>fpml-cdm-mapper</finalName>
+              <finalName>${GENERATED_JAR_NAME}</finalName>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <mainClass>com.fpml.cdm.fx.mapper.Main</mainClass>
@@ -167,7 +178,7 @@ public final class RuntimeArgs {
     public static RuntimeArgs parse(String[] args) {
         if (args.length != 5 || !"--output".equals(args[1]) || !"--reports".equals(args[3])) {
             throw new IllegalArgumentException(
-                "Usage: java -jar target/fpml-cdm-mapper.jar <input.xml> --output <output.json> --reports <reportsDir>"
+                "Usage: java -jar target/${GENERATED_JAR_NAME}.jar <input.xml> --output <output.json> --reports <reportsDir>"
             );
         }
         return new RuntimeArgs(Path.of(args[0]), Path.of(args[2]), Path.of(args[4]));

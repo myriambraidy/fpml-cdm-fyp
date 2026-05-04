@@ -43,10 +43,13 @@ describe('java generator gates', () => {
         const results = await runGates(config)
 
         const skippedJar = results.filter(r => r.name.startsWith('jar-runtime:') && r.status === 'skipped')
+        const skippedRosetta = results.filter(r => r.name.startsWith('rosetta-validation:') && r.status === 'skipped')
         expect(skippedJar.length).toBe(DEFAULT_RUNTIME_FIXTURES.length)
+        expect(skippedRosetta.length).toBe(DEFAULT_RUNTIME_FIXTURES.length)
         for (let i = 0; i < DEFAULT_RUNTIME_FIXTURES.length; i += 1) {
           const fixture = DEFAULT_RUNTIME_FIXTURES[i]
           expect(skippedJar[i]?.name).toBe(`jar-runtime:${fixture.id}`)
+          expect(skippedRosetta[i]?.name).toBe(`rosetta-validation:${fixture.id}`)
         }
       } finally {
         await rm(root, { recursive: true, force: true })
@@ -65,7 +68,7 @@ describe('java generator gates', () => {
 
       expect(result.status).toBe('failed')
       expect(result.name).toBe(`jar-runtime:${DEFAULT_RUNTIME_FIXTURES[0].id}`)
-      expect(result.command).toContain('target/fpml-cdm-mapper.jar')
+      expect(result.command).toContain('target/fpml-cdm-rosetta-mapper.jar')
     } finally {
       await rm(root, { recursive: true, force: true })
     }

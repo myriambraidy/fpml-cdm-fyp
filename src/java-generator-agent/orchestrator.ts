@@ -60,17 +60,22 @@ export async function runJavaGeneratorAgent(args: {
     args.config,
     createStageEntry({
       stage: 'preflight',
-      status: 'passed',
-      artifact: workspace.evidencePacketPath,
+      status: args.config.cdmRosettaPreflight?.status === 'passed' ? 'passed' : 'failed',
+      artifact: workspace.cdmRosettaPreflightPath,
       startedAt: new Date().toISOString(),
       endedAt: new Date().toISOString(),
       toolCalls: 0,
       failedToolCalls: 0,
-      message: args.config.resume ? 'Workspace resumed and Java shell ready.' : 'Workspace and Java shell created.',
+      message:
+        args.config.cdmRosettaPreflight?.status === 'passed'
+          ? 'Workspace and Rosetta-native Java shell created.'
+          : 'CDM/Rosetta Java dependency preflight is blocked.',
     })
   )
-
   try {
+    if (args.config.cdmRosettaPreflight?.status !== 'passed') {
+      throw new Error('CDM/Rosetta Java dependency preflight is blocked; see agent-workspace/cdm-rosetta-preflight.md.')
+    }
     const accepted = await runPlanningLoop(args.llm, args.config, workspace, audit, toolState, logger)
     if (!accepted) {
       await writeToolAuditLog(args.config, audit)

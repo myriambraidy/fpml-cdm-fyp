@@ -37,7 +37,7 @@ function parseArgs(argv: string[]): CliArgs {
 }
 
 const args = parseArgs(process.argv.slice(2))
-const config = createRunConfig({
+const config = await createRunConfig({
   productFamily: args.productFamily,
   baseOutputDir: args.out,
   requireApproval: args.requireApproval,

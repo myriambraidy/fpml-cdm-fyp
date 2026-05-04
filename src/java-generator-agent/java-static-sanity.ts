@@ -74,11 +74,28 @@ export async function findGeneratedJavaStaticSanityFindings(root: string): Promi
   for (const file of javaFiles) {
     const text = await readFile(file, 'utf8')
     const lines = text.split(/\r?\n/u)
+    const displayPath = relative(root, file)
+    if (isGeneratedMapperSource(file) && /ObjectNode|ArrayNode/u.test(text)) {
+      findings.push({
+        file: displayPath,
+        line: firstMatchingLine(lines, /ObjectNode|ArrayNode/u),
+        code: 'jackson_tree_cdm_construction',
+        message: 'Generated mapper must not use Jackson tree nodes as the internal CDM model.',
+      })
+    }
+    if (isGeneratedMapperSource(file) && !/import\s+(cdm|com\.rosetta)\./u.test(text)) {
+      findings.push({
+        file: displayPath,
+        line: 1,
+        code: 'missing_cdm_rosetta_import',
+        message: 'Generated mapper must import preflight-approved CDM/Rosetta model classes.',
+      })
+    }
     lines.forEach((line, index) => {
       for (const forbidden of forbiddenJavaPatterns) {
         if (forbidden.pattern.test(line)) {
           findings.push({
-            file: relative(root, file),
+            file: displayPath,
             line: index + 1,
             code: forbidden.code,
             message: forbidden.message,
@@ -91,6 +108,16 @@ export async function findGeneratedJavaStaticSanityFindings(root: string): Promi
   return findings
 }
 
+function isGeneratedMapperSource(file: string): boolean {
+  return file.includes('src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\')
+    || file.includes('src/main/java/com/fpml/cdm/fx/mapper/generated/')
+}
+
+function firstMatchingLine(lines: string[], pattern: RegExp): number {
+  const index = lines.findIndex(line => pattern.test(line))
+  return index === -1 ? 1 : index + 1
+}
+
 async function exists(path: string): Promise<boolean> {
   try {
     await stat(path)
@@ -99,4 +126,3 @@ async function exists(path: string): Promise<boolean> {
     return false
   }
 }
-

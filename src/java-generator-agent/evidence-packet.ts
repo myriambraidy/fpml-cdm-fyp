@@ -3,6 +3,10 @@ import { parseJSON } from '../parser/json-parser'
 import { parseXML } from '../parser/xml-parser'
 import type { ProductScopeGuidance } from './product-scope'
 import { renderProductScopeMarkdown } from './product-scope'
+import type { CdmRosettaPreflightReport } from './cdm-rosetta-preflight'
+import { ensureCdmRosettaPreflightReport, renderCdmRosettaPreflightMarkdown } from './cdm-rosetta-preflight'
+import type { RosettaGenerationContext } from './rosetta-context'
+import { buildRosettaGenerationContext, renderRosettaGenerationContext } from './rosetta-context'
 
 export type EvidencePacket = {
   generatedAt: string
@@ -11,6 +15,8 @@ export type EvidencePacket = {
   expectedCdmSummaries: EvidenceFileSummary[]
   cookbookFiles: EvidenceFileSummary[]
   rosettaFiles: EvidenceFileSummary[]
+  rosettaGenerationContext: RosettaGenerationContext
+  cdmRosettaPreflight: CdmRosettaPreflightReport
   knownAbsentPaths: string[]
   notes: string[]
 }
@@ -35,6 +41,10 @@ export async function buildEvidencePacket(scope: ProductScopeGuidance): Promise<
       collectCookbookSummaries(),
       collectRosettaSummaries(),
     ])
+  const [rosettaGenerationContext, cdmRosettaPreflight] = await Promise.all([
+    buildRosettaGenerationContext(),
+    ensureCdmRosettaPreflightReport(),
+  ])
 
   return {
     generatedAt: new Date().toISOString(),
@@ -43,11 +53,18 @@ export async function buildEvidencePacket(scope: ProductScopeGuidance): Promise<
     expectedCdmSummaries,
     cookbookFiles,
     rosettaFiles,
+    rosettaGenerationContext,
+    cdmRosettaPreflight,
     knownAbsentPaths: scope.knownAbsentPaths,
     notes: [
       'Use 00-product-scope.json as the authoritative FX product map.',
       'Use data/agent-cookbook/latest/product-families/fx-derivatives.md for cookbook rules.',
       'Use data/agent-cookbook/latest/references/fx-derivatives.evidence.json for evidence metadata.',
+      'Rosetta source is authoritative for CDM mapping structure.',
+      'Cookbook rules are secondary and must not override Rosetta source.',
+      'Generated Java must use CDM/Rosetta Java model classes as the internal model.',
+      'Jackson ObjectNode/ArrayNode are allowed for sidecar reports only, not CDM construction.',
+      'Runtime support claims must be fixture-gated.',
       'Do not invent product roots, fixture paths, or cookbook paths.',
     ],
   }
@@ -84,6 +101,14 @@ ${renderSummaries(packet.cookbookFiles)}
 ## Rosetta Context
 
 ${renderSummaries(packet.rosettaFiles)}
+
+## CDM/Rosetta Java Preflight
+
+${renderCdmRosettaPreflightMarkdown(packet.cdmRosettaPreflight)}
+
+## Rosetta Authoritative Context
+
+${renderRosettaGenerationContext(packet.rosettaGenerationContext)}
 
 ## Known Absent Paths
 

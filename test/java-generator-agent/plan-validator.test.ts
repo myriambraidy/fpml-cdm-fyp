@@ -48,6 +48,21 @@ The shipped mapper is deterministic and has no AI call.`,
     expect(result.details?.parsedInScopeGroups).toEqual(['fx-single-leg'])
   })
 
+  test('passes when the plan explicitly forbids runtime LLM use', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}
+${RUNTIME_FIXTURES_BLOCK}
+## Validation gates
+- No LLM dependency: Generated code must contain zero external dependencies on AI models or runtime LLMs.
+- Runtime execution of the generated Java mapper must not invoke or depend on any external AI/LLM service or model.`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+    })
+
+    expect(result.status).toBe('passed')
+  })
+
   test('fails when in-scope lists an undefined slug such as fx-fwd', async () => {
     const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
     const badBlock = `## Implementation scope (machine-checked)

@@ -1,6 +1,7 @@
 import { basename, dirname, join } from 'node:path'
 import { env } from '../config'
 import { DEFAULT_RUNTIME_FIXTURES } from './java-contract'
+import { ensureCdmRosettaPreflightReport } from './cdm-rosetta-preflight'
 import type { GeneratorRole, GeneratorRunConfig, RoleModelConfig } from './types'
 
 export type JavaGeneratorCliOptions = {
@@ -10,7 +11,7 @@ export type JavaGeneratorCliOptions = {
   resumeRunOutputDir?: string
 }
 
-export function createRunConfig(options: JavaGeneratorCliOptions): GeneratorRunConfig {
+export async function createRunConfig(options: JavaGeneratorCliOptions): Promise<GeneratorRunConfig> {
   const runId = options.resumeRunOutputDir
     ? basename(options.resumeRunOutputDir)
     : new Date().toISOString().replace(/[:.]/g, '-')
@@ -18,6 +19,7 @@ export function createRunConfig(options: JavaGeneratorCliOptions): GeneratorRunC
     ? dirname(dirname(options.resumeRunOutputDir))
     : options.baseOutputDir ?? 'generated/java-mapper-poc'
   const productFamily = options.productFamily ?? 'fx-derivatives'
+  const cdmRosettaPreflight = await ensureCdmRosettaPreflightReport()
 
   return {
     runId,
@@ -38,6 +40,7 @@ export function createRunConfig(options: JavaGeneratorCliOptions): GeneratorRunC
     fixturePaths: DEFAULT_RUNTIME_FIXTURES.map(fixture => fixture.fpmlPath),
     expectedCdmPaths: DEFAULT_RUNTIME_FIXTURES.map(fixture => fixture.expectedCdmPath),
     runtimeFixtures: DEFAULT_RUNTIME_FIXTURES,
+    cdmRosettaPreflight,
     roleModels: createRoleModels(),
   }
 }

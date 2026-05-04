@@ -8,6 +8,8 @@ import {
 } from './java-contract'
 import { bulletList } from './markdown'
 import { buildEvidencePacket, writeEvidencePacket } from './evidence-packet'
+import { renderCdmRosettaPreflightMarkdown } from './cdm-rosetta-preflight'
+import { renderRosettaGenerationContext } from './rosetta-context'
 import { buildProductScopeGuidance, renderProductScopeMarkdown } from './product-scope'
 import { appendRunLog } from './run-log'
 import type { ProductScopeGuidance } from './product-scope'
@@ -28,6 +30,8 @@ export async function createWorkspace(
     evidencePacketJsonPath: join(rootDir, 'evidence-packet.json'),
     evidenceIndexPath: join(rootDir, 'evidence-index.md'),
     javaShellContractPath: join(rootDir, 'java-shell-contract.md'),
+    rosettaGenerationContextPath: join(rootDir, 'rosetta-generation-context.md'),
+    cdmRosettaPreflightPath: join(rootDir, 'cdm-rosetta-preflight.md'),
     runLogPath: join(rootDir, '00-run-log.md'),
     acceptedPlanPath: join(rootDir, 'accepted-plan.md'),
     implementationPlanPath: join(rootDir, 'implementation-plan.md'),
@@ -48,6 +52,16 @@ export async function createWorkspace(
       markdownPath: workspace.evidencePacketPath,
       jsonPath: workspace.evidencePacketJsonPath,
     })
+    await writeFile(
+      workspace.rosettaGenerationContextPath,
+      renderRosettaGenerationContext(evidencePacket.rosettaGenerationContext),
+      'utf8'
+    )
+    await writeFile(
+      workspace.cdmRosettaPreflightPath,
+      renderCdmRosettaPreflightMarkdown(evidencePacket.cdmRosettaPreflight),
+      'utf8'
+    )
     await writeFile(workspace.evidenceIndexPath, renderEvidenceIndex(config, productScope), 'utf8')
     await writeFile(workspace.javaShellContractPath, renderJavaShellContract(config), 'utf8')
     await writeFile(workspace.runLogPath, renderRunLogStart(config), 'utf8')
@@ -124,6 +138,8 @@ ${bulletList(observedFixtures.map(fixture => `${fixture.productGroup}: ${fixture
 
 - Full evidence packet: agent-workspace/evidence-packet.md
 - Product scope JSON: agent-workspace/00-product-scope.json
+- Rosetta authoritative context: agent-workspace/rosetta-generation-context.md
+- CDM/Rosetta Java preflight: agent-workspace/cdm-rosetta-preflight.md
 - Rosetta FX docs: data/rosetta-source/latest/docs/product-families/fx.md
 - Shared Rosetta ingest docs: data/rosetta-source/latest/docs/shared-ingest.md
 `
@@ -136,6 +152,7 @@ Java target: ${GENERATED_JAVA_VERSION}
 Base package: ${GENERATED_BASE_PACKAGE}
 Generated implementation package: ${GENERATED_IMPL_PACKAGE}
 Generated implementation class: ${GENERATED_IMPL_CLASS}
+CDM/Rosetta preflight status: ${config.cdmRosettaPreflight?.status ?? 'missing'}
 
 ## Shell-Owned Files
 
@@ -153,6 +170,13 @@ Generated implementation class: ${GENERATED_IMPL_CLASS}
 ## Runtime Fixtures
 
 ${bulletList(config.runtimeFixtures.map(fixture => `${fixture.id}: fixtures/${fixture.fixtureFileName}`))}
+
+## Rosetta-Native Runtime Rules
+
+- Build the main CDM result with preflight-approved CDM/Rosetta Java model classes.
+- Do not build the main CDM output with Jackson ObjectNode or ArrayNode.
+- Use Jackson only for final serialization and sidecar reports.
+- Cite Rosetta function names in traceability reports.
 `
 }
 
