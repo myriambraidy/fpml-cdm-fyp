@@ -24,11 +24,14 @@ const EnvSchema = z.object({
     .positive()
     .max(128_000)
     .default(20_000),
+  JAVA_GENERATOR_MAX_LLM_CALLS: z.coerce.number().int().positive().max(100).default(12),
+  JAVA_GENERATOR_MAX_INPUT_TOKENS_PER_CALL: z.coerce.number().int().positive().max(128_000).default(80_000),
+  JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS: z.coerce.number().int().min(0).max(10).default(2),
   JAVA_GENERATOR_PLANNER_MODEL: z.string().default('qwen/qwen3-coder-30b-a3b-instruct'),
   JAVA_GENERATOR_CRITIC_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_IMPLEMENTER_MODEL: z.string().default('minimax/minimax-m2.7'),
-  JAVA_GENERATOR_REPAIR_MODEL: z.string().default('minimax/minimax-m2.7'),
+  JAVA_GENERATOR_REPAIR_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_BUILD_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_PLANNER_FALLBACK_MODEL: z.string().optional(),
   JAVA_GENERATOR_CRITIC_FALLBACK_MODEL: z.string().optional(),

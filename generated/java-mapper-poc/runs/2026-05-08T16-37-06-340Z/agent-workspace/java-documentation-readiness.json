@@ -1,0 +1,369 @@
+{
+  "generatedAt": "2026-05-08T16:37:07.042Z",
+  "status": "passed",
+  "productFamily": "fx-derivatives",
+  "implementationGroup": "fx-single-leg",
+  "cdmArtifact": {
+    "groupId": "org.finos.cdm",
+    "artifactId": "cdm-java",
+    "version": "6.7.0",
+    "jarPath": "C:\\Users\\User\\.m2\\repository\\org\\finos\\cdm\\cdm-java\\6.7.0\\cdm-java-6.7.0.jar"
+  },
+  "checks": [
+    {
+      "name": "cdm-java-manifest",
+      "status": "passed",
+      "message": "CDM Java manifest version 6.7.0."
+    },
+    {
+      "name": "cdm-java-index",
+      "status": "passed",
+      "message": "CDM Java index path: C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\api-index.json."
+    },
+    {
+      "name": "approved-api-contract",
+      "status": "passed",
+      "message": "Approved classes: 38; approved builder methods: 114."
+    },
+    {
+      "name": "semantic-recipes",
+      "status": "passed",
+      "message": "Recipes: 1."
+    },
+    {
+      "name": "semantic-recipe-validation",
+      "status": "passed",
+      "message": "Semantic recipe validation status: passed."
+    },
+    {
+      "name": "semantic-recipe-fixtures",
+      "status": "passed",
+      "message": "Semantic recipe fixture status: passed."
+    },
+    {
+      "name": "context-budget",
+      "status": "passed",
+      "message": "Context budget status: passed."
+    },
+    {
+      "name": "rosetta-fx-pack",
+      "status": "passed",
+      "message": "FX Rosetta product-family pack must be available."
+    },
+    {
+      "name": "rosetta-shared-ingest-pack",
+      "status": "passed",
+      "message": "Shared Rosetta ingest pack must be available."
+    }
+  ],
+  "concepts": [
+    {
+      "concept": "Trade root",
+      "status": "resolved",
+      "selectedClassName": "cdm.event.common.Trade",
+      "approved": true,
+      "builderReady": true,
+      "evidence": [
+        "cdm.event.common.Trade"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Trade state root",
+      "status": "resolved",
+      "selectedClassName": "cdm.event.common.TradeState",
+      "approved": true,
+      "builderReady": true,
+      "evidence": [
+        "cdm.event.common.TradeState"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Contract details",
+      "status": "resolved",
+      "selectedClassName": "cdm.event.common.ContractDetails",
+      "approved": true,
+      "builderReady": false,
+      "evidence": [
+        "cdm.event.common.ContractDetails"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Non-transferable product",
+      "status": "resolved",
+      "selectedClassName": "cdm.product.template.NonTransferableProduct",
+      "approved": true,
+      "builderReady": true,
+      "evidence": [
+        "cdm.product.template.NonTransferableProduct"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Economic terms",
+      "status": "resolved",
+      "selectedClassName": "cdm.product.template.EconomicTerms",
+      "approved": true,
+      "builderReady": false,
+      "evidence": [
+        "cdm.product.template.EconomicTerms"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Payout container",
+      "status": "resolved",
+      "selectedClassName": "cdm.product.template.Payout",
+      "approved": true,
+      "builderReady": true,
+      "evidence": [
+        "cdm.product.template.Payout"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Settlement payout",
+      "status": "resolved",
+      "selectedClassName": "cdm.product.template.SettlementPayout",
+      "approved": true,
+      "builderReady": true,
+      "evidence": [
+        "cdm.product.template.SettlementPayout"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Resolvable price quantity",
+      "status": "resolved",
+      "selectedClassName": "cdm.product.common.settlement.ResolvablePriceQuantity",
+      "approved": true,
+      "builderReady": false,
+      "evidence": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Price schedule",
+      "status": "resolved",
+      "selectedClassName": "cdm.observable.asset.PriceSchedule",
+      "approved": true,
+      "builderReady": false,
+      "evidence": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    },
+    {
+      "concept": "Party reference or party identity",
+      "status": "resolved",
+      "selectedClassName": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "approved": true,
+      "builderReady": false,
+      "evidence": [
+        "cdm.base.staticdata.party.Party",
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "diagnostics": [
+        "selected from compiled jar index using preferred package order",
+        "Selected class is approved by the run-specific API contract."
+      ]
+    }
+  ],
+  "rosettaAreas": [
+    {
+      "area": "product-root",
+      "required": true,
+      "functionNames": [
+        "MapFxSingleLegNonTransferableProduct",
+        "MapProductIdentifierList",
+        "MapProductTaxonomyList"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegNonTransferableProduct",
+        "func:ingest-fpml-confirmation-common-func.rosetta:MapProductIdentifierList",
+        "func:ingest-fpml-confirmation-common-func.rosetta:MapProductTaxonomyList"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxSingleLegNonTransferableProduct from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:34-47.",
+        "Resolved Rosetta function MapProductIdentifierList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:235-242.",
+        "Resolved Rosetta function MapProductTaxonomyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:109-136.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "economic-terms",
+      "required": true,
+      "functionNames": [
+        "MapFxSingleLegEconomicTerms"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegEconomicTerms"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxSingleLegEconomicTerms from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:48-64.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "settlement-payout",
+      "required": true,
+      "functionNames": [
+        "MapFxCoreDetailsModelToSettlementPayout"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayout"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "price-quantity",
+      "required": true,
+      "functionNames": [
+        "MapFxSingleLegPriceQuantityList",
+        "MapFxCoreDetailsModelPriceListWithLocation",
+        "MapFxCoreDetailsModelQuantityListWithLocation"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-pricequantity-func.rosetta:MapFxCoreDetailsModelPriceListWithLocation",
+        "func:ingest-fpml-confirmation-pricequantity-func.rosetta:MapFxCoreDetailsModelQuantityListWithLocation",
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegPriceQuantityList"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxCoreDetailsModelPriceListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:1245-1259.",
+        "Resolved Rosetta function MapFxCoreDetailsModelQuantityListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:540-574.",
+        "Resolved Rosetta function MapFxSingleLegPriceQuantityList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:112-120.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "party-counterparty",
+      "required": true,
+      "functionNames": [
+        "MapFxSingleLegCounterpartyList",
+        "MapFxSingleLegAncillaryPartyList"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegAncillaryPartyList",
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegCounterpartyList"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxSingleLegAncillaryPartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:28-33.",
+        "Resolved Rosetta function MapFxSingleLegCounterpartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:17-27.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "account-party-reference",
+      "required": true,
+      "functionNames": [
+        "MapFxSingleLegAccountPartyReference",
+        "MapPayerReceiverToAccountPartyReference"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegAccountPartyReference",
+        "func:ingest-fpml-confirmation-party-func.rosetta:MapPayerReceiverToAccountPartyReference"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapFxSingleLegAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:121-134.",
+        "Resolved Rosetta function MapPayerReceiverToAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta:647-677.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "product-identifiers-taxonomy",
+      "required": true,
+      "functionNames": [
+        "MapProductIdentifierList",
+        "MapProductIdentifier",
+        "MapProductTaxonomyList"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-common-func.rosetta:MapProductIdentifier",
+        "func:ingest-fpml-confirmation-common-func.rosetta:MapProductIdentifierList",
+        "func:ingest-fpml-confirmation-common-func.rosetta:MapProductTaxonomyList"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapProductIdentifier from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:243-257.",
+        "Resolved Rosetta function MapProductIdentifierList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:235-242.",
+        "Resolved Rosetta function MapProductTaxonomyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:109-136.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    },
+    {
+      "area": "dates-settlement",
+      "required": true,
+      "functionNames": [
+        "MapFxCoreDetailsModelToSettlementPayout",
+        "MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate"
+      ],
+      "blockIds": [
+        "func:ingest-fpml-confirmation-datetime-func.rosetta:MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate",
+        "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayout"
+      ],
+      "status": "resolved",
+      "diagnostics": [
+        "Resolved Rosetta function MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta:25-40.",
+        "Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.",
+        "Rosetta source is mapping-intent authority, not Java API authority."
+      ]
+    }
+  ],
+  "authorityFiles": [
+    "generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\java-shell-contract.md",
+    "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\approved-cdm-api-contract-summary.md",
+    "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\semantic-recipes.md",
+    "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\semantic-recipe-validation.md",
+    "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\semantic-recipe-fixtures.md",
+    "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T16-37-06-340Z\\agent-workspace\\context-budget-report.md",
+    "data/rosetta-source/latest/docs/product-families/fx.md",
+    "data/rosetta-source/latest/docs/shared-ingest.md"
+  ],
+  "blockingIssues": [],
+  "warnings": [
+    "Contract details has no direct approved builder method; it may only be used as a parameter or constructed indirectly.",
+    "Economic terms has no direct approved builder method; it may only be used as a parameter or constructed indirectly.",
+    "Resolvable price quantity has no direct approved builder method; it may only be used as a parameter or constructed indirectly.",
+    "Price schedule has no direct approved builder method; it may only be used as a parameter or constructed indirectly.",
+    "Party reference or party identity has no direct approved builder method; it may only be used as a parameter or constructed indirectly."
+  ]
+}

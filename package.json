@@ -23,6 +23,8 @@
     "fetch:rosetta-source": "bun scripts/data-web-scraping/fetch-rosetta-source.ts",
     "index:rosetta-source": "bun scripts/data-web-scraping/index-rosetta-source.ts",
     "docs:rosetta-source": "bun scripts/data-web-scraping/build-rosetta-docpacks.ts",
+    "cdm-java-api:build": "bun scripts/build-cdm-java-api-pack.ts",
+    "cdm-java-api:check": "bun scripts/build-cdm-java-api-pack.ts --check",
     "preflight:cdm-rosetta-java": "bun scripts/preflight-cdm-rosetta-java.ts",
     "rosetta:build": "cd rosetta-validator && mvn -q -DskipTests package",
     "rosetta:preflight": "bun scripts/preflight-cdm-rosetta-java.ts",

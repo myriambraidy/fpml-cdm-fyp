@@ -98,3 +98,27 @@ bun run rosetta:preflight
 
 The generated Java promotion gates now validate runtime CDM JSON with the
 validator jar after structural output validation passes.
+
+## CDM Java API Pack
+
+The generator also uses a local CDM Java API pack generated from the same
+`org.finos.cdm:cdm-java:6.7.0` jar used by Maven. This pack is the LLM's
+implementation API truth: it lists which CDM Java classes exist, where they
+live, their public/builder methods, and known missing classes that must not be
+imported.
+
+Build or verify the pack:
+
+```bash
+bun run cdm-java-api:build
+bun run cdm-java-api:check
+```
+
+Generated files live under:
+
+```text
+data/cdm-java-api/6.7.0/
+```
+
+Rosetta source still defines mapping intent. The CDM Java API pack defines the
+Java classes and methods the generated mapper is allowed to use.

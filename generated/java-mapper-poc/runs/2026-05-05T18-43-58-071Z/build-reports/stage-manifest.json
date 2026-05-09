@@ -1,0 +1,12 @@
+[
+  {
+    "stage": "preflight",
+    "status": "passed",
+    "artifact": "generated\\java-mapper-poc\\runs\\2026-05-05T18-43-58-071Z\\agent-workspace\\cdm-rosetta-preflight.md",
+    "startedAt": "2026-05-05T18:43:58.270Z",
+    "endedAt": "2026-05-05T18:43:58.270Z",
+    "toolCalls": 0,
+    "failedToolCalls": 0,
+    "message": "Workspace and Rosetta-native Java shell created."
+  }
+]

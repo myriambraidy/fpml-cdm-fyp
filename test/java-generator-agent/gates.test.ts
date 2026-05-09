@@ -3,6 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
 import {
+  runGeneratedImplementationContractGate,
+} from '../../src/java-generator-agent/generated-implementation-contract'
+import {
   runGates,
   runJarRuntimeGate,
   validateGeneratedProjectStructure,
@@ -69,6 +72,21 @@ describe('java generator gates', () => {
       expect(result.status).toBe('failed')
       expect(result.name).toBe(`jar-runtime:${DEFAULT_RUNTIME_FIXTURES[0].id}`)
       expect(result.command).toContain('target/fpml-cdm-rosetta-mapper.jar')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  test('generated implementation contract fails when entry class is missing', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-gates-'))
+    try {
+      const config = makeConfig(root)
+      await mkdir(join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/generated'), { recursive: true })
+
+      const result = await runGeneratedImplementationContractGate(config)
+
+      expect(result.status).toBe('failed')
+      expect(result.outputSnippet).toContain('GeneratedFpmlToCdmMapper.java')
     } finally {
       await rm(root, { recursive: true, force: true })
     }

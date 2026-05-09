@@ -333,6 +333,11 @@ rosetta-validator/
   -> Maven module pinned to CDM 6.7.0
   -> shaded Java validator jar
   -> optional generated/ source root for agent-written Java builders
+
+data/cdm-java-api/6.7.0/
+  -> javap-derived API pack from cdm-java-6.7.0.jar
+  -> exact class/package/builder method inventory for LLM implementation
+  -> negative evidence for missing classes such as FpmlFxSingleLeg
 ```
 
 The generator preflight passes only after the repo-local validator jar exists or
@@ -341,6 +346,22 @@ can be built. Runtime outputs are then validated as `TradeState` JSON by running
 ```text
 java -jar rosetta-validator/target/rosetta-validator-1.0.0.jar outputs/<fixture>.json --type tradeState
 ```
+
+Before Maven compile, generated Java is also checked against the CDM Java API
+pack. The pack is generated from the compiled Maven artifact, not inferred from
+Rosetta names or expected JSON paths:
+
+```text
+org.finos.cdm:cdm-java:6.7.0
+  -> cdm-java-6.7.0.jar
+  -> jar tf class inventory
+  -> javap public and builder signatures
+  -> agent-workspace/cdm-java-api-pack.md
+```
+
+This prevents generated code from importing missing symbols such as
+`cdm.product.common.settlement.SettlementPayout` when that class is not present
+in the pinned CDM Java jar.
 
 ### Reviewer/Repair Loop
 

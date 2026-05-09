@@ -1,0 +1,352 @@
+[
+  {
+    "tool": "get_cdm_rosetta_preflight",
+    "inputSummary": "",
+    "outputSummary": "# CDM/Rosetta Java Preflight\n\nGenerated: 2026-05-06T11:11:20.039Z\nStatus: passed\nMode: repo-local-rosetta-validator\n\n## Artifact\n\norg.finos.cdm:cdm-java:6.7.0\n\n## Validator Module\n\n- POM: C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\rosetta-validator\\pom.xml\n- JAR: C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\rosetta-validator\\target\\rosetta-validator-1.0.0.jar\n- Build command: mvn -q -DskipTests package\n\n## Model Root Candidates\n\n- cdm.event.common.TradeState\n- cdm.event.common.Trade\n\n## Required Classes\n\n- Trade \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\cdm-rosetta-preflight\\preflight-report.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_api_summary",
+    "inputSummary": "",
+    "outputSummary": "# CDM Java API Summary\n\nArtifact: org.finos.cdm:cdm-java:6.7.0\nAuthority: compiled-jar-javap\nTotal indexed classes: 5183\n\n## Rules\n\n- This summary is an index, not method authority.\n- The compiled CDM Java jar inspected by javap is the only source of truth.\n- Before using any CDM class builder, call get_cdm_java_class with the exact fully qualified class name.\n- Missing-class results apply only to the exact package queried.\n- Do not infer a class is missing from a same-simple-name class in anoth\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\cdm-java-api-summary.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_missing_classes",
+    "inputSummary": "",
+    "outputSummary": "# CDM Java Missing-Class Observations\n\nArtifact: org.finos.cdm:cdm-java:6.7.0\nAuthority: compiled-jar-javap\n\nThese observations apply only to exact fully qualified class names. Do not generalize by simple name.\n\n- cdm.base.math.PriceSchedule: exact class not found in cdm-java-6.7.0.jar\n  Same simple-name candidates in jar:\n  - cdm.observable.asset.PriceSchedule\n- cdm.base.math.PriceTypeEnum: exact class not found in cdm-java-6.7.0.jar\n  Same simple-name candidates in jar:\n  - cdm.observable.asse\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\missing-classes.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_approved_cdm_api_contract",
+    "inputSummary": "",
+    "outputSummary": "# Approved CDM API Contract\n\nGenerated: 2026-05-06T11:21:15.501Z\nProduct family: fx-derivatives\nImplementation group: fx-single-leg\nAuthority: compiled-jar-javap-and-semantic-recipes\n\n## Rules\n\n- Import only classes listed under Approved Classes.\n- Do not import classes listed under Forbidden Classes.\n- If a required class is not approved, stop and update this contract before implementation.\n- The gate validates generated Java against this same contract.\n\n## Concept Resolutions\n\n### Trade root\n\n\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\approved-cdm-api-contract.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.event.common.TradeState",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.event.common.TradeState\",\n  \"exists\": true,\n  \"packageName\": \"cdm.event.common\",\n  \"simpleName\": \"TradeState\",\n  \"methods\": [\n    {\n      \"name\": \"getTrade\",\n      \"returnType\": \"cdm.event.common.Trade\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.event.common.Trade getTrade()\"\n    },\n    {\n      \"name\": \"getState\",\n      \"returnType\": \"cdm.event.common.State\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cd\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.event.common.TradeState.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.event.common.ContractDetails",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.event.common.ContractDetails\",\n  \"exists\": true,\n  \"packageName\": \"cdm.event.common\",\n  \"simpleName\": \"ContractDetails\",\n  \"methods\": [\n    {\n      \"name\": \"getDocumentation\",\n      \"returnType\": \"java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>\",\n      \"parameters\": [],\n      \"raw\": \"public abstract java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement> getDocumentation()\"\n    },\n    {\n      \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.event.common.ContractDetails.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.NonTransferableProduct",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.NonTransferableProduct\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"NonTransferableProduct\",\n  \"methods\": [\n    {\n      \"name\": \"getIdentifier\",\n      \"returnType\": \"java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>\",\n      \"parameters\": [],\n      \"raw\": \"public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier> getIdent\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.NonTransferableProduct.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.EconomicTerms",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.EconomicTerms\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"EconomicTerms\",\n  \"methods\": [\n    {\n      \"name\": \"getEffectiveDate\",\n      \"returnType\": \"cdm.base.datetime.AdjustableOrRelativeDate\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()\"\n    },\n    {\n      \"name\": \"getTerminationDate\",\n      \"returnType\": \"c\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.EconomicTerms.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.SettlementPayout",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.SettlementPayout\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"SettlementPayout\",\n  \"methods\": [\n    {\n      \"name\": \"getUnderlier\",\n      \"returnType\": \"cdm.product.template.Underlier\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.product.template.Underlier getUnderlier()\"\n    },\n    {\n      \"name\": \"getDeliveryTerm\",\n      \"returnType\": \"java.lang.String\",\n      \"para\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.SettlementPayout.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.common.settlement.ResolvablePriceQuantity",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.common.settlement.ResolvablePriceQuantity\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.common.settlement\",\n  \"simpleName\": \"ResolvablePriceQuantity\",\n  \"methods\": [\n    {\n      \"name\": \"getResolvedQuantity\",\n      \"returnType\": \"cdm.base.math.Quantity\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.math.Quantity getResolvedQuantity()\"\n    },\n    {\n      \"name\": \"getQuantitySchedule\",\n      \"returnType\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.common.settlement.ResolvablePriceQuantity.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.observable.asset.PriceSchedule",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.observable.asset.PriceSchedule\",\n  \"exists\": true,\n  \"packageName\": \"cdm.observable.asset\",\n  \"simpleName\": \"PriceSchedule\",\n  \"methods\": [\n    {\n      \"name\": \"getPerUnitOf\",\n      \"returnType\": \"cdm.base.math.UnitType\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.math.UnitType getPerUnitOf()\"\n    },\n    {\n      \"name\": \"getPriceType\",\n      \"returnType\": \"cdm.observable.asset.PriceTypeEnum\",\n      \"parameters\"\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.observable.asset.PriceSchedule.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.base.staticdata.party.metafields.ReferenceWithMetaParty\",\n  \"exists\": true,\n  \"packageName\": \"cdm.base.staticdata.party.metafields\",\n  \"simpleName\": \"ReferenceWithMetaParty\",\n  \"methods\": [\n    {\n      \"name\": \"getValue\",\n      \"returnType\": \"cdm.base.staticdata.party.Party\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.staticdata.party.Party getValue()\"\n    },\n    {\n      \"name\": \"getGlobalReference\",\n      \"ret\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.base.staticdata.party.metafields.ReferenceWithMetaParty.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## Runtime supported fixtures (machine-checked)\n- fx-ex01-fx-spot\n- fx-ex02-spot-cross-w-side-rates\n- fx-ex03-fx-fwd\n- fx-ex04-fx-fwd-w-settlement\n- fx-ex05-fx-fwd-w-ssi\n- fx-ex06-fx-fwd-w-splits\n- \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\round-01\\plan-validation.md",
+    "outputSummary": "# Plan Validation\n\nStatus: passed\n\n## Blocking Issues\n\n- none\n\n## Warnings\n\n- none\n\n## Validation details\n\n- Mode: structured-section\n- Parsed in-scope groups: fx-single-leg\n- Parsed out-of-scope groups: fx-swap, fx-simple-option, fx-digital-option, fx-barrier-option, fx-average-rate-option, fx-strategy, non-fx\n- Parsed runtime fixture ids: fx-ex01-fx-spot, fx-ex02-spot-cross-w-side-rates, fx-ex03-fx-fwd, fx-ex04-fx-fwd-w-settlement, fx-ex05-fx-fwd-w-ssi, fx-ex06-fx-fwd-w-splits, fx-ex07-non-del\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\round-01\\plan-validation.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\approved-cdm-api-contract.json",
+    "outputSummary": "{\n  \"generatedAt\": \"2026-05-06T11:21:15.501Z\",\n  \"productFamily\": \"fx-derivatives\",\n  \"implementationGroup\": \"fx-single-leg\",\n  \"authority\": \"compiled-jar-javap-and-semantic-recipes\",\n  \"approvedClasses\": [\n    {\n      \"className\": \"cdm.base.math.CapacityUnitEnum\",\n      \"reason\": \"Selected by relevant package and class-name discovery for this implementation group.\",\n      \"existenceAuthority\": \"compiled-jar-javap\",\n      \"semanticAuthorities\": [\n        \"rosetta-source\",\n        \"cookbook\",\n   \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\semantic-recipes.json",
+    "outputSummary": "{\n  \"generatedAt\": \"2026-05-06T11:21:15.517Z\",\n  \"productFamily\": \"fx-derivatives\",\n  \"implementationGroup\": \"fx-single-leg\",\n  \"recipes\": [\n    {\n      \"id\": \"fx-single-leg-tradestate\",\n      \"title\": \"Build FX single-leg TradeState\",\n      \"productFamily\": \"fx-derivatives\",\n      \"implementationGroup\": \"fx-single-leg\",\n      \"rootOutputClass\": \"cdm.event.common.TradeState\",\n      \"authority\": [\n        \"rosetta-source\",\n        \"cookbook\",\n        \"generated-recipe\"\n      ],\n      \"steps\": [\n \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\semantic-recipes.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_call_graph",
+    "inputSummary": "",
+    "outputSummary": "# Rosetta Call Graph\n\n## MapFxSingleLegCounterpartyList\n\n- Counterparty\n- FxSingleLeg\n- GetFpmlExchangedCurrency\n- MapPayerReceiverModelToCounterpartyList\n\n## MapFxSingleLegAncillaryPartyList\n\n- AncillaryParty\n- FxSingleLeg\n\n## MapFxSingleLegNonTransferableProduct\n\n- Counterparty\n- FxSingleLeg\n- MapFxSingleLegEconomicTerms\n- MapProductIdentifierList\n- MapProductTaxonomyList\n- NonTransferableProduct\n\n## MapFxSingleLegEconomicTerms\n\n- Counterparty\n- EconomicTerms\n- FxSingleLeg\n- MapFxCoreDetailsMo\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\approved-cdm-api-contract.json",
+    "outputSummary": "{\n  \"generatedAt\": \"2026-05-06T11:21:15.501Z\",\n  \"productFamily\": \"fx-derivatives\",\n  \"implementationGroup\": \"fx-single-leg\",\n  \"authority\": \"compiled-jar-javap-and-semantic-recipes\",\n  \"approvedClasses\": [\n    {\n      \"className\": \"cdm.base.math.CapacityUnitEnum\",\n      \"reason\": \"Selected by relevant package and class-name discovery for this implementation group.\",\n      \"existenceAuthority\": \"compiled-jar-javap\",\n      \"semanticAuthorities\": [\n        \"rosetta-source\",\n        \"cookbook\",\n   \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\cdm-java-api-summary.json",
+    "outputSummary": "ENOENT: no such file or directory, open 'C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\cdm-java-api-summary.json'",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.common.settlement.ResolvablePriceQuantity",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.common.settlement.ResolvablePriceQuantity\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.common.settlement\",\n  \"simpleName\": \"ResolvablePriceQuantity\",\n  \"methods\": [\n    {\n      \"name\": \"getResolvedQuantity\",\n      \"returnType\": \"cdm.base.math.Quantity\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.math.Quantity getResolvedQuantity()\"\n    },\n    {\n      \"name\": \"getQuantitySchedule\",\n      \"returnType\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.common.settlement.ResolvablePriceQuantity.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.common.settlement.SettlementPayout",
+    "outputSummary": "Exact class not found in org.finos.cdm:cdm-java:6.7.0: cdm.product.common.settlement.SettlementPayout\n\nSame-simple-name candidates in the jar:\n- cdm.product.template.SettlementPayout\n\nDo not generalize this result to other packages. Query the exact fully qualified class you intend to use.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\api-index.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md",
+    "outputSummary": "# Accepted Plan\n\nAccepted in round 1.\n\nThis file is the implementation contract. It is synthesized from the product\nscope, planner plan, critic review, critique resolution, and deterministic plan\nvalidation. The full evidence packet path is referenced below for on-demand reads\nvia tools (for example get_context_packet); it is not inlined here to keep this\nartifact small.\n\n## Product Scope Contract\n\n# Product Scope\n\nSelected product family: fx-derivatives\nImplementation strategy: staged-by-produc\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_fixture_summary",
+    "inputSummary": "path=fx-ex01-fx-spot",
+    "outputSummary": "Read path outside allowed roots: fx-ex01-fx-spot",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=data_to_learn_from/fpml/fx-derivatives",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-settlement.xml\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives\\fx-ex05-fx-fwd-w-ssi.xm\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\fx-derivatives"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\00-input-brief.md\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\00-product-scope.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\00-product-scope.md\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\00-run-log.m\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper;\nimport java.nio.file.Files;\n\npublic final class Main {\n    private Main() {\n    }\n\n    public static void main(String[] args) throws Exception {\n        RuntimeArgs runtimeArgs = RuntimeArgs.parse(args);\n        FpmlToCdmMapper mapper = new GeneratedFpmlToCdmMapper();\n        String cdmJson = mapper.mapFile(runtimeArgs.inputPath(), runtimeArgs.reportsDir());\n        Files.writeString(runtimeArgs.ou\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\FpmlToCdmMapper.java\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\RuntimeArgs.java",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\fmi\\run_output\\run_2026-05-06T11-21-15-358Z\\filelist.txt",
+    "outputSummary": "Read path outside allowed roots: C:\\fmi\\run_output\\run_2026-05-06T11-21-15-358Z\\filelist.txt",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "search_text",
+    "inputSummary": "pattern=GeneratedFpmlToCdmMapper, root=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java:3: import com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper;\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java:12: FpmlToCdmMapper mapper = new GeneratedFpmlToCdmMapper();",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper;\nimport java.nio.file.Files;\n\npublic final class Main {\n    private Main() {\n    }\n\n    public static void main(String[] args) throws Exception {\n        RuntimeArgs runtimeArgs = RuntimeArgs.parse(args);\n        FpmlToCdmMapper mapper = new GeneratedFpmlToCdmMapper();\n        String cdmJson = mapper.mapFile(runtimeArgs.inputPath(), runtimeArgs.reportsDir());\n        Files.writeString(runtimeArgs.ou\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated",
+    "outputSummary": "",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper;\nimport java.nio.file.Files;\n\npublic final class Main {\n    private Main() {\n    }\n\n    public static void main(String[] args) throws Exception {\n        RuntimeArgs runtimeArgs = RuntimeArgs.parse(args);\n        FpmlToCdmMapper mapper = new GeneratedFpmlToCdmMapper();\n        String cdmJson = mapper.mapFile(runtimeArgs.inputPath(), runtimeArgs.reportsDir());\n        Files.writeString(runtimeArgs.ou\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated",
+    "outputSummary": "",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=generated/java-mapper-poc/runs/2026-05-06T11-21-15-358Z/src/main/java/com/fpml/cdm/fx/mapper/generated",
+    "outputSummary": "",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "run_command",
+    "inputSummary": "command=type generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md, cwd=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z",
+    "outputSummary": "Command not allowed: type generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "run_command",
+    "inputSummary": "command=type generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md, cwd=generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z",
+    "outputSummary": "Command not allowed: type generated\\java-mapper-poc\\runs\\2026-05-06T11-21-15-358Z\\agent-workspace\\accepted-plan.md",
+    "sourcePaths": [],
+    "cacheStatus": "hit",
+    "ok": false
+  }
+]

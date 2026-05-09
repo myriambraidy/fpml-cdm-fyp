@@ -1,0 +1,82 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 744039,
+    "outputChars": 8110,
+    "llmCalls": 4,
+    "toolCalls": 26,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 0,
+    "durationMs": 79690
+  },
+  {
+    "role": "critic",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 683986,
+    "outputChars": 4839,
+    "llmCalls": 4,
+    "toolCalls": 23,
+    "cachedToolCalls": 6,
+    "failedToolCalls": 0,
+    "durationMs": 27086
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 202762,
+    "outputChars": 4827,
+    "llmCalls": 3,
+    "toolCalls": 4,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 0,
+    "durationMs": 26307
+  },
+  {
+    "role": "implementer",
+    "model": "minimax/minimax-m2.7",
+    "inputChars": 484726,
+    "outputChars": 3659,
+    "llmCalls": 4,
+    "toolCalls": 18,
+    "cachedToolCalls": 5,
+    "failedToolCalls": 0,
+    "durationMs": 61033
+  },
+  {
+    "role": "implementer",
+    "model": "minimax/minimax-m2.7",
+    "inputChars": 663111,
+    "outputChars": 1783,
+    "llmCalls": 7,
+    "toolCalls": 31,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 2,
+    "durationMs": 890154
+  },
+  {
+    "role": "repair",
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 908220,
+    "outputChars": 1011,
+    "llmCalls": 7,
+    "toolCalls": 12,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 6,
+    "durationMs": 31219
+  },
+  {
+    "role": "repair",
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 947318,
+    "outputChars": 2509,
+    "llmCalls": 7,
+    "toolCalls": 35,
+    "cachedToolCalls": 7,
+    "failedToolCalls": 2,
+    "durationMs": 28798
+  }
+]

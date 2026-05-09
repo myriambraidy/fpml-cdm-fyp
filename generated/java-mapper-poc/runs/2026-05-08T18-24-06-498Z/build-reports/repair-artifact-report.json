@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "role": "repair",
+  "reportPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-24-06-498Z\\build-reports\\repair-artifact-report.md",
+  "classifications": [],
+  "toolWriteCount": 0,
+  "generatedJavaWriteCount": 0,
+  "successfulWriteTools": [],
+  "failedWriteTools": [],
+  "pseudoToolCalls": [],
+  "contract": {
+    "status": "passed",
+    "entryClassPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-24-06-498Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+    "findings": []
+  },
+  "findings": []
+}

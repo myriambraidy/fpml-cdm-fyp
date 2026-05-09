@@ -11,6 +11,44 @@ import {
   renderRosettaCallGraph,
   renderRosettaGenerationContext,
 } from './rosetta-context'
+import {
+  getRosettaFunction,
+  getRosettaFunctions,
+  getRosettaMappingArea,
+  getRosettaProductPack,
+  renderRosettaRetrievalResult,
+  searchRosettaBlocks,
+  type RosettaMappingArea,
+} from './rosetta-retrieval'
+import {
+  cdmJavaClassDetailsPath,
+  cdmJavaApiIndexPath,
+  cdmJavaApiSummaryMarkdownPath,
+  cdmJavaFxSingleLegPackMarkdownPath,
+  cdmJavaMissingClassesPath,
+  ensureCdmJavaApiPack,
+  lookupCdmJavaClassDetails,
+  readCdmJavaApiIndex,
+  renderCdmJavaApiSummaryMarkdownFromDisk,
+  renderCdmJavaMissingClassesMarkdownFromDisk,
+} from './cdm-java-api-pack'
+import {
+  approvedCdmApiContractJsonPath,
+  approvedCdmApiContractMarkdownPath,
+  approvedCdmApiContractSummaryPath,
+  readApprovedCdmApiContract,
+} from './approved-cdm-api-contract'
+import {
+  readRelevantCdmApiDiscovery,
+  relevantCdmApiDiscoveryJsonPath,
+  resolveConcept,
+} from './cdm-concept-resolver'
+import {
+  readSemanticRecipeBundle,
+  renderSemanticRecipeBundle,
+  semanticRecipesJsonPath,
+} from './semantic-recipes'
+import { CDM_JAVA_VERSION } from './java-contract'
 import type {
   ActiveStageContext,
   GeneratorRunConfig,
@@ -19,7 +57,7 @@ import type {
   ToolResult,
 } from './types'
 
-type ToolName =
+export type ToolName =
   | 'read_file'
   | 'list_files'
   | 'search_text'
@@ -27,6 +65,7 @@ type ToolName =
   | 'parse_json_summary'
   | 'write_file'
   | 'write_generated_java'
+  | 'write_generated_java_file'
   | 'run_command'
   | 'validate_generated_output'
   | 'get_scope_evidence'
@@ -35,9 +74,24 @@ type ToolName =
   | 'get_expected_cdm_summary'
   | 'get_rosetta_snippets'
   | 'get_rosetta_snippet'
+  | 'get_rosetta_product_pack'
+  | 'get_rosetta_function'
+  | 'get_rosetta_functions'
+  | 'search_rosetta_blocks'
+  | 'get_rosetta_mapping_area'
   | 'get_rosetta_generation_context'
   | 'get_rosetta_call_graph'
   | 'get_cdm_rosetta_preflight'
+  | 'get_cdm_java_api_summary'
+  | 'get_cdm_java_api_pack'
+  | 'get_cdm_java_class'
+  | 'search_cdm_java_classes'
+  | 'resolve_cdm_concept'
+  | 'get_cdm_builder_methods'
+  | 'get_related_cdm_classes'
+  | 'get_approved_cdm_api_contract'
+  | 'get_cdm_semantic_recipe'
+  | 'get_cdm_java_missing_classes'
   | 'get_unsupported_products'
 
 type ToolInput = {
@@ -51,6 +105,14 @@ type ToolInput = {
   role?: string
   topic?: string
   functionName?: string
+  functionNames?: string
+  productFamily?: string
+  implementationGroup?: string
+  area?: string
+  query?: string
+  concept?: string
+  intent?: string
+  recipeId?: string
 }
 
 type ToolContext = {
@@ -81,8 +143,12 @@ export const GENERATOR_LLM_TOOLS: LLMTool[] = [
     ['path', 'string'],
     ['content', 'string'],
   ]),
-  toolSchema('write_generated_java', 'Write a generated Java class to the deterministic generated package.', [
+  toolSchema('write_generated_java', 'Write a generated Java class to the root deterministic generated package.', [
     ['className', 'string'],
+    ['content', 'string'],
+  ]),
+  toolSchema('write_generated_java_file', 'Write a generated Java source file by run-relative path under the generated mapper package.', [
+    ['path', 'string'],
     ['content', 'string'],
   ]),
   toolSchema('run_command', 'Run an allowed build/runtime command for this generator run.', [
@@ -101,11 +167,93 @@ export const GENERATOR_LLM_TOOLS: LLMTool[] = [
   toolSchema('get_rosetta_snippet', 'Return a specific Rosetta function snippet by function name.', [
     ['functionName', 'string'],
   ]),
+  toolSchema('get_rosetta_product_pack', 'Return availability and source paths for Rosetta product-family documentation packs.', [
+    ['productFamily', 'string'],
+  ]),
+  toolSchema('get_rosetta_function', 'Return exact Rosetta block text for one function by name.', [
+    ['functionName', 'string'],
+  ]),
+  toolSchema('get_rosetta_functions', 'Return exact Rosetta block text for a comma-separated function name list.', [
+    ['functionNames', 'string'],
+  ]),
+  toolSchema('search_rosetta_blocks', 'Search extracted Rosetta blocks by query within a product family.', [
+    ['query', 'string'],
+    ['productFamily', 'string'],
+  ]),
+  toolSchema('get_rosetta_mapping_area', 'Return required Rosetta evidence for one supported mapping area.', [
+    ['productFamily', 'string'],
+    ['implementationGroup', 'string'],
+    ['area', 'string'],
+  ]),
   toolSchema('get_rosetta_generation_context', 'Return authoritative Rosetta FX single-leg function context.', []),
   toolSchema('get_rosetta_call_graph', 'Return the detected Rosetta helper call graph.', []),
   toolSchema('get_cdm_rosetta_preflight', 'Return the CDM/Rosetta Java dependency preflight report.', []),
+  toolSchema('get_cdm_java_api_summary', 'Return the compact CDM Java API class index and exact missing-class observations.', []),
+  toolSchema('get_cdm_java_api_pack', 'Return the large full CDM Java API pack. Prefer get_cdm_java_class for exact classes.', []),
+  toolSchema('get_cdm_java_class', 'Return verified javap details for one CDM Java class.', [
+    ['className', 'string'],
+  ]),
+  toolSchema('search_cdm_java_classes', 'Search the verified CDM Java class index by class or package text.', [
+    ['pattern', 'string'],
+  ]),
+  toolSchema('resolve_cdm_concept', 'Resolve a semantic CDM concept to existing compiled-jar classes before exact lookup.', [
+    ['concept', 'string'],
+  ]),
+  toolSchema('get_cdm_builder_methods', 'Return approved builder methods for one approved CDM class, optionally filtered by intent text.', [
+    ['className', 'string'],
+    ['intent', 'string'],
+  ]),
+  toolSchema('get_related_cdm_classes', 'Return approved and indexed CDM classes with the same simple name or nearby package.', [
+    ['className', 'string'],
+  ]),
+  toolSchema('get_approved_cdm_api_contract', 'Return the run-specific approved CDM API contract.', []),
+  toolSchema('get_cdm_semantic_recipe', 'Return semantic construction recipes for the run or one recipe id.', [
+    ['recipeId', 'string'],
+  ]),
+  toolSchema('get_cdm_java_missing_classes', 'Return exact missing CDM Java class observations.', []),
   toolSchema('get_unsupported_products', 'Return non-FX and unknown product classifications.', []),
 ]
+
+export const IMPLEMENTER_RESEARCH_TOOLS = selectGeneratorTools([
+  'read_file',
+  'list_files',
+  'search_text',
+  'parse_xml_summary',
+  'parse_json_summary',
+  'get_scope_evidence',
+  'get_context_packet',
+  'get_fixture_summary',
+  'get_expected_cdm_summary',
+  'get_rosetta_function',
+  'get_rosetta_functions',
+  'get_rosetta_mapping_area',
+  'get_rosetta_generation_context',
+  'get_rosetta_call_graph',
+  'get_cdm_rosetta_preflight',
+  'get_cdm_java_api_summary',
+  'get_cdm_java_class',
+  'search_cdm_java_classes',
+  'resolve_cdm_concept',
+  'get_cdm_builder_methods',
+  'get_related_cdm_classes',
+  'get_approved_cdm_api_contract',
+  'get_cdm_semantic_recipe',
+  'get_cdm_java_missing_classes',
+  'get_unsupported_products',
+])
+
+export const IMPLEMENTER_WRITE_TOOLS = selectGeneratorTools([
+  'write_generated_java_file',
+  'write_file',
+])
+
+export function selectGeneratorTools(names: ToolName[]): LLMTool[] {
+  return names.map(name => {
+    const tool = GENERATOR_LLM_TOOLS.find(candidate => candidate.name === name)
+    if (tool === undefined) throw new Error(`Missing generator tool schema: ${name}`)
+    return tool
+  })
+}
 
 function toolSchema(
   name: ToolName,
@@ -174,6 +322,10 @@ export function createToolExecutionState(): ToolExecutionState {
   return {
     cache: new Map(),
     failedRepeats: new Map(),
+    searchedCdmClasses: new Set(),
+    lookupEligibleCdmClasses: new Set(),
+    approvedCdmClasses: new Set(),
+    strictCdmLookup: true,
   }
 }
 
@@ -205,17 +357,33 @@ async function executeTool(
   if (name === 'parse_json_summary') return parseJsonSummaryTool(context.config, input)
   if (name === 'write_file') return writeFileTool(context, input)
   if (name === 'write_generated_java') return writeGeneratedJavaTool(context, input)
+  if (name === 'write_generated_java_file') return writeGeneratedJavaFileTool(context, input)
   if (name === 'run_command') return runCommandTool(context.config, input)
   if (name === 'validate_generated_output') return validateGeneratedOutputTool(context.config)
   if (name === 'get_scope_evidence') return getScopeEvidenceTool(context.config)
   if (name === 'get_context_packet') return getContextPacketTool(context.config, input)
-  if (name === 'get_fixture_summary') return parseXmlSummaryTool(context.config, input)
-  if (name === 'get_expected_cdm_summary') return parseJsonSummaryTool(context.config, input)
+  if (name === 'get_fixture_summary') return getFixtureSummaryTool(context.config, input)
+  if (name === 'get_expected_cdm_summary') return getExpectedCdmSummaryTool(context.config, input)
   if (name === 'get_rosetta_snippets') return getRosettaSnippetsTool(context.config)
   if (name === 'get_rosetta_snippet') return getRosettaSnippetTool(context.config, input)
+  if (name === 'get_rosetta_product_pack') return getRosettaProductPackTool(input)
+  if (name === 'get_rosetta_function') return getRosettaFunctionTool(input)
+  if (name === 'get_rosetta_functions') return getRosettaFunctionsTool(input)
+  if (name === 'search_rosetta_blocks') return searchRosettaBlocksTool(input)
+  if (name === 'get_rosetta_mapping_area') return getRosettaMappingAreaTool(input)
   if (name === 'get_rosetta_generation_context') return getRosettaGenerationContextTool(context.config)
   if (name === 'get_rosetta_call_graph') return getRosettaCallGraphTool()
   if (name === 'get_cdm_rosetta_preflight') return getCdmRosettaPreflightTool(context.config)
+  if (name === 'get_cdm_java_api_summary') return getCdmJavaApiSummaryTool(context.config)
+  if (name === 'get_cdm_java_api_pack') return getCdmJavaApiPackTool(context.config)
+  if (name === 'get_cdm_java_class') return getCdmJavaClassTool(context, input)
+  if (name === 'search_cdm_java_classes') return searchCdmJavaClassesTool(context, input)
+  if (name === 'resolve_cdm_concept') return resolveCdmConceptTool(context, input)
+  if (name === 'get_cdm_builder_methods') return getCdmBuilderMethodsTool(context, input)
+  if (name === 'get_related_cdm_classes') return getRelatedCdmClassesTool(context, input)
+  if (name === 'get_approved_cdm_api_contract') return getApprovedCdmApiContractTool(context.config, context.state)
+  if (name === 'get_cdm_semantic_recipe') return getCdmSemanticRecipeTool(context.config, input)
+  if (name === 'get_cdm_java_missing_classes') return getCdmJavaMissingClassesTool()
   if (name === 'get_unsupported_products') return getUnsupportedProductsTool(context.config)
   return { ok: false, output: `Unknown tool: ${name}`, sourcePaths: [] }
 }
@@ -281,6 +449,14 @@ async function parseJsonSummaryTool(
   return { ok: true, output: summary, sourcePaths: [path] }
 }
 
+async function getFixtureSummaryTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
+  return parseXmlSummaryTool(config, { ...input, path: resolveFixtureInputPath(config, requireString(input.path, 'path')) })
+}
+
+async function getExpectedCdmSummaryTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
+  return parseJsonSummaryTool(config, { ...input, path: resolveExpectedInputPath(config, requireString(input.path, 'path')) })
+}
+
 async function writeFileTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
   const path = requireString(input.path, 'path')
   const content = requireString(input.content, 'content')
@@ -303,6 +479,22 @@ async function writeGeneratedJavaTool(context: ToolContext, input: ToolInput): P
       output: `Generated Java class ${className} must declare package ${GENERATED_IMPL_PACKAGE}.`,
       sourcePaths: [],
     }
+  }
+  const resolved = assertInside(context.config.runOutputDir, resolve(context.config.runOutputDir, relativePath))
+  await mkdir(dirname(resolved), { recursive: true })
+  await Bun.write(resolved, content)
+  return { ok: true, output: `Wrote ${resolved}`, sourcePaths: [resolved] }
+}
+
+async function writeGeneratedJavaFileTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const path = requireString(input.path, 'path')
+  const content = requireString(input.content, 'content')
+  const relativePath = normalizeWritePath(context.config, path)
+  assertGeneratedJavaWritePath(relativePath)
+  assertStageWriteAllowed(context.stage, relativePath)
+  const contractError = validateGeneratedJavaFileContent(relativePath, content)
+  if (contractError !== null) {
+    return { ok: false, output: contractError, sourcePaths: [] }
   }
   const resolved = assertInside(context.config.runOutputDir, resolve(context.config.runOutputDir, relativePath))
   await mkdir(dirname(resolved), { recursive: true })
@@ -398,6 +590,9 @@ async function getContextPacketTool(config: GeneratorRunConfig, input: ToolInput
   const authoritativeRosettaSection = topic.toLowerCase().includes('rosetta')
     ? `\n\n${(await getRosettaGenerationContextTool(config)).output}`
     : ''
+  const cdmJavaApiSection = topic.toLowerCase().includes('cdm') || topic.toLowerCase().includes('java')
+    ? `\n\n${(await getCdmJavaApiSummaryTool(config)).output}`
+    : ''
   return {
     ok: true,
     output: truncateForLog(
@@ -409,10 +604,248 @@ async function getContextPacketTool(config: GeneratorRunConfig, input: ToolInput
         fixtureSections,
         rosettaSection,
         authoritativeRosettaSection,
+        cdmJavaApiSection,
       ].join('\n\n'),
       32_000
     ),
     sourcePaths: paths,
+  }
+}
+
+async function getCdmJavaApiSummaryTool(config: GeneratorRunConfig): Promise<ToolResult> {
+  await ensureCdmJavaApiPack()
+  const path = resolve(config.runOutputDir, 'agent-workspace', 'cdm-java-api-summary.md')
+  if (await exists(path)) {
+    return { ok: true, output: truncateForLog(await readFile(path, 'utf8'), 16_000), sourcePaths: [path] }
+  }
+  const summaryPath = cdmJavaApiSummaryMarkdownPath()
+  return { ok: true, output: truncateForLog(await readFile(summaryPath, 'utf8'), 16_000), sourcePaths: [summaryPath] }
+}
+
+async function getCdmJavaApiPackTool(config: GeneratorRunConfig): Promise<ToolResult> {
+  await ensureCdmJavaApiPack()
+  const path = resolve(config.runOutputDir, 'agent-workspace', 'cdm-java-api-pack.md')
+  if (await exists(path)) {
+    return { ok: true, output: truncateForLog(await readFile(path, 'utf8'), 16_000), sourcePaths: [path] }
+  }
+  const packPath = cdmJavaFxSingleLegPackMarkdownPath()
+  return { ok: true, output: truncateForLog(await readFile(packPath, 'utf8'), 16_000), sourcePaths: [packPath] }
+}
+
+async function getCdmJavaClassTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const className = requireString(input.className, 'className')
+  assertFullyQualifiedClassName(className)
+  await loadApprovedCdmClasses(context)
+  if (
+    context.state.strictCdmLookup
+    && !context.state.lookupEligibleCdmClasses.has(className)
+    && !context.state.approvedCdmClasses.has(className)
+  ) {
+    return {
+      ok: false,
+      output: [
+        `Exact lookup blocked until discovery selects or approves this class: ${className}`,
+        'Use resolve_cdm_concept first, or inspect approved-cdm-api-contract.md for approved classes.',
+        'search_cdm_java_classes is summary-only and does not unlock exact lookup.',
+      ].join('\n'),
+      sourcePaths: [cdmJavaApiIndexPath()],
+    }
+  }
+  await ensureCdmJavaApiPack()
+  const result = await lookupCdmJavaClassDetails(className)
+  if (result.status === 'missing') {
+    return {
+      ok: false,
+      output: [
+        `Exact class not found in org.finos.cdm:cdm-java:${CDM_JAVA_VERSION}: ${result.className}`,
+        result.sameSimpleNameCandidates.length === 0
+          ? 'No same-simple-name candidates exist in the jar.'
+          : `Same-simple-name candidates in the jar:\n${result.sameSimpleNameCandidates.map(candidate => `- ${candidate}`).join('\n')}`,
+        'Do not generalize this result to other packages. Query the exact fully qualified class you intend to use.',
+      ].join('\n\n'),
+      sourcePaths: [cdmJavaApiIndexPath()],
+    }
+  }
+  context.state.lookupEligibleCdmClasses.add(className)
+  return {
+    ok: true,
+    output: truncateForLog(
+      [
+        'Lookup status: found',
+        `Lookup source: ${result.source}`,
+        JSON.stringify(result.details, null, 2),
+      ].join('\n\n'),
+      32_000
+    ),
+    sourcePaths: [cdmJavaClassDetailsPath(className)],
+  }
+}
+
+async function searchCdmJavaClassesTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const pattern = requireString(input.pattern, 'pattern').toLowerCase()
+  await ensureCdmJavaApiPack()
+  const index = await readCdmJavaApiIndex()
+  const matches = index.classes
+    .filter(entry => entry.className.toLowerCase().includes(pattern))
+    .slice(0, 100)
+    .map(entry => {
+      const seedStatus = index.promptSeedClasses.includes(entry.className) ? 'prompt-seed' : 'indexed-only'
+      context.state.searchedCdmClasses.add(entry.className)
+      return `${entry.className} (${seedStatus})`
+    })
+  return {
+    ok: true,
+    output: matches.length === 0 ? 'No CDM Java classes matched.' : matches.join('\n'),
+    sourcePaths: [cdmJavaFxSingleLegPackMarkdownPath()],
+  }
+}
+
+async function resolveCdmConceptTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const conceptText = requireString(input.concept, 'concept')
+  await ensureCdmJavaApiPack()
+  const index = await readCdmJavaApiIndex()
+  const discoveryPath = relevantCdmApiDiscoveryJsonPath(context.config.runOutputDir)
+  const discovery = await readRelevantCdmApiDiscovery(discoveryPath)
+  const existing = discovery.resolvedConcepts.find(item =>
+    item.concept.toLowerCase() === conceptText.toLowerCase()
+      || item.concept.toLowerCase().includes(conceptText.toLowerCase())
+  )
+  const resolved = existing ?? resolveConcept(index, {
+    concept: conceptText,
+    searchTerms: conceptText.split(/\s+/u).filter(Boolean),
+    preferredPackages: discovery.relevantPackages,
+    purpose: 'Ad hoc concept requested by generator role.',
+  })
+  if (resolved.selectedClassName) context.state.lookupEligibleCdmClasses.add(resolved.selectedClassName)
+  for (const candidate of resolved.candidates) {
+    context.state.searchedCdmClasses.add(candidate)
+  }
+  return {
+    ok: resolved.status !== 'missing',
+    output: [
+      `Concept: ${resolved.concept}`,
+      `Status: ${resolved.status}`,
+      `Selected: ${resolved.selectedClassName || 'none'}`,
+      `Reason: ${resolved.reason}`,
+      `Candidates:\n${resolved.candidates.length === 0 ? '- none' : resolved.candidates.map(candidate => `- ${candidate}`).join('\n')}`,
+    ].join('\n\n'),
+    sourcePaths: [discoveryPath, cdmJavaApiIndexPath()],
+  }
+}
+
+async function getCdmBuilderMethodsTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const className = requireString(input.className, 'className')
+  const intent = requireString(input.intent, 'intent').toLowerCase()
+  assertFullyQualifiedClassName(className)
+  const contract = await readApprovedCdmApiContract(approvedCdmApiContractJsonPath(context.config.runOutputDir))
+  for (const item of contract.approvedClasses) {
+    context.state.approvedCdmClasses.add(item.className)
+  }
+  if (!contract.approvedClasses.some(item => item.className === className)) {
+    return {
+      ok: false,
+      output: `Class is not approved by approved-cdm-api-contract.json: ${className}`,
+      sourcePaths: [approvedCdmApiContractJsonPath(context.config.runOutputDir)],
+    }
+  }
+  const matchingMethods = contract.approvedBuilderMethods.filter(method =>
+    method.className === className
+      && (intent === 'all'
+        || method.methodName.toLowerCase().includes(intent)
+        || method.rawSignature.toLowerCase().includes(intent))
+  )
+  return {
+    ok: true,
+    output: matchingMethods.length === 0
+      ? `No approved builder methods matched intent "${intent}" for ${className}. Use get_cdm_java_class for exact full details before changing the contract.`
+      : matchingMethods.map(method => `${method.methodName}: ${method.rawSignature}`).join('\n'),
+    sourcePaths: [approvedCdmApiContractJsonPath(context.config.runOutputDir)],
+  }
+}
+
+async function getRelatedCdmClassesTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const className = requireString(input.className, 'className')
+  assertFullyQualifiedClassName(className)
+  const index = await readCdmJavaApiIndex()
+  const simpleName = className.split('.').at(-1) ?? className
+  const packageName = className.split('.').slice(0, -1).join('.')
+  const contract = await readApprovedCdmApiContract(approvedCdmApiContractJsonPath(context.config.runOutputDir))
+  const approved = new Set(contract.approvedClasses.map(item => item.className))
+  const matches = index.classes
+    .filter(entry => entry.simpleName === simpleName || entry.packageName === packageName)
+    .slice(0, 100)
+  for (const match of matches) {
+    context.state.searchedCdmClasses.add(match.className)
+  }
+  return {
+    ok: true,
+    output: matches.length === 0
+      ? 'No related classes found.'
+      : matches.map(entry => `${entry.className} (${approved.has(entry.className) ? 'approved' : 'indexed-only'})`).join('\n'),
+    sourcePaths: [cdmJavaApiIndexPath(), approvedCdmApiContractJsonPath(context.config.runOutputDir)],
+  }
+}
+
+async function getApprovedCdmApiContractTool(config: GeneratorRunConfig, state?: ToolExecutionState): Promise<ToolResult> {
+  const summaryPath = approvedCdmApiContractSummaryPath(config.runOutputDir)
+  const markdownPath = (await exists(summaryPath))
+    ? summaryPath
+    : approvedCdmApiContractMarkdownPath(config.runOutputDir)
+  const content = await readFile(markdownPath, 'utf8')
+  if (state !== undefined) {
+    const contract = await readApprovedCdmApiContract(approvedCdmApiContractJsonPath(config.runOutputDir))
+    for (const item of contract.approvedClasses) {
+      state.approvedCdmClasses.add(item.className)
+    }
+  }
+  return {
+    ok: true,
+    output: content,
+    sourcePaths: [markdownPath],
+  }
+}
+
+async function getCdmSemanticRecipeTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
+  const recipeId = requireString(input.recipeId, 'recipeId')
+  const path = semanticRecipesJsonPath(config.runOutputDir)
+  const bundle = await readSemanticRecipeBundle(path)
+  if (recipeId.toLowerCase() === 'all') {
+    return {
+      ok: true,
+      output: renderSemanticRecipeBundle(bundle),
+      sourcePaths: [path],
+    }
+  }
+  const recipe = bundle.recipes.find(item => item.id === recipeId)
+  if (recipe === undefined) {
+    return {
+      ok: false,
+      output: `Semantic recipe not found: ${recipeId}`,
+      sourcePaths: [path],
+    }
+  }
+  return {
+    ok: true,
+    output: renderSemanticRecipeBundle({ ...bundle, recipes: [recipe] }),
+    sourcePaths: [path],
+  }
+}
+
+async function getCdmJavaMissingClassesTool(): Promise<ToolResult> {
+  await ensureCdmJavaApiPack()
+  return {
+    ok: true,
+    output: await renderCdmJavaMissingClassesMarkdownFromDisk(),
+    sourcePaths: [cdmJavaMissingClassesPath()],
+  }
+}
+
+async function loadApprovedCdmClasses(context: ToolContext): Promise<void> {
+  const contractPath = approvedCdmApiContractJsonPath(context.config.runOutputDir)
+  if (!(await exists(contractPath))) return
+  const contract = await readApprovedCdmApiContract(contractPath)
+  for (const item of contract.approvedClasses) {
+    context.state.approvedCdmClasses.add(item.className)
   }
 }
 
@@ -491,6 +924,62 @@ async function getRosettaSnippetTool(config: GeneratorRunConfig, input: ToolInpu
   }
 }
 
+async function getRosettaProductPackTool(input: ToolInput): Promise<ToolResult> {
+  const productFamily = requireString(input.productFamily, 'productFamily')
+  const result = await getRosettaProductPack(productFamily)
+  return {
+    ok: result.ok,
+    output: truncateForLog(renderRosettaRetrievalResult(result), 32_000),
+    sourcePaths: result.sourcePaths,
+  }
+}
+
+async function getRosettaFunctionTool(input: ToolInput): Promise<ToolResult> {
+  const functionName = requireString(input.functionName, 'functionName')
+  const result = await getRosettaFunction(functionName)
+  return {
+    ok: result.ok,
+    output: truncateForLog(renderRosettaRetrievalResult(result), 32_000),
+    sourcePaths: result.sourcePaths,
+  }
+}
+
+async function getRosettaFunctionsTool(input: ToolInput): Promise<ToolResult> {
+  const functionNames = requireString(input.functionNames, 'functionNames')
+    .split(',')
+    .map(name => name.trim())
+    .filter(Boolean)
+  const result = await getRosettaFunctions(functionNames)
+  return {
+    ok: result.ok,
+    output: truncateForLog(renderRosettaRetrievalResult(result), 48_000),
+    sourcePaths: result.sourcePaths,
+  }
+}
+
+async function searchRosettaBlocksTool(input: ToolInput): Promise<ToolResult> {
+  const query = requireString(input.query, 'query')
+  const productFamily = requireString(input.productFamily, 'productFamily')
+  const result = await searchRosettaBlocks({ query, productFamily, limit: 20 })
+  return {
+    ok: result.ok,
+    output: truncateForLog(renderRosettaRetrievalResult(result), 48_000),
+    sourcePaths: result.sourcePaths,
+  }
+}
+
+async function getRosettaMappingAreaTool(input: ToolInput): Promise<ToolResult> {
+  const productFamily = requireString(input.productFamily, 'productFamily')
+  const implementationGroup = requireString(input.implementationGroup, 'implementationGroup')
+  const area = parseRosettaMappingArea(requireString(input.area, 'area'))
+  const result = await getRosettaMappingArea({ productFamily, implementationGroup, area })
+  return {
+    ok: result.ok,
+    output: truncateForLog(renderRosettaRetrievalResult(result), 48_000),
+    sourcePaths: result.sourcePaths,
+  }
+}
+
 async function getUnsupportedProductsTool(config: GeneratorRunConfig): Promise<ToolResult> {
   const path = resolve(config.runOutputDir, 'agent-workspace', '00-product-scope.md')
   const content = await readFile(path, 'utf8')
@@ -504,9 +993,35 @@ async function getUnsupportedProductsTool(config: GeneratorRunConfig): Promise<T
   }
 }
 
+function parseRosettaMappingArea(value: string): RosettaMappingArea {
+  const allowed: RosettaMappingArea[] = [
+    'product-root',
+    'economic-terms',
+    'settlement-payout',
+    'price-quantity',
+    'party-counterparty',
+    'account-party-reference',
+    'product-identifiers-taxonomy',
+    'dates-settlement',
+  ]
+  const found = allowed.find(area => area === value)
+  if (found === undefined) {
+    throw new Error(`Unsupported Rosetta mapping area: ${value}`)
+  }
+  return found
+}
+
 function requireString(value: string | undefined, field: string): string {
   if (!value) throw new Error(`Missing required tool input: ${field}`)
   return value
+}
+
+function assertFullyQualifiedClassName(className: string): void {
+  if (!/^(cdm|com\.rosetta)\.[A-Za-z0-9_$.]+$/u.test(className)) {
+    throw new Error(
+      `get_cdm_java_class requires a fully qualified class name. Use search_cdm_java_classes for simple names: ${className}`
+    )
+  }
 }
 
 function summarizeInput(input: ToolInput): string {
@@ -573,6 +1088,55 @@ function generatedJavaPath(className: string): string {
     throw new Error(`Invalid Java class name: ${className}`)
   }
   return `${GENERATED_IMPL_SOURCE_ROOT}/${className}.java`
+}
+
+function resolveFixtureInputPath(config: GeneratorRunConfig, value: string): string {
+  const fixture = config.runtimeFixtures.find(item => item.id === value || item.fixtureFileName === value)
+  return fixture?.fpmlPath ?? value
+}
+
+function resolveExpectedInputPath(config: GeneratorRunConfig, value: string): string {
+  const fixture = config.runtimeFixtures.find(item => item.id === value || item.fixtureFileName === value)
+  return fixture?.expectedCdmPath ?? value
+}
+
+function assertGeneratedJavaWritePath(relativePath: string): void {
+  if (!relativePath.endsWith('.java')) {
+    throw new Error(`write_generated_java_file path must end with .java: ${relativePath}`)
+  }
+  if (!pathMatches(`${GENERATED_IMPL_SOURCE_ROOT}/**`, relativePath)) {
+    throw new Error(
+      `write_generated_java_file can only write under ${GENERATED_IMPL_SOURCE_ROOT}/; received ${relativePath}`
+    )
+  }
+}
+
+function validateGeneratedJavaFileContent(relativePath: string, content: string): string | null {
+  const className = javaClassNameFromPath(relativePath)
+  const expectedPackage = javaPackageFromGeneratedPath(relativePath)
+  if (!content.includes(`package ${expectedPackage};`)) {
+    return `${relativePath} must declare package ${expectedPackage}.`
+  }
+  if (!new RegExp(`\\bpublic\\s+(?:final\\s+)?class\\s+${className}\\b`, 'u').test(content)) {
+    return `${relativePath} must declare public class ${className}.`
+  }
+  return null
+}
+
+function javaClassNameFromPath(relativePath: string): string {
+  const fileName = relativePath.split('/').at(-1)
+  if (fileName === undefined || !fileName.endsWith('.java')) {
+    throw new Error(`Invalid Java source path: ${relativePath}`)
+  }
+  return fileName.slice(0, -'.java'.length)
+}
+
+function javaPackageFromGeneratedPath(relativePath: string): string {
+  const normalized = normalizeSeparators(relativePath)
+  const directory = normalized.slice(0, normalized.lastIndexOf('/'))
+  const suffix = directory.slice(GENERATED_IMPL_SOURCE_ROOT.length).replace(/^\//u, '')
+  if (suffix.length === 0) return GENERATED_IMPL_PACKAGE
+  return `${GENERATED_IMPL_PACKAGE}.${suffix.replace(/\//gu, '.')}`
 }
 
 function assertAllowedRead(config: GeneratorRunConfig, target: string): string {

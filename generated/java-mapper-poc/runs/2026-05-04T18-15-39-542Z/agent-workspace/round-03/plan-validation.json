@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "blockingIssues": [],
+  "warnings": [],
+  "details": {
+    "mode": "structured-section",
+    "parsedInScopeGroups": [
+      "fx-single-leg"
+    ],
+    "parsedOutOfScopeGroups": [
+      "non-fx"
+    ],
+    "parsedRuntimeFixtureIds": [
+      "fx-ex01-fx-spot",
+      "fx-ex02-spot-cross-w-side-rates",
+      "fx-ex03-fx-fwd",
+      "fx-ex04-fx-fwd-w-settlement",
+      "fx-ex05-fx-fwd-w-ssi",
+      "fx-ex06-fx-fwd-w-splits",
+      "fx-ex07-non-deliverable-forward"
+    ]
+  }
+}

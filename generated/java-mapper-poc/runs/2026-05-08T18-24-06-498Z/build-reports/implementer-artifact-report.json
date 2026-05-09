@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "role": "implementer",
+  "reportPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-24-06-498Z\\build-reports\\implementer-artifact-report.md",
+  "classifications": [
+    "write_tool_failed_path"
+  ],
+  "toolWriteCount": 29,
+  "generatedJavaWriteCount": 12,
+  "successfulWriteTools": [
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_generated_java_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file",
+    "write_file"
+  ],
+  "failedWriteTools": [
+    "write_file",
+    "write_file"
+  ],
+  "pseudoToolCalls": [],
+  "contract": {
+    "status": "passed",
+    "entryClassPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-24-06-498Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+    "findings": []
+  },
+  "findings": []
+}

@@ -1,6 +1,8 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { GENERATED_JAR_NAME, GENERATED_JAVA_VERSION } from './java-contract'
+import { runCdmJavaApiUsageGate } from './cdm-java-api-gate'
+import { runGeneratedImplementationContractGate } from './generated-implementation-contract'
 import { runJavaReferenceGate } from './java-reference-gate'
 import { runGeneratedJavaStaticSanityGate } from './java-static-sanity'
 import { truncateForLog } from './markdown'
@@ -16,9 +18,11 @@ export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]
   results.push(await validateCdmRosettaPreflight(config))
   results.push(await validateGeneratedProjectStructure(config))
   results.push(await validateGeneratedShellContract(config))
+  results.push(await runGeneratedImplementationContractGate(config))
   results.push(await runSourceHygieneGate(config))
   results.push(await runGeneratedJavaStaticSanityGate(config))
   results.push(await runJavaReferenceGate(config))
+  results.push(await runCdmJavaApiUsageGate(config))
   if (hasFailedGate(results)) {
     pushSkippedBuildGates(results, config, 'Skipped because an earlier pre-Maven gate failed.')
   } else {
@@ -307,6 +311,9 @@ async function exists(path: string): Promise<boolean> {
 }
 
 function pushSkippedBuildGates(results: GateResult[], config: GeneratorRunConfig, reason: string): void {
+  if (!results.some(result => result.name === 'cdm-java-api-usage')) {
+    results.push(skippedGate('cdm-java-api-usage', 'scan generated Java against CDM Java API pack', reason))
+  }
   results.push(skippedGate('maven-dependency-preflight', 'mvn -q -DskipTests dependency:go-offline', reason))
   pushSkippedCompileAndRuntimeGates(results, config, reason)
 }

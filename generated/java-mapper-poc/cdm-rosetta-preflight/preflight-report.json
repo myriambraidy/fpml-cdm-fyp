@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "mode": "repo-local-rosetta-validator",
-  "generatedAt": "2026-05-04T14:07:08.376Z",
+  "generatedAt": "2026-05-06T11:11:20.039Z",
   "reportPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\cdm-rosetta-preflight\\preflight-report.json",
   "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\cdm-rosetta-preflight\\preflight-report.md",
   "cdmArtifact": {
@@ -19,13 +19,16 @@
     "cdm.event.common.Trade"
   ],
   "requiredClasses": {
-    "Trade": "cdm.event.common.Trade",
-    "TradeState": "cdm.event.common.TradeState",
-    "NonTransferableProduct": "cdm.product.template.NonTransferableProduct",
-    "EconomicTerms": "cdm.product.template.EconomicTerms",
-    "Payout": "cdm.product.template.Payout",
-    "SettlementPayout": "cdm.product.common.settlement.SettlementPayout",
-    "ResolvablePriceQuantity": "cdm.observable.asset.ResolvablePriceQuantity"
+    "Trade root": "cdm.event.common.Trade",
+    "Trade state root": "cdm.event.common.TradeState",
+    "Contract details": "cdm.event.common.ContractDetails",
+    "Non-transferable product": "cdm.product.template.NonTransferableProduct",
+    "Economic terms": "cdm.product.template.EconomicTerms",
+    "Payout container": "cdm.product.template.Payout",
+    "Settlement payout": "cdm.product.template.SettlementPayout",
+    "Resolvable price quantity": "cdm.product.common.settlement.ResolvablePriceQuantity",
+    "Price schedule": "cdm.observable.asset.PriceSchedule",
+    "Party reference or party identity": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
   },
   "serializer": {
     "strategy": "maven-compile-gated-jackson-serialization",

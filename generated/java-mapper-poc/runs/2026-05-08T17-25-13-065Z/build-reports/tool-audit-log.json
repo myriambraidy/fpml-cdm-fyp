@@ -1,0 +1,781 @@
+[
+  {
+    "tool": "get_scope_evidence",
+    "inputSummary": "",
+    "outputSummary": "# Product Scope\n\nSelected product family: fx-derivatives\nImplementation strategy: staged-by-product-group\nDefault current implementation group: fx-single-leg\nCandidate next groups: fx-swap, fx-simple-option\n\n## Product Groups\n\n- fx-single-leg: 7 fixture(s), good-first-target. Default starting group for staged FX-family generation.\n- fx-swap: 1 fixture(s), candidate. Natural next FX group after single-leg handling.\n- fx-simple-option: 3 fixture(s), candidate. Candidate after simpler linear FX pro\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=product-scope",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: product-scope\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-settl\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=java-shell-contract",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: java-shell-contract\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=cdm-api",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: cdm-api\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-settlement.\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=rosetta-mapping",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: rosetta-mapping\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-set\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=semantic-recipes",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: semantic-recipes\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-se\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_context_packet",
+    "inputSummary": "role=planner, topic=implementation-contract",
+    "outputSummary": "# Context Packet\n\nRole: planner\n\nTopic: implementation-contract\n\n# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-f\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=product-root, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegNonTransferableProduct from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:34-47.\n- Resolved Rosetta function MapProductIdentifierList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:235-242.\n- Resolved Rosetta function MapProductTaxonomyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rose\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-common-func.rosetta",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=economic-terms, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegEconomicTerms from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:48-64.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegEconomicTerms\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegEconomicTerms\n- Source: rosetta-source/src/main/\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=settlement-payout, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxCoreDetailsModelToSettlementPayout\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayo\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=price-quantity, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelPriceListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:1245-1259.\n- Resolved Rosetta function MapFxCoreDetailsModelQuantityListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:540-574.\n- Resolved Rosetta function MapFxSingleLegPriceQuantityList from rosetta-source/src/main/rosetta/\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-pricequantity-func.rosetta",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=party-counterparty, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegAncillaryPartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:28-33.\n- Resolved Rosetta function MapFxSingleLegCounterpartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:17-27.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=account-party-reference, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:121-134.\n- Resolved Rosetta function MapPayerReceiverToAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta:647-677.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n##\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-party-func.rosetta",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=product-identifiers-taxonomy, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapProductIdentifier from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:243-257.\n- Resolved Rosetta function MapProductIdentifierList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:235-242.\n- Resolved Rosetta function MapProductTaxonomyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:109-136.\n- Rosetta sour\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-common-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_mapping_area",
+    "inputSummary": "area=dates-settlement, implementationGroup=fx-single-leg, productFamily=fx-derivatives",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta:25-40.\n- Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Func\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-datetime-func.rosetta",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegNonTransferableProduct",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegNonTransferableProduct from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:34-47.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegNonTransferableProduct\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegNonTransferableProduct\n- Sourc\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegEconomicTerms",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegEconomicTerms from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:48-64.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegEconomicTerms\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegEconomicTerms\n- Source: rosetta-source/src/main/\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxCoreDetailsModelToSettlementPayout",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxCoreDetailsModelToSettlementPayout\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayo\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegPriceQuantityList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegPriceQuantityList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:112-120.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegPriceQuantityList\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegPriceQuantityList\n- Source: rosetta-so\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegCounterpartyList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegCounterpartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:17-27.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegCounterpartyList\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegCounterpartyList\n- Source: rosetta-source/\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapProductIdentifierList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapProductIdentifierList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:235-242.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapProductIdentifierList\n\n- Block id: func:ingest-fpml-confirmation-common-func.rosetta:MapProductIdentifierList\n- Source: rosetta-source/src/main/rosetta/ingest-fpml-confirmation-\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-common-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapProductTaxonomyList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapProductTaxonomyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta:109-136.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapProductTaxonomyList\n\n- Block id: func:ingest-fpml-confirmation-common-func.rosetta:MapProductTaxonomyList\n- Source: rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-common-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegAncillaryPartyList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegAncillaryPartyList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:28-33.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegAncillaryPartyList\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegAncillaryPartyList\n- Source: rosetta-s\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegAccountPartyReference",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:121-134.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegAccountPartyReference\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegAccountPartyReference\n- Source\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapPayerReceiverToAccountPartyReference",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapPayerReceiverToAccountPartyReference from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta:647-677.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapPayerReceiverToAccountPartyReference\n\n- Block id: func:ingest-fpml-confirmation-party-func.rosetta:MapPayerReceiverToAccountPartyReference\n- Source: rosetta-source\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-party-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_generation_context",
+    "inputSummary": "",
+    "outputSummary": "# Rosetta Generation Context\n\nAuthority: rosetta-outranks-cookbook\nProduct family: fx-derivatives\nImplementation group: fx-single-leg\n\n## Required Rosetta Functions\n\n### MapFxSingleLegCounterpartyList\n\nSource: rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:17-27\n\n```rosetta\nfunc MapFxSingleLegCounterpartyList:\n    inputs:\n        fpmlFxSingleLeg fpml.FxSingleLeg (0..1)\n    output:\n        counterpartyList Counterparty (0..2)\n\n    add counterpartyList:\n \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\rosetta-generation-context.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.event.common.TradeState",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.event.common.TradeState\",\n  \"exists\": true,\n  \"packageName\": \"cdm.event.common\",\n  \"simpleName\": \"TradeState\",\n  \"methods\": [\n    {\n      \"name\": \"getTrade\",\n      \"returnType\": \"cdm.event.common.Trade\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.event.common.Trade getTrade()\"\n    },\n    {\n      \"name\": \"getState\",\n      \"returnType\": \"cdm.event.common.State\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cd\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.event.common.TradeState.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.event.common.TradeState, intent=set-trade",
+    "outputSummary": "No approved builder methods matched intent \"set-trade\" for cdm.event.common.TradeState. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.event.common.Trade",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.event.common.Trade\",\n  \"exists\": true,\n  \"packageName\": \"cdm.event.common\",\n  \"simpleName\": \"Trade\",\n  \"methods\": [\n    {\n      \"name\": \"getTradeIdentifier\",\n      \"returnType\": \"java.util.List<? extends cdm.event.common.TradeIdentifier>\",\n      \"parameters\": [],\n      \"raw\": \"public abstract java.util.List<? extends cdm.event.common.TradeIdentifier> getTradeIdentifier()\"\n    },\n    {\n      \"name\": \"getTradeDate\",\n      \"returnTyp\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.event.common.Trade.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.event.common.Trade, intent=set-product",
+    "outputSummary": "No approved builder methods matched intent \"set-product\" for cdm.event.common.Trade. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.NonTransferableProduct",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.NonTransferableProduct\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"NonTransferableProduct\",\n  \"methods\": [\n    {\n      \"name\": \"getIdentifier\",\n      \"returnType\": \"java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>\",\n      \"parameters\": [],\n      \"raw\": \"public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier> getIdent\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.NonTransferableProduct.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.NonTransferableProduct, intent=set-economic-terms",
+    "outputSummary": "No approved builder methods matched intent \"set-economic-terms\" for cdm.product.template.NonTransferableProduct. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.EconomicTerms",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.EconomicTerms\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"EconomicTerms\",\n  \"methods\": [\n    {\n      \"name\": \"getEffectiveDate\",\n      \"returnType\": \"cdm.base.datetime.AdjustableOrRelativeDate\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()\"\n    },\n    {\n      \"name\": \"getTerminationDate\",\n      \"returnType\": \"c\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.EconomicTerms.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.Payout",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.Payout\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"Payout\",\n  \"methods\": [\n    {\n      \"name\": \"getAssetPayout\",\n      \"returnType\": \"cdm.product.template.AssetPayout\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.product.template.AssetPayout getAssetPayout()\"\n    },\n    {\n      \"name\": \"getCommodityPayout\",\n      \"returnType\": \"cdm.product.asset.CommodityPayout\",\n   \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.Payout.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.Payout, intent=set-settlement-payout",
+    "outputSummary": "No approved builder methods matched intent \"set-settlement-payout\" for cdm.product.template.Payout. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.template.SettlementPayout",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.template.SettlementPayout\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.template\",\n  \"simpleName\": \"SettlementPayout\",\n  \"methods\": [\n    {\n      \"name\": \"getUnderlier\",\n      \"returnType\": \"cdm.product.template.Underlier\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.product.template.Underlier getUnderlier()\"\n    },\n    {\n      \"name\": \"getDeliveryTerm\",\n      \"returnType\": \"java.lang.String\",\n      \"para\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.template.SettlementPayout.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.SettlementPayout, intent=set-price-quantity",
+    "outputSummary": "No approved builder methods matched intent \"set-price-quantity\" for cdm.product.template.SettlementPayout. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.product.common.settlement.ResolvablePriceQuantity",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.product.common.settlement.ResolvablePriceQuantity\",\n  \"exists\": true,\n  \"packageName\": \"cdm.product.common.settlement\",\n  \"simpleName\": \"ResolvablePriceQuantity\",\n  \"methods\": [\n    {\n      \"name\": \"getResolvedQuantity\",\n      \"returnType\": \"cdm.base.math.Quantity\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.base.math.Quantity getResolvedQuantity()\"\n    },\n    {\n      \"name\": \"getQuantitySchedule\",\n      \"returnType\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.product.common.settlement.ResolvablePriceQuantity.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegNonTransferableProduct",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegNonTransferableProduct from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:34-47.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegNonTransferableProduct\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegNonTransferableProduct\n- Sourc\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegEconomicTerms",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegEconomicTerms from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:48-64.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegEconomicTerms\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegEconomicTerms\n- Source: rosetta-source/src/main/\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxCoreDetailsModelToSettlementPayout",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelToSettlementPayout from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:65-111.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxCoreDetailsModelToSettlementPayout\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayo\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxSingleLegPriceQuantityList",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxSingleLegPriceQuantityList from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:112-120.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxSingleLegPriceQuantityList\n\n- Block id: func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegPriceQuantityList\n- Source: rosetta-so\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxCoreDetailsModelPriceListWithLocation",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelPriceListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:1245-1259.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxCoreDetailsModelPriceListWithLocation\n\n- Block id: func:ingest-fpml-confirmation-pricequantity-func.rosetta:MapFxCoreDetailsModelPriceListWithLocati\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-pricequantity-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapFxCoreDetailsModelQuantityListWithLocation",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapFxCoreDetailsModelQuantityListWithLocation from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta:540-574.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapFxCoreDetailsModelQuantityListWithLocation\n\n- Block id: func:ingest-fpml-confirmation-pricequantity-func.rosetta:MapFxCoreDetailsModelQuantityListWit\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-pricequantity-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\round-01\\planner-plan.md",
+    "outputSummary": "## Implementation scope (machine-checked)\n**Product family:** fx-derivatives\n**In scope (implementation groups):**\n- fx-single-leg\n**Explicitly out of scope (implementation groups):**\n- fx-swap\n- fx-simple-option\n- fx-digital-option\n- fx-barrier-option\n- fx-average-rate-option\n- fx-strategy\n- non-fx\n\n## Runtime supported fixtures (machine-checked)\n- fx-ex01-fx-spot\n- fx-ex02-spot-cross-w-side-rates\n- fx-ex03-fx-fwd\n- fx-ex04-fx-fwd-w-settlement\n- fx-ex05-fx-fwd-w-ssi\n- fx-ex06-fx-fwd-w-splits\n- \n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\round-01\\planner-plan.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\round-01\\plan-validation.md",
+    "outputSummary": "# Plan Validation\n\nStatus: passed\n\n## Blocking Issues\n\n- none\n\n## Warnings\n\n- none\n\n## Validation details\n\n- Mode: structured-section\n- Parsed in-scope groups: fx-single-leg\n- Parsed out-of-scope groups: fx-swap, fx-simple-option, fx-digital-option, fx-barrier-option, fx-average-rate-option, fx-strategy, non-fx\n- Parsed runtime fixture ids: fx-ex01-fx-spot, fx-ex02-spot-cross-w-side-rates, fx-ex03-fx-fwd, fx-ex04-fx-fwd-w-settlement, fx-ex05-fx-fwd-w-ssi, fx-ex06-fx-fwd-w-splits, fx-ex07-non-del\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\round-01\\plan-validation.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json",
+    "outputSummary": "{\n  \"productFamily\": \"fx-derivatives\",\n  \"familyBoundary\": \"fx-derivatives\",\n  \"implementationStrategy\": \"staged-by-product-group\",\n  \"currentImplementationGroup\": \"fx-single-leg\",\n  \"candidateNextGroups\": [\n    \"fx-swap\",\n    \"fx-simple-option\"\n  ],\n  \"classifiedFixtures\": [\n    {\n      \"fpmlPath\": \"data_to_learn_from\\\\fpml\\\\fx-derivatives\\\\fx-ex01-fx-spot.xml\",\n      \"expectedCdmPath\": \"data_to_learn_from\\\\cdm_parallel\\\\fx-derivatives\\\\fx-ex01-fx-spot.json\",\n      \"productGroup\": \"fx-single-le\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\java-shell-contract.md",
+    "outputSummary": "# Java Shell Contract\n\nJava target: 11\nBase package: com.fpml.cdm.fx.mapper\nGenerated implementation package: com.fpml.cdm.fx.mapper.generated\nGenerated implementation class: GeneratedFpmlToCdmMapper\nCDM/Rosetta preflight status: passed\nApproved CDM API contract summary: agent-workspace/approved-cdm-api-contract-summary.md\nFull approved CDM API contract JSON: agent-workspace/approved-cdm-api-contract.json\nSemantic construction recipes: agent-workspace/semantic-recipes.md\n\n## Shell-Owned Files\n\n-\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\java-shell-contract.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract-summary.md",
+    "outputSummary": "# Approved CDM API Contract Summary\n\nGenerated: 2026-05-08T17:25:13.322Z\nProduct family: fx-derivatives\nImplementation group: fx-single-leg\nAuthority: compiled-jar-javap-and-semantic-recipes\n\n## Rules\n\n- This summary is the default prompt authority.\n- The full contract stays on disk as approved-cdm-api-contract.json and approved-cdm-api-contract.md.\n- Import or fully qualify only approved classes listed below.\n- Use get_cdm_builder_methods for exact method details before using a builder method.\n\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract-summary.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md",
+    "outputSummary": "# Evidence Index\n\nUse this file as the default context map. Fetch detailed evidence only when needed.\n\n## Runtime Fixtures\n\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex01-fx-spot.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex02-spot-cross-w-side-rates.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex03-fx-fwd.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-derivatives\\fx-ex04-fx-fwd-w-settlement.xml\n- fx-single-leg: data_to_learn_from\\fpml\\fx-d\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\evidence-index.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\cdm-java-api-summary.md",
+    "outputSummary": "# CDM Java API Summary\n\nArtifact: org.finos.cdm:cdm-java:6.7.0\nAuthority: compiled-jar-javap\nTotal indexed classes: 5183\n\n## Rules\n\n- This summary is an index, not method authority.\n- The compiled CDM Java jar inspected by javap is the only source of truth.\n- Before using any CDM class builder, call get_cdm_java_class with the exact fully qualified class name.\n- Missing-class results apply only to the exact package queried.\n- Do not infer a class is missing from a same-simple-name class in anoth\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\cdm-java-api-summary.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.event.common.TradeState, intent=set-trade",
+    "outputSummary": "No approved builder methods matched intent \"set-trade\" for cdm.event.common.TradeState. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.event.common.Trade, intent=set-product",
+    "outputSummary": "No approved builder methods matched intent \"set-product\" for cdm.event.common.Trade. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.NonTransferableProduct, intent=set-economic-terms",
+    "outputSummary": "No approved builder methods matched intent \"set-economic-terms\" for cdm.product.template.NonTransferableProduct. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.Payout, intent=set-settlement-payout",
+    "outputSummary": "No approved builder methods matched intent \"set-settlement-payout\" for cdm.product.template.Payout. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_builder_methods",
+    "inputSummary": "className=cdm.product.template.SettlementPayout, intent=set-price-quantity",
+    "outputSummary": "No approved builder methods matched intent \"set-price-quantity\" for cdm.product.template.SettlementPayout. Use get_cdm_java_class for exact full details before changing the contract.",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\approved-cdm-api-contract.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapPayerReceiver",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapPayerReceiver from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta:779-797.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapPayerReceiver\n\n- Block id: func:ingest-fpml-confirmation-party-func.rosetta:MapPayerReceiver\n- Source: rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta:779-797\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-party-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_rosetta_function",
+    "inputSummary": "functionName=MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate",
+    "outputSummary": "# Rosetta Retrieval Result\n\nStatus: passed\n\n## Diagnostics\n\n- Resolved Rosetta function MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate from rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta:25-40.\n- Rosetta source is mapping-intent authority, not Java API authority.\n\n## Missing Functions\n\n- none\n\n## Blocks\n\n### MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate\n\n- Block id: func:ingest-fpml-confirmation-datetime-func.rosetta:MapAdjustabl\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\extracted\\blocks.json",
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-datetime-func.rosetta"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "get_cdm_java_class",
+    "inputSummary": "className=cdm.event.common.TradeState",
+    "outputSummary": "Lookup status: found\n\nLookup source: cache\n\n{\n  \"className\": \"cdm.event.common.TradeState\",\n  \"exists\": true,\n  \"packageName\": \"cdm.event.common\",\n  \"simpleName\": \"TradeState\",\n  \"methods\": [\n    {\n      \"name\": \"getTrade\",\n      \"returnType\": \"cdm.event.common.Trade\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cdm.event.common.Trade getTrade()\"\n    },\n    {\n      \"name\": \"getState\",\n      \"returnType\": \"cdm.event.common.State\",\n      \"parameters\": [],\n      \"raw\": \"public abstract cd\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\cdm-java-api\\6.7.0\\class-details\\cdm.event.common.TradeState.json"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  },
+  {
+    "tool": "get_fixture_summary",
+    "inputSummary": "path=fx-ex01-fx-spot",
+    "outputSummary": "Read path outside allowed roots: fx-ex01-fx-spot",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_fixture_summary",
+    "inputSummary": "path=fx-ex03-fx-fwd",
+    "outputSummary": "Read path outside allowed roots: fx-ex03-fx-fwd",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_fixture_summary",
+    "inputSummary": "path=fx-ex07-non-deliverable-forward",
+    "outputSummary": "Read path outside allowed roots: fx-ex07-non-deliverable-forward",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_expected_cdm_summary",
+    "inputSummary": "path=fx-ex01-fx-spot",
+    "outputSummary": "Read path outside allowed roots: fx-ex01-fx-spot",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_expected_cdm_summary",
+    "inputSummary": "path=fx-ex03-fx-fwd",
+    "outputSummary": "Read path outside allowed roots: fx-ex03-fx-fwd",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "get_expected_cdm_summary",
+    "inputSummary": "path=fx-ex07-non-deliverable-forward",
+    "outputSummary": "Read path outside allowed roots: fx-ex07-non-deliverable-forward",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated/java-mapper-poc/runs/2026-05-08T17-25-13-065Z/agent-workspace/fx-ex01-fx-spot.summary.md",
+    "outputSummary": "ENOENT: no such file or directory, open 'C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\fx-ex01-fx-spot.summary.md'",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated/java-mapper-poc/runs/2026-05-08T17-25-13-065Z/agent-workspace/fx-ex03-fx-fwd.summary.md",
+    "outputSummary": "ENOENT: no such file or directory, open 'C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\fx-ex03-fx-fwd.summary.md'",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=generated/java-mapper-poc/runs/2026-05-08T17-25-13-065Z/agent-workspace/fx-ex07-non-deliverable-forward.summary.md",
+    "outputSummary": "ENOENT: no such file or directory, open 'C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\fx-ex07-non-deliverable-forward.summary.md'",
+    "sourcePaths": [],
+    "cacheStatus": "miss",
+    "ok": false
+  },
+  {
+    "tool": "list_files",
+    "inputSummary": "root=generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z",
+    "outputSummary": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-input-brief.md\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.json\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-product-scope.md\nC:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\00-run-log.m\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\FpmlToCdmMapper.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport java.nio.file.Path;\n\npublic interface FpmlToCdmMapper {\n    String mapFile(Path inputPath, Path reportsDir) throws Exception;\n}\n",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\FpmlToCdmMapper.java"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper;\nimport java.nio.file.Files;\n\npublic final class Main {\n    private Main() {\n    }\n\n    public static void main(String[] args) throws Exception {\n        RuntimeArgs runtimeArgs = RuntimeArgs.parse(args);\n        FpmlToCdmMapper mapper = new GeneratedFpmlToCdmMapper();\n        String cdmJson = mapper.mapFile(runtimeArgs.inputPath(), runtimeArgs.reportsDir());\n        Files.writeString(runtimeArgs.ou\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\Main.java"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\RuntimeArgs.java",
+    "outputSummary": "package com.fpml.cdm.fx.mapper;\n\nimport java.nio.file.Path;\n\npublic final class RuntimeArgs {\n    private final Path inputPath;\n    private final Path outputPath;\n    private final Path reportsDir;\n\n    public RuntimeArgs(Path inputPath, Path outputPath, Path reportsDir) {\n        this.inputPath = inputPath;\n        this.outputPath = outputPath;\n        this.reportsDir = reportsDir;\n    }\n\n    public Path inputPath() {\n        return inputPath;\n    }\n\n    public Path outputPath() {\n        retur\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\RuntimeArgs.java"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex01-fx-spot.xml",
+    "outputSummary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!--\n  == Copyright (c) 2002-2010. All rights reserved.\n  == Financial Products Markup Language is subject to the FpML public license.\n  == A copy of this license is available at http://www.fpml.org/license/license.html\n  -->\n<FpML xmlns=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:fpml=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" version=\"4-9\" xsi:type=\"TradeConfirmed\" xsi:schemaLocation=\"http://www.fpml.org/2010/Fp\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex01-fx-spot.xml"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex03-fx-fwd.xml",
+    "outputSummary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!--\n  == Copyright (c) 2002-2010. All rights reserved.\n  == Financial Products Markup Language is subject to the FpML public license.\n  == A copy of this license is available at http://www.fpml.org/license/license.html\n-->\n<FpML xmlns=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:fpml=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" version=\"4-9\" xsi:type=\"RequestTradeConfirmation\" xsi:schemaLocation=\"http://www.fpml.org\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex03-fx-fwd.xml"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\implementation-plan.md",
+    "outputSummary": "# Implementation Plan\n\n",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\agent-workspace\\implementation-plan.md"
+    ],
+    "cacheStatus": "miss",
+    "ok": true
+  },
+  {
+    "tool": "read_file",
+    "inputSummary": "path=C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex03-fx-fwd.xml",
+    "outputSummary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!--\n  == Copyright (c) 2002-2010. All rights reserved.\n  == Financial Products Markup Language is subject to the FpML public license.\n  == A copy of this license is available at http://www.fpml.org/license/license.html\n-->\n<FpML xmlns=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:fpml=\"http://www.fpml.org/2010/FpML-4-9\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" version=\"4-9\" xsi:type=\"RequestTradeConfirmation\" xsi:schemaLocation=\"http://www.fpml.org\n...[truncated]",
+    "sourcePaths": [
+      "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T17-25-13-065Z\\fixtures\\fx-ex03-fx-fwd.xml"
+    ],
+    "cacheStatus": "hit",
+    "ok": true
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "reportType": "mappingTraceabilityReport",
+  "runId": "2026-05-08T18-24-06-498Z",
+  "productFamily": "fx-derivatives",
+  "implementationGroup": "fx-single-leg",
+  "rosettaFunctionCitations": {
+    "MapFxSingleLegCounterpartyList": {
+      "source": "semantic-recipes.md step 1",
+      "targetClasses": ["cdm.base.staticdata.party.Party", "cdm.base.staticdata.party.Counterparty"],
+      "implementationFile": "PartyMapper.java"
+    },
+    "MapPayerReceiverToAccountPartyReference": {
+      "source": "semantic-recipes.md step 1",
+      "targetClasses": ["cdm.base.staticdata.party.Party"],
+      "implementationFile": "PartyMapper.java"
+    },
+    "MapTradeIdentifierList": {
+      "source": "semantic-recipes.md step 2",
+      "targetClasses": ["cdm.event.common.TradeIdentifier"],
+      "implementationFile": "TradeIdentifierMapper.java"
+    },
+    "MapFxSingleLegNonTransferableProduct": {
+      "source": "semantic-recipes.md step 3",
+      "targetClasses": ["cdm.product.template.Product", "cdm.product.template.NonTransferableProduct"],
+      "implementationFile": "FxSingleLegMapper.java"
+    },
+    "MapFxSingleLegEconomicTerms": {
+      "source": "semantic-recipes.md step 3",
+      "targetClasses": ["cdm.product.template.EconomicTerms"],
+      "implementationFile": "FxSingleLegMapper.java"
+    },
+    "MapProductIdentifierList": {
+      "source": "semantic-recipes.md step 3",
+      "targetClasses": ["cdm.base.staticdata.identifier.Identifier"],
+      "implementationFile": "FxSingleLegMapper.java"
+    },
+    "MapFxCoreDetailsModelToSettlementPayout": {
+      "source": "semantic-recipes.md step 4",
+      "targetClasses": ["cdm.product.template.SettlementPayout"],
+      "implementationFile": "PayoutMapper.java"
+    },
+    "MapFxSingleLegPriceQuantityList": {
+      "source": "semantic-recipes.md step 4",
+      "targetClasses": ["cdm.product.common.settlement.ResolvablePriceQuantity"],
+      "implementationFile": "PriceQuantityMapper.java"
+    },
+    "MapFxCoreDetailsModelPriceListWithLocation": {
+      "source": "semantic-recipes.md step 4",
+      "targetClasses": ["cdm.observable.asset.PriceSchedule"],
+      "implementationFile": "PriceQuantityMapper.java"
+    },
+    "MapFxCoreDetailsModelQuantityListWithLocation": {
+      "source": "semantic-recipes.md step 4",
+      "targetClasses": ["cdm.base.math.QuantitySchedule"],
+      "implementationFile": "PriceQuantityMapper.java"
+    },
+    "MapFxCashSettlementToSettlementTerms": {
+      "source": "semantic-recipes.md step 4",
+      "targetClasses": ["cdm.product.common.settlement.SettlementTerms", "cdm.product.common.settlement.CashSettlementTerms"],
+      "implementationFile": "SettlementMapper.java"
+    },
+    "MapTradeState": {
+      "source": "semantic-recipes.md step 5",
+      "targetClasses": ["cdm.event.common.TradeState", "cdm.event.common.Trade"],
+      "implementationFile": "FxSingleLegMapper.java"
+    }
+  },
+  "fixtureCoverage": {
+    "fx-ex01-fx-spot": { "mapper": "FxSpotMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex02-spot-cross-w-side-rates": { "mapper": "FxSpotMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex03-fx-fwd": { "mapper": "FxFwdMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex04-fx-fwd-w-settlement": { "mapper": "FxFwdMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex05-fx-fwd-w-ssi": { "mapper": "FxFwdMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex06-fx-fwd-w-splits": { "mapper": "FxFwdMapper", "steps": [1, 2, 3, 4, 5] },
+    "fx-ex07-non-deliverable-forward": { "mapper": "NdfMapper", "steps": [1, 2, 3, 4, 5] }
+  },
+  "unsupportedScope": {
+    "settlementInstructions": ["fx-ex05-fx-fwd-w-ssi"],
+    "nonDeliverableSettlementFixingDate": ["fx-ex07-non-deliverable-forward"],
+    "nonDeliverableSettlementFixingSource": ["fx-ex07-non-deliverable-forward"]
+  }
+}

@@ -34,6 +34,13 @@ export type GeneratorRunConfig = {
   runtimeFixtures: RuntimeFixture[]
   cdmRosettaPreflight?: CdmRosettaPreflightReport
   roleModels: Record<GeneratorRole, RoleModelConfig>
+  llmBudget?: GeneratorLlmBudget
+}
+
+export type GeneratorLlmBudget = {
+  maxTotalCalls: number
+  maxInputTokensPerCall: number
+  maxRepairAttempts: number
 }
 
 export type GeneratorWorkspace = {
@@ -47,6 +54,35 @@ export type GeneratorWorkspace = {
   javaShellContractPath: string
   rosettaGenerationContextPath: string
   cdmRosettaPreflightPath: string
+  cdmJavaApiPackPath: string
+  cdmJavaApiSummaryPath: string
+  cdmJavaMissingClassesPath: string
+  relevantCdmApiCandidatesPath: string
+  relevantCdmApiCandidatesMarkdownPath: string
+  cdmApiSelectionPass1Path: string
+  cdmApiSelectionPass1MarkdownPath: string
+  cdmApiSelectionFinalPath: string
+  cdmApiSelectionFinalMarkdownPath: string
+  approvedCdmApiContractPath: string
+  approvedCdmApiContractMarkdownPath: string
+  approvedCdmApiContractSummaryPath: string
+  semanticRecipesDraftPath: string
+  semanticRecipesDraftMarkdownPath: string
+  semanticRecipesPath: string
+  semanticRecipesMarkdownPath: string
+  contextBudgetReportPath: string
+  contextBudgetReportMarkdownPath: string
+  javaDocumentationReadinessPath: string
+  javaDocumentationReadinessMarkdownPath: string
+  semanticRecipeValidationPath: string
+  semanticRecipeValidationMarkdownPath: string
+  apiContractValidationSummaryPath: string
+  apiContractValidationSummaryMarkdownPath: string
+  semanticRecipeFixturesReportPath: string
+  semanticRecipeFixturesReportMarkdownPath: string
+  goodJavaGuaranteeReviewPath: string
+  finalImplementationContractPath: string
+  finalImplementationContractJsonPath: string
   runLogPath: string
   acceptedPlanPath: string
   implementationPlanPath: string
@@ -94,6 +130,10 @@ export type ToolCacheEntry = ToolResult & {
 export type ToolExecutionState = {
   cache: Map<string, ToolCacheEntry>
   failedRepeats: Map<string, number>
+  searchedCdmClasses: Set<string>
+  lookupEligibleCdmClasses: Set<string>
+  approvedCdmClasses: Set<string>
+  strictCdmLookup: boolean
 }
 
 export type ActiveStageContext = {

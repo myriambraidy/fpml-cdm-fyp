@@ -28,9 +28,109 @@ describe('java generator tool runner', () => {
       executeTool: async () => 'scope contents',
     })
 
-    expect(output).toContain('Decision: ACCEPTED')
+    expect(output.content).toContain('Decision: ACCEPTED')
+    expect(output.llmCalls).toBe(2)
+    expect(output.inputChars).toBeGreaterThan(0)
     expect(llm.calls.length).toBe(2)
     expect(llm.calls[1]?.some(message => message.content.includes('scope contents'))).toBe(true)
+  })
+
+  test('blocks calls that exceed the input budget', async () => {
+    const llm = new QueueLLM([{ content: 'unused' }])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'x'.repeat(100) }],
+      tools: [],
+      model: 'qwen/qwen3-coder-next',
+      maxTokens: 1000,
+      maxToolRounds: 1,
+      maxInputTokensPerCall: 10,
+      executeTool: async () => 'unused',
+    })
+
+    expect(output.content).toBe('unused')
+    expect(llm.calls.length).toBe(1)
+  })
+
+  test('blocks calls that exceed the total call budget', async () => {
+    const llm = new QueueLLM([{ content: 'unused' }])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Plan.' }],
+      tools: [],
+      model: 'qwen/qwen3-coder-next',
+      maxTokens: 1000,
+      maxToolRounds: 1,
+      maxTotalLlmCalls: 0,
+      executeTool: async () => 'unused',
+    })
+
+    expect(output.content).toBe('unused')
+    expect(llm.calls.length).toBe(1)
+  })
+
+  test('uses write-aware final instruction for implementer tool limit', async () => {
+    const llm = new QueueLLM([{ content: 'blocked summary' }])
+
+    await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Implement.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 0,
+      roleName: 'implementer',
+      executeTool: async () => 'unused',
+    })
+
+    const lastCall = llm.calls[0]
+    expect(lastCall?.at(-1)?.content).toContain('Do not write pseudo tool calls')
+    expect(lastCall?.at(-1)?.content).toContain('state BLOCKED')
+  })
+
+  test('reports policy failure when required write tool is not called', async () => {
+    const llm = new QueueLLM([{ content: 'Done without writing.' }])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Write.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 1,
+      toolCallPolicy: {
+        requiredToolNames: ['write_generated_java_file'],
+        minimumNativeToolCalls: 1,
+        pseudoToolCallsAreFatal: true,
+      },
+      executeTool: async () => 'unused',
+    })
+
+    expect(output.policyFailures).toContain('minimum_native_tool_calls_not_met')
+    expect(output.policyFailures).toContain('required_tool_not_called:write_generated_java_file')
+  })
+
+  test('reports pseudo tool output through policy', async () => {
+    const llm = new QueueLLM([
+      {
+        content: '[TOOL_CALL]\n{tool => "read_file", args => { --path "x" }}\n[/TOOL_CALL]',
+      },
+    ])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Write.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 1,
+      toolCallPolicy: { pseudoToolCallsAreFatal: true },
+      executeTool: async () => 'unused',
+    })
+
+    expect(output.policyFailures).toContain('pseudo_tool_call_output')
   })
 })
 

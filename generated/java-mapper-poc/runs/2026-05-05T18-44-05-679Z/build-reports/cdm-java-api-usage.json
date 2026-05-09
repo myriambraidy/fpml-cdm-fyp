@@ -1,0 +1,112 @@
+{
+  "findings": [
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 8,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.event.common.ContractDetails"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 12,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.template.SettlementPayout"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 13,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.template.Underlier"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 14,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.common.settlement.SettlementTerms"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 16,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.common.settlement.ResolvablePriceQuantity"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 17,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.common.settlement.SettlementTypeEnum"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 18,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.common.settlement.SettlementDate"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 19,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.product.common.settlement.CashSettlementTerms"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 21,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.base.staticdata.party.PartyIdentifier"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 24,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.base.staticdata.party.PayerReceiver"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 27,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.base.staticdata.asset.common.Asset"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 28,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.base.staticdata.asset.common.Cash"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 32,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.observable.asset.PriceSchedule"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 34,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: cdm.observable.asset.metafields.ReferenceWithMetaObservable"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 35,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: com.rosetta.model.metafields.FieldWithMetaString"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 37,
+      "code": "cdm_import_not_in_prompt_seed",
+      "message": "CDM import is outside the prompt seed policy; verify with get_cdm_java_class or add it to the product-scope seed: com.rosetta.model.lib.records.Date"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 15,
+      "code": "exact_missing_cdm_class_reference",
+      "message": "Generated Java references an exact CDM Java class that was not found in the compiled jar: cdm.product.common.settlement.SettlementPayout"
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 37,
+      "code": "exact_missing_cdm_class_reference",
+      "message": "Generated Java references an exact CDM Java class that was not found in the compiled jar: com.rosetta.model.lib.records.Date"
+    }
+  ]
+}

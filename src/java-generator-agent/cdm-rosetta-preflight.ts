@@ -4,6 +4,7 @@ import {
   buildRosettaValidatorJar,
   rosettaValidatorModuleExists,
 } from './rosetta-validator-bridge'
+import { discoverRelevantCdmApi } from './cdm-concept-resolver'
 
 export type CdmRosettaMavenArtifact = {
   groupId: string
@@ -64,16 +65,6 @@ export const CDM_ROSETTA_PREFLIGHT_DIR = 'generated/java-mapper-poc/cdm-rosetta-
 export const CDM_ROSETTA_PREFLIGHT_JSON = 'preflight-report.json'
 export const CDM_ROSETTA_PREFLIGHT_MARKDOWN = 'preflight-report.md'
 
-const REQUIRED_CDM_CLASSES: Record<string, string> = {
-  Trade: 'cdm.event.common.Trade',
-  TradeState: 'cdm.event.common.TradeState',
-  NonTransferableProduct: 'cdm.product.template.NonTransferableProduct',
-  EconomicTerms: 'cdm.product.template.EconomicTerms',
-  Payout: 'cdm.product.template.Payout',
-  SettlementPayout: 'cdm.product.common.settlement.SettlementPayout',
-  ResolvablePriceQuantity: 'cdm.observable.asset.ResolvablePriceQuantity',
-}
-
 export function cdmRosettaPreflightJsonPath(): string {
   return resolve(CDM_ROSETTA_PREFLIGHT_DIR, CDM_ROSETTA_PREFLIGHT_JSON)
 }
@@ -87,7 +78,10 @@ export async function ensureCdmRosettaPreflightReport(): Promise<CdmRosettaPrefl
   const moduleExists = await rosettaValidatorModuleExists()
   if (await exists(jsonPath)) {
     const cached = await readCdmRosettaPreflightReport(jsonPath)
-    if (!moduleExists || (cached.status === 'passed' && cached.mode === 'repo-local-rosetta-validator')) {
+    if (
+      (!moduleExists || (cached.status === 'passed' && cached.mode === 'repo-local-rosetta-validator'))
+      && preflightUsesResolvedConcepts(cached)
+    ) {
       return cached
     }
   }
@@ -95,6 +89,7 @@ export async function ensureCdmRosettaPreflightReport(): Promise<CdmRosettaPrefl
   if (moduleExists) {
     const build = await buildRosettaValidatorJar()
     if (build.status === 'passed') {
+      const requiredClasses = await resolveRequiredClasses()
       const report = passedReport({
         mode: 'repo-local-rosetta-validator',
         artifact: {
@@ -111,6 +106,7 @@ export async function ensureCdmRosettaPreflightReport(): Promise<CdmRosettaPrefl
           'rosetta-validator Maven module was found and packaged successfully.',
           `Built ${build.jarPath}.`,
         ],
+        requiredClasses,
       })
       await writeCdmRosettaPreflightReport(report)
       return report
@@ -148,6 +144,7 @@ export async function ensureCdmRosettaPreflightReport(): Promise<CdmRosettaPrefl
             'CDM_ROSETTA_MAVEN_COORDINATE was provided.',
             'This report records the dependency contract; Maven compile gates still prove the artifact is usable.',
           ],
+          requiredClasses: await resolveRequiredClasses(),
         })
 
   await writeCdmRosettaPreflightReport(report)
@@ -229,6 +226,7 @@ function passedReport(args: {
   artifact: CdmRosettaMavenArtifact
   validatorModule?: CdmRosettaValidatorModule
   diagnostics: string[]
+  requiredClasses: Record<string, string>
 }): CdmRosettaPreflightPassedReport {
   return {
     status: 'passed',
@@ -239,7 +237,7 @@ function passedReport(args: {
     cdmArtifact: args.artifact,
     validatorModule: args.validatorModule,
     modelRootCandidates: ['cdm.event.common.TradeState', 'cdm.event.common.Trade'],
-    requiredClasses: REQUIRED_CDM_CLASSES,
+    requiredClasses: args.requiredClasses,
     serializer: {
       strategy: 'maven-compile-gated-jackson-serialization',
       notes:
@@ -247,6 +245,20 @@ function passedReport(args: {
     },
     diagnostics: args.diagnostics,
   }
+}
+
+async function resolveRequiredClasses(): Promise<Record<string, string>> {
+  const discovery = await discoverRelevantCdmApi({
+    productFamily: 'fx-derivatives',
+    implementationGroup: 'fx-single-leg',
+  })
+  const requiredClasses: Record<string, string> = {}
+  for (const concept of discovery.resolvedConcepts) {
+    if (concept.status === 'resolved' && concept.selectedClassName !== '') {
+      requiredClasses[concept.concept] = concept.selectedClassName
+    }
+  }
+  return requiredClasses
 }
 
 function blockedReport(args: {
@@ -263,7 +275,7 @@ function blockedReport(args: {
     cdmArtifact: null,
     validatorModule: args.validatorModule,
     modelRootCandidates: ['cdm.event.common.TradeState', 'cdm.event.common.Trade'],
-    requiredClasses: REQUIRED_CDM_CLASSES,
+    requiredClasses: {},
     serializer: {
       strategy: 'unavailable',
       notes: 'No CDM/Rosetta Java artifact has been proven usable yet.',
@@ -277,6 +289,11 @@ function renderValidatorModule(module: CdmRosettaValidatorModule | undefined): s
   return `- POM: ${module.pomPath}
 - JAR: ${module.jarPath}
 - Build command: ${module.buildCommand}`
+}
+
+function preflightUsesResolvedConcepts(report: CdmRosettaPreflightReport): boolean {
+  if (report.status !== 'passed') return true
+  return Object.keys(report.requiredClasses).some(key => key.includes(' root') || key.includes('payout'))
 }
 
 async function exists(path: string): Promise<boolean> {

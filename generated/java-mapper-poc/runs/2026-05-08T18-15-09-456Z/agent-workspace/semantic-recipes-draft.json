@@ -1,0 +1,155 @@
+{
+  "recipeId": "fx-single-leg-tradestate",
+  "requiredClasses": [
+    "cdm.base.staticdata.asset.common.Asset",
+    "cdm.base.staticdata.asset.common.Cash",
+    "cdm.base.staticdata.identifier.AssignedIdentifier",
+    "cdm.base.staticdata.identifier.Identifier",
+    "cdm.base.staticdata.party.Party",
+    "cdm.base.staticdata.party.PartyIdentifier",
+    "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+    "cdm.event.common.ContractDetails",
+    "cdm.event.common.Trade",
+    "cdm.event.common.TradeIdentifier",
+    "cdm.event.common.TradeState",
+    "cdm.observable.asset.Observable",
+    "cdm.observable.asset.PriceSchedule",
+    "cdm.product.common.settlement.CashSettlementTerms",
+    "cdm.product.common.settlement.ResolvablePriceQuantity",
+    "cdm.product.common.settlement.SettlementTerms",
+    "cdm.product.common.settlement.SettlementTypeEnum",
+    "cdm.product.template.EconomicTerms",
+    "cdm.product.template.NonTransferableProduct",
+    "cdm.product.template.Payout",
+    "cdm.product.template.Product",
+    "cdm.product.template.SettlementPayout",
+    "cdm.product.template.TradableProduct",
+    "cdm.product.template.Underlier"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "action": "Build parties and party identifiers from FpML party elements.",
+      "core": true,
+      "classNames": [
+        "cdm.base.staticdata.party.Party",
+        "cdm.base.staticdata.party.PartyIdentifier",
+        "cdm.base.staticdata.identifier.Identifier",
+        "cdm.base.staticdata.identifier.AssignedIdentifier",
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "requiredBuilderIntents": [
+        "build-root",
+        "set-party",
+        "set-identifier"
+      ],
+      "rosettaFunctions": [
+        "MapFxSingleLegCounterpartyList",
+        "MapFxSingleLegAncillaryPartyList",
+        "MapPayerReceiverToAccountPartyReference"
+      ],
+      "notes": [
+        "Do not invent cdm.base.staticdata.party.PartyReference. Use approved party identity or metafield classes."
+      ]
+    },
+    {
+      "order": 2,
+      "action": "Build trade identifiers from tradeHeader.partyTradeIdentifier values.",
+      "core": true,
+      "classNames": [
+        "cdm.event.common.TradeIdentifier"
+      ],
+      "requiredBuilderIntents": [
+        "build-root",
+        "set-identifier"
+      ],
+      "rosettaFunctions": [
+        "MapTradeIdentifierList"
+      ],
+      "notes": [
+        "Preserve source trade identifiers in traceability reports."
+      ]
+    },
+    {
+      "order": 3,
+      "action": "Build NonTransferableProduct and attach EconomicTerms.",
+      "core": true,
+      "classNames": [
+        "cdm.product.template.NonTransferableProduct",
+        "cdm.product.template.EconomicTerms",
+        "cdm.product.template.Product",
+        "cdm.product.template.TradableProduct"
+      ],
+      "requiredBuilderIntents": [
+        "build-root",
+        "set-product",
+        "set-economic-terms"
+      ],
+      "rosettaFunctions": [
+        "MapFxSingleLegNonTransferableProduct",
+        "MapFxSingleLegEconomicTerms",
+        "MapProductIdentifierList",
+        "MapProductTaxonomyList"
+      ],
+      "notes": [
+        "Use CDM builders as the internal model. Jackson is only for final serialization and reports."
+      ]
+    },
+    {
+      "order": 4,
+      "action": "Build Payout and selected SettlementPayout with price, quantity, settlement, and underlier details.",
+      "core": true,
+      "classNames": [
+        "cdm.product.template.Payout",
+        "cdm.product.template.SettlementPayout",
+        "cdm.product.common.settlement.ResolvablePriceQuantity",
+        "cdm.product.common.settlement.SettlementTerms",
+        "cdm.product.common.settlement.CashSettlementTerms",
+        "cdm.product.common.settlement.SettlementTypeEnum",
+        "cdm.product.template.Underlier",
+        "cdm.observable.asset.PriceSchedule",
+        "cdm.observable.asset.Observable",
+        "cdm.base.staticdata.asset.common.Asset",
+        "cdm.base.staticdata.asset.common.Cash"
+      ],
+      "requiredBuilderIntents": [
+        "build-root",
+        "set-payout",
+        "set-settlement-payout",
+        "set-price-quantity"
+      ],
+      "rosettaFunctions": [
+        "MapFxCoreDetailsModelToSettlementPayout",
+        "MapFxSingleLegPriceQuantityList",
+        "MapFxCoreDetailsModelPriceListWithLocation",
+        "MapFxCoreDetailsModelQuantityListWithLocation"
+      ],
+      "notes": [
+        "Use the selected class in the approved contract for each concept; do not use rejected same-name candidates."
+      ]
+    },
+    {
+      "order": 5,
+      "action": "Build Trade and wrap it in TradeState for runtime output.",
+      "core": true,
+      "classNames": [
+        "cdm.event.common.Trade",
+        "cdm.event.common.TradeState",
+        "cdm.event.common.ContractDetails"
+      ],
+      "requiredBuilderIntents": [
+        "build-root",
+        "set-trade",
+        "set-contract-details",
+        "set-product",
+        "set-party"
+      ],
+      "rosettaFunctions": [
+        "MapTradeState"
+      ],
+      "notes": [
+        "The runtime output root is TradeState unless the final implementation contract states otherwise."
+      ]
+    }
+  ]
+}

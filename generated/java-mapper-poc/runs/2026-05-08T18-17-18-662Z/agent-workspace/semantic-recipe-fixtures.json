@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-05-08T18:17:18.971Z",
+  "status": "passed",
+  "fixtures": [
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "fixtureKind": "build-wiring",
+      "className": "MinimalTradeStateBuildWiringFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\MinimalTradeStateBuildWiringFixture.java",
+      "compiles": true,
+      "methodCount": 2
+    },
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "stepOrder": 1,
+      "fixtureKind": "recipe-derived",
+      "className": "RecipeStep1BuilderMethodsFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\RecipeStep1BuilderMethodsFixture.java",
+      "compiles": true,
+      "methodCount": 23
+    },
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "stepOrder": 2,
+      "fixtureKind": "recipe-derived",
+      "className": "RecipeStep2BuilderMethodsFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\RecipeStep2BuilderMethodsFixture.java",
+      "compiles": true,
+      "methodCount": 9
+    },
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "stepOrder": 3,
+      "fixtureKind": "recipe-derived",
+      "className": "RecipeStep3BuilderMethodsFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\RecipeStep3BuilderMethodsFixture.java",
+      "compiles": true,
+      "methodCount": 16
+    },
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "stepOrder": 4,
+      "fixtureKind": "recipe-derived",
+      "className": "RecipeStep4BuilderMethodsFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\RecipeStep4BuilderMethodsFixture.java",
+      "compiles": true,
+      "methodCount": 34
+    },
+    {
+      "recipeId": "fx-single-leg-tradestate",
+      "stepOrder": 5,
+      "fixtureKind": "recipe-derived",
+      "className": "RecipeStep5BuilderMethodsFixture",
+      "path": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\generated\\java-mapper-poc\\runs\\2026-05-08T18-17-18-662Z\\recipe-fixtures\\src\\main\\java\\com\\fpml\\cdm\\fx\\recipefixtures\\RecipeStep5BuilderMethodsFixture.java",
+      "compiles": true,
+      "methodCount": 32
+    }
+  ]
+}

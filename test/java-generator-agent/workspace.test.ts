@@ -4,6 +4,11 @@ import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
 import { createWorkspace } from '../../src/java-generator-agent'
 import { DEFAULT_RUNTIME_FIXTURES } from '../../src/java-generator-agent/java-contract'
+import {
+  buildRoleMessages,
+  IMPLEMENTER_SYSTEM_PROMPT,
+  PLANNER_SYSTEM_PROMPT,
+} from '../../src/java-generator-agent/prompts'
 import type {
   GeneratorRole,
   GeneratorRunConfig,
@@ -19,6 +24,18 @@ describe('java generator workspace', () => {
 
       const productScope = await Bun.file(workspace.productScopePath).text()
       const evidencePacket = await Bun.file(workspace.evidencePacketPath).text()
+      const apiSummary = await Bun.file(workspace.cdmJavaApiSummaryPath).text()
+      const missingClasses = await Bun.file(workspace.cdmJavaMissingClassesPath).text()
+      const relevantApi = await Bun.file(workspace.relevantCdmApiCandidatesMarkdownPath).text()
+      const pass1Selection = await Bun.file(workspace.cdmApiSelectionPass1MarkdownPath).text()
+      const finalSelection = await Bun.file(workspace.cdmApiSelectionFinalMarkdownPath).text()
+      const approvedContract = await Bun.file(workspace.approvedCdmApiContractMarkdownPath).text()
+      const approvedContractSummary = await Bun.file(workspace.approvedCdmApiContractSummaryPath).text()
+      const draftRecipes = await Bun.file(workspace.semanticRecipesDraftMarkdownPath).text()
+      const semanticRecipes = await Bun.file(workspace.semanticRecipesMarkdownPath).text()
+      const recipeValidation = await Bun.file(workspace.semanticRecipeValidationMarkdownPath).text()
+      const contextBudget = await Bun.file(workspace.contextBudgetReportMarkdownPath).text()
+      const finalContract = await Bun.file(workspace.finalImplementationContractPath).text()
       const runLog = await Bun.file(workspace.runLogPath).text()
 
       expect(productScope).toContain('Selected product family: fx-derivatives')
@@ -26,7 +43,81 @@ describe('java generator workspace', () => {
       expect(productScope).toContain('Default current implementation group: fx-single-leg')
       expect(productScope).toContain('Do not add non-FX products')
       expect(evidencePacket).toContain('Evidence Packet')
+      expect(apiSummary).toContain('CDM Java API Summary')
+      expect(missingClasses).toContain('Missing-Class Observations')
+      expect(relevantApi).toContain('Relevant CDM API Candidates')
+      expect(pass1Selection).toContain('Pass: pass1')
+      expect(finalSelection).toContain('Pass: pass2')
+      expect(approvedContract).toContain('Approved CDM API Contract')
+      expect(approvedContract).toContain('cdm.event.common.TradeState')
+      expect(approvedContractSummary).toContain('Approved CDM API Contract Summary')
+      expect(approvedContractSummary).toContain('cdm.event.common.TradeState')
+      expect(approvedContractSummary.length).toBeLessThan(approvedContract.length)
+      expect(draftRecipes).toContain('Draft Semantic Recipe Requirements')
+      expect(semanticRecipes).toContain('Semantic Construction Recipes')
+      expect(semanticRecipes).toContain('Build FX single-leg TradeState')
+      expect(recipeValidation).toContain('Status: passed')
+      expect(contextBudget).toContain('Status: passed')
+      expect(finalContract).toContain('Final Implementation Contract')
+      expect(finalContract).toContain('approved-cdm-api-contract')
+      expect(finalContract).toContain('Never write Java import aliases')
       expect(runLog).toContain('Workspace created')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  test('planner context uses compact contract authorities instead of full API pack', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-workspace-'))
+    try {
+      const config = makeConfig(root)
+      const workspace = await createWorkspace(config)
+      const messages = await buildRoleMessages({
+        systemPrompt: PLANNER_SYSTEM_PROMPT,
+        config,
+        workspace,
+        userInstruction: 'Plan.',
+        roleName: 'planner',
+      })
+      const userMessage = messages.find(message => message.role === 'user')
+
+      expect(userMessage?.content).toContain(workspace.cdmJavaApiSummaryPath)
+      expect(userMessage?.content).toContain(workspace.javaShellContractPath)
+      expect(userMessage?.content).toContain(workspace.javaDocumentationReadinessMarkdownPath)
+      expect(userMessage?.content).toContain(workspace.approvedCdmApiContractSummaryPath)
+      expect(userMessage?.content).toContain(workspace.semanticRecipesMarkdownPath)
+      expect(userMessage?.content).toContain(workspace.semanticRecipeValidationMarkdownPath)
+      expect(userMessage?.content).toContain(workspace.contextBudgetReportMarkdownPath)
+      expect(userMessage?.content).not.toContain(workspace.cdmJavaMissingClassesPath)
+      expect(userMessage?.content).not.toContain(workspace.relevantCdmApiCandidatesMarkdownPath)
+      expect(userMessage?.content).not.toContain(workspace.cdmApiSelectionFinalMarkdownPath)
+      expect(userMessage?.content).not.toContain(workspace.approvedCdmApiContractMarkdownPath)
+      expect(userMessage?.content).not.toContain(workspace.cdmJavaApiPackPath)
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  test('implementer context uses the final contract instead of stale plan artifacts', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-workspace-'))
+    try {
+      const config = makeConfig(root)
+      const workspace = await createWorkspace(config)
+      const messages = await buildRoleMessages({
+        systemPrompt: IMPLEMENTER_SYSTEM_PROMPT,
+        config,
+        workspace,
+        userInstruction: 'Implement.',
+        roleName: 'implementer',
+      })
+      const userMessage = messages.find(message => message.role === 'user')
+
+      expect(userMessage?.content).toContain(workspace.finalImplementationContractPath)
+      expect(userMessage?.content).toContain(workspace.approvedCdmApiContractSummaryPath)
+      expect(userMessage?.content).not.toContain(workspace.approvedCdmApiContractMarkdownPath)
+      expect(userMessage?.content).toContain(workspace.semanticRecipesMarkdownPath)
+      expect(userMessage?.content).not.toContain(workspace.acceptedPlanPath)
+      expect(userMessage?.content).not.toContain('critique-resolution')
     } finally {
       await rm(root, { recursive: true, force: true })
     }

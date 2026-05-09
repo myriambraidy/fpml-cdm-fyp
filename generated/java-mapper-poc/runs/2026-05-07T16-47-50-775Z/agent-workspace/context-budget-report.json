@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-05-07T16:47:50.932Z",
+  "config": {
+    "productFamily": "fx-derivatives",
+    "implementationGroup": "fx-single-leg",
+    "approvedClassLimit": 80,
+    "approvedBuilderMethodLimit": 240,
+    "finalContractLineLimit": 300
+  },
+  "approvedClassCount": 38,
+  "approvedBuilderMethodCount": 114,
+  "finalContractLineCount": 121,
+  "recipeCount": 1,
+  "findings": [],
+  "status": "passed",
+  "derivation": [
+    "80 approved classes is chosen so approved-cdm-api-contract.md remains inspectable and fits comfortably in implementer context.",
+    "240 approved builder methods is chosen to cover core recipe methods without dumping unrelated builder APIs.",
+    "300 final-contract lines is chosen so implementation authority remains readable in one prompt chunk."
+  ]
+}

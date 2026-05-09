@@ -18,6 +18,16 @@ type JavaStaticSanityFinding = {
 
 const forbiddenJavaPatterns: JavaStaticPattern[] = [
   {
+    code: 'java_import_alias',
+    pattern: /^\s*import\s+.+\s+as\s+.+;/u,
+    message: 'Java does not support import aliases. Use one import and fully qualify the other class if needed.',
+  },
+  {
+    code: 'wildcard_cdm_import',
+    pattern: /^\s*import\s+(?:cdm|com\.rosetta)\..+\.\*;/u,
+    message: 'Wildcard CDM/Rosetta imports are forbidden; import only approved contract classes.',
+  },
+  {
     code: 'escaped_quotes_in_java',
     pattern: /\\"/u,
     message: 'Java source contains escaped quote text instead of normal string literals.',

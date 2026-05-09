@@ -28,7 +28,7 @@ export async function createRunConfig(options: JavaGeneratorCliOptions): Promise
     baseOutputDir,
     runOutputDir: options.resumeRunOutputDir ?? join(baseOutputDir, 'runs', runId),
     maxPlanningRounds: 3,
-    maxRepairAttempts: 3,
+    maxRepairAttempts: env.JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS,
     requireApproval: options.requireApproval ?? false,
     resume: options.resumeRunOutputDir !== undefined,
     evidenceRoots: [
@@ -42,6 +42,11 @@ export async function createRunConfig(options: JavaGeneratorCliOptions): Promise
     runtimeFixtures: DEFAULT_RUNTIME_FIXTURES,
     cdmRosettaPreflight,
     roleModels: createRoleModels(),
+    llmBudget: {
+      maxTotalCalls: env.JAVA_GENERATOR_MAX_LLM_CALLS,
+      maxInputTokensPerCall: env.JAVA_GENERATOR_MAX_INPUT_TOKENS_PER_CALL,
+      maxRepairAttempts: env.JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS,
+    },
   }
 }
 

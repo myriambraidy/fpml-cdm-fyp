@@ -1,0 +1,49 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 816927,
+    "outputChars": 7846,
+    "llmCalls": 4,
+    "toolCalls": 26,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 0,
+    "durationMs": 115184
+  },
+  {
+    "role": "critic",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 376567,
+    "outputChars": 11089,
+    "llmCalls": 3,
+    "toolCalls": 25,
+    "cachedToolCalls": 4,
+    "failedToolCalls": 0,
+    "durationMs": 58611
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 200579,
+    "outputChars": 7898,
+    "llmCalls": 3,
+    "toolCalls": 8,
+    "cachedToolCalls": 6,
+    "failedToolCalls": 0,
+    "durationMs": 25482
+  },
+  {
+    "role": "implementer",
+    "model": "minimax/minimax-m2.7",
+    "inputChars": 570420,
+    "outputChars": 1757,
+    "llmCalls": 6,
+    "toolCalls": 17,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 9,
+    "durationMs": 96268
+  }
+]

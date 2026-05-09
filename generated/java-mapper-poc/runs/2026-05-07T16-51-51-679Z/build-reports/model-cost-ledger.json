@@ -1,0 +1,110 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 283299,
+    "outputChars": 5956,
+    "llmCalls": 4,
+    "toolCalls": 17,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 1,
+    "durationMs": 58313
+  },
+  {
+    "role": "critic",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 81076,
+    "outputChars": 22,
+    "llmCalls": 2,
+    "toolCalls": 1,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 0,
+    "durationMs": 9373
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 37183,
+    "outputChars": 2106,
+    "llmCalls": 1,
+    "toolCalls": 0,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 0,
+    "durationMs": 11146
+  },
+  {
+    "role": "planner",
+    "round": 2,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 588533,
+    "outputChars": 5956,
+    "llmCalls": 4,
+    "toolCalls": 23,
+    "cachedToolCalls": 6,
+    "failedToolCalls": 1,
+    "durationMs": 85808
+  },
+  {
+    "role": "critic",
+    "round": 2,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 241781,
+    "outputChars": 22,
+    "llmCalls": 4,
+    "toolCalls": 11,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 0,
+    "durationMs": 15878
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 2,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 133761,
+    "outputChars": 3418,
+    "llmCalls": 3,
+    "toolCalls": 6,
+    "cachedToolCalls": 2,
+    "failedToolCalls": 0,
+    "durationMs": 20459
+  },
+  {
+    "role": "planner",
+    "round": 3,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct",
+    "inputChars": 308671,
+    "outputChars": 5956,
+    "llmCalls": 4,
+    "toolCalls": 11,
+    "cachedToolCalls": 7,
+    "failedToolCalls": 4,
+    "durationMs": 35366
+  },
+  {
+    "role": "critic",
+    "round": 3,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 276589,
+    "outputChars": 22,
+    "llmCalls": 4,
+    "toolCalls": 24,
+    "cachedToolCalls": 14,
+    "failedToolCalls": 0,
+    "durationMs": 22867
+  },
+  {
+    "role": "critique-reviewer",
+    "round": 3,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 138658,
+    "outputChars": 4595,
+    "llmCalls": 3,
+    "toolCalls": 4,
+    "cachedToolCalls": 1,
+    "failedToolCalls": 0,
+    "durationMs": 17983
+  }
+]

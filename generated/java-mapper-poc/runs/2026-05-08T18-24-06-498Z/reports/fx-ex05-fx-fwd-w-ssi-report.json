@@ -1,0 +1,44 @@
+{
+  "fixture": "fx-ex05-fx-fwd-w-ssi",
+  "mappingSummary": {
+    "source": "FxFwdMapper",
+    "rosettaFunctions": [
+      "MapFxSingleLegCounterpartyList",
+      "MapPayerReceiverToAccountPartyReference",
+      "MapTradeIdentifierList",
+      "MapFxSingleLegNonTransferableProduct",
+      "MapFxSingleLegEconomicTerms",
+      "MapProductIdentifierList",
+      "MapFxCoreDetailsModelToSettlementPayout",
+      "MapFxSingleLegPriceQuantityList",
+      "MapFxCoreDetailsModelPriceListWithLocation",
+      "MapFxCoreDetailsModelQuantityListWithLocation",
+      "MapTradeState"
+    ],
+    "cdmClassesUsed": [
+      "cdm.event.common.TradeState",
+      "cdm.event.common.Trade",
+      "cdm.event.common.TradeIdentifier",
+      "cdm.base.staticdata.party.Party",
+      "cdm.base.staticdata.party.PartyIdentifier",
+      "cdm.base.staticdata.identifier.Identifier",
+      "cdm.base.staticdata.identifier.AssignedIdentifier",
+      "cdm.base.staticdata.party.Counterparty",
+      "cdm.product.template.Product",
+      "cdm.product.template.NonTransferableProduct",
+      "cdm.product.template.EconomicTerms",
+      "cdm.product.template.Payout",
+      "cdm.product.template.SettlementPayout",
+      "cdm.product.common.settlement.ResolvablePriceQuantity",
+      "cdm.product.common.settlement.SettlementTerms",
+      "cdm.observable.asset.PriceSchedule",
+      "cdm.observable.asset.Observable",
+      "cdm.base.staticdata.asset.common.Asset",
+      "cdm.base.staticdata.asset.common.Cash"
+    ]
+  },
+  "unsupportedFields": [
+    "settlementInstructions (SSI details): PartyReference, AccountReference, settlement account details not yet modelled"
+  ],
+  "validationNotes": "FX forward with settlement instructions. SSI details recorded as unsupported scope; core FX terms fully mapped."
+}

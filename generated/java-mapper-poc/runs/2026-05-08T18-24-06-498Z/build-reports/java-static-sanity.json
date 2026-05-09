@@ -1,0 +1,22 @@
+{
+  "findings": [
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\GeneratedFpmlToCdmMapper.java",
+      "line": 96,
+      "code": "escaped_quotes_in_java",
+      "message": "Java source contains escaped quote text instead of normal string literals."
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\ReportWriter.java",
+      "line": 6,
+      "code": "jackson_tree_cdm_construction",
+      "message": "Generated mapper must not use Jackson tree nodes as the internal CDM model."
+    },
+    {
+      "file": "src\\main\\java\\com\\fpml\\cdm\\fx\\mapper\\generated\\ReportWriter.java",
+      "line": 1,
+      "code": "missing_cdm_rosetta_import",
+      "message": "Generated mapper must import preflight-approved CDM/Rosetta model classes."
+    }
+  ]
+}
