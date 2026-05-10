@@ -154,6 +154,35 @@ describe('java generator tools', () => {
     }
   })
 
+  test('planner write path error includes exact allowed artifact path', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-tools-'))
+    try {
+      const config = makeConfig(root)
+      const result = await executeGeneratorTool(
+        {
+          config,
+          audit: [],
+          state: createToolExecutionState(),
+          stage: {
+            role: 'planner',
+            round: 3,
+            allowedWritePaths: ['agent-workspace/round-03/planner-plan.md'],
+          },
+        },
+        'write_file',
+        {
+          path: 'round-03/planner-plan.md',
+          content: '# Plan',
+        }
+      )
+
+      expect(result).toContain('ERROR')
+      expect(result).toContain('agent-workspace/round-03/planner-plan.md')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
   test('returns cached failures for repeated bad tool calls', async () => {
     const root = await mkdtemp(join(tmpdir(), 'java-generator-tools-'))
     try {
@@ -273,6 +302,64 @@ describe('java generator tools', () => {
       expect(contract).toContain('cdm.event.common.TradeState')
       expect(recipe).toContain('Build FX single-leg TradeState')
       expect(recipe).toContain('Semantic authority')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  test('builder method lookup matches approved intent field', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-tools-'))
+    try {
+      const config = makeConfig(root)
+      await createWorkspace(config)
+      const context = {
+        config,
+        audit: [],
+        state: createToolExecutionState(),
+        stage: {
+          role: 'planner' as const,
+          round: 1,
+          allowedWritePaths: ['agent-workspace/round-01/planner-plan.md'],
+        },
+      }
+
+      const result = await executeGeneratorTool(context, 'get_cdm_builder_methods', {
+        className: 'cdm.event.common.TradeState',
+        intent: 'set-trade',
+      })
+
+      expect(result).toContain('setTrade')
+      expect(result).toContain('cdm.event.common.Trade')
+      expect(result).not.toContain('No approved builder methods matched')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  test('builder method lookup matches hyphenated intent to camel-case method', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-tools-'))
+    try {
+      const config = makeConfig(root)
+      await createWorkspace(config)
+      const context = {
+        config,
+        audit: [],
+        state: createToolExecutionState(),
+        stage: {
+          role: 'planner' as const,
+          round: 1,
+          allowedWritePaths: ['agent-workspace/round-01/planner-plan.md'],
+        },
+      }
+
+      const result = await executeGeneratorTool(context, 'get_cdm_builder_methods', {
+        className: 'cdm.product.template.SettlementPayout',
+        intent: 'set-price-quantity',
+      })
+
+      expect(result).toContain('setPriceQuantity')
+      expect(result).toContain('cdm.product.common.settlement.ResolvablePriceQuantity')
+      expect(result).not.toContain('No approved builder methods matched')
     } finally {
       await rm(root, { recursive: true, force: true })
     }

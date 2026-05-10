@@ -1,9 +1,0 @@
-[
-  {
-    "name": "implementation-artifacts",
-    "command": "validate implementer write tools and generated Java entrypoint",
-    "status": "failed",
-    "exitCode": 1,
-    "outputSnippet": "Implementer completed without executing any successful write tool.\nImplementer completed without executing write_generated_java or write_generated_java_file.\nInserted minimal GeneratedFpmlToCdmMapper fallback because the implementer did not create the required entry class; the run remains blocked."
-  }
-]

@@ -1,0 +1,50 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 3961243,
+    "outputChars": 6875,
+    "llmCalls": 23,
+    "toolCalls": 28,
+    "cachedToolCalls": 0,
+    "failedToolCalls": 3,
+    "durationMs": 203454
+  },
+  {
+    "role": "planner",
+    "round": 2,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 5533465,
+    "outputChars": 22,
+    "llmCalls": 23,
+    "toolCalls": 67,
+    "cachedToolCalls": 34,
+    "failedToolCalls": 4,
+    "durationMs": 152759
+  },
+  {
+    "role": "planner",
+    "round": 3,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 4545955,
+    "outputChars": 20325,
+    "llmCalls": 23,
+    "toolCalls": 37,
+    "cachedToolCalls": 17,
+    "failedToolCalls": 4,
+    "durationMs": 532949
+  },
+  {
+    "role": "planner",
+    "round": 4,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 4530593,
+    "outputChars": 7561,
+    "llmCalls": 23,
+    "toolCalls": 23,
+    "cachedToolCalls": 10,
+    "failedToolCalls": 4,
+    "durationMs": 115015
+  }
+]

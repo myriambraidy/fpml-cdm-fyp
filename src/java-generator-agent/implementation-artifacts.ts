@@ -1,12 +1,13 @@
-import { mkdir, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { detectPseudoToolCalls, type PseudoToolCallFinding } from './pseudo-tool-calls'
+import { listFilesRecursive } from './file-list'
 import {
   generatedEntryClassPath,
   validateGeneratedImplementationContract,
   type GeneratedImplementationContractReport,
 } from './generated-implementation-contract'
-import type { GateResult, GeneratorRunConfig, GeneratorRole, ToolAuditEntry } from './types'
+import type { GateResult, GeneratorRunConfig, GeneratorRole, ToolAuditEntry, ToolExecutionState } from './types'
 
 export type ImplementationArtifactReport = {
   status: 'passed' | 'failed'
@@ -22,12 +23,19 @@ export type ImplementationArtifactReport = {
   findings: string[]
 }
 
+export type RepairWriteRequirement = {
+  required: boolean
+  reason: string
+}
+
 export async function validateImplementationArtifacts(args: {
   config: GeneratorRunConfig
   role: Extract<GeneratorRole, 'implementer' | 'repair'>
   roleOutput: string
   auditEntries: ToolAuditEntry[]
   policyFailures?: string[]
+  repairWriteRequirement?: RepairWriteRequirement
+  toolState?: ToolExecutionState
 }): Promise<ImplementationArtifactReport> {
   const successfulWriteTools = args.auditEntries
     .filter(entry => entry.ok !== false && isWriteTool(entry.tool))
@@ -65,6 +73,50 @@ export async function validateImplementationArtifacts(args: {
     findings.push(`Tool call policy failed: ${failure}.`)
     classifications.push(failure)
   }
+  if (
+    args.role === 'repair'
+    && args.repairWriteRequirement?.required === true
+    && generatedJavaWriteCount === 0
+  ) {
+    findings.push(`Repair required a generated Java patch but executed no successful write_generated_java_file call: ${args.repairWriteRequirement.reason}.`)
+    classifications.push('repair_write_required_but_missing')
+  }
+  if (
+    args.role === 'repair'
+    && args.repairWriteRequirement?.required === true
+    && successfulWriteTools.length === 0
+  ) {
+    findings.push(`Repair required source changes but executed no successful write tool: ${args.repairWriteRequirement.reason}.`)
+    classifications.push('repair_no_write_tool_calls')
+  }
+  if (
+    args.role === 'repair'
+    && args.repairWriteRequirement?.required === true
+    && asksUserForReadableGeneratedFiles(args.roleOutput)
+  ) {
+    findings.push('Repair asked the user to provide generated files that are readable inside the run workspace.')
+    classifications.push('repair_asked_for_readable_generated_files')
+  }
+  if (args.role === 'implementer') {
+    const claimedFindings = validateClaimedGeneratedFiles({
+      roleOutput: args.roleOutput,
+      auditEntries: args.auditEntries,
+      runOutputDir: args.config.runOutputDir,
+    })
+    for (const finding of claimedFindings) {
+      findings.push(finding)
+      classifications.push('claimed_generated_file_not_written')
+    }
+  }
+  if (args.toolState !== undefined) {
+    const rejectedReferences = await findRejectedClassReferences(args.config, args.toolState)
+    for (const reference of rejectedReferences) {
+      findings.push(
+        `Generated source references a class rejected by tool evidence: ${reference.className} in ${reference.file}:${reference.line}. ${reference.reason}`
+      )
+      classifications.push('tool_rejected_class_used_in_source')
+    }
+  }
   for (const entry of args.auditEntries.filter(item => item.ok === false && isWriteTool(item.tool))) {
     classifications.push(classifyFailedWrite(entry))
   }
@@ -93,6 +145,28 @@ export async function validateImplementationArtifacts(args: {
   await writeFile(reportPath, renderImplementationArtifactReport(report), 'utf8')
   await writeFile(reportPath.replace(/\.md$/u, '.json'), JSON.stringify(report, null, 2), 'utf8')
   return report
+}
+
+export function repairRequiresWrite(gateResults: GateResult[]): RepairWriteRequirement {
+  const failed = gateResults.find(gate => gate.status === 'failed')
+  if (failed === undefined) return { required: false, reason: 'no_failed_gate' }
+  if (/\.java/iu.test(failed.outputSnippet)) {
+    return { required: true, reason: 'failed_gate_references_java_source' }
+  }
+  if (
+    failed.name === 'generated-java-static-sanity'
+    || failed.name === 'cdm-java-api-usage'
+    || failed.name === 'cdm-java-member-usage'
+    || failed.name === 'rosetta-java-usage'
+    || failed.name === 'java-reference-check'
+    || failed.name === 'generated-test-shell-contract'
+    || failed.name === 'builder-readiness-usage'
+    || failed.name === 'maven-compile'
+    || failed.name === 'maven-test-compile'
+  ) {
+    return { required: true, reason: `source_repair_gate:${failed.name}` }
+  }
+  return { required: false, reason: `non_source_gate:${failed.name}` }
 }
 
 export function implementationArtifactGateResult(report: ImplementationArtifactReport): GateResult {
@@ -164,6 +238,112 @@ function uniqueStrings(values: string[]): string[] {
   return [...new Set(values)]
 }
 
+function asksUserForReadableGeneratedFiles(roleOutput: string): boolean {
+  const normalized = roleOutput.replace(/\\/g, '/')
+  return /please provide|provide full contents|once available/iu.test(normalized)
+    && normalized.includes('src/main/java/com/fpml/cdm/fx/mapper/generated')
+}
+
+function validateClaimedGeneratedFiles(args: {
+  roleOutput: string
+  auditEntries: ToolAuditEntry[]
+  runOutputDir: string
+}): string[] {
+  const claimed = extractClaimedGeneratedJavaFiles(args.roleOutput)
+  if (claimed.length === 0) return []
+  const written = new Set(
+    args.auditEntries
+      .filter(entry => entry.ok !== false && (entry.tool === 'write_generated_java' || entry.tool === 'write_generated_java_file'))
+      .flatMap(entry => entry.sourcePaths)
+      .map(path => normalizeRunRelativePath(args.runOutputDir, path))
+  )
+  return claimed
+    .filter(path => !written.has(path))
+    .map(path => `Implementation claimed generated Java file ${path}, but no successful write tool wrote that file.`)
+}
+
+function extractClaimedGeneratedJavaFiles(markdown: string): string[] {
+  const files = new Set<string>()
+  for (const line of markdown.split(/\r?\n/u)) {
+    if (!lineLooksLikeCompletedGeneratedFileClaim(line)) continue
+    for (const rawPath of extractGeneratedJavaPaths(line)) {
+      files.add(normalizeGeneratedClaim(rawPath))
+    }
+  }
+  return [...files]
+}
+
+function lineLooksLikeCompletedGeneratedFileClaim(line: string): boolean {
+  return /\b(?:implemented|wrote|written|created|updated|added|fixed)\b/iu.test(line)
+    && !/\b(?:plan|planned|will|would|should|need to|todo|manifest)\b/iu.test(line)
+}
+
+function extractGeneratedJavaPaths(line: string): string[] {
+  const paths: string[] = []
+  for (const match of line.matchAll(/`([^`]+\.java)`/gmu)) {
+    const rawPath = match[1]
+    if (rawPath !== undefined) paths.push(rawPath.replace(/\\/g, '/'))
+  }
+  for (const match of line.matchAll(/\b((?:src\/main\/java\/com\/fpml\/cdm\/fx\/mapper\/generated\/)?[A-Z][A-Za-z0-9_]*\.java)\b/gmu)) {
+    const rawPath = match[1]
+    if (rawPath !== undefined) paths.push(rawPath.replace(/\\/g, '/'))
+  }
+  return paths
+    .filter(path => path.includes('/generated/') || /^[A-Z][A-Za-z0-9_]*\.java$/u.test(path))
+}
+
+function normalizeGeneratedClaim(path: string): string {
+  const marker = 'src/main/java/com/fpml/cdm/fx/mapper/generated/'
+  const index = path.indexOf(marker)
+  return index === -1 ? path : path.slice(index)
+}
+
+function normalizeRunRelativePath(runOutputDir: string, path: string): string {
+  const normalizedRoot = resolve(runOutputDir).replace(/\\/g, '/')
+  const normalizedPath = resolve(path).replace(/\\/g, '/')
+  if (normalizedPath.startsWith(`${normalizedRoot}/`)) {
+    return normalizedPath.slice(normalizedRoot.length + 1)
+  }
+  return normalizedPath
+}
+
+type RejectedClassReference = {
+  className: string
+  file: string
+  line: number
+  reason: string
+}
+
+async function findRejectedClassReferences(
+  config: GeneratorRunConfig,
+  state: ToolExecutionState
+): Promise<RejectedClassReference[]> {
+  const root = resolve(config.runOutputDir, 'src/main/java')
+  if (!(await exists(root))) return []
+  const rejected = new Map<string, string>([
+    ...state.rejectedCdmClasses.entries(),
+    ...state.rejectedBuilderClasses.entries(),
+  ])
+  if (rejected.size === 0) return []
+  const files = (await listFilesRecursive(root)).filter(file => file.endsWith('.java'))
+  const references: RejectedClassReference[] = []
+  for (const file of files) {
+    const text = await readFile(file, 'utf8')
+    const lines = text.split(/\r?\n/u)
+    for (const [className, reason] of rejected) {
+      const lineIndex = lines.findIndex(line => line.includes(className))
+      if (lineIndex === -1) continue
+      references.push({
+        className,
+        file: file.slice(resolve(config.runOutputDir).length + 1).replace(/\\/g, '/'),
+        line: lineIndex + 1,
+        reason,
+      })
+    }
+  }
+  return references
+}
+
 async function ensureFallbackIfMissing(
   config: GeneratorRunConfig,
   role: Extract<GeneratorRole, 'implementer' | 'repair'>
@@ -179,16 +359,23 @@ async function ensureFallbackIfMissing(
 function renderMinimalGeneratedMapper(): string {
   return `package com.fpml.cdm.fx.mapper.generated;
 
+import cdm.event.common.Trade;
+import cdm.event.common.TradeState;
 import com.fpml.cdm.fx.mapper.FpmlToCdmMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
     public String mapFile(Path inputPath, Path reportsDir) throws Exception {
         Files.createDirectories(reportsDir);
         Files.writeString(reportsDir.resolve("unsupported-scope.json"), "{\\"status\\":\\"blocked\\",\\"reason\\":\\"Generated mapper fallback inserted because implementation files were not written.\\"}");
-        return "{}";
+        Trade trade = Trade.builder().build();
+        TradeState tradeState = TradeState.builder().setTrade(trade).build();
+        return objectMapper.writeValueAsString(tradeState);
     }
 }
 `

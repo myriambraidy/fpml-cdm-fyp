@@ -17,11 +17,18 @@ Use java-shell-contract.md as the exact generated Java package, class, interface
 Use java-documentation-readiness.md as the pre-planning readiness authority. If it reports blocking issues, do not pretend implementation is ready.
 Use approved-cdm-api-contract-summary.md as the run-specific Java import/reference authority.
 Use semantic-recipes.md as the construction-order and approved-builder-method authority.
+After reading approved-cdm-api-contract-summary.md, prefer get_approved_cdm_api_contract over many get_cdm_builder_methods calls; use the latter only for gaps not covered by the contract.
 Use cdm-java-missing-classes.md as exact missing-class observations only; do not generalize by simple name.
 The CDM Java prompt seed is discovery context only. It does not authorize imports or fully qualified CDM/Rosetta references.
 Only the approved CDM API contract summary and full contract JSON authorize generated Java imports and fully qualified CDM/Rosetta references.
 Do not infer CDM Java packages, builder methods, or enum values from Rosetta function names or expected JSON paths.
 Use search_cdm_java_classes or resolve_cdm_concept before exact class lookup. Exact lookup is inspection, not permission.
+When multiple CDM classes share the same simple name, use only the exact fully qualified class selected by approved-cdm-api-contract-summary.md.
+Never write an unapproved fully qualified CDM class in positive guidance such as "Use ..."; if mentioning a rejected same-simple-name class, put it only under a forbidden/do-not-use section.
+For FX settlement payout, the approved template payout class is cdm.product.template.SettlementPayout when present in the approved contract; do not substitute cdm.product.common.settlement.SettlementPayout.
+Do not list a CDM simple class name in construction order unless the exact fully qualified class is present in approved-cdm-api-contract-summary.md.
+Do not plan enum constants unless get_cdm_enum_constants returns that exact constant.
+If Rosetta evidence mentions a concept but the approved Java contract lacks an attachable builder method, describe it as traceability-only or unsupported-for-this-run; do not plan object construction.
 Do not plan Java references to ProductIdentifier, ProductTaxonomy, AdjustableOrAdjustedDateOrRelativeDate, or AdjustableOrRelativeDateOrExpression unless those exact fully qualified classes are in approved-cdm-api-contract-summary.md.
 For product identifiers and taxonomy Rosetta evidence, plan approved TradeIdentifier, Identifier, AssignedIdentifier, Asset, and Cash paths only; do not turn MapProductIdentifierList or MapProductTaxonomyList into unapproved ProductIdentifier/ProductTaxonomy Java classes.
 TradeState construction must use the approved builder method TradeState.builder().setTrade(trade).build(); never reject setTrade and never plan TradeState.builder().trade(...).
@@ -112,6 +119,7 @@ Block the plan if it rewrites shell-owned files.
 Block the plan if core mapping responsibilities lack Rosetta function evidence.
 Block the plan if it treats Rosetta function names as proof of Java class or builder existence.
 Block the plan if it cites candidate classes as approved implementation API.
+Block the plan if it positively says to use an unapproved same-simple-name CDM class, especially cdm.product.common.settlement.SettlementPayout when the approved contract selects cdm.product.template.SettlementPayout.
 Use 00-product-scope.json and evidence-index.md to check product-group claims. Fetch detailed evidence with tools only when a claim needs verification.
 First verify the plan contains "## Implementation scope (machine-checked)" with **In scope (implementation groups):** bullets that match productGroups[].group slugs and include currentImplementationGroup, and "## Runtime supported fixtures (machine-checked)" with bullets that exactly match run_config runtimeFixtures ids; only then treat informal fx wording elsewhere as narrative noise.
 Then verify "## Java shell contract (machine-checked)" exactly matches java-shell-contract.md and "## Rosetta evidence coverage (machine-checked)" covers all core mapping areas.
@@ -128,6 +136,8 @@ Read the planner plan and critic review.
 Decide which critique items are valid.
 Treat plan-validation.md and exact get_cdm_java_class evidence as deterministic authority when they are provided.
 Treat java-documentation-readiness.md, java-shell-contract.md, approved-cdm-api-contract-summary.md, and semantic-recipes.md as implementation authority.
+Treat approved-cdm-api-contract-summary.md as sufficient proof for listed classes and builder methods. Do not require another get_cdm_builder_methods call when the approved contract already includes className, methodName, parameterTypes, and rawSignature.
+Do not infer a class is missing from cdm-java-api-summary.md same-simple-name candidates; missing observations apply only to the exact class named on the missing line.
 Write Markdown that accepts or rejects each critique item with reasons.
 If the plan is good enough, say "Decision: ACCEPTED" and provide the revised implementation checklist.
 If not, say "Decision: NEXT_ROUND_REQUIRED" and specify what the planner must fix next.
@@ -169,9 +179,14 @@ Never write Java import aliases such as "import x.y.Type as Alias"; Java does no
 Generated Java must use multiple files, product-by-product mapper files, and Jackson for JSON writing.
 Generated implementation classes belong under src/main/java/com/fpml/cdm/fx/mapper/generated/.
 The main generated class must be GeneratedFpmlToCdmMapper in package com.fpml.cdm.fx.mapper.generated and implement com.fpml.cdm.fx.mapper.FpmlToCdmMapper.
+GeneratedFpmlToCdmMapper.java already exists as a compile-safe skeleton. Preserve its package, class name, interface, and mapFile signature.
+Patch method bodies and add helper classes only when needed. Helper classes must not implement FpmlToCdmMapper.
 Before final summary, ensure src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java exists and contains public class GeneratedFpmlToCdmMapper implementing FpmlToCdmMapper.
 The shipped Java mapper runtime must not call an LLM and must not read the agent workspace.
 The main runtime output must be clean CDM JSON.
+The final generated JSON will be validated after runtime by the repo-local Rosetta validator: RosettaObjectMapper -> TradeState/Trade builder -> ReferenceResolverProcessStep -> RosettaTypeValidator.
+Do not call this validator from generated runtime code.
+Pre-Maven gates reject invalid CDM/Rosetta usage such as unknown enum constants, unknown builder members, parameter-only builders, and JSON-tree CDM construction.
 Sidecar reports must contain mapping, validation, traceability, and unsupported-scope details.
 Every major mapper method must cite its source Rosetta function in the traceability report.
 Unsupported inputs should write a clear unsupported report without crashing.
@@ -191,15 +206,19 @@ Use provider-native tool calls only. Never print pseudo tool calls such as [tool
 Use write_generated_java_file for generated Java classes and write_file only for non-Java allowed artifacts.
 Use tools to patch the generated project.
 Prioritize the earliest failed gate and patch only the focused issue unless the focused packet proves a broader change is required.
-If compile fails because a CDM class or builder method does not exist, first consult the preflight report and generated source imports. Do not invent replacement CDM classes.
+If an excerpt is insufficient, call read_file on the run-relative generated Java file from the repair packet. Do not ask the user to provide files that are inside the run workspace.
+If compile fails because a CDM class, enum constant, or builder method does not exist, first consult the preflight report, generated source imports, get_cdm_enum_constants, and get_cdm_java_class. Do not invent replacement CDM classes or constants.
 If Maven compile fails on a missing CDM symbol, first query get_cdm_java_class and cdm-java-missing-classes.md. Do not fix missing classes by adding guessed imports.
 If the CDM/Rosetta Java model API is insufficient for the accepted plan, stop and write a dependency/preflight blocker. Do not replace the CDM model with ObjectNode construction.
 Do not introduce CDM/Rosetta imports that are absent from approved-cdm-api-contract-summary.md. If a new class is required, stop and report a contract gap.
 If source-hygiene failed, remove invalid generated text before changing mapping logic.
 Preserve the runtime CLI contract.
+GeneratedFpmlToCdmMapper.java starts as a compile-safe skeleton. Preserve its package, class name, interface, and mapFile signature.
+Helper classes must not implement FpmlToCdmMapper.
 If java-reference-check, generated-implementation-contract, or Maven compile fails because Main.java imports GeneratedFpmlToCdmMapper and that generated class is missing or malformed, create or fix src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java instead of rewriting Main.java.
 Do not rewrite pom.xml, Main.java, RuntimeArgs.java, or FpmlToCdmMapper.java unless the failed gate is generated-shell-contract or maven-dependency-preflight.
 Do not introduce runtime LLM calls.
+Do not call RosettaValidatorCli, RosettaTypeValidator, or ReferenceResolverProcessStep from generated runtime code; those are post-runtime gate responsibilities.
 Do not reference FpML model classes such as FpmlFxSingleLeg unless they are generated in the current project.
 Never write Java import aliases such as "import x.y.Type as Alias"; Java does not support import aliases.
 Fix only what is needed to pass the gates and preserve the final implementation contract.

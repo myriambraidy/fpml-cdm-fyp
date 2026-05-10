@@ -1,0 +1,3702 @@
+{
+  "generatedAt": "2026-05-10T14:07:29.266Z",
+  "productFamily": "fx-derivatives",
+  "implementationGroup": "fx-single-leg",
+  "pass": "pass2",
+  "selectedClasses": [
+    {
+      "className": "cdm.base.staticdata.asset.common.Asset",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.Cash",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.AssignedIdentifier",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.identifier.AssignedIdentifier",
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.Identifier",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.identifier.TradeIdentifierTypeEnum"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.AncillaryParty",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.AncillaryParty"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.Counterparty",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.Counterparty"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "concept:Party reference or party identity",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.Party",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.Party",
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.PartyIdentifier",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.PartyIdentifier",
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.PartyIdentifierTypeEnum",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.PartyIdentifierTypeEnum"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.base.staticdata.party.PartyRole",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.base.staticdata.party.PartyRole"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.event.common.ContractDetails",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.event.common.ContractDetails",
+        "concept:Contract details",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.event.common.Trade",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.event.common.Trade",
+        "concept:Trade root",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.event.common.TradeIdentifier",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.event.common.TradeState",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "concept:Trade state root",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.observable.asset.Observable",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.observable.asset.PriceSchedule",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "concept:Price schedule",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.asset.CommodityPayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.asset.CommodityPayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.asset.CreditDefaultPayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.asset.CreditDefaultPayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.asset.InterestRatePayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.asset.InterestRatePayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.common.settlement.CashSettlementTerms",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.common.settlement.ResolvablePriceQuantity",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.product.common.settlement.ResolvablePriceQuantity",
+        "concept:Resolvable price quantity",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.common.settlement.SettlementTerms",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.common.settlement.SettlementTypeEnum",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.AssetPayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.template.AssetPayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.EconomicTerms",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.product.template.EconomicTerms",
+        "concept:Economic terms",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.FixedPricePayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.template.FixedPricePayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.NonTransferableProduct",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.product.template.NonTransferableProduct",
+        "concept:Non-transferable product",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.OptionPayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.template.OptionPayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.Payout",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "concept:Payout container",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.PerformancePayout",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.template.PerformancePayout"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.Product",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.SettlementPayout",
+      "selectedInPass": "pass1",
+      "reason": "resolved-concept",
+      "evidence": [
+        "builder-parameter:cdm.product.template.SettlementPayout",
+        "concept:Settlement payout",
+        "draft-recipe:fx-single-leg-tradestate",
+        "selected from compiled jar index using preferred package order"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.TradableProduct",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.TransferableProduct",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:cdm.product.template.TransferableProduct"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "cdm.product.template.Underlier",
+      "selectedInPass": "pass2",
+      "reason": "draft-recipe-required",
+      "evidence": [
+        "draft-recipe:fx-single-leg-tradestate"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    },
+    {
+      "className": "com.rosetta.model.metafields.FieldWithMetaString",
+      "selectedInPass": "pass2",
+      "reason": "verified-builder-parameter",
+      "evidence": [
+        "builder-parameter:com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "requiredByRecipeIds": [
+        "fx-single-leg-tradestate"
+      ]
+    }
+  ],
+  "rejectedClasses": [
+    {
+      "className": "cdm.base.math.meta.AveragingCalculationMethodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.DatedValueMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.MeasureBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.MeasureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.MeasureScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.MoneyBoundMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.MoneyRangeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.NonNegativeQuantityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.NonNegativeQuantityScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.NonNegativeStepMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.NumberBoundMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.NumberRangeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.QuantityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.QuantityScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.RoundingMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.ScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.meta.UnitTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.processor.OpenUnitsMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.util.UnitTypeDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.NonNegativeQuantityNonNegativeQuantity_amount",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.NonNegativeQuantityScheduleNonNegativeQuantity_amount",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.QuantityAmountOnlyExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.QuantityScheduleQuantity_multiplier",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.QuantityScheduleUnitOfAmountExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.datarule.UnitTypeUnitType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.DatedValueTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.DatedValueValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.DatedValueOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.NonNegativeQuantityOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.NonNegativeQuantityScheduleOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.QuantityOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.QuantityScheduleOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.exists.UnitTypeOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.NonNegativeQuantityScheduleTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.NonNegativeQuantityScheduleValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.NonNegativeQuantityTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.NonNegativeQuantityValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.QuantityScheduleTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.QuantityScheduleValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.QuantityTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.QuantityValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.UnitTypeTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.math.validation.UnitTypeValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.AssetBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.AssetIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.AssetMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.AssetTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CashMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CollateralIssuerTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CollateralTaxonomyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CollateralTaxonomyValueMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CommodityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CommodityProductDefinitionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.CommodityReferenceFrameworkMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.DebtEconomicsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.DebtTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.DeliveryDateParametersMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.DigitalAssetMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.InstrumentBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.InstrumentMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.ListedDerivativeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.LoanMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.PriceSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.ProductIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.ProductTaxonomyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.QuasiGovernmentIssuerTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.RegionalGovernmentIssuerTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.SecurityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.SpecialPurposeVehicleIssuerTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.TaxonomyClassificationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.TaxonomyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.meta.TaxonomyValueMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.processor.AssetIdentifierTypeMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.processor.CashAssetIdentifierMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.processor.FxMetaHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.processor.ProductIdDescriptionMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.processor.ProductIdentifierSourceMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.util.AssetDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetBaseTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetBaseValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetTypeTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetTypeValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.AssetValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.CashTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.CashValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.CommodityProductDefinitionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.CommodityProductDefinitionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetBaseExchangeListed",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetBaseRelatedExchange",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetTypeBondSubType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetTypeEquitySubType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetTypeFundSubType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetTypeOtherAssetSubType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.AssetTypeSecuritySubType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.CashCurrencyExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.CashNoExchange",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.CashNoTaxonomy",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.CommodityProductDefinitionCommodityProductDefinitionChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.DeliveryDateParametersDeliveryDateParametersChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.PriceSourcePriceSourceHeading",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.ProductTaxonomyTaxonomySource",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.ProductTaxonomyTaxonomyType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.datarule.ProductTaxonomyTaxonomyValue",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.DeliveryDateParametersTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.DeliveryDateParametersValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.DigitalAssetTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.DigitalAssetValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.AssetBaseOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.AssetIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.AssetOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.AssetTypeOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.CashOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.CommodityProductDefinitionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.DeliveryDateParametersOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.DigitalAssetOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.PriceSourceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.ProductIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.exists.ProductTaxonomyOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.PriceSourceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.PriceSourceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.ProductIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.ProductIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.ProductTaxonomyTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.asset.common.validation.ProductTaxonomyValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.meta.AssignedIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.meta.IdentifiedListMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.meta.IdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.meta.LocationIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.AssignedIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.AssignedIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.datarule.IdentifierIssuerChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.datarule.LocationIdentifierIdentifierType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.exists.AssignedIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.exists.IdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.exists.LocationIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.IdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.IdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.LocationIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.identifier.validation.LocationIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.AccountMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.AddressMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.AncillaryEntityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.AncillaryPartyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.BusinessUnitMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.BuyerSellerMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.ContactInformationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.CounterpartyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.LegalEntityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.NaturalPersonMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.NaturalPersonRoleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PartyContactInformationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PartyIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PartyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PartyReferencePayerReceiverMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PartyRoleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PayerReceiverMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.PersonIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.ReferenceBankMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.ReferenceBanksMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.RelatedPartyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.meta.TelephoneNumberMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.AccountPartyReferenceMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.BuyerSellerPartyHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.CashPaymentBuyerMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.CashPaymentSellerMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.PayerReceiverMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.TradeSideToPartyMappingHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.processor.TradeSideToPartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.AncillaryPartyTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.AncillaryPartyValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.BusinessUnitTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.BusinessUnitValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.CounterpartyTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.CounterpartyValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.AncillaryPartyOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.BusinessUnitOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.CounterpartyOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PartyContactInformationOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PartyIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PartyOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PartyReferencePayerReceiverOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PartyRoleOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PayerReceiverOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.PersonIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.exists.RelatedPartyOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyContactInformationTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyContactInformationValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyReferencePayerReceiverTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyReferencePayerReceiverValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyRoleTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyRoleValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PartyValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PayerReceiverTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PayerReceiverValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PersonIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.PersonIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.RelatedPartyTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.base.staticdata.party.validation.RelatedPartyValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BillingInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BillingRecordInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BillingRecordMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BillingSummaryInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BillingSummaryMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.BusinessEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CalculateTransferInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ClearingInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ClosedStateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CollateralBalanceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CollateralPortfolioMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CollateralPositionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ContractDetailsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ContractFormationInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CorporateActionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CounterpartyPositionBusinessEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CounterpartyPositionStateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.CreditEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ExecutionDetailsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ExecutionInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ExerciseEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ExerciseInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ExposureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.IndexTransitionInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.InstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.LineageMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallExposureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallInstructionTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallIssuanceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallResponseActionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.MarginCallResponseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ObservationEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ObservationInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.PartyChangeInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.PositionIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.PrimitiveInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.QuantityChangeInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ResetInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ResetMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ReturnInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ScheduledTransferMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.SecurityLendingInvoiceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.SplitInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.StateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.StockSplitInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TermsChangeInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TradeIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TradeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TradePricingReportMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TradeStateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TransferExpressionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TransferInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TransferMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.TransferStateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ValuationInstructionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.meta.ValuationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.CmePartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.ContractFormationInstructionLegalAgreementMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.NovationPartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.ORECounterpartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.PartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.PartyRoleMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.processor.RelatedPartyRoleMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.ContractDetailsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.ContractDetailsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.ContractFormationInstructionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.ContractFormationInstructionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.CounterpartyPositionBusinessEventTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.CounterpartyPositionBusinessEventValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.CounterpartyPositionStateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.CounterpartyPositionStateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.BusinessEventEventDate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.ContractDetailsExecutedAgreement",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.ContractFormationInstructionExecutedAgreements",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.IndexTransitionInstructionPriceQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.InstructionNewTrade",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeAdditionalFixedPaymentsMortgages",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeBarrierDerterminationAgent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeClearedDate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeCreditEventsMortgages",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeCreditEventsPhysicalSettlementMatrix",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeDeliverableObligationsPhysicalSettlementMatrix",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeDeterminingParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeDisruptionEventsDeterminingParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeExtraordinaryEvents",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFloatingAmountEventsMortgages",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_1",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_11",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_19",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_20",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_23",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_24",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_25",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_32",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_7",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_cd_8",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeFpML_ird_8",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeHedgingParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeObligationsPhysicalSettlementMatrix",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradePackageTrade",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeRestructuringPhysicalSettlementMatrix",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.datarule.TradeSettlementPayout",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.ContractDetailsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.ContractFormationInstructionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.CounterpartyPositionBusinessEventOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.CounterpartyPositionStateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.PartyChangeInstructionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.PositionIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.QuantityChangeInstructionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.TradeIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.TradeOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.TradePricingReportOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.exists.TradeStateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.PartyChangeInstructionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.PartyChangeInstructionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.PositionIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.PositionIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.QuantityChangeInstructionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.QuantityChangeInstructionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradePricingReportTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradePricingReportValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeStateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeStateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.event.common.validation.TradeValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.CalculatedRateDetailsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.CalculatedRateObservationDatesAndWeightsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.CalculatedRateObservationsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.FallbackRateParametersMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.FloatingRateCalculationParametersMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.ObservationParametersMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.ObservationShiftCalculationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.meta.OffsetCalculationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.validation.CalculatedRateObservationDatesAndWeightsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.validation.CalculatedRateObservationDatesAndWeightsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.calculatedrate.validation.exists.CalculatedRateObservationDatesAndWeightsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.BusinessDayOffsetMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.ContractualDefinitionIdentifierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.ContractualDefinitionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexCalculationDefaultsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexDefinitionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexExternalMapMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexExternalMappingsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexFixingDetailsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexFixingOffsetMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexFixingTimeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexIdentificationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexMapMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FloatingRateIndexMappingsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.meta.FroHistoryMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.ContractualDefinitionIdentifierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.ContractualDefinitionIdentifierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.ContractualDefinitionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.ContractualDefinitionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.datarule.ContractualDefinitionChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.exists.ContractualDefinitionIdentifierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.fro.validation.exists.ContractualDefinitionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.BasketConstituentMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.BasketMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CalculationAgentMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CashCollateralValuationMethodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CashPriceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CreditIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CreditNotationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CreditNotationsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CreditRatingDebtMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.CurveMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.DividendApplicabilityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.EquityIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FallbackReferencePriceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FloatingRateIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ForeignExchangeRateIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FxInformationSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FxRateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FxRateSourceFixingMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FxSettlementRateSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.FxSpotRateSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.IndexBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.IndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.InflationIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.InformationSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.InterestRateCurveMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.InterestRateIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.MakeWholeAmountMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.MoneyMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.MultipleCreditNotationsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.MultipleDebtTypesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.MultipleValuationDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ObservableMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.OtherIndexMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PerformanceValuationDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PremiumExpressionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PriceCompositeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PriceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PriceQuantityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PriceScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.PriceSourceDisruptionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.QuotedCurrencyPairMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.RateObservationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ReferenceSwapCurveMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.SettlementRateOptionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.SingleValuationDateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.SwapCurveValuationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.TransactedPriceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ValuationDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ValuationMethodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ValuationPostponementMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.meta.ValuationSourceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.CalculationAgentPartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.IndexAssetClassMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.OrePriceMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.OreQuantityMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.PriceQuantityHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.PriceUnitTypeHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.PriceUnitTypeMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.processor.TotalNotionalQuantityMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.util.ObservableDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.CashCollateralValuationMethodTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.CashCollateralValuationMethodValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.CashPriceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.CashPriceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.CashPricePremiumType",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.CreditIndexCreditAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.EquityIndexEquityAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.FallbackReferencePriceFallbackCalculationAgent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.FallbackReferencePriceMaximumDaysOfPostponement",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.FloatingRateIndexInterestRateAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.ForeignExchangeRateIndexFXAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.FxSettlementRateSourceFxSettlementRateSourceChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.InflationIndexInterestRateAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.MoneyCurrencyUnitExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.MultipleValuationDatesBusinessDaysThereafter",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.MultipleValuationDatesNumberValuationDates",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.ObservableChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.OtherIndexAssetClassRequired",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceAmountOnlyExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceCompositeArithmeticOperator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceQuantityArithmeticOperator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceQuantityInterestRateObservable",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceQuantityNonCurrencyQuantities",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleAccruedInterest",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleArithmeticOperator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleCashPrice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleCurrencyUnitForInterestRate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleForwardPoint",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceSchedulePositiveAssetPrice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceSchedulePositiveCashPrice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceSchedulePositiveSpotRate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleSpreadPrice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.PriceScheduleUnitOfAmountExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.datarule.SingleValuationDateNonNegativeBusinessDays",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.CashCollateralValuationMethodOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.CashPriceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.FallbackReferencePriceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.FxSettlementRateSourceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.MultipleValuationDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.ObservableOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PerformanceValuationDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PriceCompositeOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PriceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PriceQuantityOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PriceScheduleOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.PriceSourceDisruptionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.SettlementRateOptionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.SingleValuationDateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.TransactedPriceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.exists.ValuationDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.FallbackReferencePriceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.FallbackReferencePriceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.FxSettlementRateSourceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.FxSettlementRateSourceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.MultipleValuationDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.MultipleValuationDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.ObservableTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.ObservableValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PerformanceValuationDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PerformanceValuationDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceCompositeTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceCompositeValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceQuantityTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceQuantityValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceScheduleTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceScheduleValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceSourceDisruptionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceSourceDisruptionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.PriceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.SettlementRateOptionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.SettlementRateOptionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.SingleValuationDateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.SingleValuationDateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.TransactedPriceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.TransactedPriceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.ValuationDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.observable.asset.validation.ValuationDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.AssetFlowBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.CashflowMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.CashflowTypeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.CashSettlementTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.CommodityPriceReturnTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.ComputedAmountMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.DeliverableObligationsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.FixedPriceMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.FxFixingDateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.LoanParticipationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PaymentDetailMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PaymentDiscountingMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PaymentRuleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PayoutBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PCDeliverableObligationCharacMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PercentageRuleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PhysicalSettlementPeriodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PhysicalSettlementTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PricingDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PrincipalPaymentMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PrincipalPaymentScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.PrincipalPaymentsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.QuantityMultiplierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.ResolvablePriceQuantityMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.RollFeatureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.SettlementBaseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.SettlementDateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.SettlementProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.SettlementTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.ShapingProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.meta.ValuationDateMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.processor.CdsFeeLegMetaMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.processor.FxOptionQuantityMetaMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.processor.PredeterminedClearingOrganizationPartyMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.processor.SettlementTypeHelper",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.processor.SettlementTypeMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.util.PhysicalSettlementPeriodDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.util.QuantityMultiplierDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.util.ValuationDateDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.AssetFlowBaseTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.AssetFlowBaseValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashflowTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashflowTypeTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashflowTypeValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashflowValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashSettlementTermsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CashSettlementTermsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CommodityPriceReturnTermsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.CommodityPriceReturnTermsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.AssetFlowBaseQuantityUnitExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashflowTypeChoice0",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsCashCollateralMethod",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsCashSettlementTermsChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsFirmQuotationMethod",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsMidMarketValuationMethod",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsRecoveryFactor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.CashSettlementTermsReplacementValueMethod",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.FixedPriceNonNegativePrice_amount",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.FxFixingDateBusinessCentersChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.FxFixingDateDateChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PayoutBaseFinalPrincipalAmountExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PhysicalSettlementPeriodBusinessDays",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PhysicalSettlementPeriodMaximumBusinessDays",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PhysicalSettlementPeriodOneOf2",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PhysicalSettlementTermsPredeterminedClearingOrganizationParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.PricingDatesOneOf0",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.QuantityMultiplierOneOf0",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.ResolvablePriceQuantityQuantityMultiplier",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.SettlementDateBusinessDays",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.SettlementDateDateChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.SettlementTermsCashSettlementTerms",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.SettlementTermsOptionSettlementChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.SettlementTermsPhysicalSettlementTerms",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.datarule.ValuationDateOneOf0",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.AssetFlowBaseOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.CashflowOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.CashflowTypeOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.CashSettlementTermsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.CommodityPriceReturnTermsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.FixedPriceOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.FxFixingDateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.PayoutBaseOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.PhysicalSettlementPeriodOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.PhysicalSettlementTermsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.PricingDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.QuantityMultiplierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.ResolvablePriceQuantityOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.SettlementBaseOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.SettlementDateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.SettlementProvisionOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.SettlementTermsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.exists.ValuationDateOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.FixedPriceTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.FixedPriceValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.FxFixingDateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.FxFixingDateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PayoutBaseTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PayoutBaseValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PhysicalSettlementPeriodTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PhysicalSettlementPeriodValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PhysicalSettlementTermsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PhysicalSettlementTermsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PricingDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.PricingDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.QuantityMultiplierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.QuantityMultiplierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.ResolvablePriceQuantityTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.ResolvablePriceQuantityValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementBaseTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementBaseValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementDateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementDateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementProvisionTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementProvisionValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementTermsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.SettlementTermsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.ValuationDateTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.common.settlement.validation.ValuationDateValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AsianMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AssetLegMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AssetPayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AutomaticExerciseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AveragingCalculationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.AveragingStrikeFeatureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.BarrierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CalculationScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CalendarSpreadMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CancelableProvisionAdjustedDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CancelableProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CancellationEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.CompositeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ConstituentWeightMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.DividendTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.EarlyTerminationEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.EarlyTerminationProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.EconomicTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.EvergreenProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExerciseFeeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExerciseFeeScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExerciseNoticeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExercisePeriodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExerciseProcedureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExerciseTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExtendibleProvisionAdjustedDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExtendibleProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ExtensionEventMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.FixedPricePayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.FxFeatureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.KnockMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.MandatoryEarlyTerminationAdjustedDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.MandatoryEarlyTerminationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ManualExerciseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.MultipleExerciseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.NonTransferableProductMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.OptionalEarlyTerminationAdjustedDatesMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.OptionalEarlyTerminationMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.OptionFeatureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.OptionPayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.OptionStrikeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PartialExerciseMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PassThroughItemMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PassThroughMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PerformancePayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.PortfolioReturnTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ProductMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.QuantoMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.ReturnTermsMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.SchedulePeriodMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.SettlementPayoutMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.StrategyFeatureMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.StrikeMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.StrikeScheduleMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.StrikeSpreadMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.TerminationProvisionMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.TradableProductMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.TradeLotMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.TransferableProductMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.meta.UnderlierMeta",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.AssetCashMetaMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.CdsFeeLegPayoutMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.CommodityClassificationMetaMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.FraPayoutSplitterMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.FraPriceQuantitySplitterMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.InterestRateForwardDebtPriceMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.processor.UnderlierMetaMappingProcessor",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.util.PayoutDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.util.ProductDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.util.UnderlierDeepPathUtil",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.AssetLegTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.AssetLegValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.AssetPayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.AssetPayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.CancelableProvisionAdjustedDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.CancelableProvisionAdjustedDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.AssetPayoutQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.AssetPayoutUnderlierNotCash",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.CancelableProvisionCancelableProvisionExerciseNoticeReceiverParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.CancelableProvisionEffectiveDate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsAssetPayoutDividendTermsValidation",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsDayCountFraction",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsFpML_cd_26_28",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsFpML_cd_27",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsFpML_cd_30",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsIndependentCalculationAgent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsLastRegularPaymentDate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsMarketPrice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsNotionalResetInterestRatePayoutExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsNotionalResetOnPerformancePayout",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsPaymentDates",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsPaymentDatesAdjustments",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsPaymentFrequency",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsPayRelativeTo",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.EconomicTermsReturnType_Total_Requires_Dividends",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.ExerciseTermsCommencementAndExpirationDate",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.ExerciseTermsExerciseDateExpirationDateChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.ExtendibleProvisionExtendibleProvisionExerciseNoticeReceiverParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.FixedPricePayoutQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.MandatoryEarlyTerminationAdjustedDatesFpML_ird_44",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.ManualExerciseManualExerciseNoticeReceiverParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.NonTransferableProductPrimaryAssetClass",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionalEarlyTerminationOptionalEarlyTerminationExerciseNoticeReceiverParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionPayoutClearedPhysicalSettlementExists",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionPayoutDeliveryCapacity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionPayoutOptionStylePresent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionPayoutOptionTypePresent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.OptionPayoutPriceTimeIntervalQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PayoutChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutCorrelationUnderlierOnlyBasket",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutEquitySpecificAttributes",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutNoSharePriceDividendAdjustmentForeignExchange",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutNoSharePriceDividendAdjustmentIndex",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutPortfolioOrStraightReturn",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutPortfolioReturnIsMultipleReturns",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutUnderlier",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.PerformancePayoutUnderlierOfPortfolioIsBasket",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.ProductChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutBasket",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutDeliveryCapacity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutIndex",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutPriceTimeIntervalQuantity",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutSettlementTerms",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.SettlementPayoutUnderlier",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductCalculationAgentIndependent",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductCalculationAgentMandatoryEarlyTermination",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductCalculationAgentOptionalEarlyTermination",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductExerciseNoticeReceiverPartyCancelableProvision",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductExerciseNoticeReceiverPartyExtendibleProvision",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductExerciseNoticeReceiverPartyManual",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductExerciseNoticeReceiverPartyOptionalEarlyTermination",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductForwardPayout_PredeterminedClearingOrganizationParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductNotionalAdjustment",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductOptionPayout_PredeterminedClearingOrganizationParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductPerformancePayout_ExtraordinaryDividendsParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductPredeterminedClearingOrganizationParty",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.TradableProductPriceQuantityTriangulation",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.datarule.UnderlierChoice",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.EconomicTermsTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.EconomicTermsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.AssetLegOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.AssetPayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.CancelableProvisionAdjustedDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.EconomicTermsOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.ExtendibleProvisionAdjustedDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.FixedPricePayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.MandatoryEarlyTerminationAdjustedDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.NonTransferableProductOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.OptionalEarlyTerminationAdjustedDatesOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.OptionPayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.PayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.PerformancePayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.ProductOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.SettlementPayoutOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.TradableProductOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.TradeLotOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.TransferableProductOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.exists.UnderlierOnlyExistsValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.ExtendibleProvisionAdjustedDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.ExtendibleProvisionAdjustedDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.FixedPricePayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.FixedPricePayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.MandatoryEarlyTerminationAdjustedDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.MandatoryEarlyTerminationAdjustedDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.NonTransferableProductTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.NonTransferableProductValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.OptionalEarlyTerminationAdjustedDatesTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.OptionalEarlyTerminationAdjustedDatesValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.OptionPayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.OptionPayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.PayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.PayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.PerformancePayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.PerformancePayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.ProductTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.ProductValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.SettlementPayoutTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.SettlementPayoutValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TradableProductTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TradableProductValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TradeLotTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TradeLotValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TransferableProductTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.TransferableProductValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.UnderlierTypeFormatValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    },
+    {
+      "className": "cdm.product.template.validation.UnderlierValidator",
+      "reason": "Rejected because this package category is not allowed in the approved API contract."
+    }
+  ],
+  "candidateClassCount": 1104
+}

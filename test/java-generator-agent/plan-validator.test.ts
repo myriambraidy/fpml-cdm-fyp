@@ -230,7 +230,10 @@ ${RUNTIME_FIXTURES_BLOCK}
     const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
     const result = validatePlannerPlan({
       scope,
-      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}`,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Generated files
+- com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper remains the entry class.
+`,
       runtimeFixtureIds: ['fx-ex01-fx-spot'],
       javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
       requiredRosettaAreas: requiredRosettaAreasForScope({
@@ -244,6 +247,25 @@ ${RUNTIME_FIXTURES_BLOCK}
     expect(result.details?.parsedRosettaAreas?.['settlement-payout']).toEqual([
       'MapFxCoreDetailsModelToSettlementPayout',
     ])
+  })
+
+  test('does not flag suffixes inside the correct generated mapper FQCN', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+The implementation target is com.fpml.cdm.fx.mapper.generated.GeneratedFpmlToCdmMapper.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+    })
+
+    expect(result.status).toBe('passed')
+    expect(result.blockingIssues.some(issue => issue.includes('GeneratedFpmlToCdmMapper must be in package'))).toBe(false)
   })
 
   test('fails when scoped plan has wrong generated package', async () => {
@@ -297,6 +319,46 @@ ${RUNTIME_FIXTURES_BLOCK}
     expect(result.blockingIssues.some(issue => issue.includes('Main.java'))).toBe(true)
   })
 
+  test('passes when product-identifiers-taxonomy Rosetta functions appear only under product-root (FX duplicate template)', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const rosettaWithoutTaxonomyHeading = `## Rosetta evidence coverage (machine-checked)
+**product-root:**
+- MapFxSingleLegNonTransferableProduct
+- MapProductIdentifierList
+- MapProductTaxonomyList
+**economic-terms:**
+- MapFxSingleLegEconomicTerms
+**settlement-payout:**
+- MapFxCoreDetailsModelToSettlementPayout
+**price-quantity:**
+- MapFxSingleLegPriceQuantityList
+- MapFxCoreDetailsModelPriceListWithLocation
+- MapFxCoreDetailsModelQuantityListWithLocation
+**party-counterparty:**
+- MapFxSingleLegCounterpartyList
+- MapFxSingleLegAncillaryPartyList
+**account-party-reference:**
+- MapFxSingleLegAccountPartyReference
+- MapPayerReceiverToAccountPartyReference
+**dates-settlement:**
+- MapFxCoreDetailsModelToSettlementPayout
+- MapAdjustableOrAdjustedDateToAdjustableOrAdjustedOrRelativeDate
+`
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${rosettaWithoutTaxonomyHeading}`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+    })
+
+    expect(result.status).toBe('passed')
+    expect(result.blockingIssues.some(i => i.includes('product-identifiers-taxonomy'))).toBe(false)
+  })
+
   test('fails when Rosetta evidence area is missing', async () => {
     const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
     const incompleteRosetta = ROSETTA_EVIDENCE_BLOCK.replace(
@@ -338,6 +400,290 @@ ${RUNTIME_FIXTURES_BLOCK}
     expect(result.status).toBe('failed')
     expect(result.blockingIssues.some(issue => issue.includes('ProductIdentifier'))).toBe(true)
     expect(result.blockingIssues.some(issue => issue.includes('ProductTaxonomy'))).toBe(true)
+  })
+
+  test('fails when plan references CDM class outside approved contract', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Implementation classes
+- Use cdm.product.common.settlement.SettlementDate for settlement date mapping.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+      ],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('SettlementDate'))).toBe(true)
+  })
+
+  test('allows negated references to CDM classes outside approved contract', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Guardrails
+- Do not use cdm.product.common.settlement.SettlementDate unless the contract approves it.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+      ],
+    })
+
+    expect(result.blockingIssues.some(issue => issue.includes('SettlementDate'))).toBe(false)
+  })
+
+  test('does not treat project mapper interface as a CDM model class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Java design
+- Required interface: \`com.fpml.cdm.fx.mapper.FpmlToCdmMapper\`
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+      ],
+    })
+
+    expect(result.blockingIssues.some(issue => issue.includes('cdm.fx.mapper.FpmlToCdmMapper'))).toBe(false)
+  })
+
+  test('allows unapproved CDM classes listed under a forbidden section', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+### Forbidden classes and patterns
+- cdm.base.math.PriceSchedule, cdm.base.math.PriceTypeEnum, cdm.base.staticdata.party.PartyReference
+- cdm.product.common.settlement.SettlementPayout is a rejected same-simple-name candidate.
+
+### Safe classes
+- Use cdm.product.template.SettlementPayout.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+        'cdm.product.template.SettlementPayout',
+      ],
+    })
+
+    expect(result.blockingIssues.some(issue => issue.includes('cdm.base.math.PriceSchedule'))).toBe(false)
+    expect(result.blockingIssues.some(issue => issue.includes('cdm.product.common.settlement.SettlementPayout'))).toBe(false)
+  })
+
+  test('still fails when plan positively uses an unapproved same-name CDM class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Key rules
+- Settlement: Use cdm.product.common.settlement.SettlementPayout for payout construction.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+        'cdm.product.template.SettlementPayout',
+      ],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('cdm.product.common.settlement.SettlementPayout'))).toBe(true)
+  })
+
+  test('fails when implementation class line names unapproved CDM simple class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Dates
+- Key classes: AdjustableOrAdjustedOrRelativeDate, SettlementDate, BusinessDayAdjustments.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.event.common.Trade',
+      ],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('SettlementDate'))).toBe(true)
+    expect(result.blockingIssues.some(issue => issue.includes('BusinessDayAdjustments'))).toBe(true)
+  })
+
+  test('fails when construction order builds unapproved simple CDM class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Construction order
+1. Build PriceSchedule and NonNegativeQuantitySchedule.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.observable.asset.PriceSchedule',
+      ],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('NonNegativeQuantitySchedule'))).toBe(true)
+  })
+
+  test('allows approved simple class names in construction guidance', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Construction order
+1. Build TradeState and PriceSchedule.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.event.common.TradeState',
+        'cdm.observable.asset.PriceSchedule',
+      ],
+    })
+
+    expect(result.status).toBe('passed')
+  })
+
+  test('fails when mapping responsibilities build unapproved ProductTaxonomy simple class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+| Area | Responsibility |
+|------|----------------|
+| product-identifiers-taxonomy | Build Identifier, AssignedIdentifier, ProductTaxonomy. |
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: [
+        'cdm.base.staticdata.identifier.AssignedIdentifier',
+        'cdm.base.staticdata.identifier.Identifier',
+      ],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('ProductTaxonomy'))).toBe(true)
+  })
+
+  test('passes when narrative forbids ObjectNode and ArrayNode for the main CDM result', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Unsupported behavior
+- No Jackson-based ObjectNode/ArrayNode used for main CDM result; only for serialization and sidecar reports.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+    })
+
+    expect(result.status).toBe('passed')
+    expect(result.blockingIssues.some(issue => issue.includes('Jackson tree nodes'))).toBe(false)
+  })
+
+  test('fails when narrative allows ObjectNode for the main CDM output', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Mapping responsibilities
+- Build the main CDM output with Jackson ObjectNode before serializing the response.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('Jackson tree nodes'))).toBe(true)
+  })
+
+  test('does not flag overview prose capitalized words as unapproved CDM classes (regression)', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+### Overview
+Build an AI-native Java generator for FX. This run uses Rosetta mapping intent.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: ['cdm.event.common.TradeState'],
+    })
+
+    expect(result.status).toBe('passed')
+    expect(
+      result.blockingIssues.some(issue => issue.includes("not approved by this run's API contract"))
+    ).toBe(false)
   })
 
   test('fails when narrative rejects approved TradeState.setTrade builder method', async () => {

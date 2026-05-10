@@ -100,12 +100,15 @@ export type RolePassResult = {
 
 export type GateStatus = 'passed' | 'failed' | 'skipped'
 
+export type GateAuthority = 'authoritative' | 'diagnostic' | 'pipeline_integrity'
+
 export type GateResult = {
   name: string
   command: string
   status: GateStatus
   exitCode: number
   outputSnippet: string
+  authority?: GateAuthority
 }
 
 export type ToolAuditEntry = {
@@ -133,6 +136,8 @@ export type ToolExecutionState = {
   searchedCdmClasses: Set<string>
   lookupEligibleCdmClasses: Set<string>
   approvedCdmClasses: Set<string>
+  rejectedCdmClasses: Map<string, string>
+  rejectedBuilderClasses: Map<string, string>
   strictCdmLookup: boolean
 }
 

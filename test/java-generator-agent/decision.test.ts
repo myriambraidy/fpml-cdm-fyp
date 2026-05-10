@@ -22,6 +22,7 @@ describe('java generator decision parsing', () => {
     '### ACCEPTED',
     'Final Decision: **ACCEPTED**',
     '## Critique Decision: ACCEPTED',
+    '### ✅ Decision: **ACCEPTED**',
   ])('parses accepted reviewer wording: %s', markdown => {
     expect(parsePlanningDecision(markdown)).toBe('accepted')
   })

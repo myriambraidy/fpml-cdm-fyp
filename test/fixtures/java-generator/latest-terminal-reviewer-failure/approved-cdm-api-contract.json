@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-05-10T00:00:00.000Z",
+  "productFamily": "fx-derivatives",
+  "implementationGroup": "fx-single-leg",
+  "authority": "compiled-jar-javap-and-semantic-recipes",
+  "approvedClasses": [
+    {
+      "className": "cdm.event.common.TradeState",
+      "reason": "test",
+      "existenceAuthority": "compiled-jar-javap",
+      "semanticAuthorities": ["generated-recipe"],
+      "allowedUsages": ["test"]
+    },
+    {
+      "className": "cdm.observable.asset.PriceSchedule",
+      "reason": "test",
+      "existenceAuthority": "compiled-jar-javap",
+      "semanticAuthorities": ["generated-recipe"],
+      "allowedUsages": ["test"]
+    },
+    {
+      "className": "cdm.product.template.SettlementPayout",
+      "reason": "test",
+      "existenceAuthority": "compiled-jar-javap",
+      "semanticAuthorities": ["generated-recipe"],
+      "allowedUsages": ["test"]
+    }
+  ],
+  "forbiddenClasses": [],
+  "approvedBuilderMethods": [
+    {
+      "className": "cdm.product.template.SettlementPayout",
+      "methodName": "setPriceQuantity",
+      "parameterTypes": ["cdm.product.common.settlement.ResolvablePriceQuantity"],
+      "returnType": "cdm.product.template.SettlementPayout$SettlementPayoutBuilder",
+      "rawSignature": "public abstract cdm.product.template.SettlementPayout$SettlementPayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)",
+      "intent": "set-price-quantity",
+      "source": "compiled-jar-javap",
+      "reason": "test"
+    }
+  ],
+  "conceptResolutions": []
+}

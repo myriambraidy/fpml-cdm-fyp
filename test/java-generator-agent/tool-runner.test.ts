@@ -35,7 +35,7 @@ describe('java generator tool runner', () => {
     expect(llm.calls[1]?.some(message => message.content.includes('scope contents'))).toBe(true)
   })
 
-  test('blocks calls that exceed the input budget', async () => {
+  test('warns but still calls provider when soft input budget is exceeded', async () => {
     const llm = new QueueLLM([{ content: 'unused' }])
 
     const output = await callRoleWithTools({
@@ -50,6 +50,8 @@ describe('java generator tool runner', () => {
     })
 
     expect(output.content).toBe('unused')
+    expect(output.policyFailures).toEqual([])
+    expect(output.llmCalls).toBe(1)
     expect(llm.calls.length).toBe(1)
   })
 
@@ -131,6 +133,71 @@ describe('java generator tool runner', () => {
     })
 
     expect(output.policyFailures).toContain('pseudo_tool_call_output')
+  })
+
+  test('reports policy failure when required read path is not called', async () => {
+    const llm = new QueueLLM([
+      {
+        content: '',
+        tool_calls: [
+          {
+            id: 'call-1',
+            name: 'read_file',
+            input: { path: 'src/main/java/com/fpml/cdm/fx/mapper/generated/Other.java' },
+          },
+        ],
+      },
+      { content: 'Done.' },
+    ])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Repair.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 2,
+      toolCallPolicy: {
+        requiredReadPaths: ['src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java'],
+      },
+      executeTool: async () => 'source',
+    })
+
+    expect(output.policyFailures).toContain(
+      'required_read_path_not_called:src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java'
+    )
+  })
+
+  test('accepts absolute read path for required run-relative file', async () => {
+    const required = 'src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java'
+    const llm = new QueueLLM([
+      {
+        content: '',
+        tool_calls: [
+          {
+            id: 'call-1',
+            name: 'read_file',
+            input: { path: `C:/work/run/${required}` },
+          },
+        ],
+      },
+      { content: 'Done.' },
+    ])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Repair.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 2,
+      toolCallPolicy: {
+        requiredReadPaths: [required],
+      },
+      executeTool: async () => 'source',
+    })
+
+    expect(output.policyFailures).not.toContain(`required_read_path_not_called:${required}`)
   })
 })
 

@@ -1,6 +1,0 @@
-[TOOL_CALL]
-{tool => "write_file", args => {
-  --path "src/main/java/com/fpml/fx/mapper/PartyResolver.java"
-  --content "package com.fpml.fx.mapper;\n\n/**\n * Resolves FpML partyReference hrefs to CDM party roles (Party1/Party2).\n * Reference: MapFxSingleLegCounterpartyList (Rosetta)\n * <p>\n * Observed inversion in fx-ex01:\n * - FpML: exchangedCurrency1.payerPartyReference = party2\n * - CDM: payout[0].payerReceiver.payer = Party1, counterparty[0].partyReference.externalReference = party2\n * <p>\n * This means Party1 in CDM corresponds to party2 in FpML (role inversion).\n */\npublic final class PartyResolver {\n\n    private PartyResolver() {}\n\n    /**\n     * Map FpML party reference to CDM Party1/Party2 role.\n     * FpML party2 -> CDM Party1, FpML party1 -> CDM Party2.\n     */\n    public static String toCdmPartyRole(String fpmlPartyRef) {\n        if (fpmlPartyRef == null) return null;\n        switch (fpmlPartyRef) {\n            case \"party1\": return \"Party2\";\n            case \"party2\": return \"Party1\";\n            default: return fpmlPartyRef;\n        }\n    }\n}\n"
-}}
-[/TOOL_CALL]

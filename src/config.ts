@@ -23,15 +23,15 @@ const EnvSchema = z.object({
     .int()
     .positive()
     .max(128_000)
-    .default(20_000),
-  JAVA_GENERATOR_MAX_LLM_CALLS: z.coerce.number().int().positive().max(100).default(12),
-  JAVA_GENERATOR_MAX_INPUT_TOKENS_PER_CALL: z.coerce.number().int().positive().max(128_000).default(80_000),
+    .default(80_000),
+  JAVA_GENERATOR_MAX_LLM_CALLS: z.coerce.number().int().positive().max(5000).default(200),
+  JAVA_GENERATOR_MAX_INPUT_TOKENS_PER_CALL: z.coerce.number().int().positive().max(128_000).default(128_000),
   JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS: z.coerce.number().int().min(0).max(10).default(2),
-  JAVA_GENERATOR_PLANNER_MODEL: z.string().default('qwen/qwen3-coder-30b-a3b-instruct'),
+  JAVA_GENERATOR_PLANNER_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_CRITIC_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
-  JAVA_GENERATOR_IMPLEMENTER_MODEL: z.string().default('minimax/minimax-m2.7'),
-  JAVA_GENERATOR_REPAIR_MODEL: z.string().default('qwen/qwen3-coder-next'),
+  JAVA_GENERATOR_IMPLEMENTER_MODEL: z.string().default('deepseek/deepseek-chat'),
+  JAVA_GENERATOR_REPAIR_MODEL: z.string().default('deepseek/deepseek-chat'),
   JAVA_GENERATOR_BUILD_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_PLANNER_FALLBACK_MODEL: z.string().optional(),
   JAVA_GENERATOR_CRITIC_FALLBACK_MODEL: z.string().optional(),
@@ -40,6 +40,8 @@ const EnvSchema = z.object({
   JAVA_GENERATOR_REPAIR_FALLBACK_MODEL: z.string().optional(),
   JAVA_GENERATOR_BUILD_REVIEWER_FALLBACK_MODEL: z.string().optional(),
   JAVA_GENERATOR_PLANNER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(9000),
+  /** Max tool-call rounds per planner LLM turn (each round may include multiple tool calls). */
+  JAVA_GENERATOR_PLANNER_MAX_TOOL_ROUNDS: z.coerce.number().int().positive().max(64).default(22),
   JAVA_GENERATOR_CRITIC_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(5000),
   JAVA_GENERATOR_REVIEWER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(5000),
   JAVA_GENERATOR_IMPLEMENTER_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(16_000),
@@ -70,6 +72,7 @@ const EnvSchema = z.object({
    */
   CDM_ORCHESTRATOR_MAX_TOKENS: z.coerce.number().int().positive().max(128_000).default(8192),
   LLM_MAX_TOKENS: z.coerce.number().int().positive().default(1024),
+  LLM_CONTEXT_LENGTH_TOKENS: z.coerce.number().int().positive().max(2_000_000).default(262_144),
   LLM_TIMEOUT_MS: z.coerce.number().int().positive().default(60_000),
   /** @deprecated Prefer LLM_HTTP_TRANSIENT_MAX_RETRIES for OpenRouter 429/502/503/504; still read by older configs. */
   LLM_MAX_RETRIES: z.coerce.number().int().min(0).max(5).default(1),

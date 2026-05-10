@@ -16,6 +16,15 @@ export type FinalImplementationContract = {
   forbiddenClasses: string[]
   approvedClasses: string[]
   recipeIds: string[]
+  builderReadinessConstraints: BuilderReadinessConstraint[]
+}
+
+export type BuilderReadinessConstraint = {
+  concept: string
+  className: string
+  builderReady: boolean
+  implementationRule: 'construct_directly' | 'parameter_only' | 'report_gap'
+  reason: string
 }
 
 export async function buildFinalImplementationContract(args: {
@@ -46,6 +55,7 @@ export async function buildFinalImplementationContract(args: {
     forbiddenClasses: args.apiContract.forbiddenClasses.map(item => item.className),
     approvedClasses: args.apiContract.approvedClasses.map(item => item.className),
     recipeIds: args.recipeBundle.recipes.map(recipe => recipe.id),
+    builderReadinessConstraints: buildBuilderReadinessConstraints(args.apiContract),
   }
 }
 
@@ -112,7 +122,37 @@ ${renderForbiddenClasses(contract.forbiddenClasses)}
 ## Recipes
 
 ${contract.recipeIds.map(id => `- ${id}`).join('\n')}
+
+## Builder Readiness Constraints
+
+${contract.builderReadinessConstraints.length === 0 ? '- none' : contract.builderReadinessConstraints.map(renderBuilderReadinessConstraint).join('\n')}
 `
+}
+
+function buildBuilderReadinessConstraints(contract: ApprovedCdmApiContract): BuilderReadinessConstraint[] {
+  const approvedClassNames = new Set(contract.approvedClasses.map(item => item.className))
+  return contract.conceptResolutions
+    .filter(concept => concept.selectedClassName !== '')
+    .map(concept => {
+      const className = concept.selectedClassName
+      const approved = approvedClassNames.has(className)
+      const builderReady = contract.approvedBuilderMethods.some(method => method.className === className)
+      return {
+        concept: concept.concept,
+        className,
+        builderReady,
+        implementationRule: builderReady ? 'construct_directly' : approved ? 'parameter_only' : 'report_gap',
+        reason: builderReady
+          ? 'Approved builder methods exist in the run-specific contract.'
+          : approved
+            ? 'Selected class is approved, but no direct approved builder method is available.'
+            : 'Selected class is not approved by the run-specific contract.',
+      }
+    })
+}
+
+function renderBuilderReadinessConstraint(constraint: BuilderReadinessConstraint): string {
+  return `- ${constraint.concept}: ${constraint.className}, builderReady=${constraint.builderReady ? 'yes' : 'no'}, rule=${constraint.implementationRule}, reason=${constraint.reason}`
 }
 
 function renderForbiddenClasses(classNames: string[]): string {

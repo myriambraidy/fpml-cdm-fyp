@@ -1,6 +1,6 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
-import { readCdmJavaApiIndex } from './cdm-java-api-pack'
+import { lookupCdmJavaClassDetails, readCdmJavaApiIndex } from './cdm-java-api-pack'
 import type { RelevantCdmApiDiscovery, ResolvedCdmConcept } from './cdm-concept-resolver'
 import { discoverRelevantCdmApi } from './cdm-concept-resolver'
 import type { CdmApiSelection } from './cdm-api-selection'
@@ -19,6 +19,8 @@ export type ApprovedCdmClass = {
   existenceAuthority: 'compiled-jar-javap'
   semanticAuthorities: DocumentationAuthority[]
   allowedUsages: string[]
+  builderClassName?: string
+  enumValues?: string[]
 }
 
 export type ForbiddenCdmClass = {
@@ -75,17 +77,23 @@ export async function buildApprovedCdmApiContract(args: {
     approvedClassNames.add(selected.className)
   }
 
-  const approvedClasses = [...approvedClassNames]
+  const approvedClassItems = [...approvedClassNames]
     .filter(className => indexedClassNames.has(className))
     .filter(className => !isForbiddenApprovedContractClass(className))
     .sort()
-    .map(className => ({
+  const approvedClasses: ApprovedCdmClass[] = []
+  for (const className of approvedClassItems) {
+    const details = await lookupCdmJavaClassDetails(className)
+    approvedClasses.push({
       className,
       reason: reasonForApprovedClass(className, discovery, selection),
-      existenceAuthority: 'compiled-jar-javap' as const,
+      existenceAuthority: 'compiled-jar-javap',
       semanticAuthorities: SEMANTIC_AUTHORITIES,
       allowedUsages: usagesForClass(className),
-    }))
+      builderClassName: details.status === 'found' ? details.details.builderClassName : undefined,
+      enumValues: details.status === 'found' ? details.details.enumValues : undefined,
+    })
+  }
 
   return {
     generatedAt: new Date().toISOString(),
@@ -196,6 +204,14 @@ Authority: ${contract.authority}
 
 ${contract.approvedClasses.map(item => `- ${item.className}`).join('\n')}
 
+## Approved Enum Constants
+
+${renderApprovedEnumConstants(contract)}
+
+## Approved Builder Classes
+
+${renderApprovedBuilderClasses(contract)}
+
 ## Approved Builder Method Index
 
 ${methodsByClass.map(([className, methods]) => renderMethodSummary(className, methods)).join('\n')}
@@ -283,7 +299,9 @@ function renderApprovedClass(item: ApprovedCdmClass): string {
 - Reason: ${item.reason}
 - Existence authority: ${item.existenceAuthority}
 - Semantic authorities: ${renderAuthorities(item.semanticAuthorities)}
-- Allowed usages: ${item.allowedUsages.join('; ')}`
+- Allowed usages: ${item.allowedUsages.join('; ')}
+- Builder class: ${item.builderClassName ?? 'none detected'}
+- Enum values: ${item.enumValues?.join(', ') ?? 'none'}`
 }
 
 function renderForbiddenClass(item: ForbiddenCdmClass): string {
@@ -307,4 +325,23 @@ function groupBuilderMethodsByClass(methods: ApprovedBuilderMethod[]): Array<[st
 function renderMethodSummary(className: string, methods: ApprovedBuilderMethod[]): string {
   const unique = [...new Set(methods.map(method => `${method.methodName} [${method.intent}]`))].sort()
   return `- ${className}: ${unique.join(', ')}`
+}
+
+function renderApprovedEnumConstants(contract: ApprovedCdmApiContract): string {
+  const enumClasses = contract.approvedClasses.filter(item => (item.enumValues ?? []).length > 0)
+  if (enumClasses.length === 0) return '- none'
+  return enumClasses
+    .map(item => [
+      `- ${item.className}:`,
+      ...(item.enumValues ?? []).map(value => `  - ${value}`),
+    ].join('\n'))
+    .join('\n')
+}
+
+function renderApprovedBuilderClasses(contract: ApprovedCdmApiContract): string {
+  const builderClasses = contract.approvedClasses.filter(item => item.builderClassName !== undefined)
+  if (builderClasses.length === 0) return '- none'
+  return builderClasses
+    .map(item => `- ${item.className}: ${item.builderClassName?.replace('$', '.')}`)
+    .join('\n')
 }

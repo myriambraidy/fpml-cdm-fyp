@@ -1,0 +1,26 @@
+[
+  {
+    "role": "planner",
+    "round": 1,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 6391938,
+    "outputChars": 7883,
+    "llmCalls": 23,
+    "toolCalls": 71,
+    "cachedToolCalls": 12,
+    "failedToolCalls": 3,
+    "durationMs": 289747
+  },
+  {
+    "role": "planner",
+    "round": 2,
+    "model": "qwen/qwen3-coder-next",
+    "inputChars": 7297215,
+    "outputChars": 22,
+    "llmCalls": 23,
+    "toolCalls": 116,
+    "cachedToolCalls": 72,
+    "failedToolCalls": 4,
+    "durationMs": 159897
+  }
+]

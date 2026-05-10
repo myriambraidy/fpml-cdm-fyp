@@ -1,10 +1,17 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { GENERATED_JAR_NAME, GENERATED_JAVA_VERSION } from './java-contract'
+import { runBuilderReadinessUsageGate } from './builder-readiness-usage'
 import { runCdmJavaApiUsageGate } from './cdm-java-api-gate'
+import { runCdmJavaMemberUsageGate } from './cdm-java-member-usage'
 import { runGeneratedImplementationContractGate } from './generated-implementation-contract'
+import { runGeneratedDocHygieneGate } from './generated-doc-hygiene'
+import { runGeneratedReportConsistencyGate } from './generated-report-consistency'
+import { runGeneratedTestShellContractGate } from './generated-test-shell-contract'
 import { runJavaReferenceGate } from './java-reference-gate'
 import { runGeneratedJavaStaticSanityGate } from './java-static-sanity'
+import { runRosettaJavaUsageGate } from './rosetta-java-usage-gate'
+import { annotateGateResult, hasBlockingGateFailure } from './gate-policy'
 import { truncateForLog } from './markdown'
 import { validateGeneratedOutput } from './output-validation'
 import { rosettaValidatorJarPath, validateCdmJsonFileWithRosetta } from './rosetta-validator-bridge'
@@ -14,49 +21,55 @@ import type { GateResult, GeneratorRunConfig } from './types'
 
 export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]> {
   const results: GateResult[] = []
-  results.push(await runGate('typescript-typecheck', 'bun run typecheck', resolve('.')))
-  results.push(await validateCdmRosettaPreflight(config))
-  results.push(await validateGeneratedProjectStructure(config))
-  results.push(await validateGeneratedShellContract(config))
-  results.push(await runGeneratedImplementationContractGate(config))
-  results.push(await runSourceHygieneGate(config))
-  results.push(await runGeneratedJavaStaticSanityGate(config))
-  results.push(await runJavaReferenceGate(config))
-  results.push(await runCdmJavaApiUsageGate(config))
-  if (hasFailedGate(results)) {
-    pushSkippedBuildGates(results, config, 'Skipped because an earlier pre-Maven gate failed.')
+  pushGateResult(results, await runGate('typescript-typecheck', 'bun run typecheck', resolve('.')))
+  pushGateResult(results, await validateCdmRosettaPreflight(config))
+  pushGateResult(results, await validateGeneratedProjectStructure(config))
+  pushGateResult(results, await validateGeneratedShellContract(config))
+  pushGateResult(results, await runGeneratedImplementationContractGate(config))
+  pushGateResult(results, await runSourceHygieneGate(config))
+  pushGateResult(results, await runGeneratedJavaStaticSanityGate(config))
+  pushGateResult(results, await runJavaReferenceGate(config))
+  pushGateResult(results, await runCdmJavaApiUsageGate(config))
+  pushGateResult(results, await runCdmJavaMemberUsageGate(config))
+  pushGateResult(results, await runRosettaJavaUsageGate(config))
+  pushGateResult(results, await runGeneratedTestShellContractGate(config))
+  pushGateResult(results, await runBuilderReadinessUsageGate(config))
+  pushGateResult(results, await runGeneratedReportConsistencyGate(config))
+  pushGateResult(results, await runGeneratedDocHygieneGate(config))
+  if (hasBlockingGateFailure(results)) {
+    pushSkippedBuildGates(results, config, 'Skipped because an earlier pipeline-integrity or authoritative pre-Maven gate failed.')
   } else {
-    results.push(
+    pushGateResult(results,
       await runGate(
         'maven-dependency-preflight',
         'mvn -q -DskipTests dependency:go-offline',
         config.runOutputDir
       )
     )
-    if (hasFailedGate(results)) {
+    if (hasBlockingGateFailure(results)) {
       pushSkippedCompileAndRuntimeGates(results, config, 'Skipped because Maven dependency preflight failed.')
     } else {
-      results.push(await runGate('maven-compile', 'mvn -q -DskipTests compile', config.runOutputDir))
-      if (hasFailedGate(results)) {
+      pushGateResult(results, await runGate('maven-compile', 'mvn -q -DskipTests compile', config.runOutputDir))
+      if (hasBlockingGateFailure(results)) {
         pushSkippedTestAndRuntimeGates(results, config, 'Skipped because main Java compilation failed.')
       } else {
-        results.push(await runGate('maven-test-compile', 'mvn -q -DskipTests test-compile', config.runOutputDir))
-        if (hasFailedGate(results)) {
+        pushGateResult(results, await runGate('maven-test-compile', 'mvn -q -DskipTests test-compile', config.runOutputDir))
+        if (hasBlockingGateFailure(results)) {
           pushSkippedTestRuntimeAndPackageGates(results, config, 'Skipped because test Java compilation failed.')
         } else {
-          results.push(await runGate('maven-test', 'mvn test', config.runOutputDir))
-          if (hasFailedGate(results)) {
+          pushGateResult(results, await runGate('maven-test', 'mvn test', config.runOutputDir))
+          if (hasBlockingGateFailure(results)) {
             pushSkippedPackageAndRuntimeGates(results, config, 'Skipped because Maven tests failed.')
           } else {
-            results.push(await runGate('maven-package', 'mvn package', config.runOutputDir))
-            if (hasFailedGate(results)) {
+            pushGateResult(results, await runGate('maven-package', 'mvn package', config.runOutputDir))
+            if (hasBlockingGateFailure(results)) {
               pushSkippedRuntimeGates(results, config, 'Skipped because Maven package failed.')
             } else {
-              results.push(...(await runJarRuntimeGates(config)))
+              for (const gate of await runJarRuntimeGates(config)) pushGateResult(results, gate)
               const outputValidation = await validateGeneratedOutput(config)
-              results.push(outputValidation)
+              pushGateResult(results, outputValidation)
               if (outputValidation.status === 'passed') {
-                results.push(...(await runRosettaValidationGates(config)))
+                for (const gate of await runRosettaValidationGates(config)) pushGateResult(results, gate)
               } else {
                 pushSkippedRosettaValidationGates(
                   results,
@@ -78,6 +91,10 @@ export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]
     'utf8'
   )
   return results
+}
+
+function pushGateResult(results: GateResult[], result: GateResult): void {
+  results.push(annotateGateResult(result))
 }
 
 export async function validateGeneratedProjectStructure(config: GeneratorRunConfig): Promise<GateResult> {
@@ -173,13 +190,13 @@ export async function validateGeneratedShellContract(config: GeneratorRunConfig)
 }
 
 function skippedGate(name: string, command: string, outputSnippet: string): GateResult {
-  return {
+  return annotateGateResult({
     name,
     command,
     status: 'skipped',
     exitCode: 0,
     outputSnippet,
-  }
+  })
 }
 
 export async function runGate(name: string, command: string, cwd: string): Promise<GateResult> {
@@ -295,10 +312,6 @@ async function runRosettaValidationGates(config: GeneratorRunConfig): Promise<Ga
     }
   }
   return results
-}
-
-function hasFailedGate(results: GateResult[]): boolean {
-  return results.some(result => result.status === 'failed')
 }
 
 async function exists(path: string): Promise<boolean> {

@@ -61,21 +61,25 @@ describe('java generator gates', () => {
     120_000
   )
 
-  test('missing jar fails runtime gate', async () => {
-    const root = await mkdtemp(join(tmpdir(), 'java-generator-gates-'))
-    try {
-      const config = makeConfig(root)
-      await mkdir(config.runOutputDir, { recursive: true })
+  test(
+    'missing jar fails runtime gate',
+    async () => {
+      const root = await mkdtemp(join(tmpdir(), 'java-generator-gates-'))
+      try {
+        const config = makeConfig(root)
+        await mkdir(config.runOutputDir, { recursive: true })
 
-      const result = await runJarRuntimeGate(config)
+        const result = await runJarRuntimeGate(config)
 
-      expect(result.status).toBe('failed')
-      expect(result.name).toBe(`jar-runtime:${DEFAULT_RUNTIME_FIXTURES[0].id}`)
-      expect(result.command).toContain('target/fpml-cdm-rosetta-mapper.jar')
-    } finally {
-      await rm(root, { recursive: true, force: true })
-    }
-  })
+        expect(result.status).toBe('failed')
+        expect(result.name).toBe(`jar-runtime:${DEFAULT_RUNTIME_FIXTURES[0].id}`)
+        expect(result.command).toContain('target/fpml-cdm-rosetta-mapper.jar')
+      } finally {
+        await rm(root, { recursive: true, force: true })
+      }
+    },
+    120_000
+  )
 
   test('generated implementation contract fails when entry class is missing', async () => {
     const root = await mkdtemp(join(tmpdir(), 'java-generator-gates-'))

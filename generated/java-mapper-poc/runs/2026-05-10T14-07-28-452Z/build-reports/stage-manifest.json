@@ -1,0 +1,56 @@
+[
+  {
+    "stage": "preflight",
+    "status": "passed",
+    "artifact": "generated\\java-mapper-poc\\runs\\2026-05-10T14-07-28-452Z\\agent-workspace\\cdm-rosetta-preflight.md",
+    "startedAt": "2026-05-10T14:07:29.895Z",
+    "endedAt": "2026-05-10T14:07:29.895Z",
+    "toolCalls": 0,
+    "failedToolCalls": 0,
+    "message": "Workspace and Rosetta-native Java shell created."
+  },
+  {
+    "stage": "planner",
+    "round": 1,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-10T14:07:29.904Z",
+    "endedAt": "2026-05-10T14:10:53.358Z",
+    "toolCalls": 28,
+    "failedToolCalls": 3,
+    "message": "outputChars=6875"
+  },
+  {
+    "stage": "planner",
+    "round": 2,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-10T14:10:53.423Z",
+    "endedAt": "2026-05-10T14:13:26.182Z",
+    "toolCalls": 67,
+    "failedToolCalls": 4,
+    "message": "outputChars=22"
+  },
+  {
+    "stage": "planner",
+    "round": 3,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-10T14:13:26.206Z",
+    "endedAt": "2026-05-10T14:22:19.155Z",
+    "toolCalls": 37,
+    "failedToolCalls": 4,
+    "message": "outputChars=7527"
+  },
+  {
+    "stage": "planner",
+    "round": 4,
+    "status": "passed",
+    "model": "qwen/qwen3-coder-next",
+    "startedAt": "2026-05-10T14:22:19.225Z",
+    "endedAt": "2026-05-10T14:24:14.240Z",
+    "toolCalls": 23,
+    "failedToolCalls": 4,
+    "message": "outputChars=7560"
+  }
+]

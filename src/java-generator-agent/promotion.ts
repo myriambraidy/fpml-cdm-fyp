@@ -1,9 +1,10 @@
 import { copyFile, mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { hasAuthoritativeOrIntegrityFailure } from './gate-policy'
 import type { GateResult, GeneratorRunConfig } from './types'
 
 export async function promoteGeneratedJar(config: GeneratorRunConfig, gateResults: GateResult[]): Promise<boolean> {
-  if (gateResults.some(gate => gate.status !== 'passed')) return false
+  if (hasAuthoritativeOrIntegrityFailure(gateResults)) return false
 
   const sourceJar = join(config.runOutputDir, 'target', 'fpml-cdm-mapper.jar')
   const targetDir = join(config.baseOutputDir, 'target')

@@ -30,8 +30,10 @@ export async function runCdmJavaApiUsageGate(config: GeneratorRunConfig): Promis
   await ensureCdmJavaApiPack()
   const findings = await findCdmJavaApiUsageFindings(config.runOutputDir)
   const reportPath = resolve(config.runOutputDir, 'build-reports', 'cdm-java-api-usage.json')
+  const computedReportPath = resolve(config.runOutputDir, 'build-reports', 'computed-cdm-class-usage.json')
   await mkdir(dirname(reportPath), { recursive: true })
-  await writeFile(reportPath, JSON.stringify({ findings }, null, 2), 'utf8')
+  await writeFile(reportPath, JSON.stringify({ authority: 'diagnostic', findings }, null, 2), 'utf8')
+  await writeFile(computedReportPath, JSON.stringify(buildComputedClassUsageReport(findings), null, 2), 'utf8')
 
   return {
     name: 'cdm-java-api-usage',
@@ -40,8 +42,28 @@ export async function runCdmJavaApiUsageGate(config: GeneratorRunConfig): Promis
     exitCode: findings.length === 0 ? 0 : 1,
     outputSnippet:
       findings.length === 0
-        ? 'Generated Java uses only allowed CDM Java API pack imports.'
+        ? 'Curated-contract diagnostic passed: generated Java uses only allowed CDM Java API pack imports.'
         : JSON.stringify(findings.slice(0, 60), null, 2),
+  }
+}
+
+function buildComputedClassUsageReport(findings: CdmJavaApiUsageFinding[]): {
+  authority: 'diagnostic'
+  reportKind: 'curated_contract_compliance'
+  unapprovedReferences: CdmJavaApiUsageFinding[]
+  forbiddenReferences: CdmJavaApiUsageFinding[]
+  missingReferences: CdmJavaApiUsageFinding[]
+  inventedFpmlReferences: CdmJavaApiUsageFinding[]
+} {
+  return {
+    authority: 'diagnostic',
+    reportKind: 'curated_contract_compliance',
+    unapprovedReferences: findings.filter(finding =>
+      finding.code === 'cdm_import_not_in_prompt_seed' || finding.code === 'cdm_import_not_in_approved_contract'
+    ),
+    forbiddenReferences: findings.filter(finding => finding.code === 'forbidden_cdm_class_reference'),
+    missingReferences: findings.filter(finding => finding.code === 'exact_missing_cdm_class_reference'),
+    inventedFpmlReferences: findings.filter(finding => finding.code === 'invented_fpml_model_reference'),
   }
 }
 

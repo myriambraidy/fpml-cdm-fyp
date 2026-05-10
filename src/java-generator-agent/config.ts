@@ -27,7 +27,7 @@ export async function createRunConfig(options: JavaGeneratorCliOptions): Promise
     supportedProducts: [],
     baseOutputDir,
     runOutputDir: options.resumeRunOutputDir ?? join(baseOutputDir, 'runs', runId),
-    maxPlanningRounds: 3,
+    maxPlanningRounds: 4,
     maxRepairAttempts: env.JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS,
     requireApproval: options.requireApproval ?? false,
     resume: options.resumeRunOutputDir !== undefined,
@@ -56,7 +56,7 @@ function createRoleModels(): Record<GeneratorRole, RoleModelConfig> {
       model: env.JAVA_GENERATOR_PLANNER_MODEL,
       fallbackModel: env.JAVA_GENERATOR_PLANNER_FALLBACK_MODEL,
       maxTokens: env.JAVA_GENERATOR_PLANNER_MAX_TOKENS,
-      maxToolRounds: 3,
+      maxToolRounds: env.JAVA_GENERATOR_PLANNER_MAX_TOOL_ROUNDS,
     },
     critic: {
       model: env.JAVA_GENERATOR_CRITIC_MODEL,
@@ -74,7 +74,7 @@ function createRoleModels(): Record<GeneratorRole, RoleModelConfig> {
       model: env.JAVA_GENERATOR_IMPLEMENTER_MODEL,
       fallbackModel: env.JAVA_GENERATOR_IMPLEMENTER_FALLBACK_MODEL,
       maxTokens: env.JAVA_GENERATOR_IMPLEMENTER_MAX_TOKENS,
-      maxToolRounds: 6,
+      maxToolRounds: 12,
     },
     repair: {
       model: env.JAVA_GENERATOR_REPAIR_MODEL,

@@ -25,12 +25,18 @@ describe('java generator shell', () => {
       const mapperInterface = await Bun.file(
         join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/FpmlToCdmMapper.java')
       ).text()
+      const generatedSkeleton = await Bun.file(
+        join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java')
+      ).text()
 
       expect(pom).toContain('<artifactId>fpml-cdm-rosetta-mapper</artifactId>')
       expect(pom).toContain('<maven.compiler.release>11</maven.compiler.release>')
       expect(pom).toContain('<mainClass>com.fpml.cdm.fx.mapper.Main</mainClass>')
       expect(main).toContain('new GeneratedFpmlToCdmMapper()')
       expect(mapperInterface).toContain('interface FpmlToCdmMapper')
+      expect(generatedSkeleton).toContain('public class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper')
+      expect(generatedSkeleton).toContain('public String mapFile(Path inputPath, Path reportsDir) throws Exception')
+      expect(generatedSkeleton).toContain('TradeState.builder().setTrade(trade).build()')
       expect(runtimeArgs).not.toContain('record RuntimeArgs')
       expect(runtimeArgs).toContain('--output')
       expect(

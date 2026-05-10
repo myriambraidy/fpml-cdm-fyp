@@ -65,6 +65,23 @@ export class LLMHTTPError extends Error {
   }
 }
 
+export class LLMContextLengthError extends Error {
+  override readonly name = 'LLMContextLengthError'
+  constructor(
+    readonly estimatedTotalTokens: number,
+    readonly maxContextTokens: number,
+    readonly estimatedInputTokens: number,
+    readonly estimatedToolTokens: number,
+    readonly requestedOutputTokens: number
+  ) {
+    super(
+      `LLM request exceeds context window: estimated ${estimatedTotalTokens} tokens ` +
+      `(${estimatedInputTokens} text input, ${estimatedToolTokens} tool input, ${requestedOutputTokens} output) ` +
+      `> max ${maxContextTokens}. Reduce prompt/tool context or output tokens.`
+    )
+  }
+}
+
 export type LLMProtocolErrorKind =
   | 'empty_body'
   | 'json_parse'

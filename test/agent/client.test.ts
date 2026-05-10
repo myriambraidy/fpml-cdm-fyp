@@ -2,6 +2,7 @@ import { describe, expect, it } from 'bun:test'
 import { FetchOpenRouterClient } from '../../src/agent/client'
 import {
   LLMConfigurationError,
+  LLMContextLengthError,
   LLMHTTPError,
   LLMProviderError,
   LLMProtocolError,
@@ -81,6 +82,40 @@ describe('FetchOpenRouterClient (DEC-07)', () => {
         expect(caught.message).toContain('Body keys: id')
         expect(caught.kind).toBe('missing_choices')
       }
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
+  it('guards oversized context requests before fetch', async () => {
+    const originalFetch = globalThis.fetch
+    let fetchCount = 0
+    globalThis.fetch = Object.assign(
+      async () => {
+        fetchCount += 1
+        return new Response(chatCompletionJson('should-not-call'), { status: 200 })
+      },
+      { preconnect: originalFetch.preconnect }
+    )
+
+    try {
+      const client = new FetchOpenRouterClient({
+        apiKey: 'test-key',
+        maxContextTokens: 20,
+        maxTokens: 10,
+      })
+      let caught: unknown
+      try {
+        await client.call({ messages: [{ role: 'user', content: 'x'.repeat(80) }] })
+      } catch (e) {
+        caught = e
+      }
+      expect(caught).toBeInstanceOf(LLMContextLengthError)
+      if (caught instanceof LLMContextLengthError) {
+        expect(caught.estimatedTotalTokens).toBeGreaterThan(caught.maxContextTokens)
+        expect(caught.requestedOutputTokens).toBe(10)
+      }
+      expect(fetchCount).toBe(0)
     } finally {
       globalThis.fetch = originalFetch
     }

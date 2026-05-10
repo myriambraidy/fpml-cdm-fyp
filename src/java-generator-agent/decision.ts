@@ -31,6 +31,7 @@ function decisionText(markdown: string): string[] {
         .replace(/^#+\s*/u, '')
         .replace(/\*\*/gu, '')
         .replace(/`/gu, '')
+        .replace(/^[^A-Za-z0-9]+/u, '')
         .trim()
     )
 }

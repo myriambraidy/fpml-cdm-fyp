@@ -2,6 +2,7 @@ import { env } from '../config'
 import type { LLMClient, LLMMessage, LLMResponse, LLMTool } from './types'
 import {
   LLMConfigurationError,
+  LLMContextLengthError,
   LLMHTTPError,
   LLMProviderError,
   LLMProtocolError,
@@ -20,6 +21,7 @@ export type FetchOpenRouterOptions = {
   apiKey: string
   model?: string
   maxTokens?: number
+  maxContextTokens?: number
   timeoutMs?: number
   /** @deprecated Use maxHttpTransientRetries */
   maxRetriesOn429?: number
@@ -42,6 +44,7 @@ export class FetchOpenRouterClient implements LLMClient {
   private readonly apiKey: string
   private readonly model: string
   private readonly maxTokens: number
+  private readonly maxContextTokens: number
   private readonly timeoutMs: number
   private readonly httpTransientMaxRetries: number
   private readonly maxProtocolRetries: number
@@ -59,6 +62,7 @@ export class FetchOpenRouterClient implements LLMClient {
     this.apiKey = key
     this.model = opts.model ?? env.OPENROUTER_MODEL
     this.maxTokens = opts.maxTokens ?? env.LLM_MAX_TOKENS
+    this.maxContextTokens = opts.maxContextTokens ?? env.LLM_CONTEXT_LENGTH_TOKENS
     this.timeoutMs = opts.timeoutMs ?? env.LLM_TIMEOUT_MS
     this.httpTransientMaxRetries =
       opts.maxHttpTransientRetries ??
@@ -122,9 +126,10 @@ export class FetchOpenRouterClient implements LLMClient {
       }
     }
   }): Promise<LLMResponse> {
+    const requestedOutputTokens = params.maxTokens ?? this.maxTokens
     const baseBody: Record<string, unknown> = {
       model: params.model ?? this.model,
-      max_tokens: params.maxTokens ?? this.maxTokens,
+      max_tokens: requestedOutputTokens,
       messages: params.messages.map(m => ({
         role: m.role,
         content: m.content,
@@ -136,6 +141,11 @@ export class FetchOpenRouterClient implements LLMClient {
     }
 
     if (!params.tools?.length) {
+      assertContextBudget({
+        messages: params.messages,
+        requestedOutputTokens,
+        maxContextTokens: this.maxContextTokens,
+      })
       return this.postChatCompletions(baseBody)
     }
 
@@ -147,6 +157,12 @@ export class FetchOpenRouterClient implements LLMClient {
         parameters: t.input_schema,
       },
     }))
+    assertContextBudget({
+      messages: params.messages,
+      toolsPayload,
+      requestedOutputTokens,
+      maxContextTokens: this.maxContextTokens,
+    })
 
     const withTools = (toolChoice: 'required' | 'auto'): Record<string, unknown> => ({
       ...baseBody,
@@ -275,6 +291,33 @@ export class FetchOpenRouterClient implements LLMClient {
 
 function isTransientOpenRouterHttpStatus(status: number): boolean {
   return status === 429 || status === 502 || status === 503 || status === 504
+}
+
+function assertContextBudget(args: {
+  messages: LLMMessage[]
+  toolsPayload?: unknown
+  requestedOutputTokens: number
+  maxContextTokens: number
+}): void {
+  const estimatedInputTokens = estimateTokensFromChars(
+    args.messages.reduce((total, message) => total + message.content.length, 0)
+  )
+  const estimatedToolTokens = estimateTokensFromChars(
+    args.toolsPayload === undefined ? 0 : JSON.stringify(args.toolsPayload).length
+  )
+  const estimatedTotalTokens = estimatedInputTokens + estimatedToolTokens + args.requestedOutputTokens
+  if (estimatedTotalTokens <= args.maxContextTokens) return
+  throw new LLMContextLengthError(
+    estimatedTotalTokens,
+    args.maxContextTokens,
+    estimatedInputTokens,
+    estimatedToolTokens,
+    args.requestedOutputTokens
+  )
+}
+
+function estimateTokensFromChars(chars: number): number {
+  return Math.ceil(chars / 4)
 }
 
 const OPENROUTER_RETRY_AFTER_CAP_MS = 120_000

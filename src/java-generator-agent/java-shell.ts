@@ -32,6 +32,10 @@ export async function createJavaProjectShell(config: GeneratorRunConfig): Promis
     join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/RuntimeArgs.java'),
     renderRuntimeArgs()
   )
+  await writeIfMissing(
+    join(config.runOutputDir, GENERATED_IMPL_SOURCE_ROOT, `${GENERATED_IMPL_CLASS}.java`),
+    renderGeneratedMapperSkeleton()
+  )
 }
 
 function renderPom(config: GeneratorRunConfig): string {
@@ -182,6 +186,44 @@ public final class RuntimeArgs {
             );
         }
         return new RuntimeArgs(Path.of(args[0]), Path.of(args[2]), Path.of(args[4]));
+    }
+}
+`
+}
+
+function renderGeneratedMapperSkeleton(): string {
+  return `package ${GENERATED_IMPL_PACKAGE};
+
+import cdm.event.common.Trade;
+import cdm.event.common.TradeState;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fpml.cdm.fx.mapper.FpmlToCdmMapper;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+
+public class ${GENERATED_IMPL_CLASS} implements FpmlToCdmMapper {
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Override
+    public String mapFile(Path inputPath, Path reportsDir) throws Exception {
+        Files.createDirectories(reportsDir);
+        Document document = DocumentBuilderFactory.newInstance()
+            .newDocumentBuilder()
+            .parse(inputPath.toFile());
+        TradeState tradeState = mapTradeState(document, reportsDir);
+        return objectMapper.writeValueAsString(tradeState);
+    }
+
+    private TradeState mapTradeState(Document document, Path reportsDir) throws Exception {
+        writeUnsupportedReport(reportsDir, "Generated skeleton has not implemented full FX mapping yet.");
+        Trade trade = Trade.builder().build();
+        return TradeState.builder().setTrade(trade).build();
+    }
+
+    private void writeUnsupportedReport(Path reportsDir, String message) throws Exception {
+        Files.writeString(reportsDir.resolve("unsupported-fields-report.txt"), message);
     }
 }
 `

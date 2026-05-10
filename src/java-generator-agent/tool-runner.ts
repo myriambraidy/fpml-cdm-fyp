@@ -11,8 +11,14 @@ import { detectPseudoToolCalls } from './pseudo-tool-calls'
 
 export type ToolCallPolicy = {
   requiredToolNames?: string[]
+  requiredReadPaths?: string[]
   minimumNativeToolCalls?: number
   pseudoToolCallsAreFatal?: boolean
+}
+
+type ToolCallRecord = {
+  name: string
+  input: Record<string, string>
 }
 
 export type RoleWithToolsResult = {
@@ -21,6 +27,7 @@ export type RoleWithToolsResult = {
   inputChars: number
   outputChars: number
   toolCallNames: string[]
+  toolCalls: ToolCallRecord[]
   policyFailures: string[]
 }
 
@@ -45,6 +52,7 @@ export async function callRoleWithTools(args: {
   let inputChars = 0
   let outputChars = 0
   const toolCallNames: string[] = []
+  const toolCalls: ToolCallRecord[] = []
   const policyFailures: string[] = []
 
   async function trackedCall(callArgs: {
@@ -98,8 +106,8 @@ export async function callRoleWithTools(args: {
     })
 
     if (!response.tool_calls?.length) {
-      policyFailures.push(...evaluateFinalContentPolicy(response.content, args.toolCallPolicy, toolCallNames))
-      return { content: response.content, llmCalls, inputChars, outputChars, toolCallNames, policyFailures }
+      policyFailures.push(...evaluateFinalContentPolicy(response.content, args.toolCallPolicy, toolCallNames, toolCalls))
+      return { content: response.content, llmCalls, inputChars, outputChars, toolCallNames, toolCalls, policyFailures }
     }
 
     messages.push({
@@ -109,11 +117,13 @@ export async function callRoleWithTools(args: {
 
     for (const call of response.tool_calls) {
       toolCallNames.push(call.name)
+      const input = call.input as Record<string, string>
+      toolCalls.push({ name: call.name, input })
       args.logger?.info('tool_call_start', {
         role: roleName,
         tool: call.name,
       })
-      const output = await args.executeTool(call.name, call.input as Record<string, string>)
+      const output = await args.executeTool(call.name, input)
       args.logger?.info('tool_call_done', {
         role: roleName,
         tool: call.name,
@@ -141,14 +151,15 @@ ${truncateForLog(output, 12_000)}
       ...finalMessages,
     ],
   })
-  policyFailures.push(...evaluateFinalContentPolicy(final.content, args.toolCallPolicy, toolCallNames))
-  return { content: final.content, llmCalls, inputChars, outputChars, toolCallNames, policyFailures }
+  policyFailures.push(...evaluateFinalContentPolicy(final.content, args.toolCallPolicy, toolCallNames, toolCalls))
+  return { content: final.content, llmCalls, inputChars, outputChars, toolCallNames, toolCalls, policyFailures }
 }
 
 function evaluateFinalContentPolicy(
   content: string,
   policy: ToolCallPolicy | undefined,
-  toolCallNames: string[]
+  toolCallNames: string[],
+  toolCalls: ToolCallRecord[]
 ): string[] {
   if (policy === undefined) return []
   const failures: string[] = []
@@ -161,7 +172,36 @@ function evaluateFinalContentPolicy(
   for (const required of policy.requiredToolNames ?? []) {
     if (!toolCallNames.includes(required)) failures.push(`required_tool_not_called:${required}`)
   }
+  for (const requiredPath of policy.requiredReadPaths ?? []) {
+    if (!hasReadFileCallForPath(toolCalls, requiredPath)) {
+      failures.push(`required_read_path_not_called:${requiredPath}`)
+    }
+  }
   return failures
+}
+
+function hasReadFileCallForPath(toolCalls: ToolCallRecord[], requiredPath: string): boolean {
+  const normalizedRequired = normalizePath(requiredPath)
+  return toolCalls.some(call =>
+    call.name === 'read_file'
+      && call.input.path !== undefined
+      && pathsReferToSameRequiredFile(call.input.path, normalizedRequired)
+  )
+}
+
+function normalizePath(path: string): string {
+  return path
+    .replace(/\\/g, '/')
+    .replace(/\/+/g, '/')
+    .replace(/^\.\//u, '')
+    .replace(/\/\.\//gu, '/')
+    .replace(/\/$/u, '')
+}
+
+function pathsReferToSameRequiredFile(inputPath: string, normalizedRequiredPath: string): boolean {
+  const normalizedInput = normalizePath(inputPath)
+  return normalizedInput === normalizedRequiredPath
+    || normalizedInput.endsWith(`/${normalizedRequiredPath}`)
 }
 
 function finalToolLimitInstruction(roleName: string): string {

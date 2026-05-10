@@ -3,9 +3,11 @@ import { join, resolve } from 'node:path'
 import type { LLMClient } from '../agent/types'
 import type { GeneratorRole } from './types'
 import { synthesizeAcceptedPlan } from './accepted-plan'
+import { readApprovedCdmApiContract } from './approved-cdm-api-contract'
+import { guardCritiqueReviewerDecision } from './critique-resolution-guard'
 import { isAcceptedDecision, parsePlanningDecision } from './decision'
 import { runGates } from './gates'
-import { implementationArtifactGateResult, validateImplementationArtifacts } from './implementation-artifacts'
+import { implementationArtifactGateResult, repairRequiresWrite, validateImplementationArtifacts } from './implementation-artifacts'
 import { createJavaProjectShell } from './java-shell'
 import type { GeneratorLogger } from './logger'
 import { createConsoleGeneratorLogger } from './logger'
@@ -19,6 +21,7 @@ import {
   buildRoleMessages,
 } from './prompts'
 import { renderGateFailureClassification } from './gate-classification'
+import { describeGateAuthority } from './gate-policy'
 import { promoteGeneratedJar } from './promotion'
 import { writeRepairFocusPacket } from './repair-focus'
 import { writeFinalBuildReport, writeToolAuditLog } from './reports'
@@ -27,6 +30,7 @@ import {
   renderPlanValidation,
   validatePlannerPlan,
 } from './plan-validator'
+import { selectPlannerArtifactContent } from './planner-artifact'
 import type { ProductScopeGuidance } from './product-scope'
 import { requiredRosettaAreasForScope } from './rosetta-retrieval'
 import { writeRoundSummary } from './round-summary'
@@ -44,6 +48,8 @@ import {
   GENERATOR_LLM_TOOLS,
   IMPLEMENTER_RESEARCH_TOOLS,
   IMPLEMENTER_WRITE_TOOLS,
+  REPAIR_RESEARCH_TOOLS,
+  REPAIR_WRITE_TOOLS,
 } from './tools'
 import type { LLMTool } from '../agent/types'
 import type { ToolCallPolicy } from './tool-runner'
@@ -114,15 +120,38 @@ export async function runJavaGeneratorAgent(args: {
     }
 
     const implementationReport = await runImplementer(args.llm, args.config, workspace, audit, toolState, logger, budgetState)
+    let nextRepairAttempt = 1
     if (implementationReport.status === 'failed') {
       const gateResults = [implementationArtifactGateResult(implementationReport)]
-      await writeFinalBlockedReports(args.config, workspace, audit, gateResults, logger)
-      return
+      if (
+        budgetState.maxRepairAttempts < 1
+        || !isRepairableImplementationArtifactFailure(implementationReport)
+      ) {
+        await writeFinalBlockedReports(args.config, workspace, audit, gateResults, logger)
+        return
+      }
+      const repairReport = await runRepair(
+        args.llm,
+        args.config,
+        workspace,
+        audit,
+        toolState,
+        gateResults,
+        1,
+        logger,
+        budgetState
+      )
+      nextRepairAttempt = 2
+      if (repairReport.status === 'failed') {
+        const repairedGateResults = [implementationArtifactGateResult(repairReport)]
+        await writeFinalBlockedReports(args.config, workspace, audit, repairedGateResults, logger)
+        return
+      }
     }
     let gateResults = await runAndLogGates(args.config, workspace, logger)
 
     for (
-      let attempt = 1;
+      let attempt = nextRepairAttempt;
       hasFailures(gateResults) && attempt <= Math.min(args.config.maxRepairAttempts, budgetState.maxRepairAttempts);
       attempt += 1
     ) {
@@ -179,6 +208,8 @@ async function runPlanningLoop(
   budgetState: LlmBudgetState
 ): Promise<boolean> {
   const productScope = JSON.parse(await readFile(workspace.productScopeJsonPath, 'utf8')) as ProductScopeGuidance
+  const approvedContract = await readApprovedCdmApiContract(workspace.approvedCdmApiContractPath)
+  const approvedCdmClassNames = approvedContract.approvedClasses.map(item => item.className)
 
   for (let round = 1; round <= config.maxPlanningRounds; round += 1) {
     const roundDir = join(workspace.rootDir, `round-${String(round).padStart(2, '0')}`)
@@ -224,6 +255,7 @@ async function runPlanningLoop(
     await appendRunLog(workspace.runLogPath, { title: `Planning round ${round} started` })
     logger.info('planning_round_start', { round })
 
+    const plannerArtifactPath = `agent-workspace/round-${String(round).padStart(2, '0')}/planner-plan.md`
     const plannerRun = await runRole({
       llm,
       config,
@@ -232,16 +264,24 @@ async function runPlanningLoop(
       toolState,
       stage: stageContext('planner', round),
       systemPrompt: PLANNER_SYSTEM_PROMPT,
-      userInstruction:
+      userInstruction: [
         round === 1
           ? 'Write the first planner-plan.md for this FX derivatives generator run.'
           : 'Write a revised planner-plan.md using the previous round critique and resolution.',
-      extraPaths: previousRoundPaths(workspace, round),
+        `If you write the planner artifact with write_file, the only valid path is ${plannerArtifactPath}.`,
+      ].join('\n'),
+      extraPaths: previousRoundFeedbackPaths(workspace, round),
       roleName: 'planner',
       logger,
       budgetState,
     })
-    const planner = plannerRun.content
+    const planner = await selectPlannerArtifactContent({
+      modelContent: plannerRun.content,
+      artifactPath: plannerPath,
+    })
+    if (planner !== plannerRun.content) {
+      logger.warn('planner_tool_written_artifact_preserved', { round })
+    }
     await writeFile(plannerPath, planner, 'utf8')
     logger.info('role_artifact_written', { role: 'planner', round })
 
@@ -254,6 +294,7 @@ async function runPlanningLoop(
         productFamily: config.productFamily,
         implementationGroup: productScope.currentImplementationGroup,
       }),
+      approvedCdmClassNames,
     })
     await writeFile(validationPath, renderPlanValidation(validation), 'utf8')
     await writeFile(
@@ -261,6 +302,23 @@ async function runPlanningLoop(
       JSON.stringify(validation, null, 2),
       'utf8'
     )
+
+    if (validation.status === 'failed') {
+      const deterministicCritic = [
+        '# Deterministic Plan Validation',
+        '',
+        'The planner output failed machine validation before LLM critique.',
+        '',
+        await readFile(validationPath, 'utf8'),
+        '',
+        round === config.maxPlanningRounds ? 'Decision: FAILED' : 'Decision: NEXT_ROUND_REQUIRED',
+      ].join('\n')
+      await writeFile(criticPath, deterministicCritic, 'utf8')
+      await writeFile(resolutionPath, deterministicCritic, 'utf8')
+      await writeRoundSummary({ round, plannerPath, criticPath, resolutionPath, outputPath: join(roundDir, 'round-summary.md') })
+      logger.warn('planning_round_validation_failed', { round })
+      continue
+    }
 
     const criticRun = await runRole({
       llm,
@@ -276,10 +334,41 @@ async function runPlanningLoop(
       roleName: 'critic',
       logger,
       budgetState,
+      tools: [],
+      maxToolRoundsOverride: 1,
     })
     const critic = criticRun.content
     await writeFile(criticPath, critic, 'utf8')
     logger.info('role_artifact_written', { role: 'critic', round })
+
+    const criticDecision = parsePlanningDecision(critic)
+    if (criticDecision === 'accepted') {
+      const resolution = [
+        '# Critique Resolution',
+        '',
+        'Deterministic validation passed and the critic accepted the plan. Skipping secondary critique arbitration.',
+        '',
+        'Decision: ACCEPTED',
+      ].join('\n')
+      await writeFile(resolutionPath, resolution, 'utf8')
+      await writeRoundSummary({ round, plannerPath, criticPath, resolutionPath, outputPath: join(roundDir, 'round-summary.md') })
+      await synthesizeAcceptedPlan({
+        round,
+        productScopePath: workspace.productScopePath,
+        evidencePacketPath: workspace.evidencePacketPath,
+        plannerPath,
+        criticPath,
+        resolutionPath,
+        validationPath,
+        outputPath: workspace.acceptedPlanPath,
+      })
+      await appendRunLog(workspace.runLogPath, {
+        title: `Planning accepted in round ${round}`,
+        details: { plannerPath, criticPath, resolutionPath, validationPath },
+      })
+      logger.info('planning_accepted', { round })
+      return true
+    }
 
     const resolutionRun = await runRole({
       llm,
@@ -300,15 +389,41 @@ async function runPlanningLoop(
       roleName: 'critique-reviewer',
       logger,
       budgetState,
+      tools: [],
+      maxToolRoundsOverride: 1,
     })
-    const resolution = resolutionRun.content
+    let resolution = resolutionRun.content
+    let decision = parsePlanningDecision(resolution)
+    if (decision === 'unrecognized') {
+      const fallbackDecision = criticDecision === 'failed' || round === config.maxPlanningRounds
+        ? 'FAILED'
+        : 'NEXT_ROUND_REQUIRED'
+      resolution = [
+        resolution,
+        '',
+        '## Deterministic Decision Fallback',
+        '',
+        `Critique reviewer did not emit a parseable decision. Falling back to critic decision policy for round ${round}/${config.maxPlanningRounds}.`,
+        '',
+        `Decision: ${fallbackDecision}`,
+      ].join('\n')
+      decision = parsePlanningDecision(resolution)
+    }
+    const guarded = guardCritiqueReviewerDecision({
+      decision,
+      resolution,
+      validationResult: validation,
+      contract: approvedContract,
+      finalRound: round === config.maxPlanningRounds,
+    })
+    decision = guarded.decision
+    resolution = guarded.resolution
     await writeFile(resolutionPath, resolution, 'utf8')
     logger.info('role_artifact_written', { role: 'critique-reviewer', round })
 
     const summaryPath = join(roundDir, 'round-summary.md')
     await writeRoundSummary({ round, plannerPath, criticPath, resolutionPath, outputPath: summaryPath })
 
-    const decision = parsePlanningDecision(resolution)
     if (decision === 'failed') {
       await appendRunLog(workspace.runLogPath, {
         title: `Planning failed terminally in round ${round}`,
@@ -317,7 +432,7 @@ async function runPlanningLoop(
       throw new Error(`Planning failed terminally in round ${round}; see ${resolutionPath}.`)
     }
 
-    if (decision === 'accepted' && validation.status === 'passed') {
+    if (decision === 'accepted') {
       await synthesizeAcceptedPlan({
         round,
         productScopePath: workspace.productScopePath,
@@ -368,7 +483,7 @@ async function runImplementer(
     budgetState,
     recordStage: false,
     tools: IMPLEMENTER_RESEARCH_TOOLS,
-    maxToolRoundsOverride: Math.min(3, config.roleModels.implementer.maxToolRounds),
+    maxToolRoundsOverride: config.roleModels.implementer.maxToolRounds,
     toolCallPolicy: { pseudoToolCallsAreFatal: true },
   })
   const writeRun = await runRole({
@@ -407,6 +522,7 @@ async function runImplementer(
     roleOutput: markdown,
     auditEntries: audit.slice(auditStart),
     policyFailures: [...researchRun.policyFailures, ...writeRun.policyFailures],
+    toolState,
   })
   await appendStageManifestEntry(
     config,
@@ -440,7 +556,7 @@ async function runRepair(
   attempt: number,
   logger: GeneratorLogger,
   budgetState: LlmBudgetState
-): Promise<void> {
+): Promise<Awaited<ReturnType<typeof validateImplementationArtifacts>>> {
   await appendRunLog(workspace.runLogPath, {
     title: `Repair attempt ${attempt} started`,
     details: { failedGates: gateResults.filter(gate => gate.status === 'failed').map(gate => gate.name) },
@@ -456,7 +572,7 @@ async function runRepair(
     'utf8'
   )
   const repairFocusPath = join(config.runOutputDir, 'build-reports', `repair-focus-attempt-${attempt}.md`)
-  await writeRepairFocusPacket({
+  const repairFocusPacket = await writeRepairFocusPacket({
     config,
     gateResults,
     attempt,
@@ -464,7 +580,11 @@ async function runRepair(
   })
   logger.warn('repair_start', { attempt })
   const auditStart = audit.length
-  const roleRun = await runRole({
+  const repairRequirement = repairRequiresWrite(gateResults)
+  const requiredReadPaths = repairFocusPacket.excerpts
+    .map(excerpt => excerpt.runRelativePath)
+    .filter(path => path.endsWith('.java'))
+  const researchRun = await runRole({
     llm,
     config,
     workspace,
@@ -472,7 +592,13 @@ async function runRepair(
     toolState,
     stage: stageContext('repair'),
     systemPrompt: REPAIR_SYSTEM_PROMPT,
-    userInstruction: `Repair failed gates for attempt ${attempt}. Use repair-focus-attempt-${attempt}.md as the primary context. Patch only the focused issue and use write_generated_java_file for affected generated Java classes.`,
+    userInstruction: [
+      `Research repair attempt ${attempt}.`,
+      `Repair write required: ${repairRequirement.required ? 'yes' : 'no'} (${repairRequirement.reason}).`,
+      'Use repair-focus-attempt context as primary evidence.',
+      'Use Maven/JAR/Rosetta errors first, then diagnostic findings.',
+      'Do not write files in this phase. Produce a concise patch plan with exact files that need mutation.',
+    ].join('\n'),
     extraPaths: [
       join(config.runOutputDir, 'build-reports', `failed-gates-attempt-${attempt}.json`),
       join(config.runOutputDir, 'build-reports', `failure-classification-attempt-${attempt}.md`),
@@ -482,17 +608,61 @@ async function runRepair(
     logger,
     budgetState,
     recordStage: false,
-    tools: GENERATOR_LLM_TOOLS,
-    toolCallPolicy: { pseudoToolCallsAreFatal: true },
+    tools: REPAIR_RESEARCH_TOOLS,
+    toolCallPolicy: {
+      pseudoToolCallsAreFatal: true,
+      requiredToolNames: requiredReadPaths.length > 0 ? ['read_file'] : undefined,
+      requiredReadPaths,
+    },
   })
-  const markdown = roleRun.content
+  const writeRun = await runRole({
+    llm,
+    config,
+    workspace,
+    audit,
+    toolState,
+    stage: stageContext('repair'),
+    systemPrompt: REPAIR_SYSTEM_PROMPT,
+    userInstruction: buildRepairWriteInstruction({
+      attempt,
+      repairRequirement,
+      researchSummary: researchRun.content,
+    }),
+    extraPaths: [
+      join(config.runOutputDir, 'build-reports', `failed-gates-attempt-${attempt}.json`),
+      repairFocusPath,
+    ],
+    roleName: 'repair',
+    logger,
+    budgetState,
+    recordStage: false,
+    tools: REPAIR_WRITE_TOOLS,
+    toolCallPolicy: repairRequirement.required
+      ? {
+        requiredToolNames: ['write_generated_java_file'],
+        minimumNativeToolCalls: 1,
+        pseudoToolCallsAreFatal: true,
+      }
+      : { pseudoToolCallsAreFatal: true },
+  })
+  const markdown = [
+    `# Repair Research Attempt ${attempt}`,
+    '',
+    researchRun.content,
+    '',
+    `# Repair Write Attempt ${attempt}`,
+    '',
+    writeRun.content,
+  ].join('\n')
   await writeFile(workspace.repairLogPath, `${markdown}\n`, 'utf8')
   const report = await validateImplementationArtifacts({
     config,
     role: 'repair',
     roleOutput: markdown,
     auditEntries: audit.slice(auditStart),
-    policyFailures: roleRun.policyFailures,
+    policyFailures: [...researchRun.policyFailures, ...writeRun.policyFailures],
+    repairWriteRequirement: repairRequirement,
+    toolState,
   })
   await appendStageManifestEntry(
     config,
@@ -501,15 +671,34 @@ async function runRepair(
       round: attempt,
       status: report.status,
       model: config.roleModels.repair.model,
-      startedAt: roleRun.startedAt,
-      endedAt: roleRun.endedAt,
-      toolCalls: roleRun.toolCalls,
-      failedToolCalls: roleRun.failedToolCalls,
+      startedAt: researchRun.startedAt,
+      endedAt: writeRun.endedAt,
+      toolCalls: researchRun.toolCalls + writeRun.toolCalls,
+      failedToolCalls: researchRun.failedToolCalls + writeRun.failedToolCalls,
       artifact: report.reportPath,
       message: report.status === 'passed' ? 'repair artifacts validated' : report.findings.join('; '),
     })
   )
   logger.info('repair_done', { attempt, status: report.status })
+  return report
+}
+
+function isRepairableImplementationArtifactFailure(
+  report: Awaited<ReturnType<typeof validateImplementationArtifacts>>
+): boolean {
+  const repairable = new Set([
+    'missing_required_entry_class',
+    'write_tool_failed_path',
+    'write_tool_failed_package',
+    'write_tool_failed_class',
+  ])
+  return report.classifications.some(classification => repairable.has(classification))
+    || report.findings.some(finding =>
+      finding.includes('mapFile must return String')
+      || finding.includes('mapFile must accept Path inputPath')
+      || finding.includes('mapFile throws clause must include Exception')
+      || finding.includes('GeneratedFpmlToCdmMapper must')
+    )
 }
 
 function buildDeterministicBuildReview(
@@ -518,6 +707,8 @@ function buildDeterministicBuildReview(
   promoted: boolean
 ): string {
   const failed = gateResults.filter(gate => gate.status === 'failed')
+  const authoritativeFailures = failed.filter(gate => describeGateAuthority(gate) !== 'diagnostic')
+  const diagnosticFindings = failed.filter(gate => describeGateAuthority(gate) === 'diagnostic')
   return `# Final Build Report
 
 Status: ${promoted ? 'promoted' : 'blocked'}
@@ -527,7 +718,15 @@ ${renderGateFailureClassification(gateResults)}
 
 ## Failed Gates
 
-${failed.length === 0 ? '- none' : failed.map(gate => `- ${gate.name}: ${gate.outputSnippet}`).join('\n')}
+${failed.length === 0 ? '- none' : failed.map(gate => `- ${gate.name} (${describeGateAuthority(gate)}): ${gate.outputSnippet}`).join('\n')}
+
+## Authoritative And Pipeline Failures
+
+${authoritativeFailures.length === 0 ? '- none' : authoritativeFailures.map(gate => `- ${gate.name}: ${gate.outputSnippet}`).join('\n')}
+
+## Diagnostic Findings
+
+${diagnosticFindings.length === 0 ? '- none' : diagnosticFindings.map(gate => `- ${gate.name}: ${gate.outputSnippet}`).join('\n')}
 `
 }
 
@@ -611,6 +810,31 @@ Call write_generated_java_file for each generated Java source file.
 The first required call must write:
 src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java
 
+The generated mapper skeleton already exists. Patch it and preserve this exact public contract:
+
+\`\`\`java
+package com.fpml.cdm.fx.mapper.generated;
+
+import com.fpml.cdm.fx.mapper.FpmlToCdmMapper;
+import java.nio.file.Path;
+
+public class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
+    @Override
+    public String mapFile(Path inputPath, Path reportsDir) throws Exception {
+        // parse inputPath, build TradeState internally, return serialized CDM JSON String
+    }
+}
+\`\`\`
+
+Runtime contract:
+- mapFile must return String, not TradeState.
+- mapFile must accept Path inputPath, Path reportsDir.
+- mapFile must throw Exception.
+- Build TradeState in private helpers such as mapTradeState(...).
+- Serialize TradeState with Jackson at the runtime boundary.
+- Do not change the package, class name, implemented interface, or mapFile signature.
+- Use write_file, not write_generated_java_file, for src/test/java/** and reports/**.
+
 ## Required Write Tool
 
 Use this native tool call shape:
@@ -634,6 +858,27 @@ Do not emit Markdown source blocks instead of tool calls.
 ## Research Summary
 
 ${researchSummary}`
+}
+
+function buildRepairWriteInstruction(args: {
+  attempt: number
+  repairRequirement: ReturnType<typeof repairRequiresWrite>
+  researchSummary: string
+}): string {
+  return `Now patch files for repair attempt ${args.attempt}. You have only write tools.
+Repair write required: ${args.repairRequirement.required ? 'yes' : 'no'} (${args.repairRequirement.reason}).
+
+Rules:
+- Use Maven/JAR/Rosetta errors as the primary source of truth.
+- Use diagnostic findings only as repair hints.
+- If Java source is affected, call write_generated_java_file for each patched generated Java source file.
+- Do not claim a file was patched unless the write tool returns success.
+- If the source of truth is insufficient, write no narrative success claim; state BLOCKED.
+- Do not emit Markdown source blocks instead of tool calls.
+
+## Research Summary
+
+${args.researchSummary}`
 }
 
 async function runRole(args: {
@@ -733,8 +978,8 @@ async function runRole(args: {
 function createLlmBudgetState(config: GeneratorRunConfig): LlmBudgetState {
   const configured = config.llmBudget
   return {
-    maxTotalCalls: configured?.maxTotalCalls ?? 12,
-    maxInputTokensPerCall: configured?.maxInputTokensPerCall ?? 80_000,
+    maxTotalCalls: configured?.maxTotalCalls ?? 200,
+    maxInputTokensPerCall: configured?.maxInputTokensPerCall ?? 128_000,
     maxRepairAttempts: configured?.maxRepairAttempts ?? Math.min(config.maxRepairAttempts, 2),
     usedCalls: 0,
   }
@@ -781,7 +1026,7 @@ function allowedWritesFor(role: ActiveStageContext['role'], round?: number): str
   return []
 }
 
-function previousRoundPaths(workspace: GeneratorWorkspace, round: number): string[] {
+function previousRoundFeedbackPaths(workspace: GeneratorWorkspace, round: number): string[] {
   if (round <= 1) return []
   const previous = join(workspace.rootDir, `round-${String(round - 1).padStart(2, '0')}`)
   return [

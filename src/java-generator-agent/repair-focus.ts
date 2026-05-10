@@ -1,11 +1,12 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
-import { dirname, resolve } from 'node:path'
+import { dirname, relative, resolve } from 'node:path'
 import { classifyGateFailures, renderGateFailureClassification } from './gate-classification'
 import { truncateForLog } from './markdown'
 import type { GateResult, GeneratorRunConfig } from './types'
 
 export type RepairFocusFileExcerpt = {
   path: string
+  runRelativePath: string
   startLine: number
   endLine: number
   content: string
@@ -42,7 +43,7 @@ async function buildRepairFocusPacket(
   const refs = extractJavaFileRefs(config.runOutputDir, failedGateOutput)
   const excerpts: RepairFocusFileExcerpt[] = []
   for (const ref of refs.slice(0, 4)) {
-    const excerpt = await readExcerpt(ref.path, ref.line, 25)
+    const excerpt = await readExcerpt(config.runOutputDir, ref.path, ref.line, 25)
     if (excerpt !== null) excerpts.push(excerpt)
   }
   return {
@@ -82,7 +83,10 @@ ${packet.excerpts.length === 0 ? '- No Java file excerpt could be resolved from 
 }
 
 function renderExcerpt(excerpt: RepairFocusFileExcerpt): string {
-  return `### ${excerpt.path}:${excerpt.startLine}-${excerpt.endLine}
+  return `### ${excerpt.runRelativePath}
+
+Absolute path: ${excerpt.path}
+Lines: ${excerpt.startLine}-${excerpt.endLine}
 
 \`\`\`java
 ${excerpt.content}
@@ -166,6 +170,7 @@ function resolveJavaPath(runOutputDir: string, rawPath: string): string {
 }
 
 async function readExcerpt(
+  runOutputDir: string,
   path: string,
   centerLine: number,
   radius: number
@@ -178,7 +183,13 @@ async function readExcerpt(
     .slice(startLine - 1, endLine)
     .map((line, index) => `${String(startLine + index).padStart(4, ' ')}: ${line}`)
     .join('\n')
-  return { path, startLine, endLine, content }
+  return {
+    path,
+    runRelativePath: relative(resolve(runOutputDir), path).replace(/\\/g, '/'),
+    startLine,
+    endLine,
+    content,
+  }
 }
 
 async function exists(path: string): Promise<boolean> {

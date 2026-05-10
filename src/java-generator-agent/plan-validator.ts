@@ -137,6 +137,7 @@ export function validatePlannerPlan(args: {
   runtimeFixtureIds?: string[]
   javaShellContract?: JavaShellPlanContract
   requiredRosettaAreas?: Partial<Record<RosettaMappingArea, string[]>>
+  approvedCdmClassNames?: string[]
 }): PlanValidationResult {
   const blockingIssues: string[] = []
   const warnings: string[] = []
@@ -161,10 +162,15 @@ export function validatePlannerPlan(args: {
       'Plan must not claim support for all FX derivatives while the implementation group is fx-single-leg.'
     )
   }
-  if (/ObjectNode|ArrayNode/.test(args.planMarkdown) && /main\s+CDM|CDM\s+output|internal\s+CDM/i.test(args.planMarkdown)) {
+  if (appearsToUseJacksonTreeAsCdmModel(args.planMarkdown)) {
     blockingIssues.push('Plan must not use Jackson tree nodes as the internal CDM model.')
   }
   validateApprovedApiNarrativeContradictions(args.planMarkdown, blockingIssues)
+  validateUnapprovedCdmClassReferences({
+    planMarkdown: args.planMarkdown,
+    approvedClassNames: args.approvedCdmClassNames ?? [],
+    blockingIssues,
+  })
 
   const sectionSlice = sliceImplementationScopeSection(args.planMarkdown)
   let parsedInScopeGroups: string[] = []
@@ -362,6 +368,16 @@ function appearsToAllowRuntimeLlm(markdown: string): boolean {
     .some(line => mentionsRuntimeLlm(line) && !forbidsRuntimeLlm(line))
 }
 
+function appearsToUseJacksonTreeAsCdmModel(markdown: string): boolean {
+  return markdown
+    .split(/\r?\n/u)
+    .some(line =>
+      /ObjectNode|ArrayNode/u.test(line)
+      && /main\s+CDM|CDM\s+output|internal\s+CDM|CDM\s+model|CDM\s+result/iu.test(line)
+      && !forbidsUse(line)
+    )
+}
+
 function parseJavaShellContract(sectionSlice: string): ParsedJavaShellContract {
   return {
     generatedPackage: extractBoldValue(sectionSlice, 'Generated package'),
@@ -436,14 +452,13 @@ function validateJavaShellContradictions(args: {
       `Plan contradicts Java shell contract by referencing generated package org.finos.cdm.fx.singleleg instead of ${args.expected.generatedPackage}.`
     )
   }
-  const wrongGeneratedClassPackage = new RegExp(
-    `(?!${escapeRegex(args.expected.generatedPackage)}\\.${escapeRegex(args.expected.mainGeneratedClass)})[A-Za-z0-9_.]+\\.${escapeRegex(args.expected.mainGeneratedClass)}`,
-    'u'
-  )
-  if (wrongGeneratedClassPackage.test(args.planMarkdown)) {
-    args.blockingIssues.push(
-      `${args.expected.mainGeneratedClass} must be in package ${args.expected.generatedPackage}.`
-    )
+  const expectedFqcn = `${args.expected.generatedPackage}.${args.expected.mainGeneratedClass}`
+  for (const classReference of findFullyQualifiedGeneratedClassReferences(args.planMarkdown, args.expected.mainGeneratedClass)) {
+    if (classReference !== expectedFqcn) {
+      args.blockingIssues.push(
+        `${args.expected.mainGeneratedClass} must be in package ${args.expected.generatedPackage}; found ${classReference}.`
+      )
+    }
   }
   for (const line of args.planMarkdown.split(/\r?\n/u)) {
     for (const shellOwnedFile of args.expected.shellOwnedFiles) {
@@ -455,13 +470,19 @@ function validateJavaShellContradictions(args: {
   }
 }
 
+function findFullyQualifiedGeneratedClassReferences(markdown: string, className: string): string[] {
+  const escapedClassName = escapeRegex(className)
+  const pattern = new RegExp(`\\b([a-z][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)+\\.${escapedClassName})\\b`, 'gu')
+  return [...new Set([...markdown.matchAll(pattern)].map(match => match[1]).filter((value): value is string => value !== undefined))]
+}
+
 function validateApprovedApiNarrativeContradictions(
   planMarkdown: string,
   blockingIssues: string[]
 ): void {
   for (const forbiddenReference of FORBIDDEN_UNAPPROVED_CDM_REFERENCES) {
-    for (const line of planMarkdown.split(/\r?\n/u)) {
-      if (line.includes(forbiddenReference) && !forbidsUse(line)) {
+    for (const line of linesWithForbiddenContext(planMarkdown)) {
+      if (line.text.includes(forbiddenReference) && !line.forbiddenContext) {
         blockingIssues.push(
           `Plan references unapproved CDM Java class ${forbiddenReference}; use only classes in approved-cdm-api-contract-summary.md.`
         )
@@ -482,8 +503,136 @@ function validateApprovedApiNarrativeContradictions(
   }
 }
 
+function validateUnapprovedCdmClassReferences(args: {
+  planMarkdown: string
+  approvedClassNames: string[]
+  blockingIssues: string[]
+}): void {
+  if (args.approvedClassNames.length === 0) return
+
+  const approved = new Set(args.approvedClassNames)
+  const approvedSimpleNames = new Set(args.approvedClassNames.map(className => simpleClassName(className)))
+  const seen = new Set<string>()
+  for (const reference of findCdmClassReferences(args.planMarkdown)) {
+    const approvedReference = reference.kind === 'qualified'
+      ? approved.has(reference.className)
+      : approvedSimpleNames.has(reference.className)
+    if (approvedReference) continue
+    if (reference.forbiddenContext) continue
+    if (seen.has(reference.className)) continue
+    seen.add(reference.className)
+    args.blockingIssues.push(
+      `Plan references CDM Java class not approved by this run's API contract: ${reference.className}`
+    )
+  }
+}
+
+function findCdmClassReferences(markdown: string): Array<{
+  className: string
+  line: string
+  forbiddenContext: boolean
+  kind: 'qualified' | 'simple'
+}> {
+  const references: Array<{
+    className: string
+    line: string
+    forbiddenContext: boolean
+    kind: 'qualified' | 'simple'
+  }> = []
+  const pattern = /(^|[^A-Za-z0-9_.])(cdm\.[a-zA-Z0-9_.]+\.[A-Z][A-Za-z0-9_]*)\b/gu
+  for (const line of linesWithForbiddenContext(markdown)) {
+    for (const match of line.text.matchAll(pattern)) {
+      const className = match[2]
+      if (className !== undefined) {
+        references.push({
+          className,
+          line: line.text,
+          forbiddenContext: line.forbiddenContext,
+          kind: 'qualified',
+        })
+      }
+    }
+    if (!isImplementationClassLine(line.text)) continue
+    for (const match of line.text.matchAll(/`([A-Z][A-Za-z0-9_]+)`|\b([A-Z][A-Za-z0-9_]+)\b/gu)) {
+      const className = match[1] ?? match[2]
+      if (className === undefined || isAllowedNonCdmSimpleName(className)) continue
+      references.push({
+        className,
+        line: line.text,
+        forbiddenContext: line.forbiddenContext,
+        kind: 'simple',
+      })
+    }
+  }
+  return references
+}
+
+function isImplementationClassLine(line: string): boolean {
+  if (
+    /key\s+classes\s*:|\*\*Class:\*\*|^\s*[-*]\s+Class\s*:|implementation\s+classes\s*:|approved\s+Java\s+classes|key\s+builder\s+methods|builder\(\)/iu.test(
+      line
+    )
+  ) {
+    return true
+  }
+  if (/approved\s+classes\s*:/iu.test(line)) return true
+
+  // Action verbs like "Build" appear in normal overview prose ("Build an AI-native…"); only treat
+  // list/table construction lines as implementation hints so we scan for CDM simple names there.
+  if (/^\s*(?:[-*]|\d+\.)\s+/.test(line) && /\b(?:Build|Use|Construct|Attach|Set)\b/iu.test(line)) {
+    return true
+  }
+  if (/^\s*\|[^|]*\|\s*[^|]*\bBuild\b/iu.test(line)) return true
+
+  return false
+}
+
+function isAllowedNonCdmSimpleName(className: string): boolean {
+  if (/^Map[A-Z]/u.test(className)) return true
+  return new Set([
+    'Approved',
+    'Build',
+    'Use',
+    'Construct',
+    'Attach',
+    'Set',
+    'String',
+    'Path',
+    'List',
+    'Map',
+    'Set',
+    'Date',
+    'Exception',
+    'FpML',
+    'CDM',
+    'Rosetta',
+    'Java',
+    'XML',
+    'JSON',
+    'DOM',
+    'StAX',
+  ]).has(className)
+}
+
+function simpleClassName(className: string): string {
+  return className.split('.').at(-1) ?? className
+}
+
 function forbidsUse(line: string): boolean {
   return /\b(no|not|never|without|must\s+not|do\s+not|forbid|forbidden|absent|unapproved)\b/iu.test(line)
+}
+
+function linesWithForbiddenContext(markdown: string): Array<{ text: string; forbiddenContext: boolean }> {
+  const lines: Array<{ text: string; forbiddenContext: boolean }> = []
+  let inForbiddenSection = false
+  for (const text of markdown.split(/\r?\n/u)) {
+    if (/^\s*#{1,6}\s+/u.test(text)) {
+      inForbiddenSection = forbidsUse(text)
+    }
+    const forbiddenContext = inForbiddenSection || forbidsUse(text)
+    lines.push({ text, forbiddenContext })
+  }
+  return lines
 }
 
 function appearsToRewriteShellOwnedFile(line: string, fileName: string): boolean {
@@ -511,15 +660,53 @@ function parseRosettaEvidenceCoverage(sectionSlice: string): Partial<Record<Rose
   return parsed
 }
 
+function cloneRosettaAreaMap(
+  parsed: Partial<Record<RosettaMappingArea, string[]>>
+): Record<RosettaMappingArea, string[]> {
+  const out = {} as Record<RosettaMappingArea, string[]>
+  for (const area of ROSETTA_AREAS) {
+    out[area] = [...(parsed[area] ?? [])]
+  }
+  return out
+}
+
+/**
+ * FX single-leg Rosetta areas duplicate identifier/taxonomy functions under both `product-root` and
+ * `product-identifiers-taxonomy`. Plans often list them only under product-root; accept that as satisfying
+ * the taxonomy area when the dedicated heading is missing or has no required hits.
+ */
+function promoteProductIdentifiersTaxonomyFromProductRoot(args: {
+  effective: Record<RosettaMappingArea, string[]>
+  required: Partial<Record<RosettaMappingArea, string[]>>
+}): void {
+  const area: RosettaMappingArea = 'product-identifiers-taxonomy'
+  const requiredList = args.required[area]
+  if (requiredList === undefined || requiredList.length === 0) return
+
+  const allowed = new Set(requiredList)
+  if (args.effective[area].some(name => allowed.has(name))) return
+
+  const promoted: string[] = []
+  for (const fn of args.effective['product-root']) {
+    if (allowed.has(fn)) promoted.push(fn)
+  }
+  if (promoted.length > 0) {
+    args.effective[area] = promoted
+  }
+}
+
 function validateRosettaCoverage(args: {
   parsed: Partial<Record<RosettaMappingArea, string[]>>
   required: Partial<Record<RosettaMappingArea, string[]>>
   blockingIssues: string[]
 }): void {
+  const effective = cloneRosettaAreaMap(args.parsed)
+  promoteProductIdentifiersTaxonomyFromProductRoot({ effective, required: args.required })
+
   for (const area of ROSETTA_AREAS) {
     const required = args.required[area]
     if (required === undefined) continue
-    const parsed = args.parsed[area] ?? []
+    const parsed = effective[area] ?? []
     if (parsed.length === 0) {
       args.blockingIssues.push(`Rosetta evidence coverage missing required area: ${area}`)
       continue

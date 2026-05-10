@@ -18,6 +18,11 @@ describe('java generator prompts', () => {
   test('planner treats prompt seed as discovery context only', () => {
     expect(PLANNER_SYSTEM_PROMPT).toContain('prompt seed is discovery context only')
     expect(PLANNER_SYSTEM_PROMPT).toContain('approved CDM API contract summary')
+    expect(PLANNER_SYSTEM_PROMPT).toContain('same simple name')
+    expect(PLANNER_SYSTEM_PROMPT).toContain('cdm.product.template.SettlementPayout')
+    expect(PLANNER_SYSTEM_PROMPT).toContain('do not substitute cdm.product.common.settlement.SettlementPayout')
+    expect(PLANNER_SYSTEM_PROMPT).toContain('Do not plan enum constants unless get_cdm_enum_constants returns that exact constant')
+    expect(PLANNER_SYSTEM_PROMPT).toContain('traceability-only or unsupported-for-this-run')
     expect(PLANNER_SYSTEM_PROMPT).not.toContain('present in the CDM Java prompt seed list')
   })
 
@@ -34,12 +39,15 @@ describe('java generator prompts', () => {
     expect(CRITIC_SYSTEM_PROMPT).toContain('core mapping responsibilities lack Rosetta function evidence')
     expect(CRITIC_SYSTEM_PROMPT).toContain('Rosetta function names as proof of Java class')
     expect(CRITIC_SYSTEM_PROMPT).toContain('candidate classes as approved implementation API')
+    expect(CRITIC_SYSTEM_PROMPT).toContain('unapproved same-simple-name CDM class')
   })
 
   test('critique reviewer cannot accept machine contract failures', () => {
     expect(CRITIQUE_REVIEWER_SYSTEM_PROMPT).toContain('Do not accept a plan when deterministic validation failed')
     expect(CRITIQUE_REVIEWER_SYSTEM_PROMPT).toContain('Do not accept with conditions for Java shell contract issues')
     expect(CRITIQUE_REVIEWER_SYSTEM_PROMPT).toContain('Final-round acceptance can waive wording issues only')
+    expect(CRITIQUE_REVIEWER_SYSTEM_PROMPT).toContain('approved contract already includes className')
+    expect(CRITIQUE_REVIEWER_SYSTEM_PROMPT).toContain('same-simple-name candidates')
   })
 
   test('implementer prompt rejects known malformed source patterns', () => {

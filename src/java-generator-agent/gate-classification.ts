@@ -12,6 +12,7 @@ export type GateFailureCategory =
   | 'package'
   | 'runtime'
   | 'output'
+  | 'generated_entrypoint_signature'
   | 'unknown'
 
 export type GateFailureClassification = {
@@ -26,8 +27,11 @@ export function classifyGateFailures(results: GateResult[]): GateFailureClassifi
   const earliestIndex = results.indexOf(earliest)
   return {
     earliestFailedGate: earliest.name,
-    category: categoryForGate(earliest.name),
-    hiddenDownstreamGates: results.slice(earliestIndex + 1).map(result => result.name),
+    category: categoryForGate(earliest),
+    hiddenDownstreamGates: results
+      .slice(earliestIndex + 1)
+      .filter(result => result.status === 'skipped')
+      .map(result => result.name),
   }
 }
 
@@ -51,11 +55,19 @@ export function renderGateFailureClassification(results: GateResult[]): string {
 `
 }
 
-function categoryForGate(gateName: string): GateFailureCategory {
+function categoryForGate(gate: GateResult): GateFailureCategory {
+  const gateName = gate.name
+  if (
+    gate.outputSnippet.includes('mapFile must return String')
+    || gate.outputSnippet.includes('mapFile must accept Path inputPath')
+  ) {
+    return 'generated_entrypoint_signature'
+  }
   if (gateName === 'typescript-typecheck') return 'typescript'
   if (gateName === 'generated-project-structure') return 'structure'
   if (gateName === 'generated-shell-contract') return 'shell-contract'
   if (gateName === 'source-hygiene' || gateName === 'generated-java-static-sanity') return 'static-java'
+  if (gateName === 'generated-test-shell-contract') return 'shell-contract'
   if (gateName === 'java-reference-check') return 'static-java'
   if (gateName === 'maven-dependency-preflight') return 'dependency'
   if (gateName === 'maven-compile') return 'main-compile'
@@ -66,4 +78,3 @@ function categoryForGate(gateName: string): GateFailureCategory {
   if (gateName === 'output-validation') return 'output'
   return 'unknown'
 }
-

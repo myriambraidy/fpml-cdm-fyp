@@ -5,6 +5,7 @@ import { buildCdmApiSelectionPass1, buildFinalCdmApiSelection } from '../../src/
 import { discoverRelevantCdmApi } from '../../src/java-generator-agent/cdm-concept-resolver'
 import {
   buildFxSingleLegDraftRecipeRequirements,
+  renderSemanticRecipeBundle,
   buildSemanticRecipeBundle,
 } from '../../src/java-generator-agent/semantic-recipes'
 import { validateSemanticRecipes } from '../../src/java-generator-agent/semantic-recipe-validator'
@@ -50,6 +51,12 @@ describe('semantic recipes', () => {
 
     expect(validation.status).toBe('passed')
     expect(recipe.steps.every(step => !step.core || step.approvedBuilderMethods.length > 0)).toBe(true)
+    expect(recipe.steps.every(step => step.safeJavaSnippet !== undefined)).toBe(true)
+    expect(recipe.steps.every(step => !step.safeJavaSnippet?.includes('.Builder'))).toBe(true)
+    expect(recipe.steps.every(step => !/=\s*ContractDetails\.builder\(\)/u.test(step.safeJavaSnippet ?? ''))).toBe(true)
+    expect(recipe.steps.some(step => step.safeJavaSnippet?.includes('do not call ContractDetails.builder()'))).toBe(true)
+    expect(recipe.steps.some(step => step.safeJavaSnippet?.includes('UNIQUE_TRANSACTION_IDENTIFIER'))).toBe(true)
+    expect(renderSemanticRecipeBundle(bundle)).toContain('Safe Java snippet pattern:')
     expect(recipe.examples.some(example => example.fixtureKind === 'build-wiring' && example.compiles)).toBe(true)
   })
 })

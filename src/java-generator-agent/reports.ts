@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { renderGateFailureClassification } from './gate-classification'
+import { describeGateAuthority } from './gate-policy'
 import { fence } from './markdown'
 import type { GateResult, GeneratorRunConfig, ToolAuditEntry } from './types'
 
@@ -20,6 +21,8 @@ export async function writeFinalBuildReport(args: {
   markdown?: string
 }): Promise<void> {
   const failed = args.gateResults.filter(gate => gate.status === 'failed')
+  const authoritativeFailures = failed.filter(gate => describeGateAuthority(gate) !== 'diagnostic')
+  const diagnosticFindings = failed.filter(gate => describeGateAuthority(gate) === 'diagnostic')
   const fallback = `# Final Build Report
 
 Status: ${args.promoted ? 'promoted' : 'blocked'}
@@ -31,8 +34,16 @@ ${renderGateFailureClassification(args.gateResults)}
 ## Gate Results
 
 ${args.gateResults
-  .map(gate => `- ${gate.name}: ${gate.status} (exit ${gate.exitCode})`)
+  .map(gate => `- ${gate.name}: ${gate.status} (${describeGateAuthority(gate)}, exit ${gate.exitCode})`)
   .join('\n')}
+
+## Authoritative And Pipeline Failures
+
+${authoritativeFailures.length === 0 ? '- none' : authoritativeFailures.map(gate => `### ${gate.name}\n\n${fence('text', gate.outputSnippet)}`).join('\n\n')}
+
+## Diagnostic Findings
+
+${diagnosticFindings.length === 0 ? '- none' : diagnosticFindings.map(gate => `### ${gate.name}\n\n${fence('text', gate.outputSnippet)}`).join('\n\n')}
 
 ## Failed Gate Details
 

@@ -514,6 +514,32 @@ Semantic construction recipes: agent-workspace/semantic-recipes.md
 - src/test/java/**
 - reports/**
 
+## Required Runtime Interface
+
+\`\`\`java
+public interface FpmlToCdmMapper {
+    String mapFile(Path inputPath, Path reportsDir) throws Exception;
+}
+\`\`\`
+
+## Required Generated Entry Point
+
+\`\`\`java
+public class ${GENERATED_IMPL_CLASS} implements FpmlToCdmMapper {
+    @Override
+    public String mapFile(Path inputPath, Path reportsDir) throws Exception {
+        // parse inputPath, build TradeState internally, return serialized CDM JSON
+    }
+}
+\`\`\`
+
+## Runtime Boundary
+
+- Internal CDM root object: cdm.event.common.TradeState.
+- Public runtime return value: serialized CDM JSON String.
+- mapFile must not return TradeState directly.
+- mapFile must accept Path inputPath, Path reportsDir.
+
 ## Runtime Fixtures
 
 ${bulletList(config.runtimeFixtures.map(fixture => `${fixture.id}: fixtures/${fixture.fixtureFileName}`))}

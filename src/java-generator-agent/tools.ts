@@ -38,6 +38,7 @@ import {
   approvedCdmApiContractSummaryPath,
   readApprovedCdmApiContract,
 } from './approved-cdm-api-contract'
+import type { ApprovedBuilderMethod } from './approved-cdm-api-contract'
 import {
   readRelevantCdmApiDiscovery,
   relevantCdmApiDiscoveryJsonPath,
@@ -85,6 +86,7 @@ export type ToolName =
   | 'get_cdm_java_api_summary'
   | 'get_cdm_java_api_pack'
   | 'get_cdm_java_class'
+  | 'get_cdm_enum_constants'
   | 'search_cdm_java_classes'
   | 'resolve_cdm_concept'
   | 'get_cdm_builder_methods'
@@ -193,6 +195,9 @@ export const GENERATOR_LLM_TOOLS: LLMTool[] = [
   toolSchema('get_cdm_java_class', 'Return verified javap details for one CDM Java class.', [
     ['className', 'string'],
   ]),
+  toolSchema('get_cdm_enum_constants', 'Return exact enum constants for one verified CDM/Rosetta enum class.', [
+    ['className', 'string'],
+  ]),
   toolSchema('search_cdm_java_classes', 'Search the verified CDM Java class index by class or package text.', [
     ['pattern', 'string'],
   ]),
@@ -232,6 +237,7 @@ export const IMPLEMENTER_RESEARCH_TOOLS = selectGeneratorTools([
   'get_cdm_rosetta_preflight',
   'get_cdm_java_api_summary',
   'get_cdm_java_class',
+  'get_cdm_enum_constants',
   'search_cdm_java_classes',
   'resolve_cdm_concept',
   'get_cdm_builder_methods',
@@ -243,6 +249,29 @@ export const IMPLEMENTER_RESEARCH_TOOLS = selectGeneratorTools([
 ])
 
 export const IMPLEMENTER_WRITE_TOOLS = selectGeneratorTools([
+  'write_generated_java_file',
+  'write_file',
+])
+
+export const REPAIR_RESEARCH_TOOLS = selectGeneratorTools([
+  'read_file',
+  'list_files',
+  'search_text',
+  'get_context_packet',
+  'get_cdm_rosetta_preflight',
+  'get_cdm_java_api_summary',
+  'get_cdm_java_class',
+  'get_cdm_enum_constants',
+  'search_cdm_java_classes',
+  'resolve_cdm_concept',
+  'get_cdm_builder_methods',
+  'get_related_cdm_classes',
+  'get_approved_cdm_api_contract',
+  'get_cdm_semantic_recipe',
+  'get_cdm_java_missing_classes',
+])
+
+export const REPAIR_WRITE_TOOLS = selectGeneratorTools([
   'write_generated_java_file',
   'write_file',
 ])
@@ -325,6 +354,8 @@ export function createToolExecutionState(): ToolExecutionState {
     searchedCdmClasses: new Set(),
     lookupEligibleCdmClasses: new Set(),
     approvedCdmClasses: new Set(),
+    rejectedCdmClasses: new Map(),
+    rejectedBuilderClasses: new Map(),
     strictCdmLookup: true,
   }
 }
@@ -377,6 +408,7 @@ async function executeTool(
   if (name === 'get_cdm_java_api_summary') return getCdmJavaApiSummaryTool(context.config)
   if (name === 'get_cdm_java_api_pack') return getCdmJavaApiPackTool(context.config)
   if (name === 'get_cdm_java_class') return getCdmJavaClassTool(context, input)
+  if (name === 'get_cdm_enum_constants') return getCdmEnumConstantsTool(context, input)
   if (name === 'search_cdm_java_classes') return searchCdmJavaClassesTool(context, input)
   if (name === 'resolve_cdm_concept') return resolveCdmConceptTool(context, input)
   if (name === 'get_cdm_builder_methods') return getCdmBuilderMethodsTool(context, input)
@@ -641,6 +673,7 @@ async function getCdmJavaClassTool(context: ToolContext, input: ToolInput): Prom
     && !context.state.lookupEligibleCdmClasses.has(className)
     && !context.state.approvedCdmClasses.has(className)
   ) {
+    context.state.rejectedCdmClasses.set(className, 'Exact lookup blocked until discovery selects or approves this class.')
     return {
       ok: false,
       output: [
@@ -654,6 +687,7 @@ async function getCdmJavaClassTool(context: ToolContext, input: ToolInput): Prom
   await ensureCdmJavaApiPack()
   const result = await lookupCdmJavaClassDetails(className)
   if (result.status === 'missing') {
+    context.state.rejectedCdmClasses.set(className, `Exact class not found in org.finos.cdm:cdm-java:${CDM_JAVA_VERSION}.`)
     return {
       ok: false,
       output: [
@@ -677,6 +711,28 @@ async function getCdmJavaClassTool(context: ToolContext, input: ToolInput): Prom
       ].join('\n\n'),
       32_000
     ),
+    sourcePaths: [cdmJavaClassDetailsPath(className)],
+  }
+}
+
+async function getCdmEnumConstantsTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {
+  const className = requireString(input.className, 'className')
+  const classResult = await getCdmJavaClassTool(context, { className })
+  if (!classResult.ok) return classResult
+  const lookup = await lookupCdmJavaClassDetails(className)
+  if (lookup.status === 'missing') {
+    return {
+      ok: false,
+      output: `Exact enum class not found: ${className}`,
+      sourcePaths: [cdmJavaApiIndexPath()],
+    }
+  }
+  const values = lookup.details.enumValues ?? []
+  return {
+    ok: values.length > 0,
+    output: values.length === 0
+      ? `${className} is not an enum or no enum constants were detected.`
+      : [`# Enum Constants: ${className}`, ...values.map(value => `- ${value}`)].join('\n'),
     sourcePaths: [cdmJavaClassDetailsPath(className)],
   }
 }
@@ -742,6 +798,7 @@ async function getCdmBuilderMethodsTool(context: ToolContext, input: ToolInput):
     context.state.approvedCdmClasses.add(item.className)
   }
   if (!contract.approvedClasses.some(item => item.className === className)) {
+    context.state.rejectedBuilderClasses.set(className, 'Class is not approved by approved-cdm-api-contract.json.')
     return {
       ok: false,
       output: `Class is not approved by approved-cdm-api-contract.json: ${className}`,
@@ -749,10 +806,7 @@ async function getCdmBuilderMethodsTool(context: ToolContext, input: ToolInput):
     }
   }
   const matchingMethods = contract.approvedBuilderMethods.filter(method =>
-    method.className === className
-      && (intent === 'all'
-        || method.methodName.toLowerCase().includes(intent)
-        || method.rawSignature.toLowerCase().includes(intent))
+    method.className === className && builderMethodMatchesIntent(method, intent)
   )
   return {
     ok: true,
@@ -761,6 +815,25 @@ async function getCdmBuilderMethodsTool(context: ToolContext, input: ToolInput):
       : matchingMethods.map(method => `${method.methodName}: ${method.rawSignature}`).join('\n'),
     sourcePaths: [approvedCdmApiContractJsonPath(context.config.runOutputDir)],
   }
+}
+
+function builderMethodMatchesIntent(method: ApprovedBuilderMethod, intent: string): boolean {
+  if (intent === 'all') return true
+  const normalizedIntent = normalizeLookupToken(intent)
+  return [
+    method.intent,
+    method.methodName,
+    method.rawSignature,
+    ...method.parameterTypes,
+    method.returnType,
+  ].some(value => {
+    const lower = value.toLowerCase()
+    return lower.includes(intent) || normalizeLookupToken(value).includes(normalizedIntent)
+  })
+}
+
+function normalizeLookupToken(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/gu, '')
 }
 
 async function getRelatedCdmClassesTool(context: ToolContext, input: ToolInput): Promise<ToolResult> {

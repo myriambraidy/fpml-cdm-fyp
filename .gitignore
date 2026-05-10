@@ -39,3 +39,4 @@ test/api/manual-work-isolated.db
 .DS_Store
 
 plans/
+generated/java-mapper-poc/runs/

@@ -57,6 +57,16 @@ const forbiddenJavaPatterns: JavaStaticPattern[] = [
     pattern: /UnsupportedReport/u,
     message: 'Generated Java references UnsupportedReport without generating it.',
   },
+  {
+    code: 'silent_null_return',
+    pattern: /^\s*return\s+null\s*;/u,
+    message: 'Generated mapper should report unsupported data or throw a clear exception instead of returning null.',
+  },
+  {
+    code: 'manual_json_string_construction',
+    pattern: /"\s*\{\s*\\?"/u,
+    message: 'Generated Java appears to hand-build JSON strings; prefer structured serialization or report writers.',
+  },
 ]
 
 export async function runGeneratedJavaStaticSanityGate(config: GeneratorRunConfig): Promise<GateResult> {
@@ -67,11 +77,11 @@ export async function runGeneratedJavaStaticSanityGate(config: GeneratorRunConfi
 
   return {
     name: 'generated-java-static-sanity',
-    command: 'scan generated Java for known invalid fragments',
+    command: 'diagnose generated Java for known invalid fragments',
     status: findings.length === 0 ? 'passed' : 'failed',
     exitCode: findings.length === 0 ? 0 : 1,
     outputSnippet:
-      findings.length === 0 ? 'Generated Java static sanity passed.' : JSON.stringify(findings.slice(0, 40), null, 2),
+      findings.length === 0 ? 'Generated Java static sanity diagnostic passed.' : JSON.stringify(findings.slice(0, 40), null, 2),
   }
 }
 

@@ -49,6 +49,17 @@ validation.
 - Shell-owned files must not be rewritten:
 ${DEFAULT_JAVA_SHELL_PLAN_CONTRACT.shellOwnedFiles.map(path => `  - ${path}`).join('\n')}
 
+### Runtime Shell Method Contract
+
+- Required method: \`String mapFile(Path inputPath, Path reportsDir) throws Exception\`
+- \`inputPath\` is the FpML XML file path.
+- \`reportsDir\` is where sidecar reports must be written.
+- The public runtime output is serialized CDM JSON.
+- The internal CDM root object is \`cdm.event.common.TradeState\`.
+- Build \`TradeState\` internally, then serialize it at the runtime boundary.
+- Do not change the method return type, parameter list, throws clause, class name, package, or interface.
+- Do not return \`TradeState\` directly from \`mapFile\`.
+
 ### Rosetta Evidence Contract
 
 Rosetta source is mapping-intent authority only. CDM Java class and builder

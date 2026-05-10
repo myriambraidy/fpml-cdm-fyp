@@ -27,6 +27,7 @@ export type CdmConstructionRecipeStep = {
   approvedBuilderMethods: ApprovedBuilderMethod[]
   rosettaFunctions: string[]
   notes: string[]
+  safeJavaSnippet?: string
 }
 
 export type RecipeFixtureKind = 'build-wiring' | 'recipe-derived'
@@ -278,6 +279,7 @@ function buildFxSingleLegTradeStateRecipe(
       approvedBuilderMethods: methodsFor(contract, step.classNames, step.requiredBuilderIntents),
       rosettaFunctions: step.rosettaFunctions,
       notes: step.notes,
+      safeJavaSnippet: safeJavaSnippetForStep(step.order),
     })),
     forbiddenClasses: forbidden,
     examples: [
@@ -422,7 +424,10 @@ Rosetta functions:
 ${step.rosettaFunctions.map(name => `- ${name}`).join('\n')}
 
 Notes:
-${step.notes.length === 0 ? '- none' : step.notes.map(note => `- ${note}`).join('\n')}`
+${step.notes.length === 0 ? '- none' : step.notes.map(note => `- ${note}`).join('\n')}
+
+Safe Java snippet pattern:
+${step.safeJavaSnippet === undefined ? '- none' : `\`\`\`java\n${step.safeJavaSnippet}\n\`\``}`
 }
 
 function renderBuilderMethod(method: ApprovedBuilderMethod): string {
@@ -450,4 +455,69 @@ Classes:
 ${step.classNames.map(className => `- ${className}`).join('\n')}
 Builder intents:
 ${step.requiredBuilderIntents.map(intent => `- ${intent}`).join('\n')}`
+}
+
+function safeJavaSnippetForStep(order: number): string | undefined {
+  if (order === 1) {
+    return [
+      'AssignedIdentifier assignedIdentifier = AssignedIdentifier.builder()',
+      '    .setIdentifierValue(partyIdValue)',
+      '    .build();',
+      '',
+      'PartyIdentifier partyIdentifier = PartyIdentifier.builder()',
+      '    .setIdentifierValue(partyIdValue)',
+      '    .setIdentifierType(PartyIdentifierTypeEnum.LEI)',
+      '    .build();',
+      '',
+      'Party party = Party.builder()',
+      '    .addPartyId(partyIdentifier)',
+      '    .build();',
+    ].join('\n')
+  }
+  if (order === 2) {
+    return [
+      'AssignedIdentifier assignedIdentifier = AssignedIdentifier.builder()',
+      '    .setIdentifierValue(tradeIdValue)',
+      '    .build();',
+      '',
+      'TradeIdentifier tradeIdentifier = TradeIdentifier.builder()',
+      '    .addAssignedIdentifier(assignedIdentifier)',
+      '    .setIdentifierType(TradeIdentifierTypeEnum.UNIQUE_TRANSACTION_IDENTIFIER)',
+      '    .build();',
+    ].join('\n')
+  }
+  if (order === 3) {
+    return [
+      'NonTransferableProduct nonTransferableProduct = NonTransferableProduct.builder()',
+      '    .build();',
+      '',
+      '// EconomicTerms is parameter-only in this run; do not call EconomicTerms.builder().',
+    ].join('\n')
+  }
+  if (order === 4) {
+    return [
+      'SettlementPayout settlementPayout = SettlementPayout.builder()',
+      '    .build();',
+      '',
+      'Payout payout = Payout.builder()',
+      '    .setSettlementPayout(settlementPayout)',
+      '    .build();',
+      '',
+      '// ResolvablePriceQuantity and PriceSchedule are parameter-only in this run.',
+    ].join('\n')
+  }
+  if (order === 5) {
+    return [
+      'Trade trade = Trade.builder()',
+      '    .setProduct(nonTransferableProduct)',
+      '    .build();',
+      '',
+      'TradeState tradeState = TradeState.builder()',
+      '    .setTrade(trade)',
+      '    .build();',
+      '',
+      '// ContractDetails is parameter-only in this run; do not call ContractDetails.builder().',
+    ].join('\n')
+  }
+  return undefined
 }
