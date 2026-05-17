@@ -1,5 +1,9 @@
 export { createRunConfig } from './config'
-export { runJavaGeneratorAgent } from './orchestrator'
+export {
+  isDeterministicFxForwardPocConfig,
+  runJavaGeneratorAgent,
+  shouldRunGatesOnlySmokeFirst,
+} from './orchestrator'
 export { createWorkspace } from './workspace'
 export { ensureCdmRosettaPreflightReport } from './cdm-rosetta-preflight'
 export { buildRosettaGenerationContext } from './rosetta-context'

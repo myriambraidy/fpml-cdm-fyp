@@ -2,7 +2,11 @@ import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
-import { repairRequiresWrite, validateImplementationArtifacts } from '../../src/java-generator-agent/implementation-artifacts'
+import {
+  repairRequiresWrite,
+  validateImplementationArtifacts,
+  type RepairWriteRequirement,
+} from '../../src/java-generator-agent/implementation-artifacts'
 import { DEFAULT_RUNTIME_FIXTURES } from '../../src/java-generator-agent/java-contract'
 import type {
   GeneratorRole,
@@ -94,13 +98,13 @@ describe('implementation artifact validation', () => {
       await mkdir(join(config.runOutputDir, 'src/main/java/com/fpml/cdm/fx/mapper/generated'), { recursive: true })
       await Bun.write(entryPath, renderEntryClass())
       const auditEntries: ToolAuditEntry[] = [
-        {
+        sampleAuditEntry({
           tool: 'write_generated_java_file',
           inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
           outputSummary: `Wrote ${entryPath}`,
           sourcePaths: [entryPath],
           ok: true,
-        },
+        }),
       ]
 
       const report = await validateImplementationArtifacts({
@@ -145,13 +149,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Implemented.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
       })
 
@@ -178,13 +182,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Implemented.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
       })
 
@@ -207,7 +211,34 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
     ])
 
     expect(requirement.required).toBe(true)
-    expect(requirement.reason).toBe('failed_gate_references_java_source')
+    expect(requirement.target).toBe('generated_java')
+    expect(requirement.reason).toBe('source_repair_gate:maven-compile')
+    expect(requirement.drivingGates).toContain('maven-compile')
+  })
+
+  test('jar signature failure routes to pom repair', () => {
+    const requirement = repairRequiresWrite([
+      {
+        name: 'maven-compile',
+        command: 'mvn compile',
+        status: 'failed',
+        exitCode: 1,
+        outputSnippet: 'some error',
+      },
+      {
+        name: 'jar-runtime:fx-ex01-fx-spot',
+        command: 'java -jar',
+        status: 'failed',
+        exitCode: 1,
+        outputSnippet:
+          'java.lang.SecurityException: Invalid signature file digest for Manifest main attributes',
+      },
+    ])
+
+    expect(requirement.required).toBe(true)
+    expect(requirement.target).toBe('pom')
+    expect(requirement.requiredToolNames).toEqual(['write_file'])
+    expect(requirement.allowedWritePaths).toEqual(['pom.xml'])
   })
 
   test('fails repair report when required Java write is missing', async () => {
@@ -225,11 +256,11 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'repair',
         roleOutput: 'Fixed the Java files.',
         auditEntries: [],
-        repairWriteRequirement: { required: true, reason: 'source_repair_gate:maven-compile' },
+        repairWriteRequirement: sampleJavaRepairRequirement(),
       })
 
       expect(report.status).toBe('failed')
-      expect(report.classifications).toContain('repair_write_required_but_missing')
+      expect(report.classifications).toContain('repair_required_target_not_written')
       expect(report.classifications).toContain('repair_no_write_tool_calls')
     } finally {
       await rm(root, { recursive: true, force: true })
@@ -251,7 +282,7 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'repair',
         roleOutput: 'Please provide src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java.',
         auditEntries: [],
-        repairWriteRequirement: { required: true, reason: 'source_repair_gate:maven-compile' },
+        repairWriteRequirement: sampleJavaRepairRequirement(),
       })
 
       expect(report.status).toBe('failed')
@@ -275,13 +306,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Implemented `GeneratedFpmlToCdmMapper.java` and `ProductMapper.java`.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
       })
 
@@ -306,13 +337,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Implemented GeneratedFpmlToCdmMapper.java and ProductMapper.java.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
       })
 
@@ -337,13 +368,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Planned manifest: `GeneratedFpmlToCdmMapper.java`, `ProductMapper.java`.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
       })
 
@@ -379,13 +410,13 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
         role: 'implementer',
         roleOutput: 'Implemented.',
         auditEntries: [
-          {
+          sampleAuditEntry({
             tool: 'write_generated_java_file',
             inputSummary: 'path=GeneratedFpmlToCdmMapper.java',
             outputSummary: `Wrote ${entryPath}`,
             sourcePaths: [entryPath],
             ok: true,
-          },
+          }),
         ],
         toolState,
       })
@@ -397,6 +428,29 @@ public final class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper {
     }
   })
 })
+
+function sampleJavaRepairRequirement(): RepairWriteRequirement {
+  return {
+    required: true,
+    target: 'generated_java',
+    reason: 'source_repair_gate:maven-compile',
+    requiredToolNames: ['write_generated_java_file'],
+    allowedWritePaths: ['src/main/java/com/fpml/cdm/fx/mapper/generated/**'],
+    drivingGates: ['maven-compile'],
+  }
+}
+
+function sampleAuditEntry(
+  partial: Pick<ToolAuditEntry, 'tool' | 'inputSummary' | 'outputSummary' | 'sourcePaths'> & Partial<ToolAuditEntry>
+): ToolAuditEntry {
+  return {
+    sequence: 1,
+    timestamp: new Date().toISOString(),
+    role: 'implementer',
+    ok: true,
+    ...partial,
+  }
+}
 
 function renderEntryClass(): string {
   return `package com.fpml.cdm.fx.mapper.generated;

@@ -1,4 +1,4 @@
-import { mkdtemp, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { describe, expect, test } from 'bun:test'
@@ -7,6 +7,7 @@ import {
   createToolExecutionState,
   executeGeneratorTool,
   IMPLEMENTER_WRITE_TOOLS,
+  resolveAllowedReadPath,
 } from '../../src/java-generator-agent/tools'
 import { createWorkspace } from '../../src/java-generator-agent/workspace'
 import { DEFAULT_RUNTIME_FIXTURES } from '../../src/java-generator-agent/java-contract'
@@ -21,6 +22,23 @@ describe('java generator tools', () => {
   test('rejects writes outside the run output directory', () => {
     const root = resolve('generated/java-mapper-poc/runs/test')
     expect(() => assertInside(root, resolve('README.md'))).toThrow()
+  })
+
+  test('resolveAllowedReadPath resolves bare pom.xml under runOutputDir when cwd differs', async () => {
+    const prev = process.cwd()
+    const root = await mkdtemp(join(tmpdir(), 'java-generator-tools-pom-'))
+    try {
+      const config = makeConfig(root)
+      await mkdir(config.runOutputDir, { recursive: true })
+      const pomPath = join(config.runOutputDir, 'pom.xml')
+      await writeFile(pomPath, '<project />', 'utf8')
+      process.chdir(tmpdir())
+      const resolved = await resolveAllowedReadPath(config, 'pom.xml')
+      expect(resolved).toBe(pomPath)
+    } finally {
+      process.chdir(prev)
+      await rm(root, { recursive: true, force: true })
+    }
   })
 
   test('writes generated files inside the run output directory', async () => {
@@ -111,11 +129,12 @@ describe('java generator tools', () => {
         },
       }
 
+      const fixtureId = DEFAULT_RUNTIME_FIXTURES[0].id
       const fixture = await executeGeneratorTool(context, 'get_fixture_summary', {
-        path: 'fx-ex01-fx-spot',
+        path: fixtureId,
       })
       const expected = await executeGeneratorTool(context, 'get_expected_cdm_summary', {
-        path: 'fx-ex01-fx-spot',
+        path: fixtureId,
       })
 
       expect(fixture).toContain('FpML')

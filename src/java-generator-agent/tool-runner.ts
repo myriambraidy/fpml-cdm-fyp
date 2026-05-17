@@ -1,3 +1,5 @@
+import { mkdir, writeFile } from 'node:fs/promises'
+import { dirname, relative, resolve } from 'node:path'
 import type { LLMClient, LLMMessage, LLMResponse, LLMTool } from '../agent/types'
 import {
   LLMHTTPError,
@@ -14,11 +16,23 @@ export type ToolCallPolicy = {
   requiredReadPaths?: string[]
   minimumNativeToolCalls?: number
   pseudoToolCallsAreFatal?: boolean
+  disallowConversationalFinalContent?: boolean
 }
 
 type ToolCallRecord = {
   name: string
   input: Record<string, string>
+}
+
+export type LlmCallTrace = {
+  llmCallId: string
+  role: string
+  model: string
+  toolRound: number
+  inputChars: number
+  outputChars: number
+  toolCallCount: number
+  contentArtifactPath: string
 }
 
 export type RoleWithToolsResult = {
@@ -29,6 +43,7 @@ export type RoleWithToolsResult = {
   toolCallNames: string[]
   toolCalls: ToolCallRecord[]
   policyFailures: string[]
+  llmCallTraces: LlmCallTrace[]
 }
 
 export async function callRoleWithTools(args: {
@@ -45,6 +60,9 @@ export async function callRoleWithTools(args: {
   logger?: GeneratorLogger
   roleName?: string
   toolCallPolicy?: ToolCallPolicy
+  llmTrace?: {
+    runOutputDir: string
+  }
 }): Promise<RoleWithToolsResult> {
   const messages = [...args.messages]
   const roleName = args.roleName ?? 'role'
@@ -54,6 +72,8 @@ export async function callRoleWithTools(args: {
   const toolCallNames: string[] = []
   const toolCalls: ToolCallRecord[] = []
   const policyFailures: string[] = []
+  const llmCallTraces: LlmCallTrace[] = []
+  let llmTurn = 0
 
   async function trackedCall(callArgs: {
     messages: LLMMessage[]
@@ -88,12 +108,34 @@ export async function callRoleWithTools(args: {
     return result.response
   }
 
+  async function recordAssistantTurn(response: LLMResponse, toolRound: number, inputForCall: number): Promise<void> {
+    if (args.llmTrace === undefined) return
+    llmTurn += 1
+    const llmCallId = `${roleName}-${String(llmTurn).padStart(3, '0')}`
+    const absPath = resolve(args.llmTrace.runOutputDir, 'build-reports', 'llm-calls', `${llmCallId}-assistant.md`)
+    await mkdir(dirname(absPath), { recursive: true })
+    await writeFile(absPath, response.content, 'utf8')
+    const runRoot = resolve(args.llmTrace.runOutputDir)
+    const relPath = relative(runRoot, absPath).replace(/\\/g, '/')
+    llmCallTraces.push({
+      llmCallId,
+      role: roleName,
+      model: args.model,
+      toolRound,
+      inputChars: inputForCall,
+      outputChars: response.content.length,
+      toolCallCount: response.tool_calls?.length ?? 0,
+      contentArtifactPath: relPath,
+    })
+  }
+
   for (let round = 0; round < args.maxToolRounds; round += 1) {
     args.logger?.info('llm_call_start', {
       role: roleName,
       toolRound: round + 1,
       messages: messages.length,
     })
+    const inputForCall = messages.reduce((total, message) => total + message.content.length, 0)
     const response = await trackedCall({
       messages,
       tools: args.tools,
@@ -104,10 +146,20 @@ export async function callRoleWithTools(args: {
       contentChars: response.content.length,
       toolCalls: response.tool_calls?.length ?? 0,
     })
+    await recordAssistantTurn(response, round + 1, inputForCall)
 
     if (!response.tool_calls?.length) {
       policyFailures.push(...evaluateFinalContentPolicy(response.content, args.toolCallPolicy, toolCallNames, toolCalls))
-      return { content: response.content, llmCalls, inputChars, outputChars, toolCallNames, toolCalls, policyFailures }
+      return {
+        content: response.content,
+        llmCalls,
+        inputChars,
+        outputChars,
+        toolCallNames,
+        toolCalls,
+        policyFailures,
+        llmCallTraces,
+      }
     }
 
     messages.push({
@@ -146,13 +198,24 @@ ${truncateForLog(output, 12_000)}
       content: finalToolLimitInstruction(roleName),
     },
   ]
+  const finalInputChars = finalMessages.reduce((total, message) => total + message.content.length, 0)
   const final = await trackedCall({
     messages: [
       ...finalMessages,
     ],
   })
+  await recordAssistantTurn(final, args.maxToolRounds + 1, finalInputChars)
   policyFailures.push(...evaluateFinalContentPolicy(final.content, args.toolCallPolicy, toolCallNames, toolCalls))
-  return { content: final.content, llmCalls, inputChars, outputChars, toolCallNames, toolCalls, policyFailures }
+  return {
+    content: final.content,
+    llmCalls,
+    inputChars,
+    outputChars,
+    toolCallNames,
+    toolCalls,
+    policyFailures,
+    llmCallTraces,
+  }
 }
 
 function evaluateFinalContentPolicy(
@@ -176,6 +239,17 @@ function evaluateFinalContentPolicy(
     if (!hasReadFileCallForPath(toolCalls, requiredPath)) {
       failures.push(`required_read_path_not_called:${requiredPath}`)
     }
+  }
+  const structuralWriteRequirementsMet =
+    (policy.minimumNativeToolCalls === undefined || toolCallNames.length >= policy.minimumNativeToolCalls)
+    && (policy.requiredToolNames ?? []).every(name => toolCallNames.includes(name))
+  if (
+    policy.disallowConversationalFinalContent === true
+    && !structuralWriteRequirementsMet
+    && (policy.minimumNativeToolCalls !== undefined || (policy.requiredToolNames?.length ?? 0) > 0)
+    && /\bwould you like me to\b|\bshall i\b|\bi can also\b/iu.test(content)
+  ) {
+    failures.push('conversational_write_phase_output')
   }
   return failures
 }

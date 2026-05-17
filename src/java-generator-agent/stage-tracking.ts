@@ -41,13 +41,20 @@ export async function stageArtifactExists(path: string): Promise<boolean> {
 export function createStageEntry(args: {
   stage: StageManifestEntry['stage']
   round?: number
+  attempt?: number
+  phase?: StageManifestEntry['phase']
   status: StageStatus
   artifact?: string
+  transcriptPath?: string
+  eventIds?: string[]
   model?: string
   startedAt: string
   endedAt?: string
+  llmCalls?: number
   toolCalls: number
+  successfulWriteCalls?: number
   failedToolCalls: number
+  policyFailures?: string[]
   message?: string
 }): StageManifestEntry {
   return args

@@ -31,7 +31,11 @@ export async function validateGeneratedOutput(config: GeneratorRunConfig): Promi
       return failedOutputGate(command, `${fixture.id}: output does not contain a CDM-like root.`)
     }
 
-    const smokeFindings = fixture.id === 'fx-ex01-fx-spot' ? assertFxEx01Smoke(parsed) : []
+    const smokeFindings = fixture.id === 'fx-ex01-fx-spot'
+      ? assertFxEx01Smoke(parsed)
+      : fixture.id === 'fx-ex03-fx-fwd'
+        ? assertFxEx03Forward(parsed)
+        : []
     if (smokeFindings.length > 0) return failedOutputGate(command, smokeFindings.join('\n'))
   }
 
@@ -42,6 +46,42 @@ export async function validateGeneratedOutput(config: GeneratorRunConfig): Promi
     exitCode: 0,
     outputSnippet: 'Runtime fixture outputs and sidecar reports are present and minimally CDM-shaped.',
   }
+}
+
+function assertFxEx03Forward(cdm: JsonObject): string[] {
+  const findings: string[] = []
+  const text = JSON.stringify(cdm)
+  const requiredStrings = [
+    'ForeignExchange_Spot_Forward',
+    'EUR',
+    'USD',
+    'ABN1234',
+    'DB5678',
+    'ABNANL2A',
+    'DEUTDEFF',
+    '2001-11-19',
+    '2001-12-21',
+    'ExchangeRate',
+    'ForwardPoint',
+    'Buyer',
+    'Seller',
+  ]
+  for (const expected of requiredStrings) {
+    if (!text.includes(expected)) findings.push(`fx-ex03-fx-fwd: expected generated CDM to include ${expected}.`)
+  }
+  for (const expected of [0.9175, 0.913, 0.0045, 10000000, 9175000]) {
+    if (!containsNumber(cdm, expected)) findings.push(`fx-ex03-fx-fwd: expected generated CDM to include numeric value ${expected}.`)
+  }
+  if (!text.includes('"trade"')) findings.push('fx-ex03-fx-fwd: expected TradeState root with trade.')
+  if (!text.includes('"partyRole"')) findings.push('fx-ex03-fx-fwd: expected buyer/seller partyRole entries required by Rosetta validation.')
+  return findings
+}
+
+function containsNumber(value: JsonValue, expected: number): boolean {
+  if (typeof value === 'number') return Math.abs(value - expected) < 0.0000001
+  if (Array.isArray(value)) return value.some(item => containsNumber(item, expected))
+  if (isJsonObject(value)) return Object.values(value).some(item => containsNumber(item, expected))
+  return false
 }
 
 async function findMissingOutputFiles(config: GeneratorRunConfig): Promise<string[]> {

@@ -1,19 +1,35 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { createOpenRouterClientFromEnv } from '../src/agent/client'
+import type { LLMClient } from '../src/agent/types'
 import { createRunConfig, runJavaGeneratorAgent } from '../src/java-generator-agent'
+
+function createDeferredOpenRouterClient(): LLMClient {
+  let inner: LLMClient | undefined
+  return {
+    call: async params => {
+      if (inner === undefined) inner = createOpenRouterClientFromEnv()
+      return inner.call(params)
+    },
+  }
+}
 
 type CliArgs = {
   productFamily?: string
   out?: string
   resume?: string
   requireApproval: boolean
+  gatesOnlySmoke?: boolean
 }
 
 function parseArgs(argv: string[]): CliArgs {
   const parsed: CliArgs = { requireApproval: false }
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index]
+    if (arg === '--gates-only-smoke') {
+      parsed.gatesOnlySmoke = true
+      continue
+    }
     if (arg === '--require-approval') {
       parsed.requireApproval = true
       continue
@@ -42,9 +58,8 @@ const config = await createRunConfig({
   baseOutputDir: args.out,
   requireApproval: args.requireApproval,
   resumeRunOutputDir: args.resume,
+  ...(args.gatesOnlySmoke !== undefined ? { gatesOnlySmoke: args.gatesOnlySmoke } : {}),
 })
-
-const llm = createOpenRouterClientFromEnv()
 
 await mkdir(config.runOutputDir, { recursive: true })
 await mkdir(join(config.baseOutputDir, 'latest'), { recursive: true })
@@ -58,7 +73,7 @@ Run output dir: ${config.runOutputDir}
   'utf8'
 )
 
-await runJavaGeneratorAgent({ llm, config })
+await runJavaGeneratorAgent({ llm: createDeferredOpenRouterClient(), config })
 
 console.log(
   JSON.stringify(

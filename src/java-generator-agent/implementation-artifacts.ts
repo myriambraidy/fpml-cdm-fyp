@@ -1,5 +1,6 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
+import { describeGateAuthority } from './gate-policy'
 import { detectPseudoToolCalls, type PseudoToolCallFinding } from './pseudo-tool-calls'
 import { listFilesRecursive } from './file-list'
 import {
@@ -10,9 +11,11 @@ import {
 import type { GateResult, GeneratorRunConfig, GeneratorRole, ToolAuditEntry, ToolExecutionState } from './types'
 
 export type ImplementationArtifactReport = {
+  schemaVersion: 1
   status: 'passed' | 'failed'
   role: Extract<GeneratorRole, 'implementer' | 'repair'>
   reportPath: string
+  attempt?: number
   classifications: string[]
   toolWriteCount: number
   generatedJavaWriteCount: number
@@ -23,14 +26,125 @@ export type ImplementationArtifactReport = {
   findings: string[]
 }
 
+export type RepairMutationTarget = 'generated_java' | 'test_java' | 'pom' | 'reports' | 'unknown' | 'none'
+
 export type RepairWriteRequirement = {
   required: boolean
+  target: RepairMutationTarget
   reason: string
+  requiredToolNames: string[]
+  allowedWritePaths: string[]
+  drivingGates: string[]
+}
+
+const SOURCE_REPAIR_GATES = new Set([
+  'generated-java-static-sanity',
+  'cdm-java-api-usage',
+  'cdm-java-member-usage',
+  'rosetta-java-usage',
+  'java-reference-check',
+  'generated-test-shell-contract',
+  'builder-readiness-usage',
+  'maven-compile',
+  'maven-test-compile',
+])
+
+const GENERATED_JAVA_GLOB = 'src/main/java/com/fpml/cdm/fx/mapper/generated/**'
+
+function authorityRank(authority: string): number {
+  if (authority === 'pipeline_integrity') return 0
+  if (authority === 'authoritative') return 1
+  return 2
+}
+
+function gateHasJarSignatureSignal(gate: GateResult): boolean {
+  const t = gate.outputSnippet.toLowerCase()
+  if (t.includes('invalid signature file digest')) return true
+  if (t.includes('securityexception')) return true
+  if (t.includes('meta-inf') && (t.includes('.sf') || t.includes('manifest'))) return true
+  return false
+}
+
+function gateHasPomRepairSignal(gate: GateResult): boolean {
+  if (gate.name === 'generated-shell-contract') return /pom\.xml|maven\.compiler\.release|artifactId|dependency/iu.test(gate.outputSnippet)
+  if (gate.name === 'maven-dependency-preflight') return true
+  return gateHasJarSignatureSignal(gate)
+}
+
+function gateHasJavaRepairSignal(gate: GateResult): boolean {
+  if (/\.java/iu.test(gate.outputSnippet)) return true
+  return SOURCE_REPAIR_GATES.has(gate.name)
+}
+
+export function repairRequiresWrite(gateResults: GateResult[]): RepairWriteRequirement {
+  const failed = gateResults.filter(gate => gate.status === 'failed')
+  if (failed.length === 0) {
+    return {
+      required: false,
+      target: 'none',
+      reason: 'no_failed_gate',
+      requiredToolNames: [],
+      allowedWritePaths: [],
+      drivingGates: [],
+    }
+  }
+
+  const sorted = [...failed].sort((a, b) => {
+    const diff = authorityRank(describeGateAuthority(a)) - authorityRank(describeGateAuthority(b))
+    if (diff !== 0) return diff
+    return gateResults.indexOf(a) - gateResults.indexOf(b)
+  })
+
+  const pomGates = failed.filter(gateHasPomRepairSignal).map(g => g.name)
+  const javaGates = failed.filter(gateHasJavaRepairSignal).map(g => g.name)
+
+  if (pomGates.length > 0) {
+    return {
+      required: true,
+      target: 'pom',
+      reason: `pom_or_build_contract_repair:${pomGates[0]}`,
+      requiredToolNames: ['write_file'],
+      allowedWritePaths: ['pom.xml'],
+      drivingGates: pomGates,
+    }
+  }
+
+  if (javaGates.length > 0) {
+    const primary = sorted.find(g => javaGates.includes(g.name)) ?? sorted[0]
+    return {
+      required: true,
+      target: 'generated_java',
+      reason: `source_repair_gate:${primary.name}`,
+      requiredToolNames: ['write_generated_java_file'],
+      allowedWritePaths: [GENERATED_JAVA_GLOB],
+      drivingGates: javaGates,
+    }
+  }
+
+  const first = sorted[0]
+  return {
+    required: false,
+    target: 'unknown',
+    reason: `non_source_gate:${first.name}`,
+    requiredToolNames: [],
+    allowedWritePaths: [],
+    drivingGates: failed.map(g => g.name),
+  }
+}
+
+export function normalizeRunRelativePath(runOutputDir: string, path: string): string {
+  const normalizedRoot = resolve(runOutputDir).replace(/\\/g, '/')
+  const normalizedPath = resolve(path).replace(/\\/g, '/')
+  if (normalizedPath.startsWith(`${normalizedRoot}/`)) {
+    return normalizedPath.slice(normalizedRoot.length + 1)
+  }
+  return normalizedPath.replace(/\\/g, '/')
 }
 
 export async function validateImplementationArtifacts(args: {
   config: GeneratorRunConfig
   role: Extract<GeneratorRole, 'implementer' | 'repair'>
+  attempt?: number
   roleOutput: string
   auditEntries: ToolAuditEntry[]
   policyFailures?: string[]
@@ -73,22 +187,30 @@ export async function validateImplementationArtifacts(args: {
     findings.push(`Tool call policy failed: ${failure}.`)
     classifications.push(failure)
   }
-  if (
-    args.role === 'repair'
-    && args.repairWriteRequirement?.required === true
-    && generatedJavaWriteCount === 0
-  ) {
-    findings.push(`Repair required a generated Java patch but executed no successful write_generated_java_file call: ${args.repairWriteRequirement.reason}.`)
-    classifications.push('repair_write_required_but_missing')
+
+  const req = args.repairWriteRequirement
+  if (args.role === 'repair' && req?.required === true) {
+    const successfulRelPaths = args.auditEntries
+      .filter(entry => entry.ok !== false && isWriteTool(entry.tool))
+      .flatMap(entry => entry.sourcePaths)
+      .map(path => normalizeRunRelativePath(args.config.runOutputDir, path))
+
+    if (req.target === 'pom' && !successfulRelPaths.includes('pom.xml')) {
+      findings.push(`Repair target was pom.xml, but no successful write tool wrote pom.xml: ${req.reason}.`)
+      classifications.push('repair_required_target_not_written')
+    }
+    if (req.target === 'generated_java' && generatedJavaWriteCount === 0) {
+      findings.push(
+        `Repair target was generated Java, but no successful write_generated_java_file call occurred: ${req.reason}.`
+      )
+      classifications.push('repair_required_target_not_written')
+    }
+    if (successfulWriteTools.length === 0) {
+      findings.push(`Repair required source changes but executed no successful write tool: ${req.reason}.`)
+      classifications.push('repair_no_write_tool_calls')
+    }
   }
-  if (
-    args.role === 'repair'
-    && args.repairWriteRequirement?.required === true
-    && successfulWriteTools.length === 0
-  ) {
-    findings.push(`Repair required source changes but executed no successful write tool: ${args.repairWriteRequirement.reason}.`)
-    classifications.push('repair_no_write_tool_calls')
-  }
+
   if (
     args.role === 'repair'
     && args.repairWriteRequirement?.required === true
@@ -118,7 +240,9 @@ export async function validateImplementationArtifacts(args: {
     }
   }
   for (const entry of args.auditEntries.filter(item => item.ok === false && isWriteTool(item.tool))) {
-    classifications.push(classifyFailedWrite(entry))
+    const classification = classifyFailedWrite(entry)
+    classifications.push(classification)
+    findings.push(`Write tool failed (${entry.tool}): ${entry.outputSummary}`)
   }
   if (fallbackFinding !== null) findings.push(fallbackFinding)
   if (fallbackFinding !== null) classifications.push('missing_required_entry_class')
@@ -127,11 +251,13 @@ export async function validateImplementationArtifacts(args: {
     classifications.push('missing_required_entry_class')
   }
 
-  const reportPath = implementationArtifactReportPath(args.config, args.role)
+  const reportPath = implementationArtifactReportPath(args.config, args.role, args.attempt)
   const report: ImplementationArtifactReport = {
+    schemaVersion: 1,
     status: findings.length === 0 ? 'passed' : 'failed',
     role: args.role,
     reportPath,
+    attempt: args.attempt,
     classifications: uniqueStrings(classifications),
     toolWriteCount: successfulWriteTools.length,
     generatedJavaWriteCount,
@@ -143,30 +269,29 @@ export async function validateImplementationArtifacts(args: {
   }
   await mkdir(dirname(reportPath), { recursive: true })
   await writeFile(reportPath, renderImplementationArtifactReport(report), 'utf8')
-  await writeFile(reportPath.replace(/\.md$/u, '.json'), JSON.stringify(report, null, 2), 'utf8')
-  return report
-}
+  const jsonPath = reportPath.replace(/\.md$/u, '.json')
+  await writeFile(jsonPath, JSON.stringify(report, null, 2), 'utf8')
 
-export function repairRequiresWrite(gateResults: GateResult[]): RepairWriteRequirement {
-  const failed = gateResults.find(gate => gate.status === 'failed')
-  if (failed === undefined) return { required: false, reason: 'no_failed_gate' }
-  if (/\.java/iu.test(failed.outputSnippet)) {
-    return { required: true, reason: 'failed_gate_references_java_source' }
+  if (args.role === 'repair' && args.attempt !== undefined) {
+    const attemptJson = `build-reports/repair-artifact-report-attempt-${String(args.attempt).padStart(2, '0')}.json`
+    const latestPayload = {
+      ...report,
+      latestAttempt: args.attempt,
+      attemptReportPath: attemptJson,
+    }
+    await writeFile(
+      resolve(args.config.runOutputDir, 'build-reports', 'repair-artifact-report.json'),
+      JSON.stringify(latestPayload, null, 2),
+      'utf8'
+    )
+    await writeFile(
+      resolve(args.config.runOutputDir, 'build-reports', 'repair-artifact-report.md'),
+      renderImplementationArtifactReport(report),
+      'utf8'
+    )
   }
-  if (
-    failed.name === 'generated-java-static-sanity'
-    || failed.name === 'cdm-java-api-usage'
-    || failed.name === 'cdm-java-member-usage'
-    || failed.name === 'rosetta-java-usage'
-    || failed.name === 'java-reference-check'
-    || failed.name === 'generated-test-shell-contract'
-    || failed.name === 'builder-readiness-usage'
-    || failed.name === 'maven-compile'
-    || failed.name === 'maven-test-compile'
-  ) {
-    return { required: true, reason: `source_repair_gate:${failed.name}` }
-  }
-  return { required: false, reason: `non_source_gate:${failed.name}` }
+
+  return report
 }
 
 export function implementationArtifactGateResult(report: ImplementationArtifactReport): GateResult {
@@ -215,8 +340,16 @@ ${report.pseudoToolCalls.length === 0 ? '- none' : report.pseudoToolCalls.map(ca
 
 function implementationArtifactReportPath(
   config: GeneratorRunConfig,
-  role: Extract<GeneratorRole, 'implementer' | 'repair'>
+  role: Extract<GeneratorRole, 'implementer' | 'repair'>,
+  attempt?: number
 ): string {
+  if (role === 'repair' && attempt !== undefined) {
+    return resolve(
+      config.runOutputDir,
+      'build-reports',
+      `repair-artifact-report-attempt-${String(attempt).padStart(2, '0')}.md`
+    )
+  }
   return resolve(config.runOutputDir, 'build-reports', `${role}-artifact-report.md`)
 }
 
@@ -296,15 +429,6 @@ function normalizeGeneratedClaim(path: string): string {
   const marker = 'src/main/java/com/fpml/cdm/fx/mapper/generated/'
   const index = path.indexOf(marker)
   return index === -1 ? path : path.slice(index)
-}
-
-function normalizeRunRelativePath(runOutputDir: string, path: string): string {
-  const normalizedRoot = resolve(runOutputDir).replace(/\\/g, '/')
-  const normalizedPath = resolve(path).replace(/\\/g, '/')
-  if (normalizedPath.startsWith(`${normalizedRoot}/`)) {
-    return normalizedPath.slice(normalizedRoot.length + 1)
-  }
-  return normalizedPath
 }
 
 type RejectedClassReference = {

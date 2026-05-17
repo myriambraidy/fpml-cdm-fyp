@@ -1,4 +1,4 @@
-import { mkdir, readFile, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import type { GateResult, GeneratorRunConfig } from './types'
 
@@ -58,15 +58,26 @@ async function addRepairWriteContradictions(
   runOutputDir: string,
   findings: GeneratedReportConsistencyFinding[]
 ): Promise<void> {
-  const repairLogPath = resolve(runOutputDir, 'agent-workspace', 'repair-log.md')
+  const workspaceDir = resolve(runOutputDir, 'agent-workspace')
   const repairReportPath = resolve(runOutputDir, 'build-reports', 'repair-artifact-report.json')
-  if (!(await exists(repairLogPath)) || !(await exists(repairReportPath))) return
-  const repairLog = await readFile(repairLogPath, 'utf8')
+  if (!(await exists(repairReportPath))) return
   const repairReport = await readFile(repairReportPath, 'utf8')
-  if (!/\b(?:patched|fixed|updated|rewrote)\b/iu.test(repairLog)) return
+  let combinedProse = ''
+  if (await exists(workspaceDir)) {
+    const names = await readdir(workspaceDir)
+    for (const name of names) {
+      if (!/^repair-attempt-\d+\.md$/u.test(name)) continue
+      combinedProse += await readFile(resolve(workspaceDir, name), 'utf8')
+    }
+  }
+  const repairLogPath = resolve(workspaceDir, 'repair-log.md')
+  if (await exists(repairLogPath)) {
+    combinedProse += await readFile(repairLogPath, 'utf8')
+  }
+  if (!/\b(?:patched|fixed|updated|rewrote)\b/iu.test(combinedProse)) return
   if (/"generatedJavaWriteCount"\s*:\s*0/u.test(repairReport)) {
     findings.push({
-      artifact: 'agent-workspace/repair-log.md',
+      artifact: 'agent-workspace/repair-attempt-*.md',
       claim: 'repair prose claims files were patched',
       contradictedBy: 'build-reports/repair-artifact-report.json has generatedJavaWriteCount 0',
       severity: 'warning',

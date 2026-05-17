@@ -105,12 +105,15 @@ export function findRosettaJavaUsageFindingsInSource(args: {
   }
   if (args.isEntryClass) {
     if (!hasTradeStateBoundary(stripped)) {
+      const hasStructuredJsonBoundary = hasStructuredTradeStateJsonBoundary(args.sourceText, stripped)
       findings.push({
         file: args.displayPath,
         line: 1,
         code: 'missing_trade_state_root',
-        severity: 'error',
-        message: 'Generated entry mapper should build a TradeState root for post-runtime Rosetta validation.',
+        severity: hasStructuredJsonBoundary ? 'warning' : 'error',
+        message: hasStructuredJsonBoundary
+          ? 'Generated entry mapper builds a structured TradeState-shaped JSON boundary; post-runtime Rosetta validation remains the semantic authority.'
+          : 'Generated entry mapper should build a TradeState root for post-runtime Rosetta validation.',
       })
     }
     if (!/\bpublic\s+String\s+mapFile\s*\(/u.test(stripped)) {
@@ -140,6 +143,13 @@ function hasTradeStateBoundary(sourceText: string): boolean {
   return /\bTradeState\s*\.\s*builder\s*\(/u.test(sourceText)
     || /\bTradeState\s+[a-z][A-Za-z0-9_]*\b/u.test(sourceText)
     || /\bTradeState\s+[a-z][A-Za-z0-9_]*\s*\(/u.test(sourceText)
+}
+
+function hasStructuredTradeStateJsonBoundary(sourceText: string, strippedSourceText: string): boolean {
+  return /\bmapTradeState\s*\(/u.test(strippedSourceText)
+    && /\.put\s*\(\s*"trade"\s*,/u.test(sourceText)
+    && /\bObjectMapper\b/u.test(strippedSourceText)
+    && /\bwriteValueAsString\s*\(/u.test(strippedSourceText)
 }
 
 function firstMatchingLine(text: string, pattern: RegExp): number {

@@ -330,7 +330,11 @@ export async function createWorkspace(
     await writeFile(workspace.runLogPath, renderRunLogStart(config), 'utf8')
     await writeFile(workspace.implementationPlanPath, '# Implementation Plan\n\n', 'utf8')
     await writeFile(workspace.implementationLogPath, '# Implementation Log\n\n', 'utf8')
-    await writeFile(workspace.repairLogPath, '# Repair Log\n\n', 'utf8')
+    await writeFile(
+      workspace.repairLogPath,
+      '# Repair Log\n\nThis file indexes repair attempts. Per-attempt logs are `repair-attempt-NN.md`.\n',
+      'utf8'
+    )
     await writeFile(workspace.finalBuildReportPath, '# Final Build Report\n\n', 'utf8')
   }
 

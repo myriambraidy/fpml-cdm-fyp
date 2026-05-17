@@ -111,6 +111,10 @@ export async function findGeneratedJavaStaticSanityFindings(root: string): Promi
         message: 'Generated mapper must import preflight-approved CDM/Rosetta model classes.',
       })
     }
+    if (isGeneratedMapperSource(file)) {
+      const generatedFindings = findGeneratedMapperBehaviorFindings(displayPath, text, lines)
+      findings.push(...generatedFindings)
+    }
     lines.forEach((line, index) => {
       for (const forbidden of forbiddenJavaPatterns) {
         if (forbidden.pattern.test(line)) {
@@ -125,6 +129,60 @@ export async function findGeneratedJavaStaticSanityFindings(root: string): Promi
     })
   }
 
+  return findings
+}
+
+function findGeneratedMapperBehaviorFindings(
+  file: string,
+  text: string,
+  lines: string[]
+): JavaStaticSanityFinding[] {
+  const findings: JavaStaticSanityFinding[] = []
+  const checks: JavaStaticPattern[] = [
+    {
+      code: 'todo_in_generated_mapper',
+      pattern: /\bTODO\b|not implemented|skeleton has not implemented/iu,
+      message: 'Generated mapper still contains TODO or skeleton wording.',
+    },
+    {
+      code: 'ignored_input_path',
+      pattern: /mapFile\s*\([^)]*inputPath[^)]*\)[\s\S]*?mapTradeState\s*\(\s*\)/u,
+      message: 'Generated mapper appears to ignore inputPath and call a no-input mapping helper.',
+    },
+    {
+      code: 'empty_cdm_builder',
+      pattern: /\b(?:Trade|TradeState|NonTransferableProduct|SettlementPayout|Payout|EconomicTerms|TradableProduct)\.builder\(\)\.build\(\)/u,
+      message: 'Generated mapper builds an empty core CDM object.',
+    },
+    {
+      code: 'missing_required_reports',
+      pattern: /mapFile\s*\([^)]*reportsDir[^)]*\)[\s\S]*?(?!mapping-report\.json)(?!validation-report\.json)(?!traceability-report\.json)(?!unsupported-scope\.json)/u,
+      message: 'Generated mapper must write mapping, validation, traceability, and unsupported-scope sidecar reports.',
+    },
+  ]
+  for (const check of checks) {
+    if (check.code === 'missing_required_reports') {
+      const required = ['mapping-report.json', 'validation-report.json', 'traceability-report.json', 'unsupported-scope.json']
+      const missing = required.filter(name => !text.includes(name))
+      if (missing.length === 0) continue
+      findings.push({
+        file,
+        line: 1,
+        code: check.code,
+        message: `${check.message} Missing: ${missing.join(', ')}.`,
+      })
+      continue
+    }
+    const matchLine = firstMatchingLine(lines, check.pattern)
+    if (matchLine === 1 && !check.pattern.test(lines[0] ?? '') && !check.pattern.test(text)) continue
+    if (!check.pattern.test(text)) continue
+    findings.push({
+      file,
+      line: matchLine,
+      code: check.code,
+      message: check.message,
+    })
+  }
   return findings
 }
 

@@ -4,7 +4,7 @@ import { gateBlocksDownstream, hasAuthoritativeOrIntegrityFailure } from '../../
 describe('gate authority policy', () => {
   test('diagnostic failures do not block downstream Maven gates', () => {
     expect(gateBlocksDownstream({
-      name: 'generated-java-static-sanity',
+      name: 'cdm-java-api-usage',
       command: 'diagnose',
       status: 'failed',
       exitCode: 1,

@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
-import { DEFAULT_RUNTIME_FIXTURES } from '../../src/java-generator-agent/java-contract'
+import { DEFAULT_RUNTIME_FIXTURES, GENERATED_JAR_NAME } from '../../src/java-generator-agent/java-contract'
 import { promoteGeneratedJar } from '../../src/java-generator-agent/promotion'
 import type {
   GateResult,
@@ -22,7 +22,7 @@ describe('java generator promotion', () => {
       ])
 
       expect(promoted).toBe(false)
-      expect(await Bun.file(join(config.baseOutputDir, 'target/fpml-cdm-mapper.jar')).exists()).toBe(false)
+      expect(await Bun.file(join(config.baseOutputDir, `target/${GENERATED_JAR_NAME}.jar`)).exists()).toBe(false)
     } finally {
       await rm(root, { recursive: true, force: true })
     }
@@ -33,12 +33,12 @@ describe('java generator promotion', () => {
     try {
       const config = makeConfig(root)
       await mkdir(join(config.runOutputDir, 'target'), { recursive: true })
-      await Bun.write(join(config.runOutputDir, 'target/fpml-cdm-mapper.jar'), 'jar')
+      await Bun.write(join(config.runOutputDir, `target/${GENERATED_JAR_NAME}.jar`), 'jar')
 
       const promoted = await promoteGeneratedJar(config, [gate('maven-test', 'passed'), gate('jar-runtime', 'passed')])
 
       expect(promoted).toBe(true)
-      expect(await Bun.file(join(config.baseOutputDir, 'target/fpml-cdm-mapper.jar')).text()).toBe('jar')
+      expect(await Bun.file(join(config.baseOutputDir, `target/${GENERATED_JAR_NAME}.jar`)).text()).toBe('jar')
       expect(await Bun.file(join(config.baseOutputDir, 'target/latest-promoted-run.md')).text()).toContain('test-run')
     } finally {
       await rm(root, { recursive: true, force: true })
@@ -68,8 +68,8 @@ function makeConfig(root: string): GeneratorRunConfig {
     requireApproval: false,
     resume: false,
     evidenceRoots: ['data_to_learn_from/fpml/fx-derivatives'],
-    fixturePaths: ['data_to_learn_from/fpml/fx-derivatives/fx-ex01-fx-spot.xml'],
-    expectedCdmPaths: ['data_to_learn_from/cdm_parallel/fx-derivatives/fx-ex01-fx-spot.json'],
+    fixturePaths: DEFAULT_RUNTIME_FIXTURES.map(f => f.fpmlPath),
+    expectedCdmPaths: DEFAULT_RUNTIME_FIXTURES.map(f => f.expectedCdmPath),
     runtimeFixtures: DEFAULT_RUNTIME_FIXTURES,
     roleModels: makeRoleModels(),
   }

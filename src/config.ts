@@ -27,6 +27,16 @@ const EnvSchema = z.object({
   JAVA_GENERATOR_MAX_LLM_CALLS: z.coerce.number().int().positive().max(5000).default(200),
   JAVA_GENERATOR_MAX_INPUT_TOKENS_PER_CALL: z.coerce.number().int().positive().max(128_000).default(128_000),
   JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS: z.coerce.number().int().min(0).max(10).default(2),
+  /**
+   * When true: for the single-fixture fx-ex03 forward POC only, try gates+promote before the LLM loop (CI/smoke).
+   * Default false: always run planner → implementer → gates for demos.
+   */
+  JAVA_GENERATOR_GATES_ONLY_SMOKE: z.preprocess((v: unknown) => {
+    if (v === true || v === 1) return true
+    if (v === false || v === 0) return false
+    if (typeof v === 'string') return ['1', 'true', 'yes', 'on'].includes(v.toLowerCase().trim())
+    return false
+  }, z.boolean().default(false)),
   JAVA_GENERATOR_PLANNER_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_CRITIC_MODEL: z.string().default('qwen/qwen3-coder-next'),
   JAVA_GENERATOR_REVIEWER_MODEL: z.string().default('qwen/qwen3-coder-next'),

@@ -185,6 +185,47 @@ ${RUNTIME_FIXTURES_BLOCK}
     expect(result.details?.parsedRuntimeFixtureIds).toEqual(['fx-ex01-fx-spot'])
   })
 
+  test('runtime fixtures section accepts fixture ids with descriptions', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}
+## Runtime supported fixtures (machine-checked)
+- fx-ex01-fx-spot: fx-ex01-fx-spot.xml
+- fx-ex02-spot-cross-w-side-rates: fx-ex02-spot-cross-w-side-rates.xml
+${JAVA_SHELL_BLOCK}
+${ROSETTA_EVIDENCE_BLOCK}
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot', 'fx-ex02-spot-cross-w-side-rates'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+    })
+
+    expect(result.status).toBe('passed')
+    expect(result.details?.parsedRuntimeFixtureIds).toEqual([
+      'fx-ex01-fx-spot',
+      'fx-ex02-spot-cross-w-side-rates',
+    ])
+  })
+
+  test('runtime fixtures section still rejects unknown described fixture ids', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}
+## Runtime supported fixtures (machine-checked)
+- fx-ex99-made-up: made-up.xml
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('unknown id'))).toBe(true)
+  })
+
   test('runtime fixtures section fails when heading missing', async () => {
     const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
     const result = validatePlannerPlan({
@@ -684,6 +725,44 @@ Build an AI-native Java generator for FX. This run uses Rosetta mapping intent.
     expect(
       result.blockingIssues.some(issue => issue.includes("not approved by this run's API contract"))
     ).toBe(false)
+  })
+
+  test('does not flag capitalized prose word At as an unapproved CDM class', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: `${MACHINE_SCOPE_BLOCK}\n${RUNTIME_FIXTURES_BLOCK}\n${JAVA_SHELL_BLOCK}\n${ROSETTA_EVIDENCE_BLOCK}
+## Implementation Notes
+- At runtime, serialize final TradeState at the boundary.
+`,
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: ['cdm.event.common.TradeState'],
+    })
+
+    expect(result.blockingIssues.some(issue => issue.endsWith(': At'))).toBe(false)
+  })
+
+  test('fails tool-only planner output with targeted finding', async () => {
+    const scope = await buildProductScopeGuidance({ productFamily: 'fx-derivatives' })
+    const result = validatePlannerPlan({
+      scope,
+      planMarkdown: '[tool calls requested]',
+      runtimeFixtureIds: ['fx-ex01-fx-spot'],
+      javaShellContract: DEFAULT_JAVA_SHELL_PLAN_CONTRACT,
+      requiredRosettaAreas: requiredRosettaAreasForScope({
+        productFamily: 'fx-derivatives',
+        implementationGroup: 'fx-single-leg',
+      }),
+      approvedCdmClassNames: ['cdm.event.common.TradeState'],
+    })
+
+    expect(result.status).toBe('failed')
+    expect(result.blockingIssues.some(issue => issue.includes('tool-only sentinel'))).toBe(true)
   })
 
   test('fails when narrative rejects approved TradeState.setTrade builder method', async () => {

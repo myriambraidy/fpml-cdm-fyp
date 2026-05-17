@@ -36,7 +36,8 @@ describe('java generator shell', () => {
       expect(mapperInterface).toContain('interface FpmlToCdmMapper')
       expect(generatedSkeleton).toContain('public class GeneratedFpmlToCdmMapper implements FpmlToCdmMapper')
       expect(generatedSkeleton).toContain('public String mapFile(Path inputPath, Path reportsDir) throws Exception')
-      expect(generatedSkeleton).toContain('TradeState.builder().setTrade(trade).build()')
+      expect(generatedSkeleton).toContain('mapTradeState')
+      expect(generatedSkeleton).toContain('FxForwardTrade')
       expect(runtimeArgs).not.toContain('record RuntimeArgs')
       expect(runtimeArgs).toContain('--output')
       expect(

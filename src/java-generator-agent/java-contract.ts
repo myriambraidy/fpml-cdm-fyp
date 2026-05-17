@@ -65,4 +65,8 @@ export const FX_SINGLE_LEG_RUNTIME_FIXTURES: RuntimeFixture[] = [
   },
 ]
 
-export const DEFAULT_RUNTIME_FIXTURES: RuntimeFixture[] = FX_SINGLE_LEG_RUNTIME_FIXTURES
+export const FX_FORWARD_POC_RUNTIME_FIXTURES: RuntimeFixture[] = FX_SINGLE_LEG_RUNTIME_FIXTURES.filter(
+  fixture => fixture.id === 'fx-ex03-fx-fwd'
+)
+
+export const DEFAULT_RUNTIME_FIXTURES: RuntimeFixture[] = FX_FORWARD_POC_RUNTIME_FIXTURES

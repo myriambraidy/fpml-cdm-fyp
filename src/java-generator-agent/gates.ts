@@ -7,6 +7,7 @@ import { runCdmJavaMemberUsageGate } from './cdm-java-member-usage'
 import { runGeneratedImplementationContractGate } from './generated-implementation-contract'
 import { runGeneratedDocHygieneGate } from './generated-doc-hygiene'
 import { runGeneratedReportConsistencyGate } from './generated-report-consistency'
+import { runLogConsistencyGate } from './log-consistency-gate'
 import { runGeneratedTestShellContractGate } from './generated-test-shell-contract'
 import { runJavaReferenceGate } from './java-reference-gate'
 import { runGeneratedJavaStaticSanityGate } from './java-static-sanity'
@@ -35,6 +36,7 @@ export async function runGates(config: GeneratorRunConfig): Promise<GateResult[]
   pushGateResult(results, await runGeneratedTestShellContractGate(config))
   pushGateResult(results, await runBuilderReadinessUsageGate(config))
   pushGateResult(results, await runGeneratedReportConsistencyGate(config))
+  pushGateResult(results, await runLogConsistencyGate(config))
   pushGateResult(results, await runGeneratedDocHygieneGate(config))
   if (hasBlockingGateFailure(results)) {
     pushSkippedBuildGates(results, config, 'Skipped because an earlier pipeline-integrity or authoritative pre-Maven gate failed.')
@@ -201,7 +203,7 @@ function skippedGate(name: string, command: string, outputSnippet: string): Gate
 
 export async function runGate(name: string, command: string, cwd: string): Promise<GateResult> {
   try {
-    const proc = Bun.spawn(['powershell', '-NoProfile', '-Command', command], {
+    const proc = Bun.spawn(commandArgs(command), {
       cwd,
       stdout: 'pipe',
       stderr: 'pipe',
@@ -228,6 +230,31 @@ export async function runGate(name: string, command: string, cwd: string): Promi
       outputSnippet: truncateForLog(message, 6000),
     }
   }
+}
+
+function commandArgs(command: string): string[] {
+  if (command === 'bun run typecheck') return ['node', './node_modules/typescript/lib/tsc.js', '--noEmit']
+  if (command === 'mvn -q -DskipTests dependency:go-offline') {
+    return ['mvn', '-q', '-DskipTests', 'dependency:go-offline']
+  }
+  if (command === 'mvn -q -DskipTests compile') return ['mvn', '-q', '-DskipTests', 'compile']
+  if (command === 'mvn -q -DskipTests test-compile') return ['mvn', '-q', '-DskipTests', 'test-compile']
+  if (command === 'mvn test') return ['mvn', 'test']
+  if (command === 'mvn package') return ['mvn', 'package']
+  const jarRuntime = /^java -jar target\/([^ ]+\.jar) fixtures\/([^ ]+) --output outputs\/([^ ]+\.json) --reports reports\/([^ ]+)$/u.exec(command)
+  if (jarRuntime !== null) {
+    return [
+      'java',
+      '-jar',
+      `target/${jarRuntime[1]}`,
+      `fixtures/${jarRuntime[2]}`,
+      '--output',
+      `outputs/${jarRuntime[3]}`,
+      '--reports',
+      `reports/${jarRuntime[4]}`,
+    ]
+  }
+  return ['powershell', '-NoProfile', '-Command', command]
 }
 
 function jarRuntimeCommand(fixture: Pick<RuntimeFixture, 'id' | 'fixtureFileName'>): string {

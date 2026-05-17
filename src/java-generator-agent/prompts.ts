@@ -224,6 +224,8 @@ Never write Java import aliases such as "import x.y.Type as Alias"; Java does no
 Fix only what is needed to pass the gates and preserve the final implementation contract.
 Append a repair note explaining the cause, change, and verification result.`
 
+export type RoleContextTier = 'full' | 'compact'
+
 export async function buildRoleMessages(args: {
   systemPrompt: string
   config: GeneratorRunConfig
@@ -231,8 +233,11 @@ export async function buildRoleMessages(args: {
   userInstruction: string
   roleName: GeneratorRole
   extraPaths?: string[]
+  /** Smaller file bundle for recovery passes (fewer tokens). */
+  contextTier?: RoleContextTier
 }): Promise<LLMMessage[]> {
-  const basePaths = [...roleContextPaths(args.roleName, args.workspace), ...(args.extraPaths ?? [])]
+  const tier = args.contextTier ?? 'full'
+  const basePaths = [...roleContextPaths(args.roleName, args.workspace, tier), ...(args.extraPaths ?? [])]
   const docs = await Promise.all(
     basePaths.map(async path => `<file path="${path}">
 ${await readFile(path, 'utf8')}
@@ -260,8 +265,22 @@ ${args.userInstruction}`,
   ]
 }
 
-function roleContextPaths(role: GeneratorRole, workspace: GeneratorWorkspace): string[] {
+function roleContextPaths(
+  role: GeneratorRole,
+  workspace: GeneratorWorkspace,
+  tier: RoleContextTier = 'full'
+): string[] {
   if (role === 'planner') {
+    if (tier === 'compact') {
+      return [
+        workspace.productScopeJsonPath,
+        workspace.javaShellContractPath,
+        workspace.cdmRosettaPreflightPath,
+        workspace.cdmJavaApiSummaryPath,
+        workspace.approvedCdmApiContractSummaryPath,
+        workspace.semanticRecipeValidationMarkdownPath,
+      ]
+    }
     return [
       workspace.inputBriefPath,
       workspace.productScopePath,
@@ -279,6 +298,15 @@ function roleContextPaths(role: GeneratorRole, workspace: GeneratorWorkspace): s
     ]
   }
   if (role === 'critic' || role === 'critique-reviewer') {
+    if (tier === 'compact') {
+      return [
+        workspace.productScopeJsonPath,
+        workspace.javaShellContractPath,
+        workspace.cdmJavaApiSummaryPath,
+        workspace.approvedCdmApiContractSummaryPath,
+        workspace.semanticRecipeValidationMarkdownPath,
+      ]
+    }
     return [
       workspace.productScopeJsonPath,
       workspace.evidenceIndexPath,
@@ -299,6 +327,9 @@ function roleContextPaths(role: GeneratorRole, workspace: GeneratorWorkspace): s
     ]
   }
   if (role === 'repair') {
+    if (tier === 'compact') {
+      return [workspace.javaShellContractPath, workspace.approvedCdmApiContractSummaryPath]
+    }
     return [
       workspace.javaShellContractPath,
       workspace.approvedCdmApiContractSummaryPath,

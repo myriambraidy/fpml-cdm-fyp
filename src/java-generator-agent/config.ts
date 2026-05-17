@@ -9,6 +9,7 @@ export type JavaGeneratorCliOptions = {
   baseOutputDir?: string
   requireApproval?: boolean
   resumeRunOutputDir?: string
+  gatesOnlySmoke?: boolean
 }
 
 export async function createRunConfig(options: JavaGeneratorCliOptions): Promise<GeneratorRunConfig> {
@@ -30,6 +31,7 @@ export async function createRunConfig(options: JavaGeneratorCliOptions): Promise
     maxPlanningRounds: 4,
     maxRepairAttempts: env.JAVA_GENERATOR_MAX_REPAIR_ATTEMPTS,
     requireApproval: options.requireApproval ?? false,
+    gatesOnlySmoke: options.gatesOnlySmoke !== undefined ? options.gatesOnlySmoke : env.JAVA_GENERATOR_GATES_ONLY_SMOKE,
     resume: options.resumeRunOutputDir !== undefined,
     evidenceRoots: [
       'data/agent-cookbook/latest',

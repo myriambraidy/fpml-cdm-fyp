@@ -8,8 +8,8 @@ export type GatePolicy = {
 }
 
 const diagnosticGates = new Set([
+  'typescript-typecheck',
   'source-hygiene',
-  'generated-java-static-sanity',
   'java-reference-check',
   'cdm-java-api-usage',
   'cdm-java-member-usage',
@@ -18,10 +18,16 @@ const diagnosticGates = new Set([
   'builder-readiness-usage',
   'generated-report-consistency',
   'generated-doc-hygiene',
+  'log-consistency',
+])
+
+const reportOnlyDiagnosticGates = new Set([
+  'generated-report-consistency',
+  'generated-doc-hygiene',
+  'log-consistency',
 ])
 
 const authoritativeGates = new Set([
-  'typescript-typecheck',
   'cdm-rosetta-preflight',
   'maven-dependency-preflight',
   'maven-compile',
@@ -29,6 +35,7 @@ const authoritativeGates = new Set([
   'maven-test',
   'maven-package',
   'output-validation',
+  'generated-java-static-sanity',
 ])
 
 const pipelineIntegrityGates = new Set([
@@ -52,7 +59,7 @@ export function policyForGateName(name: string): GatePolicy {
       name,
       authority: 'diagnostic',
       blocksDownstream: false,
-      feedsRepair: true,
+      feedsRepair: !reportOnlyDiagnosticGates.has(name),
     }
   }
   if (pipelineIntegrityGates.has(name)) {

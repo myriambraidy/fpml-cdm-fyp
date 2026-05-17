@@ -2,7 +2,11 @@ import { mkdir, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
-import { DEFAULT_RUNTIME_FIXTURES } from '../../src/java-generator-agent/java-contract'
+import {
+  DEFAULT_RUNTIME_FIXTURES,
+  FX_SINGLE_LEG_RUNTIME_FIXTURES,
+  type RuntimeFixture,
+} from '../../src/java-generator-agent/java-contract'
 import { validateGeneratedOutput } from '../../src/java-generator-agent/output-validation'
 import type {
   GeneratorRole,
@@ -18,7 +22,7 @@ describe('java generator output validation', () => {
       const result = await validateGeneratedOutput(config)
 
       expect(result.status).toBe('failed')
-      expect(result.outputSnippet).toContain('outputs/fx-ex01-fx-spot.json')
+      expect(result.outputSnippet).toContain(`outputs/${DEFAULT_RUNTIME_FIXTURES[0].id}.json`)
     } finally {
       await rm(root, { recursive: true, force: true })
     }
@@ -39,10 +43,11 @@ describe('java generator output validation', () => {
     }
   })
 
-  test('passes minimally shaped fx-ex01 output and reports', async () => {
+  test('passes minimally shaped output when fixture has no strict smoke assert', async () => {
     const root = await mkdtemp(join(tmpdir(), 'java-generator-output-'))
     try {
-      const config = makeConfig(root)
+      const fixture = FX_SINGLE_LEG_RUNTIME_FIXTURES[1]
+      const config = makeConfig(root, [fixture])
       await writeOutputSet(
         config,
         JSON.stringify({
@@ -84,7 +89,7 @@ async function writeOutputSet(config: GeneratorRunConfig, cdmJson: string): Prom
   }
 }
 
-function makeConfig(root: string): GeneratorRunConfig {
+function makeConfig(root: string, runtimeFixtures: RuntimeFixture[] = DEFAULT_RUNTIME_FIXTURES): GeneratorRunConfig {
   return {
     runId: 'test-run',
     productFamily: 'fx-derivatives',
@@ -96,9 +101,9 @@ function makeConfig(root: string): GeneratorRunConfig {
     requireApproval: false,
     resume: false,
     evidenceRoots: ['data_to_learn_from/fpml/fx-derivatives'],
-    fixturePaths: ['data_to_learn_from/fpml/fx-derivatives/fx-ex01-fx-spot.xml'],
-    expectedCdmPaths: ['data_to_learn_from/cdm_parallel/fx-derivatives/fx-ex01-fx-spot.json'],
-    runtimeFixtures: DEFAULT_RUNTIME_FIXTURES,
+    fixturePaths: runtimeFixtures.map(f => f.fpmlPath),
+    expectedCdmPaths: runtimeFixtures.map(f => f.expectedCdmPath),
+    runtimeFixtures,
     roleModels: makeRoleModels(),
   }
 }

@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile, stat } from 'node:fs/promises'
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, isAbsolute, relative, resolve } from 'node:path'
 import type { LLMTool } from '../agent/types'
 import { parseJSON } from '../parser/json-parser'
@@ -49,12 +49,14 @@ import {
   renderSemanticRecipeBundle,
   semanticRecipesJsonPath,
 } from './semantic-recipes'
-import { CDM_JAVA_VERSION } from './java-contract'
+import { CDM_JAVA_VERSION, GENERATED_JAR_NAME } from './java-contract'
+import type { RunEventWriter } from './run-events'
 import type {
   ActiveStageContext,
   GeneratorRunConfig,
   ToolAuditEntry,
   ToolExecutionState,
+  ToolFailureKind,
   ToolResult,
 } from './types'
 
@@ -122,6 +124,7 @@ type ToolContext = {
   audit: ToolAuditEntry[]
   state: ToolExecutionState
   stage: ActiveStageContext
+  runEvents?: RunEventWriter
 }
 
 export const GENERATOR_LLM_TOOLS: LLMTool[] = [
@@ -314,29 +317,16 @@ export async function executeGeneratorTool(
 ): Promise<string> {
   const key = toolCacheKey(name, input)
   const cached = context.state.cache.get(key)
+  const startedAt = Date.now()
   if (cached) {
     cached.count += 1
-    context.audit.push({
-      tool: name,
-      inputSummary: summarizeInput(input),
-      outputSummary: truncateForLog(cached.output, 500),
-      sourcePaths: cached.sourcePaths,
-      cacheStatus: 'hit',
-      ok: cached.ok,
-    })
+    await appendToolAudit(context, name, input, cached, 'hit', startedAt)
     return cached.ok ? `CACHE_HIT\n${cached.output}` : `CACHE_HIT_BLOCKED_FAILURE\n${cached.output}`
   }
 
   const result = await safeExecuteTool(context, name, input)
   context.state.cache.set(key, { ...result, count: 1 })
-  context.audit.push({
-    tool: name,
-    inputSummary: summarizeInput(input),
-    outputSummary: truncateForLog(result.output, 500),
-    sourcePaths: result.sourcePaths,
-    cacheStatus: 'miss',
-    ok: result.ok,
-  })
+  await appendToolAudit(context, name, input, result, 'miss', startedAt)
 
   if (!result.ok) {
     const repeats = (context.state.failedRepeats.get(key) ?? 0) + 1
@@ -345,6 +335,113 @@ export async function executeGeneratorTool(
   }
 
   return result.ok ? result.output : `ERROR: ${result.output}`
+}
+
+async function appendToolAudit(
+  context: ToolContext,
+  name: string,
+  input: ToolInput,
+  result: ToolResult,
+  cacheStatus: 'miss' | 'hit',
+  startedAt: number
+): Promise<void> {
+  const sequence = context.audit.length + 1
+  const durationMs = Date.now() - startedAt
+  const entry: ToolAuditEntry = {
+    sequence,
+    timestamp: new Date().toISOString(),
+    role: context.stage.role,
+    round: context.stage.round,
+    attempt: context.stage.attempt,
+    phase: context.stage.phase,
+    tool: name,
+    inputSummary: summarizeInput(input),
+    outputSummary: truncateForLog(result.output, 500),
+    sourcePaths: result.sourcePaths,
+    cacheStatus,
+    ok: result.ok,
+    durationMs,
+    failureKind: result.ok ? undefined : classifyToolFailure(result.output),
+  }
+  if (shouldPersistToolPayload(name, result)) {
+    const rel = await persistToolPayload(context.config, sequence, name, input, result.output)
+    entry.inputArtifactPath = rel.inputRel
+    entry.outputArtifactPath = rel.outputRel
+  }
+  context.audit.push(entry)
+  if (context.runEvents) {
+    await context.runEvents.emit({
+      kind: 'tool.call.completed',
+      role: context.stage.role,
+      round: context.stage.round,
+      attempt: context.stage.attempt,
+      phase: context.stage.phase,
+      tool: name,
+      status: result.ok ? 'passed' : 'failed',
+      summary: truncateForLog(result.output, 200),
+      artifactPaths:
+        entry.inputArtifactPath !== undefined && entry.outputArtifactPath !== undefined
+          ? [entry.inputArtifactPath, entry.outputArtifactPath]
+          : undefined,
+    })
+  }
+}
+
+function classifyToolFailure(output: string): ToolFailureKind {
+  const normalized = output.toLowerCase()
+  if (normalized.includes('invalid write path') || normalized.includes('outside allowed roots')) {
+    return 'path_rejected'
+  }
+  if (normalized.includes('blocked') || normalized.includes('not allowed')) {
+    return 'policy_block'
+  }
+  return 'tool_error'
+}
+
+function shouldPersistToolPayload(name: string, result: ToolResult): boolean {
+  return (
+    !result.ok
+    || name === 'write_file'
+    || name === 'write_generated_java'
+    || name === 'write_generated_java_file'
+    || name === 'run_command'
+    || result.output.length > 500
+  )
+}
+
+function sanitizeToolInputRecord(input: ToolInput): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const [k, v] of Object.entries(input)) {
+    if (typeof v === 'string') out[k] = v
+  }
+  return out
+}
+
+async function persistToolPayload(
+  config: GeneratorRunConfig,
+  sequence: number,
+  name: string,
+  input: ToolInput,
+  output: string
+): Promise<{ inputRel: string; outputRel: string }> {
+  const safeTool = name.replace(/[^a-z0-9_-]/giu, '-')
+  const baseDir = resolve(config.runOutputDir, 'build-reports', 'tool-payloads')
+  await mkdir(baseDir, { recursive: true })
+  const base = resolve(baseDir, `${String(sequence).padStart(6, '0')}-${safeTool}`)
+  const inputPath = `${base}-input.json`
+  const outputPath = `${base}-output.txt`
+  await writeFile(inputPath, JSON.stringify(sanitizeToolInputRecord(input), null, 2), 'utf8')
+  await writeFile(outputPath, output, 'utf8')
+  return {
+    inputRel: toRunRelativePath(config.runOutputDir, inputPath),
+    outputRel: toRunRelativePath(config.runOutputDir, outputPath),
+  }
+}
+
+function toRunRelativePath(runOutputDir: string, absolutePath: string): string {
+  const rel = relative(resolve(runOutputDir), resolve(absolutePath))
+  if (rel.startsWith('..')) return resolve(absolutePath).replace(/\\/g, '/')
+  return rel.replace(/\\/g, '/')
 }
 
 export function createToolExecutionState(): ToolExecutionState {
@@ -422,20 +519,20 @@ async function executeTool(
 
 async function readFileTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
   const path = requireString(input.path, 'path')
-  const resolved = assertAllowedRead(config, path)
+  const resolved = await resolveAllowedReadPath(config, path)
   const content = await readFile(resolved, 'utf8')
   return { ok: true, output: truncateForLog(content, 16_000), sourcePaths: [resolved] }
 }
 
 async function listFilesTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
   const root = requireString(input.root, 'root')
-  const resolved = assertAllowedRead(config, root)
+  const resolved = await resolveAllowedReadPath(config, root)
   const files = await listFiles(resolved, 200)
   return { ok: true, output: files.join('\n'), sourcePaths: [resolved] }
 }
 
 async function searchTextTool(config: GeneratorRunConfig, input: ToolInput): Promise<ToolResult> {
-  const root = assertAllowedRead(config, requireString(input.root, 'root'))
+  const root = await resolveAllowedReadPath(config, requireString(input.root, 'root'))
   const pattern = requireString(input.pattern, 'pattern').toLowerCase()
   const files = await listFiles(root, 500)
   const matches: string[] = []
@@ -459,7 +556,7 @@ async function parseXmlSummaryTool(
   config: GeneratorRunConfig,
   input: ToolInput
 ): Promise<ToolResult> {
-  const path = assertAllowedRead(config, requireString(input.path, 'path'))
+  const path = await resolveAllowedReadPath(config, requireString(input.path, 'path'))
   const fields = parseXML(await readFile(path, 'utf8'))
   const summary = fields
     .slice(0, 300)
@@ -472,7 +569,7 @@ async function parseJsonSummaryTool(
   config: GeneratorRunConfig,
   input: ToolInput
 ): Promise<ToolResult> {
-  const path = assertAllowedRead(config, requireString(input.path, 'path'))
+  const path = await resolveAllowedReadPath(config, requireString(input.path, 'path'))
   const fields = parseJSON(await readFile(path, 'utf8'))
   const summary = fields
     .slice(0, 300)
@@ -1212,8 +1309,15 @@ function javaPackageFromGeneratedPath(relativePath: string): string {
   return `${GENERATED_IMPL_PACKAGE}.${suffix.replace(/\//gu, '.')}`
 }
 
-function assertAllowedRead(config: GeneratorRunConfig, target: string): string {
-  const resolved = resolve(target)
+export async function resolveAllowedReadPath(config: GeneratorRunConfig, target: string): Promise<string> {
+  const runRoot = resolve(config.runOutputDir)
+  if (!isAbsolute(target)) {
+    const candidate = resolve(runRoot, target)
+    if (isInsideOrEqual(runRoot, candidate) && (await exists(candidate))) {
+      return candidate
+    }
+  }
+  const resolvedPath = resolve(target)
   const allowedRoots = [
     config.runOutputDir,
     ...config.evidenceRoots,
@@ -1226,7 +1330,7 @@ function assertAllowedRead(config: GeneratorRunConfig, target: string): string {
     'data_to_learn_from',
   ].map(path => resolve(path))
 
-  if (allowedRoots.some(root => isInsideOrEqual(root, resolved))) return resolved
+  if (allowedRoots.some(root => isInsideOrEqual(root, resolvedPath))) return resolvedPath
   throw new Error(`Read path outside allowed roots: ${target}`)
 }
 
@@ -1303,6 +1407,6 @@ function isAllowedCommand(command: string, cwd: string, runOutputDir: string): b
     'mvn -q -dskiptests dependency:go-offline',
   ])
   if (mavenInRun && allowedMaven.has(normalized)) return true
-  if (normalized.startsWith('java -jar target/fpml-cdm-mapper.jar ') && mavenInRun) return true
+  if (normalized.startsWith(`java -jar target/${GENERATED_JAR_NAME}.jar `.toLowerCase()) && mavenInRun) return true
   return false
 }

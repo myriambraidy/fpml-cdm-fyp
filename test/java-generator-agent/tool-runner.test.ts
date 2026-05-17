@@ -92,6 +92,43 @@ describe('java generator tool runner', () => {
     expect(lastCall?.at(-1)?.content).toContain('state BLOCKED')
   })
 
+  test('ignores conversational final phrase when required write tools already ran', async () => {
+    const llm = new QueueLLM([
+      {
+        content: '',
+        tool_calls: [
+          {
+            id: 'call-1',
+            name: 'write_generated_java_file',
+            input: {
+              path: 'src/main/java/com/fpml/cdm/fx/mapper/generated/GeneratedFpmlToCdmMapper.java',
+              content: 'package com.fpml.cdm.fx.mapper.generated; public final class GeneratedFpmlToCdmMapper {}',
+            },
+          },
+        ],
+      },
+      { content: 'Done. Would you like me to add tests?' },
+    ])
+
+    const output = await callRoleWithTools({
+      llm,
+      messages: [{ role: 'user', content: 'Write.' }],
+      tools: [],
+      model: 'minimax/minimax-m2.7',
+      maxTokens: 1000,
+      maxToolRounds: 2,
+      toolCallPolicy: {
+        requiredToolNames: ['write_generated_java_file'],
+        minimumNativeToolCalls: 1,
+        pseudoToolCallsAreFatal: true,
+        disallowConversationalFinalContent: true,
+      },
+      executeTool: async () => 'Wrote file.',
+    })
+
+    expect(output.policyFailures).not.toContain('conversational_write_phase_output')
+  })
+
   test('reports policy failure when required write tool is not called', async () => {
     const llm = new QueueLLM([{ content: 'Done without writing.' }])
 

@@ -27,6 +27,8 @@ export type GeneratorRunConfig = {
   maxPlanningRounds: number
   maxRepairAttempts: number
   requireApproval: boolean
+  /** When true with fx-ex03 single-fixture POC shape, run gates before the LLM planning loop (opt-in smoke). */
+  gatesOnlySmoke?: boolean
   resume: boolean
   evidenceRoots: string[]
   fixturePaths: string[]
@@ -111,13 +113,34 @@ export type GateResult = {
   authority?: GateAuthority
 }
 
+export type JsonPrimitive = string | number | boolean | null
+
+export type JsonValue = JsonPrimitive | JsonValue[] | { [key: string]: JsonValue }
+
+export type RolePhase = 'planning' | 'research' | 'write' | 'gates' | 'finalize'
+
+export type ToolFailureKind = 'tool_error' | 'policy_block' | 'repeated_failure' | 'path_rejected'
+
 export type ToolAuditEntry = {
+  sequence: number
+  timestamp: string
+  role: GeneratorRole
+  round?: number
+  attempt?: number
+  phase?: RolePhase
+  llmCallId?: string
+  toolCallId?: string
+  toolRound?: number
   tool: string
   inputSummary: string
   outputSummary: string
+  inputArtifactPath?: string
+  outputArtifactPath?: string
   sourcePaths: string[]
   cacheStatus?: 'miss' | 'hit'
   ok?: boolean
+  durationMs?: number
+  failureKind?: ToolFailureKind
 }
 
 export type ToolResult = {
@@ -144,6 +167,8 @@ export type ToolExecutionState = {
 export type ActiveStageContext = {
   role: GeneratorRole
   round?: number
+  attempt?: number
+  phase?: RolePhase
   allowedWritePaths: string[]
 }
 
@@ -152,13 +177,20 @@ export type StageStatus = 'pending' | 'running' | 'passed' | 'failed' | 'skipped
 export type StageManifestEntry = {
   stage: GeneratorRole | 'preflight' | 'gates'
   round?: number
+  attempt?: number
+  phase?: RolePhase
   status: StageStatus
   artifact?: string
+  transcriptPath?: string
+  eventIds?: string[]
   model?: string
   startedAt: string
   endedAt?: string
+  llmCalls?: number
   toolCalls: number
+  successfulWriteCalls?: number
   failedToolCalls: number
+  policyFailures?: string[]
   message?: string
 }
 

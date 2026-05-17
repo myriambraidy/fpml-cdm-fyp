@@ -102,7 +102,7 @@ function sliceSection(planMarkdown: string, heading: RegExp): string | null {
 function extractRuntimeFixtureIdList(sectionSlice: string): string[] {
   const ids: string[] = []
   for (const line of sectionSlice.split('\n')) {
-    const m = /^\s*[-*]\s+([a-z][a-z0-9_-]*)\s*$/i.exec(line)
+    const m = /^\s*[-*]\s+([a-z][a-z0-9_-]*)(?:\s*:\s*.*)?\s*$/i.exec(line)
     if (m) ids.push(m[1])
   }
   return ids
@@ -141,6 +141,12 @@ export function validatePlannerPlan(args: {
 }): PlanValidationResult {
   const blockingIssues: string[] = []
   const warnings: string[] = []
+
+  if (isToolOnlyPlannerOutput(args.planMarkdown)) {
+    blockingIssues.push(
+      'Planner did not produce a Markdown plan; final output was tool-only sentinel [tool calls requested].'
+    )
+  }
 
   for (const fixture of args.scope.nonFxFixtures) {
     if (mentionsPath(args.planMarkdown, fixture.fpmlPath)) {
@@ -553,9 +559,8 @@ function findCdmClassReferences(markdown: string): Array<{
       }
     }
     if (!isImplementationClassLine(line.text)) continue
-    for (const match of line.text.matchAll(/`([A-Z][A-Za-z0-9_]+)`|\b([A-Z][A-Za-z0-9_]+)\b/gu)) {
-      const className = match[1] ?? match[2]
-      if (className === undefined || isAllowedNonCdmSimpleName(className)) continue
+    for (const className of findSimpleClassReferencesInImplementationLine(line.text)) {
+      if (isAllowedNonCdmSimpleName(className)) continue
       references.push({
         className,
         line: line.text,
@@ -565,6 +570,35 @@ function findCdmClassReferences(markdown: string): Array<{
     }
   }
   return references
+}
+
+function findSimpleClassReferencesInImplementationLine(line: string): string[] {
+  const references: string[] = []
+  for (const match of line.matchAll(/`([A-Z][A-Za-z0-9_]*)`/gu)) {
+    if (match[1] !== undefined) references.push(match[1])
+  }
+  for (const match of line.matchAll(/`([A-Z][A-Za-z0-9_]*)\.([A-Z][A-Z0-9_]*)`/gu)) {
+    if (match[1] !== undefined) references.push(match[1])
+    if (match[2] !== undefined) references.push(match[2])
+  }
+  for (const match of line.matchAll(/\b(?:Build|Use|Construct|Attach|Set)\s+([^.|;\n]+)/gu)) {
+    const phrase = match[1]
+    if (phrase !== undefined) references.push(...capitalizedTokens(phrase))
+  }
+  const destinationMatch = /\bDestination:\s*([^|]+)/iu.exec(line)
+  if (destinationMatch?.[1] !== undefined) {
+    references.push(...capitalizedTokens(destinationMatch[1]))
+  }
+  if (/key\s+classes\s*:|implementation\s+classes\s*:|approved\s+Java\s+classes/iu.test(line)) {
+    references.push(...capitalizedTokens(line))
+  }
+  return [...new Set(references)]
+}
+
+function capitalizedTokens(text: string): string[] {
+  return [...text.matchAll(/\b([A-Z][A-Za-z0-9_]*)\b/gu)]
+    .map(match => match[1])
+    .filter((value): value is string => value !== undefined)
 }
 
 function isImplementationClassLine(line: string): boolean {
@@ -590,6 +624,17 @@ function isImplementationClassLine(line: string): boolean {
 function isAllowedNonCdmSimpleName(className: string): boolean {
   if (/^Map[A-Z]/u.test(className)) return true
   return new Set([
+    'At',
+    'If',
+    'For',
+    'Each',
+    'All',
+    'No',
+    'Only',
+    'Final',
+    'Runtime',
+    'Source',
+    'Destination',
     'Approved',
     'Build',
     'Use',
@@ -612,6 +657,10 @@ function isAllowedNonCdmSimpleName(className: string): boolean {
     'DOM',
     'StAX',
   ]).has(className)
+}
+
+function isToolOnlyPlannerOutput(markdown: string): boolean {
+  return markdown.trim() === '[tool calls requested]'
 }
 
 function simpleClassName(className: string): string {
