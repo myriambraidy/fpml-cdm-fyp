@@ -1,0 +1,273 @@
+{
+  "className": "cdm.base.staticdata.asset.common.ProductTaxonomy",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.asset.common",
+  "simpleName": "ProductTaxonomy",
+  "methods": [
+    {
+      "name": "getPrimaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum getPrimaryAssetClass()"
+    },
+    {
+      "name": "getSecondaryAssetClass",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum> getSecondaryAssetClass()"
+    },
+    {
+      "name": "getProductQualifier",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getProductQualifier()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.ProductTaxonomy> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.asset.common.ProductTaxonomy> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.Taxonomy",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Taxonomy build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePrimaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder getOrCreatePrimaryAssetClass()"
+    },
+    {
+      "name": "getPrimaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder getPrimaryAssetClass()"
+    },
+    {
+      "name": "getOrCreateSecondaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder getOrCreateSecondaryAssetClass(int)"
+    },
+    {
+      "name": "getSecondaryAssetClass",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum$FieldWithMetaAssetClassEnumBuilder> getSecondaryAssetClass()"
+    },
+    {
+      "name": "setSource",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.TaxonomySourceEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setSource(cdm.base.staticdata.asset.common.TaxonomySourceEnum)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.TaxonomyValue"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setValue(cdm.base.staticdata.asset.common.TaxonomyValue)"
+    },
+    {
+      "name": "setPrimaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setPrimaryAssetClass(cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum)"
+    },
+    {
+      "name": "setPrimaryAssetClassValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetClassEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setPrimaryAssetClassValue(cdm.base.staticdata.asset.common.AssetClassEnum)"
+    },
+    {
+      "name": "addSecondaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClass(cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum)"
+    },
+    {
+      "name": "addSecondaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClass(cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum, int)"
+    },
+    {
+      "name": "addSecondaryAssetClassValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetClassEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClassValue(cdm.base.staticdata.asset.common.AssetClassEnum)"
+    },
+    {
+      "name": "addSecondaryAssetClassValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetClassEnum",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClassValue(cdm.base.staticdata.asset.common.AssetClassEnum, int)"
+    },
+    {
+      "name": "addSecondaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClass(java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum>)"
+    },
+    {
+      "name": "setSecondaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setSecondaryAssetClass(java.util.List<? extends cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum>)"
+    },
+    {
+      "name": "addSecondaryAssetClassValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.AssetClassEnum>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder addSecondaryAssetClassValue(java.util.List<? extends cdm.base.staticdata.asset.common.AssetClassEnum>)"
+    },
+    {
+      "name": "setSecondaryAssetClassValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.AssetClassEnum>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setSecondaryAssetClassValue(java.util.List<? extends cdm.base.staticdata.asset.common.AssetClassEnum>)"
+    },
+    {
+      "name": "setProductQualifier",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder setProductQualifier(java.lang.String)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder prune()"
+    },
+    {
+      "name": "getPrimaryAssetClass",
+      "returnType": "cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.metafields.FieldWithMetaAssetClassEnum getPrimaryAssetClass()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder prune()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.TaxonomyValue"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder setValue(cdm.base.staticdata.asset.common.TaxonomyValue)"
+    },
+    {
+      "name": "setSource",
+      "returnType": "cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.TaxonomySourceEnum"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.Taxonomy$TaxonomyBuilder setSource(cdm.base.staticdata.asset.common.TaxonomySourceEnum)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

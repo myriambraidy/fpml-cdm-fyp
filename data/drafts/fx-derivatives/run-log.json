@@ -1,0 +1,1247 @@
+[
+  {
+    "timestamp": "2026-04-23T19:38:52.790Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "fx-derivatives",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.793Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "fx-derivatives",
+      "includedPairs": 25,
+      "missingExamples": 1,
+      "ignoredExamples": 0,
+      "exactMatches": 22,
+      "normalizedMatches": 0,
+      "aliasMatches": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.794Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex01-fx-spot.xml",
+      "pairIndex": 1,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "1/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.795Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+      "pairIndex": 2,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "2/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.795Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex03-fx-fwd.xml",
+      "pairIndex": 3,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "3/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.796Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+      "pairIndex": 4,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "4/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.796Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+      "pairIndex": 5,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "5/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.796Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+      "pairIndex": 6,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "6/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.796Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex07-non-deliverable-forward.xml",
+      "pairIndex": 7,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "7/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.796Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex08-fx-swap.xml",
+      "pairIndex": 8,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "8/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.808Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex01-fx-spot.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14295,
+      "retryAttempt": 0,
+      "fpmlChars": 2722,
+      "cdmChars": 6228,
+      "fpmlFields": 27,
+      "cdmFields": 96
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.814Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14899,
+      "retryAttempt": 0,
+      "fpmlChars": 3289,
+      "cdmChars": 6233,
+      "fpmlFields": 34,
+      "cdmFields": 96
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.817Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex03-fx-fwd.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14583,
+      "retryAttempt": 0,
+      "fpmlChars": 2815,
+      "cdmChars": 6424,
+      "fpmlFields": 29,
+      "cdmFields": 100
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.819Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16198,
+      "retryAttempt": 0,
+      "fpmlChars": 4604,
+      "cdmChars": 6225,
+      "fpmlFields": 35,
+      "cdmFields": 96
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.822Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14891,
+      "retryAttempt": 0,
+      "fpmlChars": 3111,
+      "cdmChars": 6424,
+      "fpmlFields": 31,
+      "cdmFields": 100
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.827Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18243,
+      "retryAttempt": 0,
+      "fpmlChars": 6665,
+      "cdmChars": 6217,
+      "fpmlFields": 47,
+      "cdmFields": 96
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.830Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex07-non-deliverable-forward.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15479,
+      "retryAttempt": 0,
+      "fpmlChars": 3582,
+      "cdmChars": 6519,
+      "fpmlFields": 38,
+      "cdmFields": 101
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:38:52.833Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex08-fx-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18809,
+      "retryAttempt": 0,
+      "fpmlChars": 3892,
+      "cdmChars": 9640,
+      "fpmlFields": 42,
+      "cdmFields": 141
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.009Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex03-fx-fwd.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42214,
+      "promptChars": 14583,
+      "responseChars": 3217,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.010Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex09-euro-opt.xml",
+      "pairIndex": 9,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "9/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.016Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex09-euro-opt.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19314,
+      "retryAttempt": 0,
+      "fpmlChars": 5271,
+      "cdmChars": 8622,
+      "fpmlFields": 44,
+      "cdmFields": 122
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.049Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42253,
+      "promptChars": 14891,
+      "responseChars": 3700,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.050Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex10-amer-opt.xml",
+      "pairIndex": 10,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "10/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:35.053Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex10-amer-opt.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19604,
+      "retryAttempt": 0,
+      "fpmlChars": 4828,
+      "cdmChars": 9291,
+      "fpmlFields": 44,
+      "cdmFields": 130
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:36.907Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex08-fx-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44110,
+      "promptChars": 18809,
+      "responseChars": 2458,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:36.907Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+      "pairIndex": 11,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "11/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:36.910Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21075,
+      "retryAttempt": 0,
+      "fpmlChars": 4707,
+      "cdmChars": 10623,
+      "fpmlFields": 44,
+      "cdmFields": 137
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.609Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex07-non-deliverable-forward.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47813,
+      "promptChars": 15479,
+      "responseChars": 2499,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.609Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex12-fx-barrier-option.xml",
+      "pairIndex": 12,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "12/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.612Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex12-fx-barrier-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18056,
+      "retryAttempt": 0,
+      "fpmlChars": 4264,
+      "cdmChars": 8206,
+      "fpmlFields": 40,
+      "cdmFields": 118
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.705Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex01-fx-spot.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47910,
+      "promptChars": 14295,
+      "responseChars": 2753,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.705Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex13-fx-dbl-barrier-option.xml",
+      "pairIndex": 13,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "13/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.710Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex13-fx-dbl-barrier-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19176,
+      "retryAttempt": 0,
+      "fpmlChars": 5255,
+      "cdmChars": 8474,
+      "fpmlFields": 55,
+      "cdmFields": 121
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.994Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48198,
+      "promptChars": 16198,
+      "responseChars": 3619,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:40.995Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex14-euro-digital-option.xml",
+      "pairIndex": 14,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "14/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:41.001Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex14-euro-digital-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15156,
+      "retryAttempt": 0,
+      "fpmlChars": 3771,
+      "cdmChars": 5879,
+      "fpmlFields": 41,
+      "cdmFields": 87
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.673Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49877,
+      "promptChars": 18243,
+      "responseChars": 2648,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.674Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+      "pairIndex": 15,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "15/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.677Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15783,
+      "retryAttempt": 0,
+      "fpmlChars": 4382,
+      "cdmChars": 5883,
+      "fpmlFields": 49,
+      "cdmFields": 87
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.944Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50149,
+      "promptChars": 14899,
+      "responseChars": 2275,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.945Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex16-one-touch-option.xml",
+      "pairIndex": 16,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "16/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:39:42.950Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex16-one-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16328,
+      "retryAttempt": 0,
+      "fpmlChars": 3969,
+      "cdmChars": 6722,
+      "fpmlFields": 43,
+      "cdmFields": 95
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:15.465Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex09-euro-opt.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 40455,
+      "promptChars": 19314,
+      "responseChars": 3537,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:15.465Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex17-no-touch-option.xml",
+      "pairIndex": 17,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "17/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:15.476Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex17-no-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16268,
+      "retryAttempt": 0,
+      "fpmlChars": 3912,
+      "cdmChars": 6721,
+      "fpmlFields": 43,
+      "cdmFields": 95
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:17.986Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41079,
+      "promptChars": 21075,
+      "responseChars": 3189,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:17.987Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex18-double-one-touch-option.xml",
+      "pairIndex": 18,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "18/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:17.994Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex18-double-one-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17048,
+      "retryAttempt": 0,
+      "fpmlChars": 4669,
+      "cdmChars": 6728,
+      "fpmlFields": 53,
+      "cdmFields": 95
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:24.946Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex13-fx-dbl-barrier-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44240,
+      "promptChars": 19176,
+      "responseChars": 4512,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:24.946Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex19-double-no-touch-option.xml",
+      "pairIndex": 19,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "19/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:24.949Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex19-double-no-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17029,
+      "retryAttempt": 0,
+      "fpmlChars": 4653,
+      "cdmChars": 6727,
+      "fpmlFields": 53,
+      "cdmFields": 95
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:25.406Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex10-amer-opt.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50356,
+      "promptChars": 19604,
+      "responseChars": 4266,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:25.407Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex20-avg-rate-option-parametric.xml",
+      "pairIndex": 20,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "20/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:25.412Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex20-avg-rate-option-parametric.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19477,
+      "retryAttempt": 0,
+      "fpmlChars": 3881,
+      "cdmChars": 9787,
+      "fpmlFields": 43,
+      "cdmFields": 131
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:27.131Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44457,
+      "promptChars": 15783,
+      "responseChars": 3182,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:27.132Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex21-avg-rate-option-specific.xml",
+      "pairIndex": 21,
+      "totalPairs": 25,
+      "strategy": "alias",
+      "progress": "21/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:27.138Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex21-avg-rate-option-specific.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21843,
+      "retryAttempt": 0,
+      "fpmlChars": 7593,
+      "cdmChars": 8642,
+      "fpmlFields": 79,
+      "cdmFields": 121
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:29.493Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex14-euro-digital-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48497,
+      "promptChars": 15156,
+      "responseChars": 4044,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:29.494Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex22-straddle.xml",
+      "pairIndex": 22,
+      "totalPairs": 25,
+      "strategy": "alias",
+      "progress": "22/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:29.497Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex22-straddle.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 13903,
+      "retryAttempt": 0,
+      "fpmlChars": 6307,
+      "cdmChars": 2643,
+      "fpmlFields": 67,
+      "cdmFields": 42
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:38.233Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex12-fx-barrier-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 57623,
+      "promptChars": 18056,
+      "responseChars": 3503,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:38.234Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex23-delta-hedge.xml",
+      "pairIndex": 23,
+      "totalPairs": 25,
+      "strategy": "alias",
+      "progress": "23/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:38.237Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex23-delta-hedge.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 13382,
+      "retryAttempt": 0,
+      "fpmlChars": 5780,
+      "cdmChars": 2643,
+      "fpmlFields": 57,
+      "cdmFields": 42
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:43.518Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex16-one-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 60573,
+      "promptChars": 16328,
+      "responseChars": 2841,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:43.518Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/td-ex01-simple-term-deposit.xml",
+      "pairIndex": 24,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "24/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:40:43.522Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/td-ex01-simple-term-deposit.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 9793,
+      "retryAttempt": 0,
+      "fpmlChars": 2378,
+      "cdmChars": 2438,
+      "fpmlFields": 23,
+      "cdmFields": 40
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:06.354Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex19-double-no-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41408,
+      "promptChars": 17029,
+      "responseChars": 2874,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:06.354Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml",
+      "pairIndex": 25,
+      "totalPairs": 25,
+      "strategy": "exact",
+      "progress": "25/25"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:06.356Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 12315,
+      "retryAttempt": 0,
+      "fpmlChars": 4765,
+      "cdmChars": 2549,
+      "fpmlFields": 46,
+      "cdmFields": 42
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:06.822Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex21-avg-rate-option-specific.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 39690,
+      "promptChars": 21843,
+      "responseChars": 2104,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:06.993Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex18-double-one-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49006,
+      "promptChars": 17048,
+      "responseChars": 3571,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:07.067Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex23-delta-hedge.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 28833,
+      "promptChars": 13382,
+      "responseChars": 1643,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:07.978Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex20-avg-rate-option-parametric.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42570,
+      "promptChars": 19477,
+      "responseChars": 4646,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:09.733Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex17-no-touch-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 54268,
+      "promptChars": 16268,
+      "responseChars": 2669,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:24.806Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/td-ex01-simple-term-deposit.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41286,
+      "promptChars": 9793,
+      "responseChars": 2056,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:25.479Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/fx-ex22-straddle.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 55985,
+      "promptChars": 13903,
+      "responseChars": 2097,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:47.251Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 40897,
+      "promptChars": 12315,
+      "responseChars": 1612,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:47.252Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 25,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:47.252Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "fx-derivatives",
+      "successfulPairCount": 25,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 25
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:41:47.284Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "fx-derivatives",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16293,
+      "retryAttempt": 0,
+      "semanticPairCount": 25,
+      "structuralPairCount": 25,
+      "includedPairCount": 25,
+      "missingExampleCount": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.152Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "fx-derivatives",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 16293,
+      "responseChars": 24527,
+      "retryAttempt": 0,
+      "stableRuleCount": 5,
+      "transformationCount": 6
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.153Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 25
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.154Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.155Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 9.8,
+      "rating": "strong",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.157Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:43:49.157Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "fx-derivatives",
+      "status": "success",
+      "durationMs": 296367,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\run-log.json"
+    }
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "contextId": "fx-single-leg-cdm6-poc",
+  "generatedAt": "2026-04-28T20:08:07.873Z",
+  "blocks": [
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegCounterpartyList",
+      "name": "MapFxSingleLegCounterpartyList",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 17,
+      "endLine": 27,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegNonTransferableProduct",
+      "name": "MapFxSingleLegNonTransferableProduct",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 34,
+      "endLine": 47,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegEconomicTerms",
+      "name": "MapFxSingleLegEconomicTerms",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 48,
+      "endLine": 64,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxCoreDetailsModelToSettlementPayout",
+      "name": "MapFxCoreDetailsModelToSettlementPayout",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 65,
+      "endLine": 111,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegPriceQuantityList",
+      "name": "MapFxSingleLegPriceQuantityList",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 112,
+      "endLine": 120,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-product-fxsingleleg-func.rosetta:MapFxSingleLegAccountPartyReference",
+      "name": "MapFxSingleLegAccountPartyReference",
+      "kind": "func",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "startLine": 121,
+      "endLine": 134,
+      "relevanceReason": "Named FX single-leg Rosetta ingest function selected for PoC1 mapping context"
+    }
+  ]
+}

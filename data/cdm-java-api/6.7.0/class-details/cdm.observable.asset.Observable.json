@@ -1,0 +1,179 @@
+{
+  "className": "cdm.observable.asset.Observable",
+  "exists": true,
+  "packageName": "cdm.observable.asset",
+  "simpleName": "Observable",
+  "methods": [
+    {
+      "name": "getAsset",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset getAsset()"
+    },
+    {
+      "name": "getBasket",
+      "returnType": "cdm.observable.asset.Basket",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Basket getBasket()"
+    },
+    {
+      "name": "getIndex",
+      "returnType": "cdm.observable.asset.Index",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Index getIndex()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.observable.asset.Observable",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Observable build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Observable$ObservableBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [],
+      "raw": "public static cdm.observable.asset.Observable$ObservableBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.Observable>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.Observable> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.observable.asset.Observable>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.observable.asset.Observable> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.observable.asset.Observable$ObservableBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateAsset",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder getOrCreateAsset()"
+    },
+    {
+      "name": "getAsset",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder getAsset()"
+    },
+    {
+      "name": "getOrCreateBasket",
+      "returnType": "cdm.observable.asset.Basket$BasketBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Basket$BasketBuilder getOrCreateBasket()"
+    },
+    {
+      "name": "getBasket",
+      "returnType": "cdm.observable.asset.Basket$BasketBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Basket$BasketBuilder getBasket()"
+    },
+    {
+      "name": "getOrCreateIndex",
+      "returnType": "cdm.observable.asset.Index$IndexBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Index$IndexBuilder getOrCreateIndex()"
+    },
+    {
+      "name": "getIndex",
+      "returnType": "cdm.observable.asset.Index$IndexBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Index$IndexBuilder getIndex()"
+    },
+    {
+      "name": "setAsset",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Asset"
+      ],
+      "raw": "public abstract cdm.observable.asset.Observable$ObservableBuilder setAsset(cdm.base.staticdata.asset.common.Asset)"
+    },
+    {
+      "name": "setBasket",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [
+        "cdm.observable.asset.Basket"
+      ],
+      "raw": "public abstract cdm.observable.asset.Observable$ObservableBuilder setBasket(cdm.observable.asset.Basket)"
+    },
+    {
+      "name": "setIndex",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [
+        "cdm.observable.asset.Index"
+      ],
+      "raw": "public abstract cdm.observable.asset.Observable$ObservableBuilder setIndex(cdm.observable.asset.Index)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.observable.asset.Observable$ObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Observable$ObservableBuilder prune()"
+    },
+    {
+      "name": "getIndex",
+      "returnType": "cdm.observable.asset.Index",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.Index getIndex()"
+    },
+    {
+      "name": "getBasket",
+      "returnType": "cdm.observable.asset.Basket",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.Basket getBasket()"
+    },
+    {
+      "name": "getAsset",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Asset getAsset()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

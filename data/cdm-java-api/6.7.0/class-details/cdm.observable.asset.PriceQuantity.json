@@ -1,0 +1,383 @@
+{
+  "className": "cdm.observable.asset.PriceQuantity",
+  "exists": true,
+  "packageName": "cdm.observable.asset",
+  "simpleName": "PriceQuantity",
+  "methods": [
+    {
+      "name": "getPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule> getPrice()"
+    },
+    {
+      "name": "getQuantity",
+      "returnType": "java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule> getQuantity()"
+    },
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.FieldWithMetaObservable",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.FieldWithMetaObservable getObservable()"
+    },
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.observable.asset.PriceQuantity",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public static cdm.observable.asset.PriceQuantity$PriceQuantityBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.PriceQuantity>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.PriceQuantity> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.observable.asset.PriceQuantity>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.observable.asset.PriceQuantity> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePrice",
+      "returnType": "cdm.observable.asset.metafields.FieldWithMetaPriceSchedule$FieldWithMetaPriceScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.metafields.FieldWithMetaPriceSchedule$FieldWithMetaPriceScheduleBuilder getOrCreatePrice(int)"
+    },
+    {
+      "name": "getPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule$FieldWithMetaPriceScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule$FieldWithMetaPriceScheduleBuilder> getPrice()"
+    },
+    {
+      "name": "getOrCreateQuantity",
+      "returnType": "cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule$FieldWithMetaNonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule$FieldWithMetaNonNegativeQuantityScheduleBuilder getOrCreateQuantity(int)"
+    },
+    {
+      "name": "getQuantity",
+      "returnType": "java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule$FieldWithMetaNonNegativeQuantityScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule$FieldWithMetaNonNegativeQuantityScheduleBuilder> getQuantity()"
+    },
+    {
+      "name": "getOrCreateObservable",
+      "returnType": "cdm.observable.asset.metafields.FieldWithMetaObservable$FieldWithMetaObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.FieldWithMetaObservable$FieldWithMetaObservableBuilder getOrCreateObservable()"
+    },
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.FieldWithMetaObservable$FieldWithMetaObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.FieldWithMetaObservable$FieldWithMetaObservableBuilder getObservable()"
+    },
+    {
+      "name": "getOrCreateEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getOrCreateEffectiveDate()"
+    },
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getEffectiveDate()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "addPrice",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.FieldWithMetaPriceSchedule"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPrice(cdm.observable.asset.metafields.FieldWithMetaPriceSchedule)"
+    },
+    {
+      "name": "addPrice",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.FieldWithMetaPriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPrice(cdm.observable.asset.metafields.FieldWithMetaPriceSchedule, int)"
+    },
+    {
+      "name": "addPriceValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPriceValue(cdm.observable.asset.PriceSchedule)"
+    },
+    {
+      "name": "addPriceValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPriceValue(cdm.observable.asset.PriceSchedule, int)"
+    },
+    {
+      "name": "addPrice",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPrice(java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "setPrice",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setPrice(java.util.List<? extends cdm.observable.asset.metafields.FieldWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "addPriceValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setPriceValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "addQuantity",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantity(cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule)"
+    },
+    {
+      "name": "addQuantity",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantity(cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule, int)"
+    },
+    {
+      "name": "addQuantityValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.NonNegativeQuantitySchedule"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantityValue(cdm.base.math.NonNegativeQuantitySchedule)"
+    },
+    {
+      "name": "addQuantityValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.NonNegativeQuantitySchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantityValue(cdm.base.math.NonNegativeQuantitySchedule, int)"
+    },
+    {
+      "name": "addQuantity",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantity(java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule>)"
+    },
+    {
+      "name": "setQuantity",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setQuantity(java.util.List<? extends cdm.base.math.metafields.FieldWithMetaNonNegativeQuantitySchedule>)"
+    },
+    {
+      "name": "addQuantityValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.NonNegativeQuantitySchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder addQuantityValue(java.util.List<? extends cdm.base.math.NonNegativeQuantitySchedule>)"
+    },
+    {
+      "name": "setQuantityValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.NonNegativeQuantitySchedule>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setQuantityValue(java.util.List<? extends cdm.base.math.NonNegativeQuantitySchedule>)"
+    },
+    {
+      "name": "setObservable",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.FieldWithMetaObservable"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setObservable(cdm.observable.asset.metafields.FieldWithMetaObservable)"
+    },
+    {
+      "name": "setObservableValue",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.Observable"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setObservableValue(cdm.observable.asset.Observable)"
+    },
+    {
+      "name": "setEffectiveDate",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.datetime.AdjustableOrRelativeDate"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setEffectiveDate(cdm.base.datetime.AdjustableOrRelativeDate)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()"
+    },
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.FieldWithMetaObservable",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.metafields.FieldWithMetaObservable getObservable()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

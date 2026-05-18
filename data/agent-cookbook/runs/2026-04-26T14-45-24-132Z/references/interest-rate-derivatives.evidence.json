@@ -1,0 +1,557 @@
+{
+  "folder": "interest-rate-derivatives",
+  "generatedAt": "2026-04-26T14:45:24.132Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 11,
+    "structuralPairCount": 11,
+    "semanticPairCount": 11,
+    "fullSemanticPairCount": 11,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 11/11 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 11/11 successful or salvaged pair analyses (11 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "failed_integrity_validation",
+    "publishFinal": false,
+    "reasons": [
+      "Enrichment ENR-001 references an unexpected example.",
+      "Enrichment ENR-001 references an unexpected example.",
+      "Enrichment ENR-002 references an unexpected example.",
+      "Enrichment ENR-002 references an unexpected example.",
+      "Enrichment ENR-003 references an unexpected example.",
+      "Enrichment ENR-003 references an unexpected example."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 6.8,
+    "rating": "good",
+    "reasons": [
+      "Open-question density is 73%, which is still high for a stable reusable draft.",
+      "2 open questions still look critical or unresolved.",
+      "2 stable rules sit only at the minimum evidence threshold.",
+      "3 repeated transformations still have thin supporting evidence.",
+      "Integrity validation reported 6 issue(s)."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 4,
+      "repeatedTransformationCount": 7,
+      "tentativePatternCount": 12,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 8,
+      "openQuestionDensity": 0.7272727272727273,
+      "criticalAmbiguityCount": 2,
+      "lowEvidenceStableRuleCount": 2,
+      "lowEvidenceTransformationCount": 3,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Open-question density is still too high for broad rollout.",
+      "Too many stable rules are only barely above the minimum evidence threshold.",
+      "Too many repeated transformations still have thin supporting evidence.",
+      "Quality rating is good, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Notional -> tradeLot.quantity",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "notionalschedule.notionalstepschedule.currency|notionalschedule.notionalstepschedule.initialvalue",
+      "targetPattern": "tradeLot.quantity.value|unit.currency.value",
+      "explanation": "Notional amounts (value + currency) in FpML are repeatedly represented as a tradeLot quantity in the CDM with numeric value and currency unit.",
+      "whyItWorksThisWay": "Trade-level economic size is preserved by mapping FpML notional constructs to CDM tradeLot.quantity which captures amount+currency.",
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "caveats": [
+        "Requires both numeric initialValue and an associated currency to form a CDM quantity.",
+        "FpML notional schedule variants (steps, long-stub) may require aggregation or selection logic not captured by a single rule."
+      ]
+    },
+    {
+      "id": "RULE-002",
+      "name": "Swap stream payer/receiver -> interestratepayout.payerReceiver",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "swap.swapstream.payerpartyreference|swap.swapstream.receiverpartyreference",
+      "targetPattern": "interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver",
+      "explanation": "Party references used on swapStream elements are resolved into CDM payer/receiver roles on interest rate payouts.",
+      "whyItWorksThisWay": "Each swapStream represents a side of the swap; mapping its party hrefs to payer/receiver yields the CDM representation of counterparty cashflow direction.",
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "caveats": [
+        "Representative examples show consistent href use, but derived CDM role labels (e.g., 'Party1') differ from FpML partyId values - mapping of identifiers is inconsistent across examples."
+      ]
+    },
+    {
+      "id": "RULE-003",
+      "name": "Strip timezone from effectivedate values",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "calculationperioddates.effectivedate.unadjusteddate",
+      "targetPattern": "effectivedate.adjustabledate.unadjusteddate",
+      "explanation": "Date/time strings in FpML that include timezone suffixes (e.g., trailing 'Z') are normalized by removing the timezone before populating CDM date fields.",
+      "whyItWorksThisWay": "CDM date fields in examples use date-only or normalized datetime formats; removing trailing timezone characters produces the expected CDM format.",
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "caveats": [
+        "Normalization assumes UTC 'Z' suffix or similar trailing timezone tokens; other timezone encodings are not evidenced.",
+        "Time-of-day information is effectively lost when trimming to date-only representations."
+      ]
+    },
+    {
+      "id": "RULE-004",
+      "name": "Strip timezone from expirationdate values",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "expirationdate.adjustabledate.unadjusteddate",
+      "targetPattern": "expirationdate.adjustabledate.unadjusteddate",
+      "explanation": "Expiration dates for options in FpML are normalized by removing timezone suffixes before mapping into CDM expiration date fields.",
+      "whyItWorksThisWay": "CDM examples show expiration dates without the trailing timezone; the strip-normalize step produces consistent formatting expected by CDM.",
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+        "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml"
+      ],
+      "caveats": [
+        "Normalization is demonstrated on examples with trailing 'Z'; other timezone formats are not evidenced.",
+        "Ensure that business rules about timezone interpretation are satisfied before removing timezone info."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Notional value normalization to tradeLot quantity",
+      "type": "normalization",
+      "description": "Converts FpML notional schedules (value + currency) into CDM tradeLot.quantity entries (numeric value + currency unit).",
+      "sourceSide": "notionalschedule.notionalstepschedule.initialvalue + currency",
+      "targetSide": "tradeLot.quantity.value + tradeLot.quantity.unit.currency",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Representative note: notional amount and currency mapped to tradeLot quantity",
+        "Aggregation rules for stepped notionals are not fully evidenced."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Resolve swapStream party href to CDM payer/receiver",
+      "type": "reference resolution",
+      "description": "Resolves FpML swapStream payer/receiver hrefs to CDM InterestRatePayout payerReceiver roles.",
+      "sourceSide": "swap.swapstream.payerpartyreference|swap.swapstream.receiverpartyreference",
+      "targetSide": "interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Representative note: swapStream payer/receiver hrefs map to CDM payerReceiver",
+        "Identifier mapping between FpML partyId and CDM.party.partyId is inconsistent across examples."
+      ]
+    },
+    {
+      "id": "TR-003",
+      "name": "Effectivedate timezone trim",
+      "type": "normalization",
+      "description": "Remove trailing timezone indicators (e.g., 'Z') from calculation period effective dates before mapping to CDM date fields.",
+      "sourceSide": "calculationperioddates.effectivedate.unadjusteddate (may include trailing 'Z')",
+      "targetSide": "effectivedate.adjustabledate.unadjusteddate (date-only/normalized)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Representative note: Trim timezone 'Z' from date string",
+        "Time-of-day/timezone information is not preserved in the CDM examples."
+      ]
+    },
+    {
+      "id": "TR-004",
+      "name": "Expiration date timezone trim",
+      "type": "normalization",
+      "description": "Remove timezone suffix from option expiration dates when mapping to CDM expiration fields.",
+      "sourceSide": "expirationdate.adjustabledate.unadjusteddate",
+      "targetSide": "expirationdate.adjustabledate.unadjusteddate (normalized)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+        "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml"
+      ],
+      "notes": [
+        "Representative note: Strip timezone from datetime",
+        "Preserves date semantics expected by CDM while removing timezone suffix."
+      ]
+    },
+    {
+      "id": "TR-005",
+      "name": "Fixed rate -> price normalization",
+      "type": "normalization",
+      "description": "Map fixed-rate schedule initial values into CDM price.value to represent fixed leg or option strike rates.",
+      "sourceSide": "calculation.fixedrateschedule.initialvalue",
+      "targetSide": "price.value.value",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "Representative note: Fixed rate value mapped to CDM price",
+        "Unit/scale consistency (e.g., decimal vs percent) should be verified when applying this rule."
+      ]
+    },
+    {
+      "id": "TR-006",
+      "name": "Swaption buyer reference resolution",
+      "type": "reference resolution",
+      "description": "Resolve trade.swaption.buyerpartyreference into CDM option payout buyer field for option contract mapping.",
+      "sourceSide": "trade.swaption.buyerpartyreference",
+      "targetSide": "optionpayout.buyerseller.buyer",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "Representative note: buyerPartyReference -> buyer",
+        "Some examples show apparent payer/receiver inversions between premium and option payout which must be validated."
+      ]
+    },
+    {
+      "id": "TR-007",
+      "name": "Trade/tradedate normalization",
+      "type": "normalization",
+      "description": "Normalize trade.tradeheader.tradedate by stripping trailing timezone characters and formatting to CDM trade.tradedate.value.",
+      "sourceSide": "trade.tradeheader.tradedate",
+      "targetSide": "trade.tradedate.value",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml"
+      ],
+      "notes": [
+        "Representative note: strip trailing 'Z' and normalize to YYYY-MM-DD",
+        "Applies to trade header dates observed in swap examples."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Economic terms repeatedly reshape from notionalschedule.notionalstepschedule.currency|notionalschedule.notionalstepschedule.initialvalue into quantity.value.value|unit.currency.value.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: notional amount and currency mapped to tradeLot quantity",
+        "Representative note: notional amount and currency",
+        "Representative note: notional amount and currency -> tradeLot quantity"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Party references repeatedly resolve from swap.swapstream.payerpartyreference|swap.swapstream.receiverpartyreference into interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: swapStream payer/receiver hrefs map to CDM payerReceiver",
+        "Representative note: FpML payer/receiver mapped to CDM payerReceiver",
+        "Representative note: party hrefs map to payer/receiver roles"
+      ]
+    },
+    {
+      "id": "TENT-003",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes calculationperioddates.effectivedate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+        "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Trim timezone 'Z' from date string",
+        "Representative note: strip trailing 'Z' from date",
+        "Representative note: strip timezone from datetime"
+      ]
+    },
+    {
+      "id": "TENT-004",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes expirationdate.adjustabledate.unadjusteddate into expirationdate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+        "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Strip timezone from datetime",
+        "Representative note: removed timezone suffix 'Z' from date",
+        "Representative note: removed trailing 'Z' timezone"
+      ]
+    },
+    {
+      "id": "TENT-005",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Both trade tradedate and calculation period effective dates have trailing timezone characters removed and are normalized to a CDM date format. (calculationperioddates.effectivedate.unadjusteddate|trade.tradeheader.tradedate -> effectivedate.adjustabledate.unadjusteddate|trade.tradedate.value)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml"
+      ],
+      "notes": [
+        "Examples with long stubs and trade headers both applied the same date normalization logic to match CDM representation.",
+        "Normalization is demonstrated as removing trailing 'Z' and normalizing to YYYY-MM-DD. Other timezone or datetime-preserving behaviors are not evidenced."
+      ]
+    },
+    {
+      "id": "TENT-006",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Buyer references in FpML swaption constructs map to the CDM option payout buyer role. (trade.swaption.buyerpartyreference -> optionpayout.buyerseller.buyer)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "Examples consistently map buyerPartyReference into the CDM buyer field for option payouts.",
+        "Some examples raise questions about apparent payer/receiver inversions for premium vs option payout - buyer mapping is consistent in observed cases but role inversion issues remain in other fields."
+      ]
+    },
+    {
+      "id": "TENT-007",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Date-like fields repeatedly normalize from expirationdate.adjustabledate.unadjusteddate into expirationdate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Expiration date mapped with format normalization",
+        "Representative note: expiration date normalized format"
+      ]
+    },
+    {
+      "id": "TENT-008",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Economic terms repeatedly reshape from calculation.fixedrateschedule.initialvalue into price.value.value.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Fixed rate value mapped to CDM price",
+        "Representative note: fixed rate initialValue -> tradeLot price"
+      ]
+    },
+    {
+      "id": "TENT-009",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Expiration dates are consistently normalized to the CDM date format (strip trailing timezone and possibly convert to YYYY-MM-DD). (expirationdate.adjustabledate.unadjusteddate -> expirationdate.adjustabledate.unadjusteddate)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml"
+      ],
+      "notes": [
+        "Two swaption examples explicitly show the same normalization step applied to expiration dates to match CDM date formatting.",
+        "Applies to observed examples; broader date/time edge-cases are not present in the evidence set."
+      ]
+    },
+    {
+      "id": "TENT-010",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Fixed-rate values used in option underlying or fixed legs are mapped into CDM price fields representing the fixed rate as a numeric price. (calculation.fixedrateschedule.initialvalue -> price.value.value)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "CDM represents fixed economic parameters for pricing as price.value; mapping initial fixed rate into price preserves the economic parameter.",
+        "Rate units and scaling assumptions must be consistent (e.g., 0.0585 -> 5.85%); examples show numeric mapping but not unit conversion rules."
+      ]
+    },
+    {
+      "id": "TENT-011",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes calculationperioddates.effectivedate.unadjusteddate|trade.tradeheader.tradedate into effectivedate.adjustabledate.unadjusteddate|trade.tradedate.value.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Strip trailing 'Z' from dates",
+        "Representative note: strip trailing 'Z' and normalize to YYYY-MM-DD"
+      ]
+    },
+    {
+      "id": "TENT-012",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Party references repeatedly resolve from trade.swaption.buyerpartyreference into optionpayout.buyerseller.buyer.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Buyer party mapped to CDM buyer",
+        "Representative note: buyerPartyReference -> buyer"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "Party identifier label variance",
+      "description": "CDM uses short role-like labels (e.g., 'Party1', 'Party2', 'PartyA') instead of FpML partyId values in examples.",
+      "seenIn": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+        "interest-rate-derivatives/ird-ex05-long-stub-swap.xml"
+      ],
+      "impactOnGeneralization": "Significant - mapping logic must allow for label generation or external enrichment; do not assume CDM.party.partyId equals FpML partyId."
+    },
+    {
+      "id": "VAR-002",
+      "name": "Payer/receiver apparent inversion in option premium vs payout",
+      "description": "Some swaption examples indicate that premium payer values in FpML do not always align with CDM optionPayout.payerReceiver mapping (possible inversion).",
+      "seenIn": [
+        "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+        "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml"
+      ],
+      "impactOnGeneralization": "High - mapping of premium vs option payout roles must be validated case-by-case; do not apply an assumption of consistent direction without checks."
+    },
+    {
+      "id": "VAR-003",
+      "name": "Trade identifier omission or substitution",
+      "description": "FpML tradeId values (e.g., TW9235, TRN12000) are sometimes absent or replaced by different CDM tradeIdentifier values (e.g., SW2000).",
+      "seenIn": [
+        "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+        "interest-rate-derivatives/ird-ex07-ois-swap.xml"
+      ],
+      "impactOnGeneralization": "Moderate - do not assume a 1:1 mapping for trade identifiers; mapping may require external provenance or enrichment."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "Additional CDM tradeIdentifier issuer entries",
+      "description": "Examples contain multiple CDM tradeIdentifier issuer entries without a clear corresponding FpML source, indicating possible enrichment or synthetic identifiers.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "Representative highlights mention multiple CDM tradeIdentifier issuer entries lack clear FpML source (ird-ex04).",
+        "Trade id mismatches noted in ird-ex01 and ird-ex07."
+      ],
+      "caution": [
+        "Preserve provenance of any generated identifiers and avoid assuming FpML contains the authoritative issuer values.",
+        "Flag generated identifiers for downstream review."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "CDM.party.partyId LEI enrichment",
+      "description": "CDM party.partyId entries in examples appear to contain LEIs or other normalized identifiers that are not present in the FpML party definitions.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "Examples: ird-ex01, ird-ex04, ird-ex07 show CDM party identifiers not matching FpML partyId.",
+        "Representative open questions and highlights noting CDM party.partyId LEIs differ from FpML partyId values."
+      ],
+      "caution": [
+        "Treat CDM party identifiers as potentially externally-sourced; do not infer source mapping rules from the current example set alone.",
+        "Preserve original FpML partyId in intermediate artifacts to enable reconciliation."
+      ]
+    },
+    {
+      "id": "ENR-003",
+      "name": "Generated role labels (Party1/Party2/PartyA)",
+      "description": "CDM examples use generated role labels (e.g., 'Party1','Party2','PartyA') rather than the raw FpML partyId values, suggesting a deterministic label generation or anonymization step.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "Multiple examples and uncertainties about how Party1/Party2 derived (see ird-ex03, ird-ex05).",
+        "Representative open questions asking how Party1/Party2 labels were derived."
+      ],
+      "caution": [
+        "Do not overwrite or discard original FpML party identifiers when producing CDM parties; maintain mapping metadata.",
+        "If label-generation is applied, document the algorithm or source used for reproducibility."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "FpML includes tradeId TW9235; CDM only contains SW2000. Why is TW9235 omitted?",
+    "Why does CDM use 'Party1'/'Party2' strings instead of partyId values?",
+    "Why CDM party identifier 'PartyA' differs from FpML partyId 'MGTCGB2L'?",
+    "Mapping of payer/receiver labels (Party1/Party2) to FpML hrefs unclear",
+    "CDM party.partyId LEIs differ from FpML partyId values; mapping unclear",
+    "Multiple CDM tradeIdentifier issuer entries lack clear FpML source",
+    "How were Party1/Party2 labels derived from FpML party hrefs?",
+    "Why FpML partyId values not reflected as same identifiers in CDM?"
+  ]
+}

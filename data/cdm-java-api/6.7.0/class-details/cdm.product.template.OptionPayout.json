@@ -1,0 +1,435 @@
+{
+  "className": "cdm.product.template.OptionPayout",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "OptionPayout",
+  "methods": [
+    {
+      "name": "getBuyerSeller",
+      "returnType": "cdm.base.staticdata.party.BuyerSeller",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.BuyerSeller getBuyerSeller()"
+    },
+    {
+      "name": "getFeature",
+      "returnType": "cdm.product.template.OptionFeature",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionFeature getFeature()"
+    },
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms getObservationTerms()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation getDelivery()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getOptionType",
+      "returnType": "cdm.product.template.OptionTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionTypeEnum getOptionType()"
+    },
+    {
+      "name": "getExerciseTerms",
+      "returnType": "cdm.product.template.ExerciseTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ExerciseTerms getExerciseTerms()"
+    },
+    {
+      "name": "getStrike",
+      "returnType": "cdm.product.template.OptionStrike",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionStrike getStrike()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.OptionPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.OptionPayout$OptionPayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.OptionPayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.OptionPayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.OptionPayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.OptionPayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateBuyerSeller",
+      "returnType": "cdm.base.staticdata.party.BuyerSeller$BuyerSellerBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.BuyerSeller$BuyerSellerBuilder getOrCreateBuyerSeller()"
+    },
+    {
+      "name": "getBuyerSeller",
+      "returnType": "cdm.base.staticdata.party.BuyerSeller$BuyerSellerBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.BuyerSeller$BuyerSellerBuilder getBuyerSeller()"
+    },
+    {
+      "name": "getOrCreateFeature",
+      "returnType": "cdm.product.template.OptionFeature$OptionFeatureBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionFeature$OptionFeatureBuilder getOrCreateFeature()"
+    },
+    {
+      "name": "getFeature",
+      "returnType": "cdm.product.template.OptionFeature$OptionFeatureBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionFeature$OptionFeatureBuilder getFeature()"
+    },
+    {
+      "name": "getOrCreateObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder getOrCreateObservationTerms()"
+    },
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder getObservationTerms()"
+    },
+    {
+      "name": "getOrCreateSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getOrCreateSchedule()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getSchedule()"
+    },
+    {
+      "name": "getOrCreateDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder getOrCreateDelivery()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder getDelivery()"
+    },
+    {
+      "name": "getOrCreateUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getOrCreateUnderlier()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getUnderlier()"
+    },
+    {
+      "name": "getOrCreateExerciseTerms",
+      "returnType": "cdm.product.template.ExerciseTerms$ExerciseTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ExerciseTerms$ExerciseTermsBuilder getOrCreateExerciseTerms()"
+    },
+    {
+      "name": "getExerciseTerms",
+      "returnType": "cdm.product.template.ExerciseTerms$ExerciseTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ExerciseTerms$ExerciseTermsBuilder getExerciseTerms()"
+    },
+    {
+      "name": "getOrCreateStrike",
+      "returnType": "cdm.product.template.OptionStrike$OptionStrikeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionStrike$OptionStrikeBuilder getOrCreateStrike()"
+    },
+    {
+      "name": "getStrike",
+      "returnType": "cdm.product.template.OptionStrike$OptionStrikeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionStrike$OptionStrikeBuilder getStrike()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setBuyerSeller",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.BuyerSeller"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setBuyerSeller(cdm.base.staticdata.party.BuyerSeller)"
+    },
+    {
+      "name": "setFeature",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.OptionFeature"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setFeature(cdm.product.template.OptionFeature)"
+    },
+    {
+      "name": "setObservationTerms",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.ObservationTerms"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setObservationTerms(cdm.product.common.schedule.ObservationTerms)"
+    },
+    {
+      "name": "setSchedule",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.CalculationSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setSchedule(cdm.product.template.CalculationSchedule)"
+    },
+    {
+      "name": "setDelivery",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.AssetDeliveryInformation"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setDelivery(cdm.product.asset.AssetDeliveryInformation)"
+    },
+    {
+      "name": "setUnderlier",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.Underlier"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setUnderlier(cdm.product.template.Underlier)"
+    },
+    {
+      "name": "setOptionType",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.OptionTypeEnum"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setOptionType(cdm.product.template.OptionTypeEnum)"
+    },
+    {
+      "name": "setExerciseTerms",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.ExerciseTerms"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setExerciseTerms(cdm.product.template.ExerciseTerms)"
+    },
+    {
+      "name": "setStrike",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.OptionStrike"
+      ],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder setStrike(cdm.product.template.OptionStrike)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder prune()"
+    },
+    {
+      "name": "getStrike",
+      "returnType": "cdm.product.template.OptionStrike",
+      "parameters": [],
+      "raw": "public default cdm.product.template.OptionStrike getStrike()"
+    },
+    {
+      "name": "getExerciseTerms",
+      "returnType": "cdm.product.template.ExerciseTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.template.ExerciseTerms getExerciseTerms()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public default cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.AssetDeliveryInformation getDelivery()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public default cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.ObservationTerms getObservationTerms()"
+    },
+    {
+      "name": "getFeature",
+      "returnType": "cdm.product.template.OptionFeature",
+      "parameters": [],
+      "raw": "public default cdm.product.template.OptionFeature getFeature()"
+    },
+    {
+      "name": "getBuyerSeller",
+      "returnType": "cdm.base.staticdata.party.BuyerSeller",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.BuyerSeller getBuyerSeller()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

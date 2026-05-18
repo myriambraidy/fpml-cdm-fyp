@@ -1,0 +1,970 @@
+[
+  {
+    "timestamp": "2026-04-23T19:24:11.532Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "equity-swaps",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.537Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "equity-swaps",
+      "includedPairs": 18,
+      "missingExamples": 1,
+      "ignoredExamples": 0,
+      "exactMatches": 17,
+      "normalizedMatches": 0,
+      "aliasMatches": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.538Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex01-single-underlyer-execution-long-form.xml",
+      "pairIndex": 1,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "1/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.539Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex03-index-quanto-long-form.xml",
+      "pairIndex": 2,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "2/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.539Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex04-zero-strike-long-form.xml",
+      "pairIndex": 3,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "3/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.539Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex05-single-stock-plus-fee-long-form.xml",
+      "pairIndex": 4,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "4/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.540Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex06-single-index-long-form.xml",
+      "pairIndex": 5,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "5/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.540Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex07-long-form-with-stub.xml",
+      "pairIndex": 6,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "6/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.540Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex08-composite-basket-long-form-separate-spreads.xml",
+      "pairIndex": 7,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "7/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.540Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex09-compounding-swap.xml",
+      "pairIndex": 8,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "8/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.561Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex01-single-underlyer-execution-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 40398,
+      "retryAttempt": 0,
+      "fpmlChars": 14091,
+      "cdmChars": 21020,
+      "fpmlFields": 137,
+      "cdmFields": 282
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.569Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex03-index-quanto-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 44590,
+      "retryAttempt": 0,
+      "fpmlChars": 14185,
+      "cdmChars": 25144,
+      "fpmlFields": 138,
+      "cdmFields": 316
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.575Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex04-zero-strike-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29721,
+      "retryAttempt": 0,
+      "fpmlChars": 10940,
+      "cdmChars": 13428,
+      "fpmlFields": 106,
+      "cdmFields": 184
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.582Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex05-single-stock-plus-fee-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 42277,
+      "retryAttempt": 0,
+      "fpmlChars": 15885,
+      "cdmChars": 21005,
+      "fpmlFields": 149,
+      "cdmFields": 270
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.587Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex06-single-index-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 37231,
+      "retryAttempt": 0,
+      "fpmlChars": 11818,
+      "cdmChars": 20156,
+      "fpmlFields": 115,
+      "cdmFields": 266
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.597Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex07-long-form-with-stub.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 53450,
+      "retryAttempt": 0,
+      "fpmlChars": 19775,
+      "cdmChars": 28325,
+      "fpmlFields": 179,
+      "cdmFields": 359
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.607Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex08-composite-basket-long-form-separate-spreads.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 57610,
+      "retryAttempt": 0,
+      "fpmlChars": 19206,
+      "cdmChars": 33101,
+      "fpmlFields": 180,
+      "cdmFields": 407
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:11.613Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex09-compounding-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 30149,
+      "retryAttempt": 0,
+      "fpmlChars": 9039,
+      "cdmChars": 15596,
+      "fpmlFields": 72,
+      "cdmFields": 202
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:57.586Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex04-zero-strike-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46047,
+      "promptChars": 29721,
+      "responseChars": 2312,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:57.586Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "pairIndex": 9,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "9/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:24:57.596Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 35183,
+      "retryAttempt": 0,
+      "fpmlChars": 10602,
+      "cdmChars": 18833,
+      "fpmlFields": 79,
+      "cdmFields": 224
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:22.490Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex03-index-quanto-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 70951,
+      "promptChars": 44590,
+      "responseChars": 5275,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:22.490Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex11-on-european-index-underlyer-short-form.xml",
+      "pairIndex": 10,
+      "totalPairs": 18,
+      "strategy": "alias",
+      "progress": "10/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:22.496Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex11-on-european-index-underlyer-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 42971,
+      "retryAttempt": 0,
+      "fpmlChars": 12454,
+      "cdmChars": 24864,
+      "fpmlFields": 109,
+      "cdmFields": 301
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:31.405Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex09-compounding-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 79865,
+      "promptChars": 30149,
+      "responseChars": 3930,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:31.406Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex12-on-european-index-underlyer-short-form.xml",
+      "pairIndex": 11,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "11/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:31.426Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex12-on-european-index-underlyer-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 45122,
+      "retryAttempt": 0,
+      "fpmlChars": 14375,
+      "cdmChars": 24864,
+      "fpmlFields": 115,
+      "cdmFields": 301
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:42.163Z",
+    "level": "warn",
+    "stage": "pair_analysis",
+    "message": "Pair analysis returned empty structured content; retrying with a smaller request.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "retryAttempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:42.164Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 89600,
+      "promptChars": 35302,
+      "retryAttempt": 1,
+      "fpmlChars": 10602,
+      "cdmChars": 18833,
+      "fpmlFields": 79,
+      "cdmFields": 224
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:43.977Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex06-single-index-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 92437,
+      "promptChars": 37231,
+      "responseChars": 4229,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:43.978Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex13-pan-asia-interdealer-share-swap-short-form.xml",
+      "pairIndex": 12,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "12/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:43.996Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex13-pan-asia-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 48246,
+      "retryAttempt": 0,
+      "fpmlChars": 16519,
+      "cdmChars": 26252,
+      "fpmlFields": 134,
+      "cdmFields": 317
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:44.367Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex05-single-stock-plus-fee-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 92827,
+      "promptChars": 42277,
+      "responseChars": 2607,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:44.368Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex14-european-interdealer-share-swap-short-form.xml",
+      "pairIndex": 13,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "13/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:44.384Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex14-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 46481,
+      "retryAttempt": 0,
+      "fpmlChars": 15991,
+      "cdmChars": 25020,
+      "fpmlFields": 130,
+      "cdmFields": 302
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:45.095Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex07-long-form-with-stub.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 93555,
+      "promptChars": 53450,
+      "responseChars": 2544,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:45.096Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form.xml",
+      "pairIndex": 14,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "14/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:45.107Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 45459,
+      "retryAttempt": 0,
+      "fpmlChars": 16685,
+      "cdmChars": 23221,
+      "fpmlFields": 132,
+      "cdmFields": 279
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:46.973Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex08-composite-basket-long-form-separate-spreads.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 95433,
+      "promptChars": 57610,
+      "responseChars": 2584,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:46.973Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form.xml",
+      "pairIndex": 15,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "15/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:25:46.985Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 47153,
+      "retryAttempt": 0,
+      "fpmlChars": 16970,
+      "cdmChars": 24628,
+      "fpmlFields": 136,
+      "cdmFields": 298
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:06.833Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex01-single-underlyer-execution-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 115294,
+      "promptChars": 40398,
+      "responseChars": 3290,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:06.834Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex17-cfd.xml",
+      "pairIndex": 16,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "16/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:06.855Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex17-cfd.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 33157,
+      "retryAttempt": 0,
+      "fpmlChars": 10412,
+      "cdmChars": 17537,
+      "fpmlFields": 78,
+      "cdmFields": 218
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:19.945Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex11-on-european-index-underlyer-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 57455,
+      "promptChars": 42971,
+      "responseChars": 1908,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:19.946Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex18-pan-asia-interdealer-index-swap-short-form.xml",
+      "pairIndex": 17,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "17/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:19.970Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex18-pan-asia-interdealer-index-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 40742,
+      "retryAttempt": 0,
+      "fpmlChars": 14405,
+      "cdmChars": 20801,
+      "fpmlFields": 122,
+      "cdmFields": 266
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:28.377Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex12-on-european-index-underlyer-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 56971,
+      "promptChars": 45122,
+      "responseChars": 2344,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:28.378Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex19-european-interdealer-fair-value-share-swap-short-form.xml",
+      "pairIndex": 18,
+      "totalPairs": 18,
+      "strategy": "exact",
+      "progress": "18/18"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:28.388Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex19-european-interdealer-fair-value-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 40245,
+      "retryAttempt": 0,
+      "fpmlChars": 13890,
+      "cdmChars": 20866,
+      "fpmlFields": 113,
+      "cdmFields": 261
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:34.215Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex14-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49846,
+      "promptChars": 46481,
+      "responseChars": 2256,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:39.486Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex10-short-form-interestLeg-driving-schedule-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 101899,
+      "promptChars": 35302,
+      "responseChars": 2161,
+      "retryAttempt": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:45.620Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex13-pan-asia-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 61642,
+      "promptChars": 48246,
+      "responseChars": 2772,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:49.422Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex15-forward-starting-pre-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 64326,
+      "promptChars": 45459,
+      "responseChars": 1968,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:26:50.968Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex16-forward-starting-post-european-interdealer-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 63994,
+      "promptChars": 47153,
+      "responseChars": 3065,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:16.936Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex18-pan-asia-interdealer-index-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 56990,
+      "promptChars": 40742,
+      "responseChars": 2957,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:31.566Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex17-cfd.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 84732,
+      "promptChars": 33157,
+      "responseChars": 3574,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:44.965Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-swaps/eqs-ex19-european-interdealer-fair-value-share-swap-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 76585,
+      "promptChars": 40245,
+      "responseChars": 3104,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:44.965Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 18,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:44.966Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "equity-swaps",
+      "successfulPairCount": 18,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 18
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:27:45.000Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "equity-swaps",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 13633,
+      "retryAttempt": 0,
+      "semanticPairCount": 18,
+      "structuralPairCount": 18,
+      "includedPairCount": 18,
+      "missingExampleCount": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.349Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "equity-swaps",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 13633,
+      "responseChars": 16224,
+      "retryAttempt": 0,
+      "stableRuleCount": 2,
+      "transformationCount": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.350Z",
+    "level": "error",
+    "stage": "validation",
+    "message": "Integrity validation failed for synthesized draft.",
+    "data": {
+      "issueCount": 1,
+      "issues": [
+        "Representative examples and open questions (files not always named explicitly)"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.351Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "failed_integrity_validation",
+      "publishFinal": false,
+      "reasons": [
+        "Enrichment ENR-003 references an unexpected example."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.353Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 5.6,
+      "rating": "fair",
+      "rolloutDecision": "not_ready",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.359Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps",
+      "publishFinal": false,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\draft.partial.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:29:39.360Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "equity-swaps",
+      "status": "failed_integrity_validation",
+      "durationMs": 327828,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\draft.partial.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\run-log.json"
+    }
+  }
+]

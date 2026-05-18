@@ -1,0 +1,286 @@
+[
+  {
+    "timestamp": "2026-04-23T19:36:17.171Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "bond-options",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.177Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "bond-options",
+      "includedPairs": 3,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 3,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.177Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "bond-options/bond-option.xml",
+      "pairIndex": 1,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "1/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.178Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "bond-options/cb-option-2.xml",
+      "pairIndex": 2,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "2/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.179Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "bond-options/cb-option.xml",
+      "pairIndex": 3,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "3/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.193Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "bond-options/bond-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20351,
+      "retryAttempt": 0,
+      "fpmlChars": 5088,
+      "cdmChars": 9607,
+      "fpmlFields": 51,
+      "cdmFields": 132
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.197Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "bond-options/cb-option-2.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20883,
+      "retryAttempt": 0,
+      "fpmlChars": 5597,
+      "cdmChars": 9703,
+      "fpmlFields": 61,
+      "cdmFields": 130
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:17.204Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "bond-options/cb-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21462,
+      "retryAttempt": 0,
+      "fpmlChars": 5837,
+      "cdmChars": 10046,
+      "fpmlFields": 66,
+      "cdmFields": 135
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:58.250Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "bond-options/cb-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41071,
+      "promptChars": 21462,
+      "responseChars": 1938,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:36:58.867Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "bond-options/bond-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41689,
+      "promptChars": 20351,
+      "responseChars": 2024,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:05.705Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "bond-options/cb-option-2.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48526,
+      "promptChars": 20883,
+      "responseChars": 2441,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:05.706Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 3,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:05.707Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "bond-options",
+      "successfulPairCount": 3,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:05.717Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "bond-options",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 4635,
+      "retryAttempt": 0,
+      "semanticPairCount": 3,
+      "structuralPairCount": 3,
+      "includedPairCount": 3,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.588Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "bond-options",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 4635,
+      "responseChars": 6399,
+      "retryAttempt": 0,
+      "stableRuleCount": 1,
+      "transformationCount": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.589Z",
+    "level": "error",
+    "stage": "validation",
+    "message": "Integrity validation failed for synthesized draft.",
+    "data": {
+      "issueCount": 3,
+      "issues": [
+        "bond-options/bond-option.xml (representative note: calculationAgentParty mapped to CalculationAgentIndependent)",
+        "bond-options/cb-option-2.xml (open question: mapping of calculationAgentPartyReference)",
+        "bond-options/bond-option.xml (importantMappings: premium amount and currency mapped to transfer)"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.590Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "failed_integrity_validation",
+      "publishFinal": false,
+      "reasons": [
+        "Enrichment ENR-001 references an unexpected example.",
+        "Enrichment ENR-001 references an unexpected example.",
+        "Enrichment ENR-002 references an unexpected example."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.592Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 3.9,
+      "rating": "weak",
+      "rolloutDecision": "not_ready",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.597Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options",
+      "publishFinal": false,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.partial.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:37:46.598Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "bond-options",
+      "status": "failed_integrity_validation",
+      "durationMs": 89427,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.partial.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\run-log.json"
+    }
+  }
+]

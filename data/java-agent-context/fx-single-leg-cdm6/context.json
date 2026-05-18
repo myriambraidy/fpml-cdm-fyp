@@ -1,0 +1,24 @@
+{
+  "contextId": "fx-single-leg-cdm6-poc",
+  "fpmlVersion": "4-9",
+  "cdmTarget": {
+    "majorVersion": 6,
+    "mavenArtifact": "org.finos.cdm:cdm-java",
+    "candidateVersion": "6.15.0"
+  },
+  "inputFixture": "input-fpml.xml",
+  "expectedCdm": "expected-cdm.json",
+  "rules": "rules.json",
+  "sourceIndex": "source-index.json",
+  "selectedRosettaBlocks": "selected-rosetta-blocks.json",
+  "toolPolicy": "tool-policy.md",
+  "mavenEnvironment": "maven-environment.md",
+  "outputContract": {
+    "mainOutput": "generated-cdm.json",
+    "sidecarReports": [
+      "mapping-report.json",
+      "validation-report.json",
+      "traceability-report.json"
+    ]
+  }
+}

@@ -1,0 +1,1312 @@
+[
+  {
+    "timestamp": "2026-04-26T13:59:35.543Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "equity-options",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.550Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "equity-options",
+      "includedPairs": 27,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 26,
+      "normalizedMatches": 1,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.551Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex-27-equityOptionTransactionSupplement-EMEA-interdealer.xml",
+      "pairIndex": 1,
+      "totalPairs": 27,
+      "strategy": "normalized",
+      "progress": "1/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.552Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex01-american-call-stock-long-form.xml",
+      "pairIndex": 2,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "2/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.553Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex02-calendar-spread-short-form.xml",
+      "pairIndex": 3,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "3/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.553Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex03-call-or-put-spread-short-form.xml",
+      "pairIndex": 4,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "4/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.554Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex04-european-call-index-long-form.xml",
+      "pairIndex": 5,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "5/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.554Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex05-asian-long-form.xml",
+      "pairIndex": 6,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "6/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.555Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex06-averaging-in-long-form.xml",
+      "pairIndex": 7,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "7/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.555Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex07-barrier-knockout-rebate-long-form.xml",
+      "pairIndex": 8,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "8/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.574Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex-27-equityOptionTransactionSupplement-EMEA-interdealer.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21786,
+      "retryAttempt": 0,
+      "fpmlChars": 5491,
+      "cdmChars": 10434,
+      "fpmlFields": 53,
+      "cdmFields": 144
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.585Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex01-american-call-stock-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 23820,
+      "retryAttempt": 0,
+      "fpmlChars": 7508,
+      "cdmChars": 10739,
+      "fpmlFields": 73,
+      "cdmFields": 150
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.589Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex02-calendar-spread-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21659,
+      "retryAttempt": 0,
+      "fpmlChars": 5716,
+      "cdmChars": 10346,
+      "fpmlFields": 52,
+      "cdmFields": 145
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.595Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex03-call-or-put-spread-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21473,
+      "retryAttempt": 0,
+      "fpmlChars": 5531,
+      "cdmChars": 10339,
+      "fpmlFields": 52,
+      "cdmFields": 145
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.602Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex04-european-call-index-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21818,
+      "retryAttempt": 0,
+      "fpmlChars": 5914,
+      "cdmChars": 10356,
+      "fpmlFields": 60,
+      "cdmFields": 147
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.606Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex05-asian-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22805,
+      "retryAttempt": 0,
+      "fpmlChars": 6778,
+      "cdmChars": 10570,
+      "fpmlFields": 73,
+      "cdmFields": 154
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.611Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex06-averaging-in-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22814,
+      "retryAttempt": 0,
+      "fpmlChars": 6775,
+      "cdmChars": 10568,
+      "fpmlFields": 73,
+      "cdmFields": 154
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:59:35.617Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex07-barrier-knockout-rebate-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25220,
+      "retryAttempt": 0,
+      "fpmlChars": 8994,
+      "cdmChars": 10512,
+      "fpmlFields": 96,
+      "cdmFields": 149
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:19.105Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex04-european-call-index-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 43551,
+      "promptChars": 21818,
+      "responseChars": 2729,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:19.106Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex08-basket-long-form.xml",
+      "pairIndex": 9,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "9/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:19.113Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex08-basket-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24327,
+      "retryAttempt": 0,
+      "fpmlChars": 6839,
+      "cdmChars": 12116,
+      "fpmlFields": 70,
+      "cdmFields": 162
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:20.876Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex07-barrier-knockout-rebate-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 45321,
+      "promptChars": 25220,
+      "responseChars": 2612,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:20.877Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex09-bermuda-long-form.xml",
+      "pairIndex": 10,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "10/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:20.884Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex09-bermuda-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24721,
+      "retryAttempt": 0,
+      "fpmlChars": 7229,
+      "cdmChars": 11904,
+      "fpmlFields": 78,
+      "cdmFields": 163
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:22.648Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex05-asian-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47093,
+      "promptChars": 22805,
+      "responseChars": 6244,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:22.650Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex10-binary-barrier-long-form.xml",
+      "pairIndex": 11,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "11/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:22.658Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex10-binary-barrier-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 23512,
+      "retryAttempt": 0,
+      "fpmlChars": 7256,
+      "cdmChars": 10611,
+      "fpmlFields": 77,
+      "cdmFields": 150
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.018Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex02-calendar-spread-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47465,
+      "promptChars": 21659,
+      "responseChars": 3676,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.018Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex11-quanto-long-form.xml",
+      "pairIndex": 12,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "12/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.022Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex11-quanto-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 23732,
+      "retryAttempt": 0,
+      "fpmlChars": 7608,
+      "cdmChars": 10573,
+      "fpmlFields": 77,
+      "cdmFields": 148
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.163Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex-27-equityOptionTransactionSupplement-EMEA-interdealer.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47611,
+      "promptChars": 21786,
+      "responseChars": 2784,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.163Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex12-vanilla-short-form.xml",
+      "pairIndex": 13,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "13/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:23.171Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex12-vanilla-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21152,
+      "retryAttempt": 0,
+      "fpmlChars": 5232,
+      "cdmChars": 10339,
+      "fpmlFields": 50,
+      "cdmFields": 145
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:24.965Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "equity-options/eqd-ex03-call-or-put-spread-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49411,
+      "promptChars": 21473,
+      "responseChars": 3294,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:24.966Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex13-1996-american-call-stock.xml",
+      "pairIndex": 14,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "14/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:24.970Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex13-1996-american-call-stock.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21773,
+      "retryAttempt": 0,
+      "fpmlChars": 5538,
+      "cdmChars": 10754,
+      "fpmlFields": 54,
+      "cdmFields": 150
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.530Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex06-averaging-in-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 53975,
+      "retryAttempt": 0,
+      "error": "The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.535Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex14-american-call-stock-passthrough-long-form.xml",
+      "pairIndex": 15,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "15/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.547Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex01-american-call-stock-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 53994,
+      "retryAttempt": 0,
+      "error": "The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.556Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex15-basket-passthrough-long-form.xml",
+      "pairIndex": 16,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "16/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.571Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex09-bermuda-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 8694,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.599Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex16-equityOptionTransactionSupplement.xml",
+      "pairIndex": 17,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "17/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.609Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex11-quanto-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 6590,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.622Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share.xml",
+      "pairIndex": 18,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "18/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.638Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex13-1996-american-call-stock.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 4672,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.645Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index.xml",
+      "pairIndex": 19,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "19/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.650Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex08-basket-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 10544,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.651Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex19-dividend-adjustment.xml",
+      "pairIndex": 20,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "20/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.652Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex12-vanilla-short-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 6488,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.653Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex20-nested-basket.xml",
+      "pairIndex": 21,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "21/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.653Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex10-binary-barrier-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 7003,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.654Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex21-flat-weight-basket.xml",
+      "pairIndex": 22,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "22/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.660Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex14-american-call-stock-passthrough-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24559,
+      "retryAttempt": 0,
+      "fpmlChars": 7918,
+      "cdmChars": 10958,
+      "fpmlFields": 77,
+      "cdmFields": 152
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.667Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex15-basket-passthrough-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25119,
+      "retryAttempt": 0,
+      "fpmlChars": 7607,
+      "cdmChars": 12116,
+      "fpmlFields": 79,
+      "cdmFields": 162
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.671Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex16-equityOptionTransactionSupplement.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20860,
+      "retryAttempt": 0,
+      "fpmlChars": 4925,
+      "cdmChars": 10247,
+      "fpmlFields": 42,
+      "cdmFields": 144
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.678Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21537,
+      "retryAttempt": 0,
+      "fpmlChars": 5238,
+      "cdmChars": 10475,
+      "fpmlFields": 49,
+      "cdmFields": 142
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.682Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22099,
+      "retryAttempt": 0,
+      "fpmlChars": 5309,
+      "cdmChars": 10921,
+      "fpmlFields": 48,
+      "cdmFields": 148
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.687Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex19-dividend-adjustment.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24891,
+      "retryAttempt": 0,
+      "fpmlChars": 8683,
+      "cdmChars": 10561,
+      "fpmlFields": 86,
+      "cdmFields": 148
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.692Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex20-nested-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 26143,
+      "retryAttempt": 0,
+      "fpmlChars": 9070,
+      "cdmChars": 11449,
+      "fpmlFields": 84,
+      "cdmFields": 159
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.698Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex21-flat-weight-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28750,
+      "retryAttempt": 0,
+      "fpmlChars": 8671,
+      "cdmChars": 14445,
+      "fpmlFields": 82,
+      "cdmFields": 187
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.700Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex14-american-call-stock-passthrough-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 154,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.700Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates.xml",
+      "pairIndex": 23,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "23/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.700Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex15-basket-passthrough-long-form.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 131,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.701Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet.xml",
+      "pairIndex": 24,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "24/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.701Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex16-equityOptionTransactionSupplement.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 92,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.701Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule.xml",
+      "pairIndex": 25,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "25/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.702Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex17-equityOptionTransactionSupplement-non-deliverable-share.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 64,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.702Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features.xml",
+      "pairIndex": 26,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "26/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.702Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex18-equityOptionTransactionSupplement-non-deliverable-index.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 52,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.703Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "equity-options/eqd-ex26-mixed-asset-basket.xml",
+      "pairIndex": 27,
+      "totalPairs": 27,
+      "strategy": "exact",
+      "progress": "27/27"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.703Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex19-dividend-adjustment.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 51,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.703Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex20-nested-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.709Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25353,
+      "retryAttempt": 0,
+      "fpmlChars": 9854,
+      "cdmChars": 9697,
+      "fpmlFields": 94,
+      "cdmFields": 134
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.714Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 23124,
+      "retryAttempt": 0,
+      "fpmlChars": 7632,
+      "cdmChars": 9698,
+      "fpmlFields": 63,
+      "cdmFields": 134
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.720Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 23037,
+      "retryAttempt": 0,
+      "fpmlChars": 7341,
+      "cdmChars": 9874,
+      "fpmlFields": 62,
+      "cdmFields": 136
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.724Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22878,
+      "retryAttempt": 0,
+      "fpmlChars": 7347,
+      "cdmChars": 9697,
+      "fpmlFields": 70,
+      "cdmFields": 134
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.731Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "equity-options/eqd-ex26-mixed-asset-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28749,
+      "retryAttempt": 0,
+      "fpmlChars": 9299,
+      "cdmChars": 13813,
+      "fpmlFields": 86,
+      "cdmFields": 178
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.732Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex21-flat-weight-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 78,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.733Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex22-equityOptionTransactionSupplement-index-option-asian-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 33,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.733Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex23-equityOptionTransactionSupplement-index-option-cliquet.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 32,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.733Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex24-equityOptionTransactionSupplement-index-option-asian-schedule.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 31,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.734Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex25-equityOptionTransactionSupplement-index-option-knock-in-knock-out-features.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 32,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.734Z",
+    "level": "error",
+    "stage": "pair_analysis",
+    "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+    "data": {
+      "pair": "equity-options/eqd-ex26-mixed-asset-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 31,
+      "retryAttempt": 0,
+      "error": "Was there a typo in the url or port?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.734Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 6,
+      "failedPairCount": 21
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.735Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "equity-options",
+      "successfulPairCount": 6,
+      "failedPairCount": 21,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 27
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.751Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "equity-options",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 8098,
+      "retryAttempt": 0,
+      "semanticPairCount": 6,
+      "structuralPairCount": 27,
+      "includedPairCount": 27,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.752Z",
+    "level": "error",
+    "stage": "synthesis",
+    "message": "Folder synthesis request failed; using deterministic fallback.",
+    "data": {
+      "folder": "equity-options",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 8098,
+      "retryAttempt": 0,
+      "error": "Unable to connect. Is the computer able to access the url?"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.758Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 6
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.766Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "21 pair analyses failed and were excluded from synthesis."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.771Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 1.5,
+      "rating": "poor",
+      "rolloutDecision": "not_ready",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.782Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:00:29.783Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "equity-options",
+      "status": "success",
+      "durationMs": 54240,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\run-log.json"
+    }
+  }
+]

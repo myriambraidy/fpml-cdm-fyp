@@ -1,0 +1,789 @@
+{
+  "className": "cdm.event.common.Trade",
+  "exists": true,
+  "packageName": "cdm.event.common",
+  "simpleName": "Trade",
+  "methods": [
+    {
+      "name": "getTradeIdentifier",
+      "returnType": "java.util.List<? extends cdm.event.common.TradeIdentifier>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.TradeIdentifier> getTradeIdentifier()"
+    },
+    {
+      "name": "getTradeDate",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaDate",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaDate getTradeDate()"
+    },
+    {
+      "name": "getTradeTime",
+      "returnType": "cdm.base.datetime.metafields.FieldWithMetaTimeZone",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.metafields.FieldWithMetaTimeZone getTradeTime()"
+    },
+    {
+      "name": "getParty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Party>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Party> getParty()"
+    },
+    {
+      "name": "getPartyRole",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.PartyRole>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.PartyRole> getPartyRole()"
+    },
+    {
+      "name": "getExecutionDetails",
+      "returnType": "cdm.event.common.ExecutionDetails",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ExecutionDetails getExecutionDetails()"
+    },
+    {
+      "name": "getContractDetails",
+      "returnType": "cdm.event.common.ContractDetails",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails getContractDetails()"
+    },
+    {
+      "name": "getClearedDate",
+      "returnType": "com.rosetta.model.lib.records.Date",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.lib.records.Date getClearedDate()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral getCollateral()"
+    },
+    {
+      "name": "getAccount",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Account>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Account> getAccount()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.event.common.Trade",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [],
+      "raw": "public static cdm.event.common.Trade$TradeBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.Trade>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.Trade> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.event.common.Trade>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.event.common.Trade> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.TradableProduct",
+      "parameters": [],
+      "raw": "public default cdm.product.template.TradableProduct build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.event.common.Trade$TradeBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateTradeIdentifier",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder getOrCreateTradeIdentifier(int)"
+    },
+    {
+      "name": "getTradeIdentifier",
+      "returnType": "java.util.List<? extends cdm.event.common.TradeIdentifier$TradeIdentifierBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.TradeIdentifier$TradeIdentifierBuilder> getTradeIdentifier()"
+    },
+    {
+      "name": "getOrCreateTradeDate",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaDate$FieldWithMetaDateBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaDate$FieldWithMetaDateBuilder getOrCreateTradeDate()"
+    },
+    {
+      "name": "getTradeDate",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaDate$FieldWithMetaDateBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaDate$FieldWithMetaDateBuilder getTradeDate()"
+    },
+    {
+      "name": "getOrCreateTradeTime",
+      "returnType": "cdm.base.datetime.metafields.FieldWithMetaTimeZone$FieldWithMetaTimeZoneBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.metafields.FieldWithMetaTimeZone$FieldWithMetaTimeZoneBuilder getOrCreateTradeTime()"
+    },
+    {
+      "name": "getTradeTime",
+      "returnType": "cdm.base.datetime.metafields.FieldWithMetaTimeZone$FieldWithMetaTimeZoneBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.metafields.FieldWithMetaTimeZone$FieldWithMetaTimeZoneBuilder getTradeTime()"
+    },
+    {
+      "name": "getOrCreateParty",
+      "returnType": "cdm.base.staticdata.party.Party$PartyBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Party$PartyBuilder getOrCreateParty(int)"
+    },
+    {
+      "name": "getParty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Party$PartyBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Party$PartyBuilder> getParty()"
+    },
+    {
+      "name": "getOrCreatePartyRole",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder getOrCreatePartyRole(int)"
+    },
+    {
+      "name": "getPartyRole",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.PartyRole$PartyRoleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.PartyRole$PartyRoleBuilder> getPartyRole()"
+    },
+    {
+      "name": "getOrCreateExecutionDetails",
+      "returnType": "cdm.event.common.ExecutionDetails$ExecutionDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ExecutionDetails$ExecutionDetailsBuilder getOrCreateExecutionDetails()"
+    },
+    {
+      "name": "getExecutionDetails",
+      "returnType": "cdm.event.common.ExecutionDetails$ExecutionDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ExecutionDetails$ExecutionDetailsBuilder getExecutionDetails()"
+    },
+    {
+      "name": "getOrCreateContractDetails",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder getOrCreateContractDetails()"
+    },
+    {
+      "name": "getContractDetails",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder getContractDetails()"
+    },
+    {
+      "name": "getOrCreateCollateral",
+      "returnType": "cdm.product.collateral.Collateral$CollateralBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral$CollateralBuilder getOrCreateCollateral()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral$CollateralBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral$CollateralBuilder getCollateral()"
+    },
+    {
+      "name": "getOrCreateAccount",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder getOrCreateAccount(int)"
+    },
+    {
+      "name": "getAccount",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Account$AccountBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Account$AccountBuilder> getAccount()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setProduct",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.product.template.NonTransferableProduct"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setProduct(cdm.product.template.NonTransferableProduct)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeLot(cdm.product.template.TradeLot)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeLot(cdm.product.template.TradeLot, int)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.TradeLot>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeLot(java.util.List<? extends cdm.product.template.TradeLot>)"
+    },
+    {
+      "name": "setTradeLot",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.TradeLot>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeLot(java.util.List<? extends cdm.product.template.TradeLot>)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addCounterparty(cdm.base.staticdata.party.Counterparty)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addCounterparty(cdm.base.staticdata.party.Counterparty, int)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Counterparty>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addCounterparty(java.util.List<? extends cdm.base.staticdata.party.Counterparty>)"
+    },
+    {
+      "name": "setCounterparty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Counterparty>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setCounterparty(java.util.List<? extends cdm.base.staticdata.party.Counterparty>)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty, int)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAncillaryParty(java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>)"
+    },
+    {
+      "name": "setAncillaryParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setAncillaryParty(java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>)"
+    },
+    {
+      "name": "setAdjustment",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.product.common.NotionalAdjustmentEnum"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setAdjustment(cdm.product.common.NotionalAdjustmentEnum)"
+    },
+    {
+      "name": "addTradeIdentifier",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.event.common.TradeIdentifier"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeIdentifier(cdm.event.common.TradeIdentifier)"
+    },
+    {
+      "name": "addTradeIdentifier",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.event.common.TradeIdentifier",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeIdentifier(cdm.event.common.TradeIdentifier, int)"
+    },
+    {
+      "name": "addTradeIdentifier",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.TradeIdentifier>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addTradeIdentifier(java.util.List<? extends cdm.event.common.TradeIdentifier>)"
+    },
+    {
+      "name": "setTradeIdentifier",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.TradeIdentifier>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeIdentifier(java.util.List<? extends cdm.event.common.TradeIdentifier>)"
+    },
+    {
+      "name": "setTradeDate",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaDate"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeDate(com.rosetta.model.metafields.FieldWithMetaDate)"
+    },
+    {
+      "name": "setTradeDateValue",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "com.rosetta.model.lib.records.Date"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeDateValue(com.rosetta.model.lib.records.Date)"
+    },
+    {
+      "name": "setTradeTime",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.datetime.metafields.FieldWithMetaTimeZone"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeTime(cdm.base.datetime.metafields.FieldWithMetaTimeZone)"
+    },
+    {
+      "name": "setTradeTimeValue",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.datetime.TimeZone"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setTradeTimeValue(cdm.base.datetime.TimeZone)"
+    },
+    {
+      "name": "addParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addParty(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "addParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addParty(cdm.base.staticdata.party.Party, int)"
+    },
+    {
+      "name": "addParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Party>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addParty(java.util.List<? extends cdm.base.staticdata.party.Party>)"
+    },
+    {
+      "name": "setParty",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Party>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setParty(java.util.List<? extends cdm.base.staticdata.party.Party>)"
+    },
+    {
+      "name": "addPartyRole",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PartyRole"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addPartyRole(cdm.base.staticdata.party.PartyRole)"
+    },
+    {
+      "name": "addPartyRole",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PartyRole",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addPartyRole(cdm.base.staticdata.party.PartyRole, int)"
+    },
+    {
+      "name": "addPartyRole",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.PartyRole>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addPartyRole(java.util.List<? extends cdm.base.staticdata.party.PartyRole>)"
+    },
+    {
+      "name": "setPartyRole",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.PartyRole>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setPartyRole(java.util.List<? extends cdm.base.staticdata.party.PartyRole>)"
+    },
+    {
+      "name": "setExecutionDetails",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.event.common.ExecutionDetails"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setExecutionDetails(cdm.event.common.ExecutionDetails)"
+    },
+    {
+      "name": "setContractDetails",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.event.common.ContractDetails"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setContractDetails(cdm.event.common.ContractDetails)"
+    },
+    {
+      "name": "setClearedDate",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "com.rosetta.model.lib.records.Date"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setClearedDate(com.rosetta.model.lib.records.Date)"
+    },
+    {
+      "name": "setCollateral",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.product.collateral.Collateral"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setCollateral(cdm.product.collateral.Collateral)"
+    },
+    {
+      "name": "addAccount",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Account"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAccount(cdm.base.staticdata.party.Account)"
+    },
+    {
+      "name": "addAccount",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Account",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAccount(cdm.base.staticdata.party.Account, int)"
+    },
+    {
+      "name": "addAccount",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Account>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder addAccount(java.util.List<? extends cdm.base.staticdata.party.Account>)"
+    },
+    {
+      "name": "setAccount",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Account>"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setAccount(java.util.List<? extends cdm.base.staticdata.party.Account>)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral",
+      "parameters": [],
+      "raw": "public default cdm.product.collateral.Collateral getCollateral()"
+    },
+    {
+      "name": "getContractDetails",
+      "returnType": "cdm.event.common.ContractDetails",
+      "parameters": [],
+      "raw": "public default cdm.event.common.ContractDetails getContractDetails()"
+    },
+    {
+      "name": "getExecutionDetails",
+      "returnType": "cdm.event.common.ExecutionDetails",
+      "parameters": [],
+      "raw": "public default cdm.event.common.ExecutionDetails getExecutionDetails()"
+    },
+    {
+      "name": "getTradeTime",
+      "returnType": "cdm.base.datetime.metafields.FieldWithMetaTimeZone",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.metafields.FieldWithMetaTimeZone getTradeTime()"
+    },
+    {
+      "name": "getTradeDate",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaDate",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaDate getTradeDate()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder prune()"
+    },
+    {
+      "name": "setAdjustment",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.common.NotionalAdjustmentEnum"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder setAdjustment(cdm.product.common.NotionalAdjustmentEnum)"
+    },
+    {
+      "name": "setAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder setAncillaryParty(java.util.List)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(java.util.List)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty",
+        "int"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty, int)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty)"
+    },
+    {
+      "name": "setCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder setCounterparty(java.util.List)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(java.util.List)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty",
+        "int"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(cdm.base.staticdata.party.Counterparty, int)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(cdm.base.staticdata.party.Counterparty)"
+    },
+    {
+      "name": "setTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder setTradeLot(java.util.List)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(java.util.List)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot",
+        "int"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(cdm.product.template.TradeLot, int)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(cdm.product.template.TradeLot)"
+    },
+    {
+      "name": "setProduct",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.NonTransferableProduct"
+      ],
+      "raw": "public default cdm.product.template.TradableProduct$TradableProductBuilder setProduct(cdm.product.template.NonTransferableProduct)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

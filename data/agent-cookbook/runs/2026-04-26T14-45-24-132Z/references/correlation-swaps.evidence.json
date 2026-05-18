@@ -1,0 +1,282 @@
+{
+  "folder": "correlation-swaps",
+  "generatedAt": "2026-04-26T14:45:24.132Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 4,
+    "structuralPairCount": 4,
+    "semanticPairCount": 4,
+    "fullSemanticPairCount": 4,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 4/4 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 4/4 successful or salvaged pair analyses (4 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 7.1,
+    "rating": "good",
+    "reasons": [
+      "Only 1 stable mapping rule were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "2 repeated transformations still have thin supporting evidence."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 1,
+      "repeatedTransformationCount": 4,
+      "tentativePatternCount": 2,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 8,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 2,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout.",
+      "Too many repeated transformations still have thin supporting evidence.",
+      "Quality rating is good, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Settlement type preserved into performance payout settlementTerms",
+      "strength": "strong recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "correlationswap.correlationleg.settlementtype",
+      "targetPattern": "performancepayout.settlementterms.settlementtype",
+      "explanation": "Settlement type values (e.g., Cash) are consistently copied from the correlation leg settlementType in the FpML into the CDM performance payout settlementTerms.settlementType.",
+      "whyItWorksThisWay": "Settlement processing semantics are preserved across representations so downstream CDM logic can rely on the same settlement modality.",
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "caveats": [
+        "Pattern evidence is from confirmation examples (ex02-ex04); single-file variations (ex01) do not contradict but provide less direct evidence.",
+        "Does not clarify how optional or complex settlementType variants (beyond simple 'Cash') are represented."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Identifier and exchange-code normalization",
+      "type": "normalization",
+      "description": "Instrument identifiers and exchange codes from FpML are normalized when mapped into CDM Security.identifier or exchange fields (examples include mapping NYSE -> XNYS and converting some instrumentId schemes to BBGID).",
+      "sourceSide": "instrumentId, description, exchange codes",
+      "targetSide": "Security.identifier.value / scheme / Security.name / exchange code normalized (e.g., XNYS), constituent identifier scheme conversions",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "Normalization appears applied to both exchange codes and identifier schemes; specific rule for when to convert to BBGID is unclear.",
+        "Representative transformation entries mention ISIN/Name creation and exchange code mapping."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Split party references into counterparty entries",
+      "type": "split",
+      "description": "FpML party references (payerPartyReference, receiverPartyReference and similar) are transformed into separate counterparty/party entries in the CDM trade (e.g., Party1/Party2 or payer/receiver fields).",
+      "sourceSide": "payerPartyReference, receiverPartyReference, calculationAgentPartyReference (hrefs)",
+      "targetSide": "trade counterparties / party list entries (payer, receiver, Party1/Party2)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "Representative examples show payerPartyReference -> payer and receiverPartyReference -> receiver.",
+        "Some examples raise ambiguity about how calculationAgentPartyReference is represented (see open questions)."
+      ]
+    },
+    {
+      "id": "TR-003",
+      "name": "Move notional into tradeLot.quantity",
+      "type": "merge",
+      "description": "Notional amount and currency from FpML are placed into the CDM tradeLot.quantity structure.",
+      "sourceSide": "notional amount and currency fields",
+      "targetSide": "tradeLot.quantity (quantity value + currency)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "Examples show notional mapped into tradeLot.quantity; quantity addressing in CDM (e.g., priceQuantity.address) remains an open question in some files."
+      ]
+    },
+    {
+      "id": "TR-004",
+      "name": "RelativeDate fields nested under adjustableOrRelativeDate",
+      "type": "nesting change",
+      "description": "Individual relativeDate elements from FpML are re-grouped under an adjustableOrRelativeDate wrapper and tied to business center and daterelativeto references in CDM.",
+      "sourceSide": "settlementdate.relativedate.* and relativedate.* fields",
+      "targetSide": "adjustableorrelativedate.relativedate.* plus businesscenters.businesscenter.value and relativedate.daterelativeto.externalreference",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "This mirrors TENT-002; examples show relative date fields grouped under the CDM adjustableOrRelativeDate construct.",
+        "Href-to-externalReference conversions are present in some examples and may require resolution logic."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "mapping",
+      "strength": "strong recurring pattern",
+      "description": "Settlement terms repeatedly map from correlationswap.correlationleg.settlementtype into performancepayout.settlementterms.settlementtype.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: settlement type preserved",
+        "Representative note: settlement type copied",
+        "Representative note: Cash settlement mapped"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Settlement terms repeatedly map from relativedate.businesscenters.businesscenter|relativedate.daterelativeto.href|settlementdate.relativedate.businessdayconvention|settlementdate.relativedate.daytype|settlementdate.relativedate.period|settlementdate.relativedate.periodmultiplier into adjustableorrelativedate.relativedate.businessdayconvention|adjustableorrelativedate.relativedate.daytype|adjustableorrelativedate.relativedate.period|adjustableorrelativedate.relativedate.periodmultiplier|businesscenters.businesscenter.value|relativedate.daterelativeto.externalreference.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: relative date fields nested under adjustableOrRelativeDate",
+        "Representative note: relativeDate fields mapped"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "Ambiguous party resolution for payer/receiver",
+      "description": "Examples show payer/receiver refs mapped to parties but the mapping to Party1/Party2 or which side becomes CalculationAgentIndependent is unclear.",
+      "seenIn": [
+        "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "impactOnGeneralization": "Moderate - party resolution logic should be explicit and handle potential swaps or asymmetric roles; avoid assuming ordering without rule."
+    },
+    {
+      "id": "VAR-002",
+      "name": "Calculation agent mapping inconsistency",
+      "description": "The mapping of calculationAgentPartyReference in FpML to 'CalculationAgentIndependent' in CDM appears repeatedly but lacks clear deterministic rules in examples.",
+      "seenIn": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "impactOnGeneralization": "Moderate - implementations should treat mapping of calculationAgentPartyReference as a special-case that may require business rules or external resolution; do not assume always mapped to CalculationAgentIndependent without further confirmation."
+    },
+    {
+      "id": "VAR-003",
+      "name": "Identifier scheme conversion to BBGID for constituents",
+      "description": "One example shows the first two basket constituents converted to BBGID; this conversion rule is not explained elsewhere.",
+      "seenIn": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml"
+      ],
+      "impactOnGeneralization": "Moderate - treat scheme conversions as conditional; require explicit mapping rules or whitelist before generalizing to all instruments."
+    },
+    {
+      "id": "VAR-004",
+      "name": "TradeId scheme mismatch between FpML and CDM meta",
+      "description": "Trade identifier scheme differs between the FpML source and the generated CDM meta in at least one example.",
+      "seenIn": [
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml"
+      ],
+      "impactOnGeneralization": "Weak-to-moderate - mapping should allow for scheme remapping or retention of original scheme as an alternate identifier; do not assume a single canonical scheme."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "CalculationAgent mapped to CalculationAgentIndependent",
+      "description": "CDM examples present a 'CalculationAgentIndependent' value where FpML references a calculationAgentParty (href); this appears to be an enrichment or defaulting behavior in the transformation.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "caution": [
+        "No deterministic rule in examples for when to use CalculationAgentIndependent vs a party-specific agent.",
+        "Downstream consumers should not assume the original FpML href semantics are preserved without additional resolution."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "Relative date fields mapped into adjustableOrRelativeDate structure",
+      "description": "RelativeDate elements from FpML (including business day conventions, day type, period and multiplier, and business center references) are nested under an adjustableOrRelativeDate wrapper in the CDM, and references are converted to CDM externalReference form where applicable. CDM models use adjustableOrRelativeDate as a single canonical container for relative-date metadata; mapping groups all related relative-date fields under that wrapper.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+      ],
+      "caution": [
+        "Only observed in two confirmation examples; other variants of relativedate in the folder may require additional handling.",
+        "Mapping of href-based references to externalReference requires resolution logic (not demonstrated in all examples).",
+        "Do not treat Relative date fields mapped into adjustableOrRelativeDate structure as a guaranteed direct mapping rule yet."
+      ]
+    },
+    {
+      "id": "ENR-003",
+      "name": "priceQuantity.address and quantity-1 usage",
+      "description": "CDM contains a priceQuantity.address value 'quantity-1' that is not directly traced to an obvious FpML field in the examples; likely an internal addressing/enrichment convention.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "correlation-swaps/eqcs-ex01-correlation-swap.xml"
+      ],
+      "caution": [
+        "Treat such addressing values as CDM-side artifacts; do not assume they map to an explicit FpML element without specification.",
+        "If addressing is significant, include mapping metadata or generation rules to preserve traceability."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+    "Where is priceQuantity.address 'quantity-1' derived from in CDM?",
+    "Why were instrumentId schemes converted to BBGID for first two constituents?",
+    "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?",
+    "TradeId scheme differs between FpML and CDM meta - what is the intended canonical scheme?",
+    "Is CalculationAgent mapped as 'CalculationAgentIndependent' for both counterparties or only select roles?",
+    "How are payer/receiver party refs resolved deterministically to Party1/Party2?",
+    "Why does CDM use 'CalculationAgentIndependent' for calculationAgentPartyReference in these examples?"
+  ]
+}

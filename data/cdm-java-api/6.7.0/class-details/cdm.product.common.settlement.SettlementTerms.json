@@ -1,0 +1,330 @@
+{
+  "className": "cdm.product.common.settlement.SettlementTerms",
+  "exists": true,
+  "packageName": "cdm.product.common.settlement",
+  "simpleName": "SettlementTerms",
+  "methods": [
+    {
+      "name": "getCashSettlementTerms",
+      "returnType": "java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms> getCashSettlementTerms()"
+    },
+    {
+      "name": "getPhysicalSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PhysicalSettlementTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PhysicalSettlementTerms getPhysicalSettlementTerms()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.SettlementTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.SettlementTerms>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.SettlementTerms> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.common.settlement.SettlementTerms>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.common.settlement.SettlementTerms> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.SettlementBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.SettlementBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateCashSettlementTerms",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder getOrCreateCashSettlementTerms(int)"
+    },
+    {
+      "name": "getCashSettlementTerms",
+      "returnType": "java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder> getCashSettlementTerms()"
+    },
+    {
+      "name": "getOrCreatePhysicalSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PhysicalSettlementTerms$PhysicalSettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PhysicalSettlementTerms$PhysicalSettlementTermsBuilder getOrCreatePhysicalSettlementTerms()"
+    },
+    {
+      "name": "getPhysicalSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PhysicalSettlementTerms$PhysicalSettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PhysicalSettlementTerms$PhysicalSettlementTermsBuilder getPhysicalSettlementTerms()"
+    },
+    {
+      "name": "setSettlementType",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTypeEnum"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementType(cdm.product.common.settlement.SettlementTypeEnum)"
+    },
+    {
+      "name": "setTransferSettlementType",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.TransferSettlementEnum"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setTransferSettlementType(cdm.product.common.settlement.TransferSettlementEnum)"
+    },
+    {
+      "name": "setSettlementCurrency",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementCurrency(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setSettlementCurrencyValue",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementCurrencyValue(java.lang.String)"
+    },
+    {
+      "name": "setSettlementDate",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementDate"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementDate(cdm.product.common.settlement.SettlementDate)"
+    },
+    {
+      "name": "setSettlementCentre",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementCentreEnum"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementCentre(cdm.product.common.settlement.SettlementCentreEnum)"
+    },
+    {
+      "name": "setSettlementProvision",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementProvision"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setSettlementProvision(cdm.product.common.settlement.SettlementProvision)"
+    },
+    {
+      "name": "setStandardSettlementStyle",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.StandardSettlementStyleEnum"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setStandardSettlementStyle(cdm.product.common.settlement.StandardSettlementStyleEnum)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "addCashSettlementTerms",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.CashSettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder addCashSettlementTerms(cdm.product.common.settlement.CashSettlementTerms)"
+    },
+    {
+      "name": "addCashSettlementTerms",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.CashSettlementTerms",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder addCashSettlementTerms(cdm.product.common.settlement.CashSettlementTerms, int)"
+    },
+    {
+      "name": "addCashSettlementTerms",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder addCashSettlementTerms(java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms>)"
+    },
+    {
+      "name": "setCashSettlementTerms",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setCashSettlementTerms(java.util.List<? extends cdm.product.common.settlement.CashSettlementTerms>)"
+    },
+    {
+      "name": "setPhysicalSettlementTerms",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PhysicalSettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder setPhysicalSettlementTerms(cdm.product.common.settlement.PhysicalSettlementTerms)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementTerms$SettlementTermsBuilder prune()"
+    },
+    {
+      "name": "getPhysicalSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PhysicalSettlementTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PhysicalSettlementTerms getPhysicalSettlementTerms()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder prune()"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "setStandardSettlementStyle",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.StandardSettlementStyleEnum"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setStandardSettlementStyle(cdm.product.common.settlement.StandardSettlementStyleEnum)"
+    },
+    {
+      "name": "setSettlementProvision",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementProvision"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementProvision(cdm.product.common.settlement.SettlementProvision)"
+    },
+    {
+      "name": "setSettlementCentre",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementCentreEnum"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementCentre(cdm.product.common.settlement.SettlementCentreEnum)"
+    },
+    {
+      "name": "setSettlementDate",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementDate"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementDate(cdm.product.common.settlement.SettlementDate)"
+    },
+    {
+      "name": "setSettlementCurrencyValue",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementCurrencyValue(java.lang.String)"
+    },
+    {
+      "name": "setSettlementCurrency",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementCurrency(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setTransferSettlementType",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.TransferSettlementEnum"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setTransferSettlementType(cdm.product.common.settlement.TransferSettlementEnum)"
+    },
+    {
+      "name": "setSettlementType",
+      "returnType": "cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTypeEnum"
+      ],
+      "raw": "public default cdm.product.common.settlement.SettlementBase$SettlementBaseBuilder setSettlementType(cdm.product.common.settlement.SettlementTypeEnum)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

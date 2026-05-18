@@ -1,0 +1,331 @@
+{
+  "className": "cdm.base.staticdata.asset.common.Cash",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.asset.common",
+  "simpleName": "Cash",
+  "methods": [
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.Cash",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.asset.common.Cash$CashBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.Cash>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.Cash> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.asset.common.Cash>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.asset.common.Cash> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+  "builderMethods": [
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetIdentifier"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addIdentifier(cdm.base.staticdata.asset.common.AssetIdentifier)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetIdentifier",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addIdentifier(cdm.base.staticdata.asset.common.AssetIdentifier, int)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.AssetIdentifier>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addIdentifier(java.util.List<? extends cdm.base.staticdata.asset.common.AssetIdentifier>)"
+    },
+    {
+      "name": "setIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.AssetIdentifier>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder setIdentifier(java.util.List<? extends cdm.base.staticdata.asset.common.AssetIdentifier>)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Taxonomy"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addTaxonomy(cdm.base.staticdata.asset.common.Taxonomy)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Taxonomy",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addTaxonomy(cdm.base.staticdata.asset.common.Taxonomy, int)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.Taxonomy>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addTaxonomy(java.util.List<? extends cdm.base.staticdata.asset.common.Taxonomy>)"
+    },
+    {
+      "name": "setTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.Taxonomy>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder setTaxonomy(java.util.List<? extends cdm.base.staticdata.asset.common.Taxonomy>)"
+    },
+    {
+      "name": "setIsExchangeListed",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder setIsExchangeListed(java.lang.Boolean)"
+    },
+    {
+      "name": "setExchange",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder setExchange(cdm.base.staticdata.party.LegalEntity)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addRelatedExchange(cdm.base.staticdata.party.LegalEntity)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addRelatedExchange(cdm.base.staticdata.party.LegalEntity, int)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.LegalEntity>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder addRelatedExchange(java.util.List<? extends cdm.base.staticdata.party.LegalEntity>)"
+    },
+    {
+      "name": "setRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.LegalEntity>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder setRelatedExchange(java.util.List<? extends cdm.base.staticdata.party.LegalEntity>)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder prune()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder prune()"
+    },
+    {
+      "name": "setRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder setRelatedExchange(java.util.List)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addRelatedExchange(java.util.List)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity",
+        "int"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addRelatedExchange(cdm.base.staticdata.party.LegalEntity, int)"
+    },
+    {
+      "name": "addRelatedExchange",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addRelatedExchange(cdm.base.staticdata.party.LegalEntity)"
+    },
+    {
+      "name": "setExchange",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.LegalEntity"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder setExchange(cdm.base.staticdata.party.LegalEntity)"
+    },
+    {
+      "name": "setIsExchangeListed",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder setIsExchangeListed(java.lang.Boolean)"
+    },
+    {
+      "name": "setTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder setTaxonomy(java.util.List)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addTaxonomy(java.util.List)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Taxonomy",
+        "int"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addTaxonomy(cdm.base.staticdata.asset.common.Taxonomy, int)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Taxonomy"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addTaxonomy(cdm.base.staticdata.asset.common.Taxonomy)"
+    },
+    {
+      "name": "setIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder setIdentifier(java.util.List)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addIdentifier(java.util.List)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetIdentifier",
+        "int"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addIdentifier(cdm.base.staticdata.asset.common.AssetIdentifier, int)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.AssetIdentifier"
+      ],
+      "raw": "public default cdm.base.staticdata.asset.common.AssetBase$AssetBaseBuilder addIdentifier(cdm.base.staticdata.asset.common.AssetIdentifier)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

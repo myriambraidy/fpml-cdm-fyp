@@ -1,0 +1,415 @@
+{
+  "className": "cdm.event.common.TradeState",
+  "exists": true,
+  "packageName": "cdm.event.common",
+  "simpleName": "TradeState",
+  "methods": [
+    {
+      "name": "getTrade",
+      "returnType": "cdm.event.common.Trade",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade getTrade()"
+    },
+    {
+      "name": "getState",
+      "returnType": "cdm.event.common.State",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.State getState()"
+    },
+    {
+      "name": "getResetHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.Reset>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.Reset> getResetHistory()"
+    },
+    {
+      "name": "getTransferHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.TransferState>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.TransferState> getTransferHistory()"
+    },
+    {
+      "name": "getObservationHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.ObservationEvent>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.ObservationEvent> getObservationHistory()"
+    },
+    {
+      "name": "getValuationHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.Valuation>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.Valuation> getValuationHistory()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.event.common.TradeState",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeState build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [],
+      "raw": "public static cdm.event.common.TradeState$TradeStateBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.TradeState>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.TradeState> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.event.common.TradeState>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.event.common.TradeState> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.event.common.TradeState$TradeStateBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateTrade",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder getOrCreateTrade()"
+    },
+    {
+      "name": "getTrade",
+      "returnType": "cdm.event.common.Trade$TradeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.Trade$TradeBuilder getTrade()"
+    },
+    {
+      "name": "getOrCreateState",
+      "returnType": "cdm.event.common.State$StateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.State$StateBuilder getOrCreateState()"
+    },
+    {
+      "name": "getState",
+      "returnType": "cdm.event.common.State$StateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.State$StateBuilder getState()"
+    },
+    {
+      "name": "getOrCreateResetHistory",
+      "returnType": "cdm.event.common.Reset$ResetBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Reset$ResetBuilder getOrCreateResetHistory(int)"
+    },
+    {
+      "name": "getResetHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.Reset$ResetBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.Reset$ResetBuilder> getResetHistory()"
+    },
+    {
+      "name": "getOrCreateTransferHistory",
+      "returnType": "cdm.event.common.TransferState$TransferStateBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TransferState$TransferStateBuilder getOrCreateTransferHistory(int)"
+    },
+    {
+      "name": "getTransferHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.TransferState$TransferStateBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.TransferState$TransferStateBuilder> getTransferHistory()"
+    },
+    {
+      "name": "getOrCreateObservationHistory",
+      "returnType": "cdm.event.common.ObservationEvent$ObservationEventBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.ObservationEvent$ObservationEventBuilder getOrCreateObservationHistory(int)"
+    },
+    {
+      "name": "getObservationHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.ObservationEvent$ObservationEventBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.ObservationEvent$ObservationEventBuilder> getObservationHistory()"
+    },
+    {
+      "name": "getOrCreateValuationHistory",
+      "returnType": "cdm.event.common.Valuation$ValuationBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.Valuation$ValuationBuilder getOrCreateValuationHistory(int)"
+    },
+    {
+      "name": "getValuationHistory",
+      "returnType": "java.util.List<? extends cdm.event.common.Valuation$ValuationBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.event.common.Valuation$ValuationBuilder> getValuationHistory()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setTrade",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.Trade"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setTrade(cdm.event.common.Trade)"
+    },
+    {
+      "name": "setState",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.State"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setState(cdm.event.common.State)"
+    },
+    {
+      "name": "addResetHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.Reset"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addResetHistory(cdm.event.common.Reset)"
+    },
+    {
+      "name": "addResetHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.Reset",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addResetHistory(cdm.event.common.Reset, int)"
+    },
+    {
+      "name": "addResetHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.Reset>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addResetHistory(java.util.List<? extends cdm.event.common.Reset>)"
+    },
+    {
+      "name": "setResetHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.Reset>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setResetHistory(java.util.List<? extends cdm.event.common.Reset>)"
+    },
+    {
+      "name": "addTransferHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.TransferState"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addTransferHistory(cdm.event.common.TransferState)"
+    },
+    {
+      "name": "addTransferHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.TransferState",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addTransferHistory(cdm.event.common.TransferState, int)"
+    },
+    {
+      "name": "addTransferHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.TransferState>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addTransferHistory(java.util.List<? extends cdm.event.common.TransferState>)"
+    },
+    {
+      "name": "setTransferHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.TransferState>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setTransferHistory(java.util.List<? extends cdm.event.common.TransferState>)"
+    },
+    {
+      "name": "addObservationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.ObservationEvent"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addObservationHistory(cdm.event.common.ObservationEvent)"
+    },
+    {
+      "name": "addObservationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.ObservationEvent",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addObservationHistory(cdm.event.common.ObservationEvent, int)"
+    },
+    {
+      "name": "addObservationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.ObservationEvent>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addObservationHistory(java.util.List<? extends cdm.event.common.ObservationEvent>)"
+    },
+    {
+      "name": "setObservationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.ObservationEvent>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setObservationHistory(java.util.List<? extends cdm.event.common.ObservationEvent>)"
+    },
+    {
+      "name": "addValuationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.Valuation"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addValuationHistory(cdm.event.common.Valuation)"
+    },
+    {
+      "name": "addValuationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "cdm.event.common.Valuation",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addValuationHistory(cdm.event.common.Valuation, int)"
+    },
+    {
+      "name": "addValuationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.Valuation>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder addValuationHistory(java.util.List<? extends cdm.event.common.Valuation>)"
+    },
+    {
+      "name": "setValuationHistory",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.event.common.Valuation>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setValuationHistory(java.util.List<? extends cdm.event.common.Valuation>)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.event.common.TradeState$TradeStateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeState$TradeStateBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getState",
+      "returnType": "cdm.event.common.State",
+      "parameters": [],
+      "raw": "public default cdm.event.common.State getState()"
+    },
+    {
+      "name": "getTrade",
+      "returnType": "cdm.event.common.Trade",
+      "parameters": [],
+      "raw": "public default cdm.event.common.Trade getTrade()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

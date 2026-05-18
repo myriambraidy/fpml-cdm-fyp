@@ -1,0 +1,1478 @@
+{
+  "generatedAt": "2026-04-26T13:52:02.104Z",
+  "config": {
+    "workspaceRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp",
+    "fpmlRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel",
+    "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+    "folder": "correlation-swaps",
+    "pairConcurrency": 8,
+    "pairMaxRetries": 1,
+    "synthesisMaxRetries": 1,
+    "model": "openai/gpt-5-mini",
+    "synthesisModel": "openai/gpt-5-mini",
+    "pairMaxTokens": 128000,
+    "synthesisMaxTokens": 128000,
+    "storeFailedRawResponses": true
+  },
+  "selection": {
+    "manifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\manifest.json",
+    "folder": "correlation-swaps",
+    "includedPairs": [
+      {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex01-correlation-swap.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex01-correlation-swap.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex01-correlation-swap.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      }
+    ],
+    "missingExamples": [],
+    "ignoredExamples": [],
+    "coverage": {
+      "totalFpmlFilesInFolder": 4,
+      "matchedPairsAvailable": 4,
+      "matchedPairsUsed": 4,
+      "missingCounterparts": 0,
+      "ignoredPairs": 0,
+      "exactMatches": 4,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  "pairAnalyses": [
+    {
+      "pair": {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex01-correlation-swap.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex01-correlation-swap.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex01-correlation-swap.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "equityCorrelationSwap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > correlationSwap (35 paths); trade > tradeHeader (6 paths); trade > documentation (5 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+        ],
+        "nestedStructureSignals": [
+          "trade > correlationSwap (35 paths)",
+          "trade > tradeHeader (6 paths)",
+          "trade > documentation (5 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sentBy (1 paths)",
+          "trade > calculationAgent (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/correlationSwap/correlationLeg/payerPartyReference"
+        ],
+        "rawFieldCount": 54
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > tradeLot (56 paths); trade > product (46 paths); trade > contractDetails (22 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > tradeLot (56 paths)",
+          "trade > product (46 paths)",
+          "trade > contractDetails (22 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)",
+          "trade > tradeDate (2 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 174
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/payerPartyReference"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer"
+          ],
+          "classification": "direct",
+          "mappingNote": "payerPartyReference -> payer",
+          "confidence": "high",
+          "whyNote": "href maps to payer role in payout"
+        },
+        {
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/receiverPartyReference"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver"
+          ],
+          "classification": "direct",
+          "mappingNote": "receiverPartyReference -> receiver",
+          "confidence": "high",
+          "whyNote": "href maps to receiver role in payout"
+        },
+        {
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier",
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period",
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention",
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter",
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.periodMultiplier",
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.period",
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessDayConvention",
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.businessCenter[0].value",
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.dateRelativeTo.externalReference"
+          ],
+          "classification": "direct",
+          "mappingNote": "relativeDate fields mapped to CDM relativeDate",
+          "confidence": "high",
+          "whyNote": "matching elements and values present"
+        },
+        {
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent[0]/equity/instrumentId"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.identifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "instrumentId -> security identifier value",
+          "confidence": "high",
+          "whyNote": "same instrument id appears in CDM identifier"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent[0]/equity/exchangeId"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.exchange.name.value"
+          ],
+          "transformationNote": "normalize exchange codes (NYSE->XNYS)",
+          "confidence": "medium"
+        },
+        {
+          "type": "split",
+          "sourcePaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/tradeHeader/partyTradeIdentifier"
+          ],
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.tradeIdentifier",
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.counterparty"
+          ],
+          "transformationNote": "split partyTradeIdentifier into tradeIdentifier and counterparty",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.taxonomy[0].source"
+          ],
+          "enrichmentNote": "taxonomy.source set from masterAgreement.masterAgreementType",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+        "Where is priceQuantity.address 'quantity-1' derived from in CDM?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex01-correlation-swap.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "payerPartyReference -> payer",
+          "receiverPartyReference -> receiver",
+          "relativeDate fields mapped to CDM relativeDate",
+          "instrumentId -> security identifier value"
+        ],
+        "importantTransformation": "normalize exchange codes (NYSE->XNYS)",
+        "uncertainty": [
+          "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+          "Where is priceQuantity.address 'quantity-1' derived from in CDM?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 26099,
+      "rawResponseChars": 5354,
+      "rawResponsePreview": "{\n  \"productOrTradeFamily\": \"equityCorrelationSwap\",\n  \"mappingObservations\": [\n    {\n      \"sourcePaths\": [\n        \"correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/payerPartyReference\"\n      ],\n      \"targetPaths\": [\n        \"correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer\"\n      ],\n      \"classification\": \"direct\",\n      \"mappingNote\": \"payerPartyReference -> payer\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"href maps to payer role in payout\"\n    },\n    {\n      \"sourcePaths\": [\n        \"correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/trade/correlationSwap/correlationLeg/receiverPartyReference\"\n      ],\n      \"targetPaths\": [\n        \"correlation-swaps/eqcs-ex01-correlation-swap.json#$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver\"\n      ],\n      \"classification\": \"direct\",\n      \"mappingNote\": \"receiverPartyReference -> receiver\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"href maps to receiver role in payout\"\n    },\n    {\n      \"sourcePaths\": [\n        \"correlation-swaps/eqcs-ex01-correlation-swap.xml#/FpML/tr...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex02-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "correlation-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 6 paths.",
+          "Repeated nested structures include trade > correlationSwap (44 paths); trade > documentation (5 paths); trade > tradeHeader (3 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > correlationSwap (44 paths)",
+          "trade > documentation (5 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "party > partyName (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForShare",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForOther",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForCombined",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/tenderOfferEvents/shareForShare"
+        ],
+        "rawFieldCount": 63
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > tradeLot (59 paths); trade > product (46 paths); trade > contractDetails (22 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > tradeLot (59 paths)",
+          "trade > product (46 paths)",
+          "trade > contractDetails (22 paths)",
+          "trade > party (16 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > account (7 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 178
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+          ],
+          "classification": "direct",
+          "mappingNote": "settlement type preserved",
+          "confidence": "high",
+          "whyNote": "FpML value 'Cash' maps to CDM 'Cash'."
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.periodMultiplier",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.period",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.dayType",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessDayConvention",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.businessCenter[0].value",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.dateRelativeTo.externalReference"
+          ],
+          "classification": "normalized",
+          "mappingNote": "relative date fields nested under adjustableOrRelativeDate",
+          "confidence": "high",
+          "whyNote": "values preserved; externalReference set to vs8292."
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/instrumentId",
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/exchangeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[].value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[].value.Asset.Instrument.Security.exchange.name.value"
+          ],
+          "classification": "normalized",
+          "mappingNote": "basket securities mapped to Security structures",
+          "confidence": "medium",
+          "whyNote": "instrument ids and exchanges present but schemes and codes changed."
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/instrumentId",
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/exchangeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[].value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[].value.Asset.Instrument.Security.exchange.name.value"
+          ],
+          "transformationNote": "identifier scheme and exchange codes normalized (e.g. NYSE->XNYS)",
+          "confidence": "medium"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.economicTerms.calculationAgent.calculationAgentParty"
+          ],
+          "enrichmentNote": "role label inferred from party reference",
+          "confidence": "low"
+        }
+      ],
+      "openQuestions": [
+        "Why were instrumentId schemes converted to BBGID for first two constituents?",
+        "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "settlement type preserved",
+          "relative date fields nested under adjustableOrRelativeDate",
+          "basket securities mapped to Security structures"
+        ],
+        "importantTransformation": "identifier scheme and exchange codes normalized (e.g. NYSE->XNYS)",
+        "uncertainty": [
+          "Why were instrumentId schemes converted to BBGID for first two constituents?",
+          "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 28236,
+      "rawResponseChars": 3803,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"correlation-swaps\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementType\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType\"],\"classification\":\"direct\",\"mappingNote\":\"settlement type preserved\",\"confidence\":\"high\",\"whyNote\":\"FpML value 'Cash' maps to CDM 'Cash'.\"},{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo/@href\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.periodMultiplier\",\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDat...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex03-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "correlationSwap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 6 paths.",
+          "Repeated nested structures include trade > correlationSwap (57 paths); trade > documentation (5 paths); trade > calculationAgent (3 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > correlationSwap (57 paths)",
+          "trade > documentation (5 paths)",
+          "trade > calculationAgent (3 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "party > partyName (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForShare",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForOther",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForCombined",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/tenderOffer"
+        ],
+        "rawFieldCount": 78
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > tradeLot (65 paths); trade > product (45 paths); trade > contractDetails (22 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > tradeLot (65 paths)",
+          "trade > product (45 paths)",
+          "trade > contractDetails (22 paths)",
+          "trade > party (16 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > account (7 paths)",
+          "trade > ancillaryParty (7 paths)",
+          "trade > counterparty (7 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 184
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+          ],
+          "classification": "direct",
+          "mappingNote": "settlement type copied",
+          "confidence": "high",
+          "whyNote": "both values are 'Cash'"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate"
+          ],
+          "classification": "direct",
+          "mappingNote": "relative date fields mapped",
+          "confidence": "high",
+          "whyNote": "periodMultiplier, period, dayType and centers match"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/instrumentId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[].value.Asset.Instrument.Security.identifier[].identifier.value"
+          ],
+          "classification": "normalized",
+          "mappingNote": "instrumentId -> Security.identifier.value",
+          "confidence": "medium",
+          "whyNote": "identifier value preserved; scheme normalized"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/amount/notionalAmount/amount",
+            "/FpML/trade/correlationSwap/correlationLeg/amount/notionalAmount/currency"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value",
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.unit.currency.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "notional amount and currency mapped",
+          "confidence": "high",
+          "whyNote": "15000000 and EUR preserved"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "split",
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/payerPartyReference",
+            "/FpML/trade/correlationSwap/correlationLeg/receiverPartyReference"
+          ],
+          "targetPaths": [
+            "$.trade.counterparty[0]",
+            "$.trade.counterparty[1]"
+          ],
+          "transformationNote": "party refs split into counterparty entries",
+          "confidence": "medium"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.taxonomy[0].productQualifier"
+          ],
+          "enrichmentNote": "taxonomy productQualifier added",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "tradeId scheme differs between FpML and CDM meta",
+        "is CalculationAgent mapped as 'CalculationAgentIndependent' for both parties?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "settlement type copied",
+          "relative date fields mapped",
+          "instrumentId -> Security.identifier.value",
+          "notional amount and currency mapped"
+        ],
+        "importantTransformation": "party refs split into counterparty entries",
+        "uncertainty": [
+          "tradeId scheme differs between FpML and CDM meta",
+          "is CalculationAgent mapped as 'CalculationAgentIndependent' for both parties?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 30956,
+      "rawResponseChars": 2779,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"correlationSwap\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementType\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType\"],\"classification\":\"direct\",\"mappingNote\":\"settlement type copied\",\"confidence\":\"high\",\"whyNote\":\"both values are 'Cash'\"},{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate\"],\"classification\":\"direct\",\"mappingNote\":\"relative date fields mapped\",\"confidence\":\"high\",\"whyNote\":\"periodMultiplier, period, day...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "correlation-swaps",
+        "fpmlRelativePath": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmRelativePath": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\correlation-swaps\\eqcs-ex04-correlation-swap-confirmation.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "correlation-swap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 6 paths.",
+          "Repeated nested structures include trade > correlationSwap (50 paths); trade > documentation (5 paths); trade > tradeHeader (3 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > correlationSwap (50 paths)",
+          "trade > documentation (5 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "party > partyName (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForShare",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForOther",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/mergerEvents/shareForCombined",
+          "/FpML/trade/correlationSwap/extraordinaryEvents/tenderOffer"
+        ],
+        "rawFieldCount": 69
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > tradeLot (65 paths); trade > product (45 paths); trade > contractDetails (22 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > tradeLot (65 paths)",
+          "trade > product (45 paths)",
+          "trade > contractDetails (22 paths)",
+          "trade > party (16 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > account (7 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 182
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType"
+          ],
+          "classification": "direct",
+          "mappingNote": "Cash settlement mapped",
+          "confidence": "high",
+          "whyNote": "identical 'Cash' value present"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter",
+            "/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.periodMultiplier",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.period",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.dayType",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessDayConvention",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.businessCenter[0].value",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.dateRelativeTo.externalReference"
+          ],
+          "classification": "direct",
+          "mappingNote": "relativeDate fields mapped",
+          "confidence": "high",
+          "whyNote": "period, multiplier, dayType, business center and href preserved"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/amount/observationStartDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "direct",
+          "mappingNote": "observation start date mapped",
+          "confidence": "high",
+          "whyNote": "both show 2006-11-07"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/amount/correlation/notionalAmount/amount",
+            "/FpML/trade/correlationSwap/correlationLeg/amount/correlation/notionalAmount/currency"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value",
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.unit.currency.value"
+          ],
+          "classification": "normalized",
+          "mappingNote": "notional moved into tradeLot.quantity",
+          "confidence": "medium",
+          "whyNote": "amount and currency preserved but different nesting"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "split",
+          "sourcePaths": [
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/instrumentId",
+            "/FpML/trade/correlationSwap/correlationLeg/underlyer/basket/basketConstituent/equity/description"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.identifier[1].identifier.value"
+          ],
+          "transformationNote": "instrumentId and description become ISIN and Name identifiers",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.meta.globalKey"
+          ],
+          "enrichmentNote": "meta.globalKey added in CDM",
+          "confidence": "high"
+        }
+      ],
+      "openQuestions": [
+        "How are payer/receiver party refs resolved to Party1/Party2?",
+        "Why CDM uses 'CalculationAgentIndependent' for calculationAgentPartyReference?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "Cash settlement mapped",
+          "relativeDate fields mapped",
+          "observation start date mapped",
+          "notional moved into tradeLot.quantity"
+        ],
+        "importantTransformation": "instrumentId and description become ISIN and Name identifiers",
+        "uncertainty": [
+          "How are payer/receiver party refs resolved to Party1/Party2?",
+          "Why CDM uses 'CalculationAgentIndependent' for calculationAgentPartyReference?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 29593,
+      "rawResponseChars": 3960,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"correlation-swap\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementType\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType\"],\"classification\":\"direct\",\"mappingNote\":\"Cash settlement mapped\",\"confidence\":\"high\",\"whyNote\":\"identical 'Cash' value present\"},{\"sourcePaths\":[\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/periodMultiplier\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/period\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dayType\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessDayConvention\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/businessCenters/businessCenter\",\"/FpML/trade/correlationSwap/correlationLeg/settlementDate/relativeDate/dateRelativeTo/@href\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.periodMultiplier\",\"$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustabl...[truncated preview]"
+    }
+  ],
+  "synthesis": {
+    "folder": "correlation-swaps",
+    "evidenceCoverage": {
+      "matchedPairCount": 4,
+      "structuralPairCount": 4,
+      "semanticPairCount": 4,
+      "fullSemanticPairCount": 4,
+      "salvagedSemanticPairCount": 0,
+      "failedSemanticPairCount": 0,
+      "structuralBasisNote": "Structural summaries are computed from all 4/4 matched pairs, including pairs without semantic extraction.",
+      "semanticBasisNote": "Semantic rules are computed from 4/4 successful or salvaged pair analyses (4 full, 0 salvaged)."
+    },
+    "repeatedFpmlStructure": {
+      "headerAndBoilerplate": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+      ],
+      "topLevelSections": [
+        {
+          "section": "header",
+          "count": 4,
+          "total": 4
+        },
+        {
+          "section": "party",
+          "count": 4,
+          "total": 4
+        },
+        {
+          "section": "trade",
+          "count": 4,
+          "total": 4
+        }
+      ],
+      "nestedStructures": [
+        "trade > correlationSwap (35 paths)",
+        "trade > tradeHeader (6 paths)",
+        "trade > documentation (5 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > calculationAgent (1 paths)"
+      ],
+      "optionalSections": []
+    },
+    "repeatedCdmStructure": {
+      "topLevelSections": [
+        {
+          "section": "meta",
+          "count": 4,
+          "total": 4
+        },
+        {
+          "section": "trade",
+          "count": 4,
+          "total": 4
+        }
+      ],
+      "wrappersAndScaffolding": [
+        "trade > tradeLot (56 paths)",
+        "trade > product (46 paths)",
+        "trade > contractDetails (22 paths)",
+        "trade > tradeIdentifier (21 paths)",
+        "trade > party (13 paths)",
+        "trade > counterparty (7 paths)",
+        "trade > ancillaryParty (5 paths)",
+        "trade > tradeDate (2 paths)"
+      ],
+      "optionalSections": []
+    },
+    "stableMappingPatterns": [
+      {
+        "id": "RULE-001",
+        "name": "Settlement type preserved into performance payout settlementTerms",
+        "strength": "strong recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "correlationswap.correlationleg.settlementtype",
+        "targetPattern": "performancepayout.settlementterms.settlementtype",
+        "explanation": "Settlement type values (e.g., Cash) are consistently copied from the correlation leg settlementType in the FpML into the CDM performance payout settlementTerms.settlementType.",
+        "whyItWorksThisWay": "Settlement processing semantics are preserved across representations so downstream CDM logic can rely on the same settlement modality.",
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "caveats": [
+          "Pattern evidence is from confirmation examples (ex02-ex04); single-file variations (ex01) do not contradict but provide less direct evidence.",
+          "Does not clarify how optional or complex settlementType variants (beyond simple 'Cash') are represented."
+        ]
+      }
+    ],
+    "repeatedNonLiteralTransformations": [
+      {
+        "id": "TR-001",
+        "name": "Identifier and exchange-code normalization",
+        "type": "normalization",
+        "description": "Instrument identifiers and exchange codes from FpML are normalized when mapped into CDM Security.identifier or exchange fields (examples include mapping NYSE -> XNYS and converting some instrumentId schemes to BBGID).",
+        "sourceSide": "instrumentId, description, exchange codes",
+        "targetSide": "Security.identifier.value / scheme / Security.name / exchange code normalized (e.g., XNYS), constituent identifier scheme conversions",
+        "evidenceCount": 4,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "Normalization appears applied to both exchange codes and identifier schemes; specific rule for when to convert to BBGID is unclear.",
+          "Representative transformation entries mention ISIN/Name creation and exchange code mapping."
+        ]
+      },
+      {
+        "id": "TR-002",
+        "name": "Split party references into counterparty entries",
+        "type": "split",
+        "description": "FpML party references (payerPartyReference, receiverPartyReference and similar) are transformed into separate counterparty/party entries in the CDM trade (e.g., Party1/Party2 or payer/receiver fields).",
+        "sourceSide": "payerPartyReference, receiverPartyReference, calculationAgentPartyReference (hrefs)",
+        "targetSide": "trade counterparties / party list entries (payer, receiver, Party1/Party2)",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "Representative examples show payerPartyReference -> payer and receiverPartyReference -> receiver.",
+          "Some examples raise ambiguity about how calculationAgentPartyReference is represented (see open questions)."
+        ]
+      },
+      {
+        "id": "TR-003",
+        "name": "Move notional into tradeLot.quantity",
+        "type": "merge",
+        "description": "Notional amount and currency from FpML are placed into the CDM tradeLot.quantity structure.",
+        "sourceSide": "notional amount and currency fields",
+        "targetSide": "tradeLot.quantity (quantity value + currency)",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "Examples show notional mapped into tradeLot.quantity; quantity addressing in CDM (e.g., priceQuantity.address) remains an open question in some files."
+        ]
+      },
+      {
+        "id": "TR-004",
+        "name": "RelativeDate fields nested under adjustableOrRelativeDate",
+        "type": "nesting change",
+        "description": "Individual relativeDate elements from FpML are re-grouped under an adjustableOrRelativeDate wrapper and tied to business center and daterelativeto references in CDM.",
+        "sourceSide": "settlementdate.relativedate.* and relativedate.* fields",
+        "targetSide": "adjustableorrelativedate.relativedate.* plus businesscenters.businesscenter.value and relativedate.daterelativeto.externalreference",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "This mirrors TENT-002; examples show relative date fields grouped under the CDM adjustableOrRelativeDate construct.",
+          "Href-to-externalReference conversions are present in some examples and may require resolution logic."
+        ]
+      }
+    ],
+    "tentativeRepeatedPatterns": [
+      {
+        "id": "TENT-001",
+        "kind": "mapping",
+        "strength": "strong recurring pattern",
+        "description": "Settlement terms repeatedly map from correlationswap.correlationleg.settlementtype into performancepayout.settlementterms.settlementtype.",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: settlement type preserved",
+          "Representative note: settlement type copied",
+          "Representative note: Cash settlement mapped"
+        ]
+      },
+      {
+        "id": "TENT-002",
+        "kind": "mapping",
+        "strength": "moderate recurring pattern",
+        "description": "Settlement terms repeatedly map from relativedate.businesscenters.businesscenter|relativedate.daterelativeto.href|settlementdate.relativedate.businessdayconvention|settlementdate.relativedate.daytype|settlementdate.relativedate.period|settlementdate.relativedate.periodmultiplier into adjustableorrelativedate.relativedate.businessdayconvention|adjustableorrelativedate.relativedate.daytype|adjustableorrelativedate.relativedate.period|adjustableorrelativedate.relativedate.periodmultiplier|businesscenters.businesscenter.value|relativedate.daterelativeto.externalreference.",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: relative date fields nested under adjustableOrRelativeDate",
+          "Representative note: relativeDate fields mapped"
+        ]
+      }
+    ],
+    "folderLevelPrinciples": [
+      "Preserve settlement modality: settlementType values in FpML should be carried into CDM settlementTerms without loss.",
+      "Group relative-date metadata: relativedate fields in FpML are mapped into CDM's adjustableOrRelativeDate container rather than scattered top-level fields.",
+      "Resolve and normalize identifiers: instrumentId and exchange references are converted to CDM Security.identifier entries and normalized (exchange codes and identifier schemes normalized where shown).",
+      "Party references become explicit counterparties: payer/receiver party hrefs should be mapped to distinct CDM party entries rather than left as unresolved hrefs."
+    ],
+    "variantsAndExceptions": [
+      {
+        "id": "VAR-001",
+        "name": "Ambiguous party resolution for payer/receiver",
+        "description": "Examples show payer/receiver refs mapped to parties but the mapping to Party1/Party2 or which side becomes CalculationAgentIndependent is unclear.",
+        "seenIn": [
+          "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "impactOnGeneralization": "Moderate - party resolution logic should be explicit and handle potential swaps or asymmetric roles; avoid assuming ordering without rule."
+      },
+      {
+        "id": "VAR-002",
+        "name": "Calculation agent mapping inconsistency",
+        "description": "The mapping of calculationAgentPartyReference in FpML to 'CalculationAgentIndependent' in CDM appears repeatedly but lacks clear deterministic rules in examples.",
+        "seenIn": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "impactOnGeneralization": "Moderate - implementations should treat mapping of calculationAgentPartyReference as a special-case that may require business rules or external resolution; do not assume always mapped to CalculationAgentIndependent without further confirmation."
+      },
+      {
+        "id": "VAR-003",
+        "name": "Identifier scheme conversion to BBGID for constituents",
+        "description": "One example shows the first two basket constituents converted to BBGID; this conversion rule is not explained elsewhere.",
+        "seenIn": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml"
+        ],
+        "impactOnGeneralization": "Moderate - treat scheme conversions as conditional; require explicit mapping rules or whitelist before generalizing to all instruments."
+      },
+      {
+        "id": "VAR-004",
+        "name": "TradeId scheme mismatch between FpML and CDM meta",
+        "description": "Trade identifier scheme differs between the FpML source and the generated CDM meta in at least one example.",
+        "seenIn": [
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml"
+        ],
+        "impactOnGeneralization": "Weak-to-moderate - mapping should allow for scheme remapping or retention of original scheme as an alternate identifier; do not assume a single canonical scheme."
+      }
+    ],
+    "suspectedEnrichmentOrDefaultBehavior": [
+      {
+        "id": "ENR-001",
+        "name": "CalculationAgent mapped to CalculationAgentIndependent",
+        "description": "CDM examples present a 'CalculationAgentIndependent' value where FpML references a calculationAgentParty (href); this appears to be an enrichment or defaulting behavior in the transformation.",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "caution": [
+          "No deterministic rule in examples for when to use CalculationAgentIndependent vs a party-specific agent.",
+          "Downstream consumers should not assume the original FpML href semantics are preserved without additional resolution."
+        ]
+      },
+      {
+        "id": "ENR-002",
+        "name": "Relative date fields mapped into adjustableOrRelativeDate structure",
+        "description": "RelativeDate elements from FpML (including business day conventions, day type, period and multiplier, and business center references) are nested under an adjustableOrRelativeDate wrapper in the CDM, and references are converted to CDM externalReference form where applicable. CDM models use adjustableOrRelativeDate as a single canonical container for relative-date metadata; mapping groups all related relative-date fields under that wrapper.",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+          "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml"
+        ],
+        "caution": [
+          "Only observed in two confirmation examples; other variants of relativedate in the folder may require additional handling.",
+          "Mapping of href-based references to externalReference requires resolution logic (not demonstrated in all examples).",
+          "Do not treat Relative date fields mapped into adjustableOrRelativeDate structure as a guaranteed direct mapping rule yet."
+        ]
+      },
+      {
+        "id": "ENR-003",
+        "name": "priceQuantity.address and quantity-1 usage",
+        "description": "CDM contains a priceQuantity.address value 'quantity-1' that is not directly traced to an obvious FpML field in the examples; likely an internal addressing/enrichment convention.",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "correlation-swaps/eqcs-ex01-correlation-swap.xml"
+        ],
+        "caution": [
+          "Treat such addressing values as CDM-side artifacts; do not assume they map to an explicit FpML element without specification.",
+          "If addressing is significant, include mapping metadata or generation rules to preserve traceability."
+        ]
+      }
+    ],
+    "repeatedHeaderAndCommonBoilerplateSummary": {
+      "commonFpmlHeaderBehavior": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+      ],
+      "commonTradeScaffolding": [
+        "trade > correlationSwap (35 paths)",
+        "trade > tradeHeader (6 paths)",
+        "trade > documentation (5 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > calculationAgent (1 paths)"
+      ],
+      "commonCdmBoilerplateBehavior": [
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.observationTerms.observationDates.periodicSchedule.startDate.meta.globalKey"
+      ]
+    },
+    "openQuestions": [
+      "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+      "Where is priceQuantity.address 'quantity-1' derived from in CDM?",
+      "Why were instrumentId schemes converted to BBGID for first two constituents?",
+      "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?",
+      "TradeId scheme differs between FpML and CDM meta - what is the intended canonical scheme?",
+      "Is CalculationAgent mapped as 'CalculationAgentIndependent' for both counterparties or only select roles?",
+      "How are payer/receiver party refs resolved deterministically to Party1/Party2?",
+      "Why does CDM use 'CalculationAgentIndependent' for calculationAgentPartyReference in these examples?"
+    ],
+    "pairLevelHighlights": [
+      {
+        "fpmlFile": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex01-correlation-swap.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "payerPartyReference -> payer",
+          "receiverPartyReference -> receiver",
+          "relativeDate fields mapped to CDM relativeDate",
+          "instrumentId -> security identifier value"
+        ],
+        "importantTransformation": "normalize exchange codes (NYSE->XNYS)",
+        "uncertainty": [
+          "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+          "Where is priceQuantity.address 'quantity-1' derived from in CDM?"
+        ]
+      },
+      {
+        "fpmlFile": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "settlement type preserved",
+          "relative date fields nested under adjustableOrRelativeDate",
+          "basket securities mapped to Security structures"
+        ],
+        "importantTransformation": "identifier scheme and exchange codes normalized (e.g. NYSE->XNYS)",
+        "uncertainty": [
+          "Why were instrumentId schemes converted to BBGID for first two constituents?",
+          "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?"
+        ]
+      },
+      {
+        "fpmlFile": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "settlement type copied",
+          "relative date fields mapped",
+          "instrumentId -> Security.identifier.value",
+          "notional amount and currency mapped"
+        ],
+        "importantTransformation": "party refs split into counterparty entries",
+        "uncertainty": [
+          "tradeId scheme differs between FpML and CDM meta",
+          "is CalculationAgent mapped as 'CalculationAgentIndependent' for both parties?"
+        ]
+      },
+      {
+        "fpmlFile": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+        "cdmFile": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "Cash settlement mapped",
+          "relativeDate fields mapped",
+          "observation start date mapped",
+          "notional moved into tradeLot.quantity"
+        ],
+        "importantTransformation": "instrumentId and description become ISIN and Name identifiers",
+        "uncertainty": [
+          "How are payer/receiver party refs resolved to Party1/Party2?",
+          "Why CDM uses 'CalculationAgentIndependent' for calculationAgentPartyReference?"
+        ]
+      }
+    ],
+    "agentPlaybook": {
+      "summary": "Structural summaries are computed from all 4/4 matched pairs, including pairs without semantic extraction. Semantic rules are computed from 4/4 successful or salvaged pair analyses (4 full, 0 salvaged).",
+      "canonicalSteps": [
+        "Start from the repeated FPML sections seen across matched files: header, party, trade.",
+        "Map trade identifiers, party references, and trade dates before product-specific economics.",
+        "Apply recurring mapping rules only when the exact source cues appear in the document.",
+        "Then apply the repeated non-literal transformations that reshape identifiers, dates, wrappers, or references.",
+        "Assemble the result under repeated CDM scaffolding such as meta, trade.",
+        "Treat generated identifiers, global keys, and unmatched party identifiers as enrichments unless the source proves otherwise."
+      ],
+      "recurringRules": [
+        "correlationswap.correlationleg.settlementtype -> performancepayout.settlementterms.settlementtype: Settlement type values (e.g., Cash) are consistently copied from the correlation leg settlementType in the FpML into the CDM performance payout settlementTerms.settlementType.",
+        "Settlement terms repeatedly map from correlationswap.correlationleg.settlementtype into performancepayout.settlementterms.settlementtype. [tentative 3 examples]",
+        "Settlement terms repeatedly map from relativedate.businesscenters.businesscenter|relativedate.daterelativeto.href|settlementdate.relativedate.businessdayconvention|settlementdate.relativedate.daytype|settlementdate.relativedate.period|settlementdate.relativedate.periodmultiplier into adjustableorrelativedate.relativedate.businessdayconvention|adjustableorrelativedate.relativedate.daytype|adjustableorrelativedate.relativedate.period|adjustableorrelativedate.relativedate.periodmultiplier|businesscenters.businesscenter.value|relativedate.daterelativeto.externalreference. [tentative 2 examples]"
+      ],
+      "transformationPatterns": [
+        "normalization: Instrument identifiers and exchange codes from FpML are normalized when mapped into CDM Security.identifier or exchange fields (examples include mapping NYSE -> XNYS and converting some instrumentId schemes to BBGID).",
+        "split: FpML party references (payerPartyReference, receiverPartyReference and similar) are transformed into separate counterparty/party entries in the CDM trade (e.g., Party1/Party2 or payer/receiver fields).",
+        "merge: Notional amount and currency from FpML are placed into the CDM tradeLot.quantity structure.",
+        "nesting change: Individual relativeDate elements from FpML are re-grouped under an adjustableOrRelativeDate wrapper and tied to business center and daterelativeto references in CDM."
+      ],
+      "productSpecificBranches": [
+        {
+          "name": "eqcs-ex01-correlation-swap.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "payerPartyReference -> payer",
+            "receiverPartyReference -> receiver",
+            "relativeDate fields mapped to CDM relativeDate",
+            "instrumentId -> security identifier value"
+          ],
+          "cautions": [
+            "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+            "Where is priceQuantity.address 'quantity-1' derived from in CDM?"
+          ]
+        },
+        {
+          "name": "eqcs-ex02-correlation-swap-confirmation.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "settlement type preserved",
+            "relative date fields nested under adjustableOrRelativeDate",
+            "basket securities mapped to Security structures"
+          ],
+          "cautions": [
+            "Why were instrumentId schemes converted to BBGID for first two constituents?",
+            "How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?"
+          ]
+        },
+        {
+          "name": "eqcs-ex03-correlation-swap-confirmation.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "settlement type copied",
+            "relative date fields mapped",
+            "instrumentId -> Security.identifier.value",
+            "notional amount and currency mapped"
+          ],
+          "cautions": [
+            "tradeId scheme differs between FpML and CDM meta",
+            "is CalculationAgent mapped as 'CalculationAgentIndependent' for both parties?"
+          ]
+        },
+        {
+          "name": "eqcs-ex04-correlation-swap-confirmation.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "Cash settlement mapped",
+            "relativeDate fields mapped",
+            "observation start date mapped",
+            "notional moved into tradeLot.quantity"
+          ],
+          "cautions": [
+            "How are payer/receiver party refs resolved to Party1/Party2?",
+            "Why CDM uses 'CalculationAgentIndependent' for calculationAgentPartyReference?"
+          ]
+        }
+      ],
+      "validationChecks": [
+        "Check unresolved question: How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+        "Check unresolved question: Where is priceQuantity.address 'quantity-1' derived from in CDM?",
+        "Check unresolved question: Why were instrumentId schemes converted to BBGID for first two constituents?",
+        "Check unresolved question: How was calculationAgentParty 'CalculationAgentIndependent' derived from href gh4903?",
+        "Check unresolved question: TradeId scheme differs between FpML and CDM meta - what is the intended canonical scheme?",
+        "Check unresolved question: Is CalculationAgent mapped as 'CalculationAgentIndependent' for both counterparties or only select roles?"
+      ],
+      "doNotAssume": [
+        "Do not treat CalculationAgent mapped to CalculationAgentIndependent as a guaranteed direct mapping rule yet.",
+        "Do not treat Relative date fields mapped into adjustableOrRelativeDate structure as a guaranteed direct mapping rule yet.",
+        "Do not treat priceQuantity.address and quantity-1 usage as a guaranteed direct mapping rule yet.",
+        "How is calculationAgentPartyReference mapped to 'CalculationAgentIndependent'?",
+        "Where is priceQuantity.address 'quantity-1' derived from in CDM?",
+        "Why were instrumentId schemes converted to BBGID for first two constituents?"
+      ]
+    },
+    "draftConclusion": {
+      "mostReusableFindings": [
+        "Settlement type values are preserved from FpML correlation leg into CDM performance payout settlementTerms.",
+        "Relative-date metadata in FpML is grouped under CDM adjustableOrRelativeDate.",
+        "Instrument identifiers and exchange codes are normalized into CDM Security.identifier and exchange representations.",
+        "FpML party hrefs are expanded into explicit CDM counterparties (payer/receiver → party entries)."
+      ],
+      "safeToGeneralize": [
+        "Mapping settlementType to CDM settlementTerms.settlementType (strong support).",
+        "Grouping relativedate fields under adjustableOrRelativeDate (moderate support).",
+        "Converting instrumentId and exchange codes into Security.identifier with normalization (observed repeatedly)."
+      ],
+      "remainTentative": [
+        "Mapping of calculationAgentPartyReference to CalculationAgentIndependent (insufficient deterministic detail).",
+        "Why some instrumentId schemes are converted to BBGID while others are not (unclear conditional rule).",
+        "Origin and intended semantics of CDM addressing artifacts such as priceQuantity.address 'quantity-1'.",
+        "Exact deterministic rules for resolving payer/receiver hrefs into Party1/Party2 and which party becomes calculation agent."
+      ]
+    },
+    "sourceAppendixNotes": [
+      "Included pairs: 4",
+      "Ignored pairs: 0",
+      "Semantic pair analyses recovered: 4",
+      "Tentative repeated semantic signals: 2"
+    ]
+  }
+}

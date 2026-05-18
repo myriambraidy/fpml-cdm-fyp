@@ -1,0 +1,225 @@
+{
+  "className": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party.metafields",
+  "simpleName": "ReferenceWithMetaParty",
+  "methods": [
+    {
+      "name": "getValue",
+      "returnType": "cdm.base.staticdata.party.Party",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Party getValue()"
+    },
+    {
+      "name": "getGlobalReference",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getGlobalReference()"
+    },
+    {
+      "name": "getExternalReference",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getExternalReference()"
+    },
+    {
+      "name": "getReference",
+      "returnType": "com.rosetta.model.lib.meta.Reference",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.lib.meta.Reference getReference()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty> getType()"
+    },
+    {
+      "name": "getValueType",
+      "returnType": "java.lang.Class<cdm.base.staticdata.party.Party>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<cdm.base.staticdata.party.Party> getValueType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getValue",
+      "returnType": "java.lang.Object",
+      "parameters": [],
+      "raw": "public default java.lang.Object getValue()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateValue",
+      "returnType": "cdm.base.staticdata.party.Party$PartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Party$PartyBuilder getOrCreateValue()"
+    },
+    {
+      "name": "getValue",
+      "returnType": "cdm.base.staticdata.party.Party$PartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Party$PartyBuilder getValue()"
+    },
+    {
+      "name": "getOrCreateReference",
+      "returnType": "com.rosetta.model.lib.meta.Reference$ReferenceBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.lib.meta.Reference$ReferenceBuilder getOrCreateReference()"
+    },
+    {
+      "name": "getReference",
+      "returnType": "com.rosetta.model.lib.meta.Reference$ReferenceBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.lib.meta.Reference$ReferenceBuilder getReference()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder setValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setGlobalReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder setGlobalReference(java.lang.String)"
+    },
+    {
+      "name": "setExternalReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder setExternalReference(java.lang.String)"
+    },
+    {
+      "name": "setReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [
+        "com.rosetta.model.lib.meta.Reference"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder setReference(com.rosetta.model.lib.meta.Reference)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder prune()"
+    },
+    {
+      "name": "getReference",
+      "returnType": "com.rosetta.model.lib.meta.Reference",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.Reference getReference()"
+    },
+    {
+      "name": "getValue",
+      "returnType": "cdm.base.staticdata.party.Party",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.Party getValue()"
+    },
+    {
+      "name": "getValue",
+      "returnType": "java.lang.Object",
+      "parameters": [],
+      "raw": "public default java.lang.Object getValue()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "raw": "public default com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder setValue(java.lang.Object)"
+    },
+    {
+      "name": "setReference",
+      "returnType": "com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder",
+      "parameters": [
+        "com.rosetta.model.lib.meta.Reference"
+      ],
+      "raw": "public default com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder setReference(com.rosetta.model.lib.meta.Reference)"
+    },
+    {
+      "name": "setExternalReference",
+      "returnType": "com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public default com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder setExternalReference(java.lang.String)"
+    },
+    {
+      "name": "setGlobalReference",
+      "returnType": "com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public default com.rosetta.model.lib.meta.ReferenceWithMeta$ReferenceWithMetaBuilder setGlobalReference(java.lang.String)"
+    }
+  ]
+}

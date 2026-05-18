@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-04-27T12:14:49.166Z",
+  "snapshotDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest",
+  "sourceIndexPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\index\\files.json",
+  "sourceIndexGeneratedAt": "2026-04-27T11:36:42.843Z",
+  "totalFilesRead": 143,
+  "totalBlocks": 2187,
+  "functionCount": 1279,
+  "typeCount": 645,
+  "enumCount": 263,
+  "outputFiles": [
+    "extraction-manifest.json",
+    "blocks.json",
+    "functions.json",
+    "types.json",
+    "enums.json",
+    "diagnostics.json"
+  ],
+  "extractorVersion": 1
+}

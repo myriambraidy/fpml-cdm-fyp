@@ -1,0 +1,43 @@
+{
+  "className": "cdm.observable.asset.PriceTypeEnum",
+  "exists": true,
+  "packageName": "cdm.observable.asset",
+  "simpleName": "PriceTypeEnum",
+  "methods": [
+    {
+      "name": "values",
+      "returnType": "cdm.observable.asset.PriceTypeEnum[]",
+      "parameters": [],
+      "raw": "public static cdm.observable.asset.PriceTypeEnum[] values()"
+    },
+    {
+      "name": "valueOf",
+      "returnType": "cdm.observable.asset.PriceTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.observable.asset.PriceTypeEnum valueOf(java.lang.String)"
+    },
+    {
+      "name": "fromDisplayName",
+      "returnType": "cdm.observable.asset.PriceTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.observable.asset.PriceTypeEnum fromDisplayName(java.lang.String)"
+    },
+    {
+      "name": "toString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toString()"
+    },
+    {
+      "name": "toDisplayString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toDisplayString()"
+    }
+  ],
+  "builderMethods": []
+}

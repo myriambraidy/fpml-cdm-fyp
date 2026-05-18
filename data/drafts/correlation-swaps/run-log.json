@@ -1,0 +1,323 @@
+[
+  {
+    "timestamp": "2026-04-26T13:49:40.424Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "correlation-swaps",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.438Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "correlation-swaps",
+      "includedPairs": 4,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 4,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.439Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+      "pairIndex": 1,
+      "totalPairs": 4,
+      "strategy": "exact",
+      "progress": "1/4"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.440Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+      "pairIndex": 2,
+      "totalPairs": 4,
+      "strategy": "exact",
+      "progress": "2/4"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.441Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+      "pairIndex": 3,
+      "totalPairs": 4,
+      "strategy": "exact",
+      "progress": "3/4"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.441Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+      "pairIndex": 4,
+      "totalPairs": 4,
+      "strategy": "exact",
+      "progress": "4/4"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.483Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 26099,
+      "retryAttempt": 0,
+      "fpmlChars": 5889,
+      "cdmChars": 14214,
+      "fpmlFields": 54,
+      "cdmFields": 174
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.500Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 30956,
+      "retryAttempt": 0,
+      "fpmlChars": 10067,
+      "cdmChars": 14957,
+      "fpmlFields": 78,
+      "cdmFields": 184
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.505Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28236,
+      "retryAttempt": 0,
+      "fpmlChars": 7894,
+      "cdmChars": 14404,
+      "fpmlFields": 63,
+      "cdmFields": 178
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:49:40.511Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29593,
+      "retryAttempt": 0,
+      "fpmlChars": 8808,
+      "cdmChars": 14867,
+      "fpmlFields": 69,
+      "cdmFields": 182
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:22.269Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex03-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41828,
+      "promptChars": 30956,
+      "responseChars": 2779,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:33.934Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex01-correlation-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 53494,
+      "promptChars": 26099,
+      "responseChars": 5354,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:40.235Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex02-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 59794,
+      "promptChars": 28236,
+      "responseChars": 3803,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:51.667Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "correlation-swaps/eqcs-ex04-correlation-swap-confirmation.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 71226,
+      "promptChars": 29593,
+      "responseChars": 3960,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:51.668Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 4,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:51.668Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "correlation-swaps",
+      "successfulPairCount": 4,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 4
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:50:51.687Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "correlation-swaps",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 6999,
+      "retryAttempt": 0,
+      "semanticPairCount": 4,
+      "structuralPairCount": 4,
+      "includedPairCount": 4,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.098Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "correlation-swaps",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 6999,
+      "responseChars": 14633,
+      "retryAttempt": 0,
+      "stableRuleCount": 1,
+      "transformationCount": 4
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.099Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 4
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.100Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.103Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 7.1,
+      "rating": "good",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.108Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:02.108Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "correlation-swaps",
+      "status": "success",
+      "durationMs": 141684,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\run-log.json"
+    }
+  }
+]

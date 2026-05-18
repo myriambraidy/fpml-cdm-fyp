@@ -1,0 +1,72 @@
+{
+  "folder": "dividend-swaps",
+  "generatedAt": "2026-04-26T14:48:51.752Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 3,
+    "structuralPairCount": 3,
+    "semanticPairCount": 0,
+    "fullSemanticPairCount": 0,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 3,
+    "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 0/3 successful or salvaged pair analyses (0 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "failed_pair_analysis",
+    "publishFinal": false,
+    "reasons": [
+      "No pair analyses completed successfully."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 0,
+    "rating": "poor",
+    "reasons": [
+      "Semantic success rate is 0%, below the 70% target for strong folders.",
+      "Full semantic parse rate is 0%, below the 40% target.",
+      "Only 0 stable mapping rules were recovered.",
+      "Only 0 repeated transformations were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "100% of pair highlights still look placeholder-heavy or weakly grounded.",
+      "Folder synthesis fell back to deterministic output instead of a clean model synthesis."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 0,
+      "fullParseRate": 0,
+      "stableRuleCount": 0,
+      "repeatedTransformationCount": 0,
+      "tentativePatternCount": 0,
+      "placeholderHighlightRate": 1,
+      "openQuestionCount": 1,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "fallback"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "not_ready",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Semantic success rate is below the broad-rollout threshold.",
+      "Full semantic parse rate is below the broad-rollout threshold.",
+      "Folder synthesis did not complete as a clean full parse.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Repeated transformation count is below the broad-rollout threshold.",
+      "Too many pair highlights still look placeholder-heavy.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is poor, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [],
+  "repeatedNonLiteralTransformations": [],
+  "tentativeRepeatedPatterns": [],
+  "variantsAndExceptions": [],
+  "suspectedEnrichmentOrDefaultBehavior": [],
+  "openQuestions": [
+    "No semantic synthesis was recovered for this folder; mapping rules remain tentative."
+  ]
+}

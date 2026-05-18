@@ -1,0 +1,323 @@
+{
+  "className": "cdm.product.common.settlement.CashSettlementTerms",
+  "exists": true,
+  "packageName": "cdm.product.common.settlement",
+  "simpleName": "CashSettlementTerms",
+  "methods": [
+    {
+      "name": "getCashSettlementMethod",
+      "returnType": "cdm.product.common.settlement.CashSettlementMethodEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementMethodEnum getCashSettlementMethod()"
+    },
+    {
+      "name": "getValuationMethod",
+      "returnType": "cdm.observable.asset.ValuationMethod",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationMethod getValuationMethod()"
+    },
+    {
+      "name": "getValuationDate",
+      "returnType": "cdm.product.common.settlement.ValuationDate",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ValuationDate getValuationDate()"
+    },
+    {
+      "name": "getValuationTime",
+      "returnType": "cdm.base.datetime.BusinessCenterTime",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessCenterTime getValuationTime()"
+    },
+    {
+      "name": "getCashSettlementAmount",
+      "returnType": "cdm.observable.asset.Money",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money getCashSettlementAmount()"
+    },
+    {
+      "name": "getRecoveryFactor",
+      "returnType": "java.math.BigDecimal",
+      "parameters": [],
+      "raw": "public abstract java.math.BigDecimal getRecoveryFactor()"
+    },
+    {
+      "name": "getFixedSettlement",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getFixedSettlement()"
+    },
+    {
+      "name": "getAccruedInterest",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getAccruedInterest()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.CashSettlementTerms>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.CashSettlementTerms> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.common.settlement.CashSettlementTerms>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.common.settlement.CashSettlementTerms> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateValuationMethod",
+      "returnType": "cdm.observable.asset.ValuationMethod$ValuationMethodBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationMethod$ValuationMethodBuilder getOrCreateValuationMethod()"
+    },
+    {
+      "name": "getValuationMethod",
+      "returnType": "cdm.observable.asset.ValuationMethod$ValuationMethodBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationMethod$ValuationMethodBuilder getValuationMethod()"
+    },
+    {
+      "name": "getOrCreateValuationDate",
+      "returnType": "cdm.product.common.settlement.ValuationDate$ValuationDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ValuationDate$ValuationDateBuilder getOrCreateValuationDate()"
+    },
+    {
+      "name": "getValuationDate",
+      "returnType": "cdm.product.common.settlement.ValuationDate$ValuationDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ValuationDate$ValuationDateBuilder getValuationDate()"
+    },
+    {
+      "name": "getOrCreateValuationTime",
+      "returnType": "cdm.base.datetime.BusinessCenterTime$BusinessCenterTimeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessCenterTime$BusinessCenterTimeBuilder getOrCreateValuationTime()"
+    },
+    {
+      "name": "getValuationTime",
+      "returnType": "cdm.base.datetime.BusinessCenterTime$BusinessCenterTimeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessCenterTime$BusinessCenterTimeBuilder getValuationTime()"
+    },
+    {
+      "name": "getOrCreateCashSettlementAmount",
+      "returnType": "cdm.observable.asset.Money$MoneyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money$MoneyBuilder getOrCreateCashSettlementAmount()"
+    },
+    {
+      "name": "getCashSettlementAmount",
+      "returnType": "cdm.observable.asset.Money$MoneyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money$MoneyBuilder getCashSettlementAmount()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setCashSettlementMethod",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.CashSettlementMethodEnum"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setCashSettlementMethod(cdm.product.common.settlement.CashSettlementMethodEnum)"
+    },
+    {
+      "name": "setValuationMethod",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "cdm.observable.asset.ValuationMethod"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setValuationMethod(cdm.observable.asset.ValuationMethod)"
+    },
+    {
+      "name": "setValuationDate",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ValuationDate"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setValuationDate(cdm.product.common.settlement.ValuationDate)"
+    },
+    {
+      "name": "setValuationTime",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "cdm.base.datetime.BusinessCenterTime"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setValuationTime(cdm.base.datetime.BusinessCenterTime)"
+    },
+    {
+      "name": "setCashSettlementAmount",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "cdm.observable.asset.Money"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setCashSettlementAmount(cdm.observable.asset.Money)"
+    },
+    {
+      "name": "setRecoveryFactor",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setRecoveryFactor(java.math.BigDecimal)"
+    },
+    {
+      "name": "setFixedSettlement",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setFixedSettlement(java.lang.Boolean)"
+    },
+    {
+      "name": "setAccruedInterest",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setAccruedInterest(java.lang.Boolean)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CashSettlementTerms$CashSettlementTermsBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getCashSettlementAmount",
+      "returnType": "cdm.observable.asset.Money",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.Money getCashSettlementAmount()"
+    },
+    {
+      "name": "getValuationTime",
+      "returnType": "cdm.base.datetime.BusinessCenterTime",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.BusinessCenterTime getValuationTime()"
+    },
+    {
+      "name": "getValuationDate",
+      "returnType": "cdm.product.common.settlement.ValuationDate",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.ValuationDate getValuationDate()"
+    },
+    {
+      "name": "getValuationMethod",
+      "returnType": "cdm.observable.asset.ValuationMethod",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.ValuationMethod getValuationMethod()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

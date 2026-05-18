@@ -1,0 +1,328 @@
+{
+  "className": "cdm.product.template.AssetPayout",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "AssetPayout",
+  "methods": [
+    {
+      "name": "getAssetLeg",
+      "returnType": "java.util.List<? extends cdm.product.template.AssetLeg>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.AssetLeg> getAssetLeg()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset getUnderlier()"
+    },
+    {
+      "name": "getMinimumFee",
+      "returnType": "cdm.observable.asset.Money",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money getMinimumFee()"
+    },
+    {
+      "name": "getDividendTerms",
+      "returnType": "cdm.product.template.DividendTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.DividendTerms getDividendTerms()"
+    },
+    {
+      "name": "getTradeType",
+      "returnType": "cdm.product.template.AssetPayoutTradeTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayoutTradeTypeEnum getTradeType()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.AssetPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.AssetPayout$AssetPayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.AssetPayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.AssetPayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.AssetPayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.AssetPayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateAssetLeg",
+      "returnType": "cdm.product.template.AssetLeg$AssetLegBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.AssetLeg$AssetLegBuilder getOrCreateAssetLeg(int)"
+    },
+    {
+      "name": "getAssetLeg",
+      "returnType": "java.util.List<? extends cdm.product.template.AssetLeg$AssetLegBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.AssetLeg$AssetLegBuilder> getAssetLeg()"
+    },
+    {
+      "name": "getOrCreateUnderlier",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder getOrCreateUnderlier()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder getUnderlier()"
+    },
+    {
+      "name": "getOrCreateMinimumFee",
+      "returnType": "cdm.observable.asset.Money$MoneyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money$MoneyBuilder getOrCreateMinimumFee()"
+    },
+    {
+      "name": "getMinimumFee",
+      "returnType": "cdm.observable.asset.Money$MoneyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.Money$MoneyBuilder getMinimumFee()"
+    },
+    {
+      "name": "getOrCreateDividendTerms",
+      "returnType": "cdm.product.template.DividendTerms$DividendTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.DividendTerms$DividendTermsBuilder getOrCreateDividendTerms()"
+    },
+    {
+      "name": "getDividendTerms",
+      "returnType": "cdm.product.template.DividendTerms$DividendTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.DividendTerms$DividendTermsBuilder getDividendTerms()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "addAssetLeg",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.AssetLeg"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder addAssetLeg(cdm.product.template.AssetLeg)"
+    },
+    {
+      "name": "addAssetLeg",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.AssetLeg",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder addAssetLeg(cdm.product.template.AssetLeg, int)"
+    },
+    {
+      "name": "addAssetLeg",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.AssetLeg>"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder addAssetLeg(java.util.List<? extends cdm.product.template.AssetLeg>)"
+    },
+    {
+      "name": "setAssetLeg",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.AssetLeg>"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setAssetLeg(java.util.List<? extends cdm.product.template.AssetLeg>)"
+    },
+    {
+      "name": "setUnderlier",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Asset"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setUnderlier(cdm.base.staticdata.asset.common.Asset)"
+    },
+    {
+      "name": "setMinimumFee",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.Money"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setMinimumFee(cdm.observable.asset.Money)"
+    },
+    {
+      "name": "setDividendTerms",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.DividendTerms"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setDividendTerms(cdm.product.template.DividendTerms)"
+    },
+    {
+      "name": "setTradeType",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.AssetPayoutTradeTypeEnum"
+      ],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder setTradeType(cdm.product.template.AssetPayoutTradeTypeEnum)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder prune()"
+    },
+    {
+      "name": "getDividendTerms",
+      "returnType": "cdm.product.template.DividendTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.template.DividendTerms getDividendTerms()"
+    },
+    {
+      "name": "getMinimumFee",
+      "returnType": "cdm.observable.asset.Money",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.Money getMinimumFee()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Asset getUnderlier()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

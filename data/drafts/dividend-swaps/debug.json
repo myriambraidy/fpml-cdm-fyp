@@ -1,0 +1,921 @@
+{
+  "generatedAt": "2026-04-26T13:59:04.165Z",
+  "config": {
+    "workspaceRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp",
+    "fpmlRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel",
+    "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+    "folder": "dividend-swaps",
+    "pairConcurrency": 8,
+    "pairMaxRetries": 1,
+    "synthesisMaxRetries": 1,
+    "model": "openai/gpt-5-mini",
+    "synthesisModel": "openai/gpt-5-mini",
+    "pairMaxTokens": 128000,
+    "synthesisMaxTokens": 128000,
+    "storeFailedRawResponses": true
+  },
+  "selection": {
+    "manifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\manifest.json",
+    "folder": "dividend-swaps",
+    "includedPairs": [
+      {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex01-dividend-swap.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex01-dividend-swap.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex01-dividend-swap.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex02-dividend-swap-collateral.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex02-dividend-swap-collateral.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex02-dividend-swap-collateral.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+        "pairingStrategy": "exact"
+      }
+    ],
+    "missingExamples": [],
+    "ignoredExamples": [],
+    "coverage": {
+      "totalFpmlFilesInFolder": 3,
+      "matchedPairsAvailable": 3,
+      "matchedPairsUsed": 3,
+      "missingCounterparts": 0,
+      "ignoredPairs": 0,
+      "exactMatches": 3,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  "pairAnalyses": [
+    {
+      "pair": {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex01-dividend-swap.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex01-dividend-swap.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex01-dividend-swap.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "failed",
+      "failureReason": "Unable to connect. Is the computer able to access the url?",
+      "failureKind": "request_error",
+      "productOrTradeFamily": "dividend-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > dividendSwapTransactionSupplement (50 paths); trade > tradeHeader (6 paths); party > partyId (2 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > dividendSwapTransactionSupplement (50 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 63
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (66 paths); trade > tradeLot (36 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.externalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (66 paths)",
+          "trade > tradeLot (36 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)",
+          "trade > meta (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementCurrency.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.underlier.Observable.address.scope"
+        ],
+        "rawFieldCount": 148
+      },
+      "mappingObservations": [],
+      "transformations": [],
+      "enrichments": [],
+      "openQuestions": [
+        "No live LLM analysis was available, so this pair only contributes deterministic structural summaries."
+      ],
+      "pairHighlight": {
+        "fpmlFile": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "cdmFile": "dividend-swaps/div-ex01-dividend-swap.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "No live LLM analysis was available for this pair."
+        ],
+        "importantTransformation": "No live LLM analysis was available for this pair.",
+        "uncertainty": [
+          "Mapping interpretation still requires live LLM analysis."
+        ]
+      },
+      "semanticRecovery": "none",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 24076
+    },
+    {
+      "pair": {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex02-dividend-swap-collateral.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex02-dividend-swap-collateral.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex02-dividend-swap-collateral.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "failed",
+      "failureReason": "The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()",
+      "failureKind": "request_error",
+      "productOrTradeFamily": "dividend-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > dividendSwapTransactionSupplement (50 paths); trade > collateral (15 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > dividendSwapTransactionSupplement (50 paths)",
+          "trade > collateral (15 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 78
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (68 paths); trade > tradeLot (39 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.meta.externalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.externalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.businessCenters.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (68 paths)",
+          "trade > tradeLot (39 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)",
+          "trade > meta (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementCurrency.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.underlier.Observable.address.scope"
+        ],
+        "rawFieldCount": 153
+      },
+      "mappingObservations": [],
+      "transformations": [],
+      "enrichments": [],
+      "openQuestions": [
+        "No live LLM analysis was available, so this pair only contributes deterministic structural summaries."
+      ],
+      "pairHighlight": {
+        "fpmlFile": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "cdmFile": "dividend-swaps/div-ex02-dividend-swap-collateral.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "No live LLM analysis was available for this pair."
+        ],
+        "importantTransformation": "No live LLM analysis was available for this pair.",
+        "uncertainty": [
+          "Mapping interpretation still requires live LLM analysis."
+        ]
+      },
+      "semanticRecovery": "none",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 26342
+    },
+    {
+      "pair": {
+        "folder": "dividend-swaps",
+        "fpmlRelativePath": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "cdmRelativePath": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\dividend-swaps\\div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "failed",
+      "failureReason": "Unable to connect. Is the computer able to access the url?",
+      "failureKind": "request_error",
+      "productOrTradeFamily": "dividend-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > dividendSwapTransactionSupplement (58 paths); trade > tradeHeader (6 paths); party > partyId (2 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > dividendSwapTransactionSupplement (58 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 71
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (79 paths); trade > tradeLot (34 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.externalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (79 paths)",
+          "trade > tradeLot (34 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)",
+          "trade > meta (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementType",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.settlementCurrency.value",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.underlier.Observable.address.scope"
+        ],
+        "rawFieldCount": 159
+      },
+      "mappingObservations": [],
+      "transformations": [],
+      "enrichments": [],
+      "openQuestions": [
+        "No live LLM analysis was available, so this pair only contributes deterministic structural summaries."
+      ],
+      "pairHighlight": {
+        "fpmlFile": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "cdmFile": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "No live LLM analysis was available for this pair."
+        ],
+        "importantTransformation": "No live LLM analysis was available for this pair.",
+        "uncertainty": [
+          "Mapping interpretation still requires live LLM analysis."
+        ]
+      },
+      "semanticRecovery": "none",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 25789
+    }
+  ],
+  "successfulPairCount": 0,
+  "failedPairCount": 3,
+  "synthesis": {
+    "folder": "dividend-swaps",
+    "evidenceCoverage": {
+      "matchedPairCount": 3,
+      "structuralPairCount": 3,
+      "semanticPairCount": 0,
+      "fullSemanticPairCount": 0,
+      "salvagedSemanticPairCount": 0,
+      "failedSemanticPairCount": 3,
+      "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+      "semanticBasisNote": "Semantic rules are computed from 0/3 successful or salvaged pair analyses (0 full, 0 salvaged)."
+    },
+    "repeatedFpmlStructure": {
+      "headerAndBoilerplate": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+      ],
+      "topLevelSections": [
+        {
+          "section": "header",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "party",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "nestedStructures": [
+        "trade > dividendSwapTransactionSupplement (50 paths)",
+        "trade > tradeHeader (6 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > collateral (15 paths)"
+      ],
+      "optionalSections": []
+    },
+    "repeatedCdmStructure": {
+      "topLevelSections": [
+        {
+          "section": "meta",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "wrappersAndScaffolding": [
+        "trade > product (66 paths)",
+        "trade > tradeLot (36 paths)",
+        "trade > tradeIdentifier (21 paths)",
+        "trade > party (13 paths)",
+        "trade > counterparty (7 paths)",
+        "trade > tradeDate (3 paths)",
+        "meta > globalKey (1 paths)",
+        "trade > meta (1 paths)"
+      ],
+      "optionalSections": []
+    },
+    "stableMappingPatterns": [],
+    "repeatedNonLiteralTransformations": [],
+    "tentativeRepeatedPatterns": [],
+    "folderLevelPrinciples": [
+      "No semantic synthesis was recovered for this folder; only deterministic structure is available."
+    ],
+    "variantsAndExceptions": [],
+    "suspectedEnrichmentOrDefaultBehavior": [],
+    "repeatedHeaderAndCommonBoilerplateSummary": {
+      "commonFpmlHeaderBehavior": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+      ],
+      "commonTradeScaffolding": [
+        "trade > dividendSwapTransactionSupplement (50 paths)",
+        "trade > tradeHeader (6 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > collateral (15 paths)"
+      ],
+      "commonCdmBoilerplateBehavior": [
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].startDate.dividendDate.value.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].endDate.dividendDate.value.meta.externalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPeriod[0].dateAdjustments.meta.globalKey"
+      ]
+    },
+    "openQuestions": [
+      "No semantic synthesis was recovered for this folder; mapping rules remain tentative."
+    ],
+    "pairLevelHighlights": [],
+    "agentPlaybook": {
+      "summary": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction. Semantic rules are computed from 0/3 successful or salvaged pair analyses (0 full, 0 salvaged).",
+      "canonicalSteps": [
+        "Start from the repeated FPML sections seen across matched files: header, party, trade.",
+        "Map trade identifiers, party references, and trade dates before product-specific economics.",
+        "Use pair-level examples as tentative guidance; no repeated folder-wide rules were recovered yet.",
+        "Watch for non-literal reshaping and confirm it from pair-level examples before generalizing.",
+        "Assemble the result under repeated CDM scaffolding such as meta, trade.",
+        "Treat generated identifiers, global keys, and unmatched party identifiers as enrichments unless the source proves otherwise."
+      ],
+      "recurringRules": [],
+      "transformationPatterns": [],
+      "productSpecificBranches": [],
+      "validationChecks": [
+        "Check unresolved question: No semantic synthesis was recovered for this folder; mapping rules remain tentative."
+      ],
+      "doNotAssume": [
+        "Do not assume every repeated wrapper or metadata field implies a semantic mapping rule."
+      ]
+    },
+    "draftConclusion": {
+      "mostReusableFindings": [
+        "Deterministic structural summaries were generated for the matched pairs."
+      ],
+      "safeToGeneralize": [
+        "Repeated top-level structure can be reused as initial folder scaffolding."
+      ],
+      "remainTentative": [
+        "Semantic mapping rules still need stronger evidence before they are treated as folder-wide defaults."
+      ]
+    },
+    "sourceAppendixNotes": [
+      "Included pairs: 3",
+      "Ignored pairs: 0",
+      "Semantic pair analyses recovered: 0",
+      "Tentative repeated semantic signals: 0"
+    ]
+  },
+  "synthesisDiagnostics": {
+    "modelUsed": "openai/gpt-5-mini",
+    "failureKind": "llm_disabled"
+  },
+  "integrity": {
+    "ok": true,
+    "issues": []
+  },
+  "publication": {
+    "status": "failed_pair_analysis",
+    "publishFinal": false,
+    "reasons": [
+      "No pair analyses completed successfully."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 0,
+    "rating": "poor",
+    "reasons": [
+      "Semantic success rate is 0%, below the 70% target for strong folders.",
+      "Full semantic parse rate is 0%, below the 40% target.",
+      "Only 0 stable mapping rules were recovered.",
+      "Only 0 repeated transformations were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "100% of pair highlights still look placeholder-heavy or weakly grounded.",
+      "Folder synthesis fell back to deterministic output instead of a clean model synthesis."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 0,
+      "fullParseRate": 0,
+      "stableRuleCount": 0,
+      "repeatedTransformationCount": 0,
+      "tentativePatternCount": 0,
+      "placeholderHighlightRate": 1,
+      "openQuestionCount": 1,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "fallback"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "not_ready",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Semantic success rate is below the broad-rollout threshold.",
+      "Full semantic parse rate is below the broad-rollout threshold.",
+      "Folder synthesis did not complete as a clean full parse.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Repeated transformation count is below the broad-rollout threshold.",
+      "Too many pair highlights still look placeholder-heavy.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is poor, below the broad-rollout target of strong."
+    ]
+  },
+  "runLog": [
+    {
+      "timestamp": "2026-04-26T13:58:43.021Z",
+      "level": "info",
+      "stage": "run",
+      "message": "Draft phase run started.",
+      "data": {
+        "folder": "dividend-swaps",
+        "maxPairs": null,
+        "pairConcurrency": 8,
+        "llmEnabled": true
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.026Z",
+      "level": "info",
+      "stage": "pair_selection",
+      "message": "Selected pairs from manifest.",
+      "data": {
+        "folder": "dividend-swaps",
+        "includedPairs": 3,
+        "missingExamples": 0,
+        "ignoredExamples": 0,
+        "exactMatches": 3,
+        "normalizedMatches": 0,
+        "aliasMatches": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.027Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "pairIndex": 1,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "1/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.028Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "pairIndex": 2,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "2/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.029Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "pairIndex": 3,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "3/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.047Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 24076,
+        "retryAttempt": 0,
+        "fpmlChars": 5692,
+        "cdmChars": 12391,
+        "fpmlFields": 63,
+        "cdmFields": 148
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.053Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 26342,
+        "retryAttempt": 0,
+        "fpmlChars": 7375,
+        "cdmChars": 12896,
+        "fpmlFields": 78,
+        "cdmFields": 153
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:58:43.058Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 25789,
+        "retryAttempt": 0,
+        "fpmlChars": 6295,
+        "cdmChars": 13441,
+        "fpmlFields": 71,
+        "cdmFields": 159
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:02.385Z",
+      "level": "error",
+      "stage": "pair_analysis",
+      "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex02-dividend-swap-collateral.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 19357,
+        "retryAttempt": 0,
+        "error": "The socket connection was closed unexpectedly. For more information, pass `verbose: true` in the second argument to fetch()"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.146Z",
+      "level": "error",
+      "stage": "pair_analysis",
+      "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex03-dividend-swap-short-form-japanese-underlyer.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 21117,
+        "retryAttempt": 0,
+        "error": "Unable to connect. Is the computer able to access the url?"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.147Z",
+      "level": "error",
+      "stage": "pair_analysis",
+      "message": "Pair analysis request failed; excluding pair from semantic synthesis.",
+      "data": {
+        "pair": "dividend-swaps/div-ex01-dividend-swap.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 21119,
+        "retryAttempt": 0,
+        "error": "Unable to connect. Is the computer able to access the url?"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.148Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Pair analysis stage completed.",
+      "data": {
+        "successfulPairCount": 0,
+        "failedPairCount": 3
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.149Z",
+      "level": "warn",
+      "stage": "synthesis",
+      "message": "No semantic pair analyses succeeded; generating deterministic fallback synthesis only.",
+      "data": {
+        "folder": "dividend-swaps"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.162Z",
+      "level": "warn",
+      "stage": "synthesis",
+      "message": "Using deterministic folder synthesis fallback.",
+      "data": {
+        "folder": "dividend-swaps",
+        "llmEnabled": false,
+        "semanticPairCount": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.163Z",
+      "level": "info",
+      "stage": "validation",
+      "message": "Integrity validation passed for synthesized draft.",
+      "data": {
+        "successfulPairCount": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.164Z",
+      "level": "info",
+      "stage": "publish",
+      "message": "Publication decision computed.",
+      "data": {
+        "status": "failed_pair_analysis",
+        "publishFinal": false,
+        "reasons": [
+          "No pair analyses completed successfully."
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.165Z",
+      "level": "info",
+      "stage": "validation",
+      "message": "Draft quality assessment computed.",
+      "data": {
+        "score": 0,
+        "rating": "poor",
+        "rolloutDecision": "not_ready",
+        "readyForBroadRollout": false
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.167Z",
+      "level": "info",
+      "stage": "publish",
+      "message": "Writing draft artifacts to disk.",
+      "data": {
+        "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps",
+        "publishFinal": false,
+        "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.md",
+        "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.json",
+        "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\debug.json",
+        "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\run-log.json"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T13:59:04.167Z",
+      "level": "info",
+      "stage": "run",
+      "message": "Draft phase run completed.",
+      "data": {
+        "folder": "dividend-swaps",
+        "status": "failed_pair_analysis",
+        "durationMs": 21146,
+        "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.md",
+        "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.json",
+        "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\debug.json",
+        "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\run-log.json"
+      }
+    }
+  ]
+}

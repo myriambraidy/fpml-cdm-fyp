@@ -1,0 +1,74 @@
+[
+  {
+    "id": "index",
+    "title": "FPML -> CDM Agent Cookbook"
+  },
+  {
+    "id": "global:identifier-handling",
+    "title": "identifier-handling"
+  },
+  {
+    "id": "global:temporal-normalization",
+    "title": "temporal-normalization"
+  },
+  {
+    "id": "global:party-reference-resolution",
+    "title": "party-reference-resolution"
+  },
+  {
+    "id": "global:quantity-and-unit-normalization",
+    "title": "quantity-and-unit-normalization"
+  },
+  {
+    "id": "global:cdm-wrapper-construction",
+    "title": "cdm-wrapper-construction"
+  },
+  {
+    "id": "global:enrichment-and-defaults",
+    "title": "enrichment-and-defaults"
+  },
+  {
+    "id": "family:bond-options",
+    "title": "FPML -> CDM Cookbook: bond-options"
+  },
+  {
+    "id": "family:commodity-derivatives",
+    "title": "FPML -> CDM Cookbook: commodity-derivatives"
+  },
+  {
+    "id": "family:correlation-swaps",
+    "title": "FPML -> CDM Cookbook: correlation-swaps"
+  },
+  {
+    "id": "family:credit-derivatives",
+    "title": "FPML -> CDM Cookbook: credit-derivatives"
+  },
+  {
+    "id": "family:dividend-swaps",
+    "title": "FPML -> CDM Cookbook: dividend-swaps"
+  },
+  {
+    "id": "family:equity-options",
+    "title": "FPML -> CDM Cookbook: equity-options"
+  },
+  {
+    "id": "family:equity-swaps",
+    "title": "FPML -> CDM Cookbook: equity-swaps"
+  },
+  {
+    "id": "family:fx-derivatives",
+    "title": "FPML -> CDM Cookbook: fx-derivatives"
+  },
+  {
+    "id": "family:inflation-swaps",
+    "title": "FPML -> CDM Cookbook: inflation-swaps"
+  },
+  {
+    "id": "family:interest-rate-derivatives",
+    "title": "FPML -> CDM Cookbook: interest-rate-derivatives"
+  },
+  {
+    "id": "family:total-return-swaps",
+    "title": "FPML -> CDM Cookbook: total-return-swaps"
+  }
+]

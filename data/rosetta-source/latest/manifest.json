@@ -1,0 +1,1157 @@
+{
+  "generatedAt": "2026-04-27T11:15:02.829Z",
+  "repo": "finos/common-domain-model",
+  "branch": "master",
+  "sourcePrefix": "rosetta-source/src/main/rosetta/",
+  "apiTreeUrl": "https://api.github.com/repos/finos/common-domain-model/git/trees/master?recursive=1",
+  "treeSha": "372d4400ec925b0d132d4aa62d27a0d56694d644",
+  "treeTruncated": false,
+  "fileCount": 143,
+  "totalBytes": 2785885,
+  "files": [
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/RosettaDictionary.txt",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\RosettaDictionary.txt",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/RosettaDictionary.txt",
+      "sha": "5b1ad567db7bf20c84e6a0316f9fbe1d39fb0640",
+      "size": 568,
+      "extension": ".txt"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-datetime-daycount-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-datetime-daycount-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-datetime-daycount-enum.rosetta",
+      "sha": "f5bdf149ea51813e23d37ec9addd4460f8436963",
+      "size": 5180,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-datetime-daycount-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-datetime-daycount-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-datetime-daycount-func.rosetta",
+      "sha": "4c5c1f28799bd6a213749e5dde3e7d359fbb71c0",
+      "size": 16654,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-datetime-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-datetime-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-datetime-enum.rosetta",
+      "sha": "0ae475db6e36cff15ab2562b823fcb685e452e77",
+      "size": 33719,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-datetime-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-datetime-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-datetime-func.rosetta",
+      "sha": "c23524041b07f9b9da7aa4cf0474569f55e76753",
+      "size": 15885,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-datetime-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-datetime-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-datetime-type.rosetta",
+      "sha": "20739b21a9e6553e0a57a58e2d1e96346b2114a2",
+      "size": 27164,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-desc.rosetta",
+      "sha": "72fe447a8c74e404c54864613457f876ddb4d6c6",
+      "size": 2250,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-math-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-math-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-enum.rosetta",
+      "sha": "82d5a2fea207da725d8cb619cf46a805fb609c59",
+      "size": 9811,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-math-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-math-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-func.rosetta",
+      "sha": "13bbd3bfaa900a17e6d3b9e55157baa217abbb42",
+      "size": 13617,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-math-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "sha": "e5f8799588c3b2339abff13dc663fda1bbf4dd81",
+      "size": 9583,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-math-util-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-math-util-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-util-func.rosetta",
+      "sha": "0e84dff76ea309a0f4fbc41cb851d045921a5306",
+      "size": 3709,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-commodity-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-commodity-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-commodity-enum.rosetta",
+      "sha": "d4d452349911b83617a2b6fc9a58e091fda75fee",
+      "size": 5937,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-common-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-common-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-common-enum.rosetta",
+      "sha": "bbd44addaab019b2b824a02a453a4b052db21727",
+      "size": 48502,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-common-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-common-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-common-func.rosetta",
+      "sha": "fdb4492b1d34ca6df52fda89bca8ca4d785f06c0",
+      "size": 1161,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-common-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-common-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-common-type.rosetta",
+      "sha": "57fb6d96d6f05901314f4a13ec515b73712604a2",
+      "size": 29494,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-credit-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-credit-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-credit-enum.rosetta",
+      "sha": "2dbbd08413fbb350b62100ceda167a61a516a104",
+      "size": 535,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-credit-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-credit-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-credit-type.rosetta",
+      "sha": "8b9a8c310b4c454446e0e96a45764aa32e7353d9",
+      "size": 6950,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-desc.rosetta",
+      "sha": "28448a43bb54d65b08e16429533bae02fb1758bb",
+      "size": 124,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-rates-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-asset-rates-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-asset-rates-enum.rosetta",
+      "sha": "a9f73c58bfd55a91167bf0324ce187426676ef46",
+      "size": 179764,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-codelist-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-codelist-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-codelist-func.rosetta",
+      "sha": "499be98d7221bce0b3a04a2c1f7a37241438f3ee",
+      "size": 1107,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-codelist-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-codelist-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-codelist-type.rosetta",
+      "sha": "271a545571121c3f7aa5c95f24d79684e0e31284",
+      "size": 3379,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-desc.rosetta",
+      "sha": "6d01008bc20ad163d81e554d84a2787fad54b439",
+      "size": 128,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-identifier-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-identifier-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-identifier-enum.rosetta",
+      "sha": "e21ab49f1619519f5add8a9b2942d4ec89754dbf",
+      "size": 1058,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-identifier-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-identifier-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-identifier-type.rosetta",
+      "sha": "6f9042cc9163ebb18e4b5dcc5411b25d46df8b7d",
+      "size": 3736,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-party-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-party-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-party-enum.rosetta",
+      "sha": "fce2f8f87db1cdbc8048628db31367e2518aff69",
+      "size": 18135,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-party-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-party-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-party-func.rosetta",
+      "sha": "e52f777179e089f13765f69c3035887c2cbc3bd1",
+      "size": 2500,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-party-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\base-staticdata-party-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-staticdata-party-type.rosetta",
+      "sha": "9c2b0add3b5fded9e4c66bcd345d4be29225b002",
+      "size": 17590,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-common-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-common-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-common-enum.rosetta",
+      "sha": "51d848d532a633c3a9b7057937224fcc119da55c",
+      "size": 22871,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-common-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-common-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-common-func.rosetta",
+      "sha": "b673717d3badcb3a60348d184bc6d974e6f664c2",
+      "size": 117239,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-common-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-common-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-common-type.rosetta",
+      "sha": "2896af86ccfdbd6b8f5ca082816fa8c428a5d5ea",
+      "size": 88523,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-position-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-position-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-position-enum.rosetta",
+      "sha": "ffe93b3ccddff65d643fcc6f2be9ffde28d78910",
+      "size": 1068,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-position-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-position-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-position-func.rosetta",
+      "sha": "9c8bd8f8e3e157d43cec963066d1f84e3c2932c6",
+      "size": 2585,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-position-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-position-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-position-type.rosetta",
+      "sha": "cfd1fe23ec036e5c19410be7a3be6abdb29aaf57",
+      "size": 10247,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-qualification-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-qualification-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-qualification-func.rosetta",
+      "sha": "a2ea2ed90f49391c3ae2723be3c678c00a2456c0",
+      "size": 47399,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-workflow-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-workflow-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-workflow-enum.rosetta",
+      "sha": "01c40418f6ccd5c2ca72500d41cc46491edb82f9",
+      "size": 4274,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-workflow-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-workflow-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-workflow-func.rosetta",
+      "sha": "af9c0def8989f8863efd4957ad9e28b54d319f76",
+      "size": 16542,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/event-workflow-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\event-workflow-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/event-workflow-type.rosetta",
+      "sha": "cb4105eae12646871afee338b8d25816733f67e2",
+      "size": 14593,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-common-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta",
+      "sha": "4ad1e08588ab92cce33db81e4a4878d45fb855c7",
+      "size": 35880,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-datetime-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta",
+      "sha": "55c00be17d85caf994738ed0b20aad725fca8be3",
+      "size": 39752,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-header-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-header-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-header-func.rosetta",
+      "sha": "8645c798dfa1e42b95496f790bf9ebcb41834808",
+      "size": 4440,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-legal-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-legal-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-legal-func.rosetta",
+      "sha": "1702004564588e72eb1171237287ceea9a0ce8a7",
+      "size": 12327,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-message-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-message-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-message-func.rosetta",
+      "sha": "7ee907bf1e83b5108fc1fb13db43b1a276a9b03e",
+      "size": 13629,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-other-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-other-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-other-func.rosetta",
+      "sha": "f9a6966b0b5c005f4992d19b0ec39a6c70c15112",
+      "size": 135942,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-party-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta",
+      "sha": "74605ad3cb0adb9aec538fd3b4495038393a1679",
+      "size": 33857,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-payment-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-payment-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-payment-func.rosetta",
+      "sha": "9f8c166175686145775d258a548a9d0cb836c097",
+      "size": 27757,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-pricequantity-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta",
+      "sha": "b6a296ce06e7e65d46cb52ebac2869e4a24b0eb2",
+      "size": 81291,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-bondoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-bondoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-bondoption-func.rosetta",
+      "sha": "9596016ff080da7be8aba0580acdea27db8b58c2",
+      "size": 5895,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-brokerequityoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-brokerequityoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-brokerequityoption-func.rosetta",
+      "sha": "2fd89978796df3f4343ebd78da8f7b327adc9325",
+      "size": 6338,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-capfloor-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-capfloor-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-capfloor-func.rosetta",
+      "sha": "a46b3934148b9a46be9da631343b802309225e5e",
+      "size": 2719,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityforward-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-commodityforward-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityforward-func.rosetta",
+      "sha": "224dd8e456fc932297661f02bd2774451b9ce369",
+      "size": 2453,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-commodityoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityoption-func.rosetta",
+      "sha": "61731614aa44adfcf50dbc0387abae2f50e86c50",
+      "size": 9610,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-commodityswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswap-func.rosetta",
+      "sha": "4c8042e72d8bed68bb025831625899175814021a",
+      "size": 22410,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswaption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-commodityswaption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswaption-func.rosetta",
+      "sha": "d9a64ffe2ce6318fd6873f972730837564767855",
+      "size": 5136,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-correlationswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-correlationswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-correlationswap-func.rosetta",
+      "sha": "a9c89c306477939997af570a53a97a721136ea5d",
+      "size": 7691,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-creditdefaultswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswap-func.rosetta",
+      "sha": "2b9cb8c1304e7f0320bcb60b04ab8310efec47fe",
+      "size": 29096,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswapoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-creditdefaultswapoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswapoption-func.rosetta",
+      "sha": "c1344e0c42db006564d7ccbe74d54e525f209f4f",
+      "size": 14947,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswapoptiontransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-dividendswapoptiontransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswapoptiontransactionsupplement-func.rosetta",
+      "sha": "82c28c60ddaa50e6757c80922e3510a7f090c799",
+      "size": 6019,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswaptransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-dividendswaptransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswaptransactionsupplement-func.rosetta",
+      "sha": "aedb7a5db87d552360c09afa8f32b114bcd4ac06",
+      "size": 14112,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityforward-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-equityforward-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityforward-func.rosetta",
+      "sha": "7bda751398e81cc740fb6132d143db277d8a1b0b",
+      "size": 2579,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-equityoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityoption-func.rosetta",
+      "sha": "0727c03bdfc9fc09ed615ac6db58b8eedca4e9ae",
+      "size": 10194,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityoptiontransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-equityoptiontransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityoptiontransactionsupplement-func.rosetta",
+      "sha": "6757a5686e777d8fb5b0b4820ef94b8432f94e06",
+      "size": 7240,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityswaptransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-equityswaptransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityswaptransactionsupplement-func.rosetta",
+      "sha": "0fc227005cd4931287ad8a78eb882346a04c4e3a",
+      "size": 5164,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fra-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fra-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fra-func.rosetta",
+      "sha": "7f2762b4d0c4c38470aa911519a4e9c0c5bc2f2b",
+      "size": 10932,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxdigitaloption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxdigitaloption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxdigitaloption-func.rosetta",
+      "sha": "f075050d59f2cef8baf6f44649a464c971304005",
+      "size": 3054,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxoption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxoption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxoption-func.rosetta",
+      "sha": "0c5ca5777738129d3bec7efef6cb1b72da95427c",
+      "size": 9335,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxsingleleg-func.rosetta",
+      "sha": "bd2b4ef5289d5dd79eeef4cb8f36604a733bf1a4",
+      "size": 4900,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxswap-func.rosetta",
+      "sha": "c07a63ebb044bc59ef92862cad0b62a0fd06f501",
+      "size": 3694,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxvarianceswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxvarianceswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxvarianceswap-func.rosetta",
+      "sha": "916256dbbb6e0ec705c8ef67decee434bf99b4da",
+      "size": 12869,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxvolatilityswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-fxvolatilityswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-fxvolatilityswap-func.rosetta",
+      "sha": "2ea3d0732f00178e60f90bd460348acda03ce97d",
+      "size": 5834,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-genericproduct-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-genericproduct-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-genericproduct-func.rosetta",
+      "sha": "f8908cd76300720271951b6dbd76c81eacffb7d6",
+      "size": 6097,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-returnswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-returnswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-returnswap-func.rosetta",
+      "sha": "eace4e57a4eee9a53c7295964a2674c91ebc0e92",
+      "size": 22707,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-swap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-swap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-swap-func.rosetta",
+      "sha": "a3ddfd53317446a65072ce45bc52c738e9c00483",
+      "size": 30580,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-swaption-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-swaption-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-swaption-func.rosetta",
+      "sha": "23189fce78cdf356400a8fdf92314e401f9aca8c",
+      "size": 5505,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceoptiontransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-varianceoptiontransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceoptiontransactionsupplement-func.rosetta",
+      "sha": "9430fbe4afbadb8de2d373fd07a99740543e06c8",
+      "size": 6271,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-varianceswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceswap-func.rosetta",
+      "sha": "5c9b6b8123195ff7aa7c275d2532e2b2c833d2df",
+      "size": 9408,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceswaptransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-varianceswaptransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-varianceswaptransactionsupplement-func.rosetta",
+      "sha": "94581984c63bbeabd6fb6c67ae6dfd8792259705",
+      "size": 3422,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-volatilityswap-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-volatilityswap-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-volatilityswap-func.rosetta",
+      "sha": "883de975e74d96350a955aa51067214646d2cb2d",
+      "size": 8677,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-volatilityswaptransactionsupplement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-product-volatilityswaptransactionsupplement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-volatilityswaptransactionsupplement-func.rosetta",
+      "sha": "49242bb11be749aba443722b4c2b1d063ac11fa9",
+      "size": 3494,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-settlement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-settlement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-settlement-func.rosetta",
+      "sha": "205b7d33887c471581629ab2810378eddf3f5f3d",
+      "size": 39522,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-tradestate-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-tradestate-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-tradestate-func.rosetta",
+      "sha": "1cce4b0a26a1b8268db85f1ff86578842a477cbf",
+      "size": 14698,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-workflowstep-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\ingest-fpml-confirmation-workflowstep-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/ingest-fpml-confirmation-workflowstep-func.rosetta",
+      "sha": "f32890115dab79e88b8fde91ad7c5513b8746133",
+      "size": 19925,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-common-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-common-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-common-enum.rosetta",
+      "sha": "786f08f463bc0c12c063d9d4239a4a8d245859f1",
+      "size": 24170,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-common-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-common-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-common-type.rosetta",
+      "sha": "55ad31708c1bd483312db2d880fe5539840b0905",
+      "size": 21587,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-csa-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-csa-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-csa-enum.rosetta",
+      "sha": "a8d83be98f1106a4a8a67ec6e7c49f8cbb7820b2",
+      "size": 40938,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-csa-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-csa-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-csa-func.rosetta",
+      "sha": "efe71f71e7541abe0b4249c9b8c03fd76a419159",
+      "size": 13820,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-csa-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-csa-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-csa-type.rosetta",
+      "sha": "4d4abba7019ffe91a8bdc8e10432356444b36de0",
+      "size": 151002,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-desc.rosetta",
+      "sha": "41b5948eee63afb2d005722ea479e869b4415523",
+      "size": 173,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-master-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-master-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-master-enum.rosetta",
+      "sha": "b626efbd6712902afa234e375d68a4f30cff1795",
+      "size": 38458,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-master-icma-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-master-icma-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-master-icma-type.rosetta",
+      "sha": "7b6d67891027da83d5561cb61a674d45e039acb5",
+      "size": 219,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-master-isda-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-master-isda-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-master-isda-type.rosetta",
+      "sha": "fe93de5086f81d1b2c06965a966bb42e425b78e5",
+      "size": 7619,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-master-isla-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-master-isla-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-master-isla-type.rosetta",
+      "sha": "2b7948b8f3df8886e7608fc4bbf1711256bc4a0b",
+      "size": 234,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-master-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-master-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-master-type.rosetta",
+      "sha": "116d8ff70321749e8879e03211d6b1228eb18d42",
+      "size": 4712,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-transaction-additionalterms-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-transaction-additionalterms-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-transaction-additionalterms-enum.rosetta",
+      "sha": "d608452f45a42a5a560aa75eca0f1c24eb21147b",
+      "size": 3169,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-transaction-additionalterms-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-transaction-additionalterms-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-transaction-additionalterms-type.rosetta",
+      "sha": "7cca67d12a1610d06cde3738f30d2e5fc4436626",
+      "size": 18898,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-transaction-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-transaction-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-transaction-enum.rosetta",
+      "sha": "977afc498c386f2522cd888e1b67744f3ecc9b73",
+      "size": 8274,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/legaldocumentation-transaction-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\legaldocumentation-transaction-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/legaldocumentation-transaction-type.rosetta",
+      "sha": "0279b2d6508dd70a8e5796a13e9e57ad18808c58",
+      "size": 8699,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/mapping-config-synonym.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\mapping-config-synonym.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/mapping-config-synonym.rosetta",
+      "sha": "8c58969f82cf19f6355caa592830ad2173699440",
+      "size": 211,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/mapping-createiq-synonym.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\mapping-createiq-synonym.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/mapping-createiq-synonym.rosetta",
+      "sha": "3939a1627e15f14d918c6f745d038a622ecf2aa9",
+      "size": 66268,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/mapping-fis-synonym.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\mapping-fis-synonym.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/mapping-fis-synonym.rosetta",
+      "sha": "e77addb2463ea21044ef5203fd181046dc78d6ca",
+      "size": 432,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/mapping-ore-synonym.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\mapping-ore-synonym.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/mapping-ore-synonym.rosetta",
+      "sha": "215f06e6562a8bc373ce55ce2ec17dc8132133a0",
+      "size": 5352,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/margin-schedule-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\margin-schedule-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/margin-schedule-enum.rosetta",
+      "sha": "d0dc30d0b80544f4d3a637d42b3b2817b646932a",
+      "size": 888,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/margin-schedule-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\margin-schedule-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/margin-schedule-func.rosetta",
+      "sha": "fd08c5c49fa8fecfc6bb8c927ca904398f380dd9",
+      "size": 46592,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/margin-schedule-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\margin-schedule-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/margin-schedule-type.rosetta",
+      "sha": "71fcb7184bdf375325fefa12ca3401a2065401b6",
+      "size": 1518,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-calculatedrate-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-calculatedrate-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-calculatedrate-enum.rosetta",
+      "sha": "b198a7ae4f8b18dfa455b3a50b03cffdded8f16c",
+      "size": 3985,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-calculatedrate-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-calculatedrate-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-calculatedrate-func.rosetta",
+      "sha": "d2b2c3887a50cc1bbc98106d8dd8d6e40c6b805f",
+      "size": 21187,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-calculatedrate-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-calculatedrate-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-calculatedrate-type.rosetta",
+      "sha": "f08bbad3709ab9e65cd828385f56a2543f2c172d",
+      "size": 4704,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-enum.rosetta",
+      "sha": "09b9906e1b3dcc2f316f083c96f5c2293547b652",
+      "size": 81082,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-fro-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-fro-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-fro-enum.rosetta",
+      "sha": "7d42d6d0dabf7c442aae5c181ba9984e5b4ba4e1",
+      "size": 1893,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-fro-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-fro-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-fro-func.rosetta",
+      "sha": "cbe7d0848bdbfa876cedb51ead6163b3fc6250dd",
+      "size": 2736,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-fro-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-fro-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-fro-type.rosetta",
+      "sha": "dd89954dc3b1aeaa269ffd3542cb3c5f4203a027",
+      "size": 7679,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-func.rosetta",
+      "sha": "5d123637b52e9f37a954454baf5f737600e0dac3",
+      "size": 2445,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-asset-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-asset-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-asset-type.rosetta",
+      "sha": "64082d05afff12c1daca394d2af351fd5f81e15f",
+      "size": 47001,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-common-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-common-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-common-enum.rosetta",
+      "sha": "a5c9151176a21f559c5063373891d05c8615b4c4",
+      "size": 2362,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-common-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-common-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-common-func.rosetta",
+      "sha": "b82c93ca6e27bf2fe7453ad0d986cf49f7a5926b",
+      "size": 1428,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-desc.rosetta",
+      "sha": "2b49039f404bb2fbad66230efd7fdc605a0daa61",
+      "size": 117,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-event-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-event-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-event-enum.rosetta",
+      "sha": "8618b50fe44eec6d70740f286f12421f76225c00",
+      "size": 4538,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-event-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-event-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-event-func.rosetta",
+      "sha": "65bd968a42c513d04f4f7803f91a13c53d534729",
+      "size": 2701,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/observable-event-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\observable-event-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/observable-event-type.rosetta",
+      "sha": "6457d6653e27c183b3de6e6b3978bd49d8a0b20d",
+      "size": 14311,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-calculation-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-calculation-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-calculation-func.rosetta",
+      "sha": "90b9931ebd62349c29d50612399d4e49cad7e7ba",
+      "size": 12545,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-enum.rosetta",
+      "sha": "73852ecee53df9967abce721c4d2ae0af26f76d6",
+      "size": 17929,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-floatingrate-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-floatingrate-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-floatingrate-enum.rosetta",
+      "sha": "38e0589bb5ef93cc4d81f25d450de6ed9f559e55",
+      "size": 1033,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-floatingrate-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-floatingrate-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-floatingrate-func.rosetta",
+      "sha": "519ac83def06b94c3548be358683a7d110947a67",
+      "size": 26429,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-floatingrate-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-floatingrate-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-floatingrate-type.rosetta",
+      "sha": "c1c3c45bea3e94fed7430ee6ab4220bf6e17076f",
+      "size": 4201,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-func.rosetta",
+      "sha": "64dc9e5974eee80a40c0bcf44633a6da6a72dd18",
+      "size": 7138,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-asset-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-asset-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-asset-type.rosetta",
+      "sha": "2aeb9958496f36bb90d1d86bc8195c91e6adf7fe",
+      "size": 84307,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-collateral-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-collateral-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-collateral-enum.rosetta",
+      "sha": "d58004bdfa09d2292367cd67b4c8aab35351c44b",
+      "size": 28111,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-collateral-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+      "sha": "0872062bc09c1797c88502f08ba6c47b8f28625f",
+      "size": 11891,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-collateral-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-collateral-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-collateral-type.rosetta",
+      "sha": "83f52d8ab310001a66f73efb2d0957a4232389df",
+      "size": 32615,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-enum.rosetta",
+      "sha": "7cbc432eac9b46deade03ab28b9ebc44e0d0246c",
+      "size": 517,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-func.rosetta",
+      "sha": "47743cbccd17d149a6486710514fde04b2903dc5",
+      "size": 719,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-schedule-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-schedule-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-schedule-enum.rosetta",
+      "sha": "ffb19898b46e2b4e3a29d7b1549783fde3852a81",
+      "size": 2343,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-schedule-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-schedule-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-schedule-func.rosetta",
+      "sha": "13ca503fe91233628c3b0f9bd3cf5b8f6d6fa8fb",
+      "size": 2331,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-schedule-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-schedule-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-schedule-type.rosetta",
+      "sha": "3a1d8eb109d9b33ff4ce2b7cf54baeabfad8fb70",
+      "size": 40330,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-settlement-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-settlement-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-settlement-enum.rosetta",
+      "sha": "8b8858c2a8f4e3e5b436c71f035e15306e0ce947",
+      "size": 8556,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-settlement-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-settlement-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-settlement-func.rosetta",
+      "sha": "c12b5f55e5f9c8dabad044c7cadc3c6c394f2ed0",
+      "size": 7606,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-settlement-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-settlement-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-settlement-type.rosetta",
+      "sha": "b12f4c37174e2204a9035c0623ccfa168391ddf0",
+      "size": 52659,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-common-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-common-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-type.rosetta",
+      "sha": "d3456047c8f44baa5c5d5332f86cdfb9b97c88e5",
+      "size": 58,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-desc.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-desc.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-desc.rosetta",
+      "sha": "4d61abe47ade0cf6f64fd2618c9da99fd425172b",
+      "size": 167,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-qualification-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-qualification-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-qualification-func.rosetta",
+      "sha": "c106888979aeface84c8750c969f224986a4ef88",
+      "size": 126778,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-template-enum.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-template-enum.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-template-enum.rosetta",
+      "sha": "056b58ab3f39539c2234f619bacec07d1d46918d",
+      "size": 5414,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-template-func.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-template-func.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-template-func.rosetta",
+      "sha": "48c973902dc347cca70401b0ce47c55d2180481b",
+      "size": 11223,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/product-template-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\product-template-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-template-type.rosetta",
+      "sha": "51637fa18da0b059667489198e4d662facb18558",
+      "size": 93646,
+      "extension": ".rosetta"
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/regulation-type.rosetta",
+      "localPath": "files\\rosetta-source\\src\\main\\rosetta\\regulation-type.rosetta",
+      "rawUrl": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/regulation-type.rosetta",
+      "sha": "3fb36b248f9bfe104670379942480c70b1a82516",
+      "size": 4954,
+      "extension": ".rosetta"
+    }
+  ]
+}

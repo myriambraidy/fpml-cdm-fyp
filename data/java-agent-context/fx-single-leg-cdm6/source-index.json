@@ -1,0 +1,36 @@
+{
+  "contextId": "fx-single-leg-cdm6-poc",
+  "generatedAt": "2026-04-28T20:08:07.873Z",
+  "entries": [
+    {
+      "kind": "rule",
+      "path": "data/java-agent-context/fx-single-leg-cdm6/rules.json",
+      "reason": "PoC1 operational mapping rules for FX single-leg generation"
+    },
+    {
+      "kind": "cookbook",
+      "path": "data/agent-cookbook/latest/product-families/fx-derivatives.md",
+      "reason": "Prepared cookbook rules and validation guidance for FX derivatives"
+    },
+    {
+      "kind": "rosetta-doc",
+      "path": "data/rosetta-source/latest/docs/product-families/fx.md",
+      "reason": "Prepared Rosetta FX ingest pack with relevant function names"
+    },
+    {
+      "kind": "rosetta-blocks",
+      "path": "data/rosetta-source/latest/extracted/blocks.json",
+      "reason": "Extracted Rosetta function/type blocks for targeted context selection"
+    },
+    {
+      "kind": "fpml-fixture",
+      "path": "data_to_learn_from/fpml/fx-derivatives/fx-ex01-fx-spot.xml",
+      "reason": "Local FpML 4.9 FX spot fixture for runtime verification"
+    },
+    {
+      "kind": "cdm-evidence",
+      "path": "data_to_learn_from/cdm_parallel/fx-derivatives/fx-ex01-fx-spot.json",
+      "reason": "Local CDM example used as evidence and assertions, not hardcoded output"
+    }
+  ]
+}

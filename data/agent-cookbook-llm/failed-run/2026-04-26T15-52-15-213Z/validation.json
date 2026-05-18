@@ -1,0 +1,8 @@
+[
+  {
+    "severity": "error",
+    "code": "missing_required_section",
+    "message": "Missing section: Do Not Assume",
+    "packetId": "family:fx-derivatives"
+  }
+]

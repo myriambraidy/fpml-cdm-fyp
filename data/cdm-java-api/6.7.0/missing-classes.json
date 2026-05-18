@@ -1,0 +1,111 @@
+[
+  {
+    "className": "cdm.base.math.PriceSchedule",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.observable.asset.PriceSchedule"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.base.math.PriceTypeEnum",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.observable.asset.PriceTypeEnum"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.base.staticdata.asset.Asset",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.base.staticdata.asset.common.Asset"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.base.staticdata.asset.Cash",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.base.staticdata.asset.common.Cash"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.base.staticdata.party.PartyReference",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.observable.asset.ResolvablePriceQuantity",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.product.common.settlement.ResolvablePriceQuantity"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.product.common.settlement.SettlementPayout",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.product.template.SettlementPayout"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.product.template.CashSettlementTerms",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.product.common.settlement.CashSettlementTerms"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.product.template.SettlementTerms",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.product.common.settlement.SettlementTerms"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "cdm.product.template.SettlementTypeEnum",
+    "exists": false,
+    "reason": "exact class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [
+      "cdm.product.common.settlement.SettlementTypeEnum"
+    ],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "com.rosetta.model.lib.records.Date",
+    "exists": false,
+    "reason": "prompt seed class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "com.rosetta.model.metafields.MetaFields",
+    "exists": false,
+    "reason": "prompt seed class not found in cdm-java-6.7.0.jar",
+    "sameSimpleNameCandidates": [],
+    "authority": "compiled-jar-javap"
+  },
+  {
+    "className": "FpmlFxSingleLeg",
+    "exists": false,
+    "reason": "not part of CDM Java; use XML parser DTOs or DOM/StAX parsing",
+    "sameSimpleNameCandidates": [],
+    "authority": "compiled-jar-javap"
+  }
+]

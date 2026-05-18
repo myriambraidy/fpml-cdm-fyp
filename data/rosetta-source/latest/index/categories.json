@@ -1,0 +1,320 @@
+{
+  "generatedAt": "2026-04-27T11:36:42.843Z",
+  "sourceManifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\manifest.json",
+  "totalFiles": 143,
+  "categories": {
+    "base-model": 26,
+    "dictionary": 1,
+    "event-model": 10,
+    "fpml-ingest": 44,
+    "legal-documentation": 15,
+    "mapping-synonym": 4,
+    "margin": 3,
+    "observable-model": 15,
+    "product-model": 24,
+    "regulation": 1
+  },
+  "kinds": {
+    "description": 6,
+    "dictionary": 1,
+    "enum": 30,
+    "function": 71,
+    "synonym": 4,
+    "type": 31
+  },
+  "productFamilies": {
+    "commodity": 5,
+    "common": 45,
+    "credit": 4,
+    "equity": 7,
+    "fx": 6,
+    "legal": 16,
+    "rates": 14,
+    "unclassified": 46
+  },
+  "fpmlRelevantCount": 91,
+  "topFpmlRelevantFiles": [
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-tradestate-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-party-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-payment-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-pricequantity-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-datetime-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-settlement-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation",
+        "shared file likely supports FpML mapping"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-common-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-header-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-legal-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "legal",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-message-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "common",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "content contains ingest XML reference",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-other-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": null,
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-bondoption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": null,
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-brokerequityoption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "equity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-capfloor-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "rates",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityforward-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "commodity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityoption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "commodity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswap-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "commodity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-commodityswaption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "commodity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-correlationswap-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "rates",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswap-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "credit",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-creditdefaultswapoption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "credit",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswapoptiontransactionsupplement-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "equity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-dividendswaptransactionsupplement-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "equity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityforward-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "equity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    },
+    {
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-product-equityoption-func.rosetta",
+      "category": "fpml-ingest",
+      "inferredProductFamily": "equity",
+      "relevanceReasons": [
+        "file category is fpml-ingest",
+        "filename contains fpml",
+        "content contains fpml",
+        "mentions confirmation"
+      ]
+    }
+  ]
+}

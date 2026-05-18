@@ -1,0 +1,1487 @@
+{
+  "generatedAt": "2026-04-26T14:11:41.648Z",
+  "config": {
+    "workspaceRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp",
+    "fpmlRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel",
+    "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+    "folder": "total-return-swaps",
+    "pairConcurrency": 8,
+    "pairMaxRetries": 1,
+    "synthesisMaxRetries": 1,
+    "model": "openai/gpt-5-mini",
+    "synthesisModel": "openai/gpt-5-mini",
+    "pairMaxTokens": 128000,
+    "synthesisMaxTokens": 128000,
+    "storeFailedRawResponses": true
+  },
+  "selection": {
+    "manifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\manifest.json",
+    "folder": "total-return-swaps",
+    "includedPairs": [
+      {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex01-equity-basket.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex01-equity-basket.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex01-equity-basket.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex02-single-equity.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex02-single-equity.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex02-single-equity.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex02-single-equity.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "pairingStrategy": "exact"
+      }
+    ],
+    "missingExamples": [],
+    "ignoredExamples": [],
+    "coverage": {
+      "totalFpmlFilesInFolder": 3,
+      "matchedPairsAvailable": 3,
+      "matchedPairsUsed": 3,
+      "missingCounterparts": 0,
+      "ignoredPairs": 0,
+      "exactMatches": 3,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  "pairAnalyses": [
+    {
+      "pair": {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex01-equity-basket.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex01-equity-basket.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex01-equity-basket.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "TotalReturnSwap:EquityBasket",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include trade, party.",
+          "Header or boilerplate signals were detected in 6 paths.",
+          "Repeated nested structures include trade > returnSwap (153 paths); trade > tradeHeader (6 paths); trade > collateral (5 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > returnSwap (153 paths)",
+          "trade > tradeHeader (6 paths)",
+          "trade > collateral (5 paths)",
+          "party > partyId (2 paths)",
+          "party > partyName (2 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/returnSwap/productType",
+          "/FpML/trade/returnSwap/buyerPartyReference",
+          "/FpML/trade/returnSwap/sellerPartyReference",
+          "/FpML/trade/returnSwap/returnLeg/payerPartyReference"
+        ],
+        "rawFieldCount": 169
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (130 paths); trade > tradeLot (84 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.externalKey",
+          "$.trade.product.economicTerms.terminationDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.meta.externalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (130 paths)",
+          "trade > tradeLot (84 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (17 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)",
+          "trade > adjustment (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].value.name.value",
+          "$.trade.product.taxonomy[1].source",
+          "$.trade.product.taxonomy[1].productQualifier",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.businessDayConvention",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.globalKey"
+        ],
+        "rawFieldCount": 265
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+            "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value",
+            "$.trade.tradeIdentifier[2].assignedIdentifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+          "confidence": "high",
+          "whyNote": "Values TRS-02 and total-ret-swap-02 present in both"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "Unadjusted date copied, timezone removed",
+          "confidence": "high",
+          "whyNote": "FpML has 2004-12-14+05:00; CDM has 2004-12-14"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/underlyer/basket/basketConstituent[1]/equity/instrumentId",
+            "/FpML/trade/returnSwap/returnLeg/underlyer/basket/basketConstituent[1]/equity/description",
+            "/FpML/trade/returnSwap/returnLeg/underlyer/basket/basketConstituent[2]/equity/instrumentId",
+            "/FpML/trade/returnSwap/returnLeg/underlyer/basket/basketConstituent[2]/equity/description"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[0].value.Asset.Instrument.Security.identifier[1].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[1].value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Basket.basketConstituent[1].value.Asset.Instrument.Security.identifier[1].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "Equity instrumentId and description -> Security identifiers",
+          "confidence": "high",
+          "whyNote": "ISIN_XXXX/ISIN_YYYY and names match CDM identifiers"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "Remove timezone offset from date string",
+          "confidence": "high"
+        },
+        {
+          "type": "reference_resolution",
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/@id",
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/@id"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.meta.externalKey",
+            "$.trade.product.economicTerms.terminationDate.meta.externalKey"
+          ],
+          "transformationNote": "FpML id attributes mapped to CDM externalKey",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.party[0].partyId[0].identifier.value",
+            "$.trade.party[1].partyId[0].identifier.value"
+          ],
+          "enrichmentNote": "LEI values added in CDM not in FpML",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+        "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "cdmFile": "total-return-swaps/trs-ex01-equity-basket.json",
+        "mainFpmlSections": "trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+          "Unadjusted date copied, timezone removed",
+          "Equity instrumentId and description -> Security identifiers"
+        ],
+        "importantTransformation": "Remove timezone offset from date string",
+        "uncertainty": [
+          "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+          "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 45708,
+      "rawResponseChars": 3807,
+      "rawResponsePreview": "{\n  \"productOrTradeFamily\": \"TotalReturnSwap:EquityBasket\",\n  \"mappingObservations\": [\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId\",\n        \"/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId\"\n      ],\n      \"targetPaths\": [\n        \"$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value\",\n        \"$.trade.tradeIdentifier[2].assignedIdentifier[0].identifier.value\"\n      ],\n      \"classification\": \"direct\",\n      \"mappingNote\": \"FpML tradeId -> CDM tradeIdentifier.assignedIdentifier\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"Values TRS-02 and total-ret-swap-02 present in both\"\n    },\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate\"\n      ],\n      \"targetPaths\": [\n        \"$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate\"\n      ],\n      \"classification\": \"normalized\",\n      \"mappingNote\": \"Unadjusted date copied, timezone removed\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"FpML has 2004-12-14+05:00; CDM has 2004-12-14\"\n    },\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/returnSwap/returnLeg/underlyer/basket/basket...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex02-single-equity.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex02-single-equity.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex02-single-equity.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex02-single-equity.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "TotalReturnSwap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include trade, party.",
+          "Header or boilerplate signals were detected in 6 paths.",
+          "Repeated nested structures include trade > returnSwap (141 paths); trade > tradeHeader (6 paths); trade > collateral (5 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > returnSwap (141 paths)",
+          "trade > tradeHeader (6 paths)",
+          "trade > collateral (5 paths)",
+          "party > partyId (2 paths)",
+          "party > partyName (2 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/returnSwap/productType",
+          "/FpML/trade/returnSwap/buyerPartyReference",
+          "/FpML/trade/returnSwap/sellerPartyReference",
+          "/FpML/trade/returnSwap/returnLeg/payerPartyReference"
+        ],
+        "rawFieldCount": 157
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (137 paths); trade > tradeLot (69 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.taxonomy[0].value.name.meta.scheme",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.externalKey",
+          "$.trade.product.economicTerms.terminationDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (137 paths)",
+          "trade > tradeLot (69 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (17 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)",
+          "trade > adjustment (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].value.name.value",
+          "$.trade.product.taxonomy[0].value.name.meta.scheme",
+          "$.trade.product.taxonomy[1].source",
+          "$.trade.product.taxonomy[1].productQualifier",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.businessDayConvention",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.adjustableDate.meta.globalKey"
+        ],
+        "rawFieldCount": 257
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/productType"
+          ],
+          "targetPaths": [
+            "$.trade.product.taxonomy[0].value.name.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "product type value",
+          "confidence": "high",
+          "whyNote": "Both contain 'TotalReturnSwap'"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "date normalized",
+          "confidence": "high",
+          "whyNote": "FpML has timezone suffix removed in CDM"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/underlyer/singleUnderlyer/equity/instrumentId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].observable.value.Asset.Instrument.Security.identifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "equity id -> security identifier",
+          "confidence": "high",
+          "whyNote": "Value 'SHPGY.O' appears in both"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+            "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value",
+            "$.trade.tradeIdentifier[2].assignedIdentifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "tradeId -> assignedIdentifier",
+          "confidence": "medium",
+          "whyNote": "Values present but CDM ordering/duplicates noted"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate",
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate",
+            "$.trade.product.economicTerms.terminationDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "remove timezone suffix from dates",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.party[0].partyId[0].identifier.value",
+            "$.trade.party[1].partyId[0].identifier.value"
+          ],
+          "enrichmentNote": "LEI values added in CDM not in FpML",
+          "confidence": "high"
+        }
+      ],
+      "openQuestions": [
+        "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+        "Why does CDM contain duplicate tradeIdentifier entries?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "total-return-swaps/trs-ex02-single-equity.xml",
+        "cdmFile": "total-return-swaps/trs-ex02-single-equity.json",
+        "mainFpmlSections": "trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "product type value",
+          "date normalized",
+          "equity id -> security identifier",
+          "tradeId -> assignedIdentifier"
+        ],
+        "importantTransformation": "remove timezone suffix from dates",
+        "uncertainty": [
+          "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+          "Why does CDM contain duplicate tradeIdentifier entries?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 43655,
+      "rawResponseChars": 2836,
+      "rawResponsePreview": "{\n  \"productOrTradeFamily\": \"TotalReturnSwap\",\n  \"mappingObservations\": [\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/returnSwap/productType\"\n      ],\n      \"targetPaths\": [\n        \"$.trade.product.taxonomy[0].value.name.value\"\n      ],\n      \"classification\": \"direct\",\n      \"mappingNote\": \"product type value\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"Both contain 'TotalReturnSwap'\"\n    },\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/returnSwap/returnLeg/effectiveDate/adjustableDate/unadjustedDate\"\n      ],\n      \"targetPaths\": [\n        \"$.trade.product.economicTerms.effectiveDate.adjustableDate.unadjustedDate\"\n      ],\n      \"classification\": \"normalized\",\n      \"mappingNote\": \"date normalized\",\n      \"confidence\": \"high\",\n      \"whyNote\": \"FpML has timezone suffix removed in CDM\"\n    },\n    {\n      \"sourcePaths\": [\n        \"/FpML/trade/returnSwap/returnLeg/underlyer/singleUnderlyer/equity/instrumentId\"\n      ],\n      \"targetPaths\": [\n        \"$.trade.tradeLot[0].priceQuantity[0].observable.value.Asset.Instrument.Security.identifier[0].identifier.value\"\n      ],\n      \"classification\": \"direct\",\n      \"mappingNote\": \"equity id -> security identifier\",\n      \"con...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "total-return-swaps",
+        "fpmlRelativePath": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmRelativePath": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\total-return-swaps\\trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "total-return-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > returnSwap (132 paths); trade > tradeHeader (6 paths); trade > documentation (5 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/conversationId",
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId"
+        ],
+        "nestedStructureSignals": [
+          "trade > returnSwap (132 paths)",
+          "trade > tradeHeader (6 paths)",
+          "trade > documentation (5 paths)",
+          "party > partyId (2 paths)",
+          "header > conversationId (1 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/conversationId",
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId"
+        ],
+        "rawFieldCount": 153
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (149 paths); trade > tradeLot (63 paths); trade > contractDetails (22 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.meta.externalKey",
+          "$.trade.product.economicTerms.terminationDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.meta.globalKey",
+          "$.trade.product.economicTerms.terminationDate.meta.externalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].PerformancePayout.settlementTerms.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (149 paths)",
+          "trade > tradeLot (63 paths)",
+          "trade > contractDetails (22 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)",
+          "trade > tradeDate (3 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].value.name.value",
+          "$.trade.product.taxonomy[1].source",
+          "$.trade.product.taxonomy[1].productQualifier",
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.periodMultiplier",
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.period",
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.dayType",
+          "$.trade.product.economicTerms.effectiveDate.relativeDate.businessDayConvention"
+        ],
+        "rawFieldCount": 286
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/periodMultiplier",
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/period",
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/dayType",
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/businessDayConvention",
+            "/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/dateRelativeTo/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.effectiveDate.relativeDate.periodMultiplier",
+            "$.trade.product.economicTerms.effectiveDate.relativeDate.period",
+            "$.trade.product.economicTerms.effectiveDate.relativeDate.dayType",
+            "$.trade.product.economicTerms.effectiveDate.relativeDate.businessDayConvention",
+            "$.trade.product.economicTerms.effectiveDate.relativeDate.dateRelativeTo.externalReference"
+          ],
+          "classification": "direct",
+          "mappingNote": "effective date relative fields mapped",
+          "confidence": "high",
+          "whyNote": "same relative-date fields and references present in both documents"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/relativeDate/periodMultiplier",
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/relativeDate/period",
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/relativeDate/businessDayConvention",
+            "/FpML/trade/returnSwap/returnLeg/terminationDate/relativeDate/dateRelativeTo/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.terminationDate.relativeDate.periodMultiplier",
+            "$.trade.product.economicTerms.terminationDate.relativeDate.period",
+            "$.trade.product.economicTerms.terminationDate.relativeDate.businessDayConvention",
+            "$.trade.product.economicTerms.terminationDate.relativeDate.dateRelativeTo.externalReference"
+          ],
+          "classification": "direct",
+          "mappingNote": "termination relative-date fields mapped",
+          "confidence": "high",
+          "whyNote": "termination relative-date and dateRelativeTo present in both"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/underlyer/singleUnderlyer/equity/instrumentId",
+            "/FpML/trade/returnSwap/returnLeg/underlyer/singleUnderlyer/openUnits"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot.priceQuantity[0].observable.value.Asset.Instrument.Security.identifier[0].identifier.value",
+            "$.trade.tradeLot.priceQuantity[0].quantity[0].value.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "instrument id and units mapped to observable and quantity",
+          "confidence": "high",
+          "whyNote": "instrumentId and openUnits values match target fields"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/return/dividendConditions/dividendPayout/dividendPayoutRatio",
+            "/FpML/trade/returnSwap/returnLeg/return/dividendConditions/dividendReinvestment",
+            "/FpML/trade/returnSwap/returnLeg/return/dividendConditions/dividendEntitlement"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendPayoutRatio[0].totalRatio",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendReinvestment",
+            "$.trade.product.economicTerms.payout[0].PerformancePayout.returnTerms.dividendReturnTerms.dividendEntitlement"
+          ],
+          "classification": "direct",
+          "mappingNote": "dividend terms mapped",
+          "confidence": "high",
+          "whyNote": "same dividend fields and values present in both"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/returnSwap/returnLeg/underlyer/singleUnderlyer/equity/exchangeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot.priceQuantity[0].observable.value.Asset.Instrument.Security.exchange.name.value"
+          ],
+          "transformationNote": "exchange code normalized (NASDAQ -> XNAS)",
+          "confidence": "medium"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.taxonomy[0].value.name.value",
+            "$.trade.product.taxonomy[1].productQualifier"
+          ],
+          "enrichmentNote": "product taxonomy entries added in CDM",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmFile": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "effective date relative fields mapped",
+          "termination relative-date fields mapped",
+          "instrument id and units mapped to observable and quantity",
+          "dividend terms mapped"
+        ],
+        "importantTransformation": "exchange code normalized (NASDAQ -> XNAS)",
+        "uncertainty": [
+          "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 42470,
+      "rawResponseChars": 3896,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"total-return-swaps\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/periodMultiplier\",\"/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/period\",\"/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/dayType\",\"/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/businessDayConvention\",\"/FpML/trade/returnSwap/returnLeg/effectiveDate/relativeDate/dateRelativeTo/@href\"],\"targetPaths\":[\"$.trade.product.economicTerms.effectiveDate.relativeDate.periodMultiplier\",\"$.trade.product.economicTerms.effectiveDate.relativeDate.period\",\"$.trade.product.economicTerms.effectiveDate.relativeDate.dayType\",\"$.trade.product.economicTerms.effectiveDate.relativeDate.businessDayConvention\",\"$.trade.product.economicTerms.effectiveDate.relativeDate.dateRelativeTo.externalReference\"],\"classification\":\"direct\",\"mappingNote\":\"effective date relative fields mapped\",\"confidence\":\"high\",\"whyNote\":\"same relative-date fields and references present in both documents\"},{\"sourcePaths\":[\"/FpML/trade/returnSwap/returnLeg/terminationDate/relativeDate/periodMultiplier\",\"/FpML/trade/returnSwap/returnLeg/terminationDate/relat...[truncated preview]"
+    }
+  ],
+  "successfulPairCount": 3,
+  "failedPairCount": 0,
+  "synthesis": {
+    "folder": "total-return-swaps",
+    "evidenceCoverage": {
+      "matchedPairCount": 3,
+      "structuralPairCount": 3,
+      "semanticPairCount": 3,
+      "fullSemanticPairCount": 3,
+      "salvagedSemanticPairCount": 0,
+      "failedSemanticPairCount": 0,
+      "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+      "semanticBasisNote": "Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged)."
+    },
+    "repeatedFpmlStructure": {
+      "headerAndBoilerplate": [
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+        "/FpML/trade/tradeHeader/tradeDate",
+        "/FpML/header/conversationId",
+        "/FpML/header/messageId"
+      ],
+      "topLevelSections": [
+        {
+          "section": "party",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "nestedStructures": [
+        "trade > returnSwap (153 paths)",
+        "trade > tradeHeader (6 paths)",
+        "trade > collateral (5 paths)",
+        "party > partyId (2 paths)",
+        "party > partyName (2 paths)",
+        "trade > returnSwap (141 paths)",
+        "trade > returnSwap (132 paths)",
+        "trade > documentation (5 paths)"
+      ],
+      "optionalSections": [
+        {
+          "section": "header",
+          "count": 1,
+          "total": 3
+        }
+      ]
+    },
+    "repeatedCdmStructure": {
+      "topLevelSections": [
+        {
+          "section": "meta",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "wrappersAndScaffolding": [
+        "trade > product (130 paths)",
+        "trade > tradeLot (84 paths)",
+        "trade > tradeIdentifier (21 paths)",
+        "trade > party (17 paths)",
+        "trade > counterparty (7 paths)",
+        "trade > tradeDate (3 paths)",
+        "meta > globalKey (1 paths)",
+        "trade > adjustment (1 paths)"
+      ],
+      "optionalSections": []
+    },
+    "stableMappingPatterns": [
+      {
+        "id": "RULE-001",
+        "name": "Equity instrument id/description -> Security identifiers",
+        "strength": "moderate recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "instrumentId / instrument description (FpML trade instrument sections)",
+        "targetPattern": "security identifier entries (CDM security/observable identifiers)",
+        "explanation": "Equity instruments in the FpML examples are consistently represented as security/observable identifiers in CDM.",
+        "whyItWorksThisWay": "Equity product identity is expressed in CDM via security/observable identifier structures; instrument id and description from FpML are used to populate those fields.",
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml",
+          "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+        ],
+        "caveats": [
+          "Normalization of identifier namespaces (e.g., exchange codes) occurs in some examples - see exchange-code normalization caveat.",
+          "Mapping may combine id + descriptive text to populate multiple CDM identifier fields."
+        ]
+      },
+      {
+        "id": "RULE-002",
+        "name": "Exchange identifier normalization (FpML exchangeId -> CDM exchange.code)",
+        "strength": "moderate recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "FpML exchangeId values (e.g., 'NASDAQ', 'Milan Stock Exchange')",
+        "targetPattern": "CDM exchange.code normalized values (e.g., 'XNAS', 'XMIL')",
+        "explanation": "Exchange identifiers present in FpML are mapped to canonical exchange codes in CDM in multiple examples.",
+        "whyItWorksThisWay": "Target model uses standardized exchange codes; examples show FpML exchange names/ids translated to a different code space in CDM.",
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml",
+          "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+        ],
+        "caveats": [
+          "The precise mapping table or rationale is not present in examples - open questions remain about mapping rules (e.g., 'NASDAQ' -> 'XNAS').",
+          "Normalization may be context-dependent (local exchange names vs. global codes)."
+        ]
+      },
+      {
+        "id": "RULE-003",
+        "name": "tradeId -> tradeIdentifier.assignedIdentifier",
+        "strength": "moderate recurring pattern",
+        "evidenceCount": 2,
+        "sourcePattern": "tradeheader.partytradeidentifier.tradeid (FpML)",
+        "targetPattern": "tradeIdentifier.assignedIdentifier.identifier.value (CDM)",
+        "explanation": "FpML tradeId values are carried into CDM assignedIdentifier entries repeatedly in multiple examples.",
+        "whyItWorksThisWay": "Trade-level identifier preservation is required for traceability; examples show a direct mapping from FpML tradeId to CDM assignedIdentifier.",
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml"
+        ],
+        "caveats": [
+          "Some CDM outputs show duplicate tradeIdentifier entries; deduplication rules are not provided and should be verified."
+        ]
+      }
+    ],
+    "repeatedNonLiteralTransformations": [
+      {
+        "id": "TR-001",
+        "name": "Remove timezone suffix from date strings",
+        "type": "normalization",
+        "description": "Date/time strings in FpML that include timezone offsets are normalized by removing the timezone suffix when populating CDM date fields.",
+        "sourceSide": "FpML unadjusted/adjusted dates with timezone offsets",
+        "targetSide": "CDM date strings without timezone offset",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml",
+          "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+        ],
+        "notes": [
+          "Described explicitly as an important transformation in multiple pair highlights.",
+          "Consider canonicalization of date format as a deterministic step prior to CDM population."
+        ]
+      },
+      {
+        "id": "TR-002",
+        "name": "Dividend and performance terms mapping",
+        "type": "normalization",
+        "description": "Dividend-related fields and performance payout roles from FpML are translated into CDM dividend/performance payout structures.",
+        "sourceSide": "FpML dividend terms, payout role references",
+        "targetSide": "CDM dividend terms, PerformancePayout structures",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+        ],
+        "notes": [
+          "Mapping occurs in examples but role directionality/party mapping shows inconsistencies in at least one example - treat role mapping carefully."
+        ]
+      }
+    ],
+    "tentativeRepeatedPatterns": [
+      {
+        "id": "TENT-001",
+        "kind": "enrichment",
+        "strength": "moderate recurring pattern",
+        "description": "Generated identifiers or defaults repeatedly appear under partyid.identifier.value.",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml"
+        ],
+        "notes": [
+          "Confidence mix includes medium.",
+          "Representative note: LEI values added in CDM not in FpML",
+          "Confidence mix includes high."
+        ]
+      },
+      {
+        "id": "TENT-002",
+        "kind": "mapping",
+        "strength": "moderate recurring pattern",
+        "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+          "Confidence mix includes medium.",
+          "Representative note: tradeId -> assignedIdentifier"
+        ]
+      }
+    ],
+    "folderLevelPrinciples": [
+      "Preserve FpML trade identifier values by mapping tradeId -> CDM tradeIdentifier.assignedIdentifier for traceability.",
+      "Normalize date/time strings by removing timezone offsets when populating CDM date fields.",
+      "Map FpML equity instrument identifiers and descriptions to CDM security/observable identifier structures.",
+      "Normalize FpML exchange identifiers to canonical exchange.code values in CDM (mapping table not provided by examples).",
+      "Party identifier fields in CDM may include generated or default identifiers (e.g., LEI) not present in FpML; treat these as likely enrichment."
+    ],
+    "variantsAndExceptions": [
+      {
+        "id": "VAR-001",
+        "name": "Duplicate tradeIdentifier entries in CDM",
+        "description": "Some CDM outputs contain duplicate tradeIdentifier entries for the same FpML tradeId.",
+        "seenIn": [
+          "total-return-swaps/trs-ex02-single-equity.xml"
+        ],
+        "impactOnGeneralization": "Introduces ambiguity for deduplication logic; consumers should not assume a 1:1 mapping without additional deduplication or identity rules."
+      },
+      {
+        "id": "VAR-002",
+        "name": "PerformancePayout payer/receiver direction mismatch",
+        "description": "In at least one example, CDM PerformancePayout payer/receiver roles appear inverted relative to FpML payerPartyReference.",
+        "seenIn": [
+          "total-return-swaps/trs-ex01-equity-basket.xml"
+        ],
+        "impactOnGeneralization": "Role mapping for payouts may require explicit verification per trade; do not assume party reference semantics are identical between FpML and CDM without confirmation."
+      }
+    ],
+    "suspectedEnrichmentOrDefaultBehavior": [
+      {
+        "id": "ENR-001",
+        "name": "Party identifiers enriched with generated/default identifiers (e.g., LEI)",
+        "description": "CDM party identifier elements often include generated or default identifier values that are not present in the source FpML (example: LEI values added).",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "total-return-swaps/trs-ex01-equity-basket.xml",
+          "total-return-swaps/trs-ex02-single-equity.xml"
+        ],
+        "caution": [
+          "Treat added identifiers as enrichment rather than source-canonical; do not assume they exist in FpML.",
+          "Verify whether enrichment is deterministic for all parties or applied selectively."
+        ]
+      }
+    ],
+    "repeatedHeaderAndCommonBoilerplateSummary": {
+      "commonFpmlHeaderBehavior": [
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+        "/FpML/trade/tradeHeader/tradeDate",
+        "/FpML/header/conversationId",
+        "/FpML/header/messageId"
+      ],
+      "commonTradeScaffolding": [
+        "trade > returnSwap (153 paths)",
+        "trade > tradeHeader (6 paths)",
+        "trade > collateral (5 paths)",
+        "party > partyId (2 paths)",
+        "party > partyName (2 paths)",
+        "trade > returnSwap (141 paths)",
+        "trade > returnSwap (132 paths)",
+        "trade > documentation (5 paths)"
+      ],
+      "commonCdmBoilerplateBehavior": [
+        "$.trade.product.economicTerms.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.effectiveDate.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.effectiveDate.meta.globalKey",
+        "$.trade.product.economicTerms.effectiveDate.meta.externalKey",
+        "$.trade.product.economicTerms.terminationDate.adjustableDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.terminationDate.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.terminationDate.meta.globalKey",
+        "$.trade.product.economicTerms.terminationDate.meta.externalKey"
+      ]
+    },
+    "openQuestions": [
+      "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+      "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference",
+      "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+      "Why does CDM contain duplicate tradeIdentifier entries?",
+      "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+    ],
+    "pairLevelHighlights": [
+      {
+        "fpmlFile": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "cdmFile": "total-return-swaps/trs-ex01-equity-basket.json",
+        "mainFpmlSections": "trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+          "Unadjusted date copied, timezone removed",
+          "Equity instrumentId and description -> Security identifiers"
+        ],
+        "importantTransformation": "Remove timezone offset from date string",
+        "uncertainty": [
+          "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+          "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference"
+        ]
+      },
+      {
+        "fpmlFile": "total-return-swaps/trs-ex02-single-equity.xml",
+        "cdmFile": "total-return-swaps/trs-ex02-single-equity.json",
+        "mainFpmlSections": "trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "product type value",
+          "date normalized",
+          "equity id -> security identifier",
+          "tradeId -> assignedIdentifier"
+        ],
+        "importantTransformation": "remove timezone suffix from dates",
+        "uncertainty": [
+          "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+          "Why does CDM contain duplicate tradeIdentifier entries?"
+        ]
+      },
+      {
+        "fpmlFile": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "cdmFile": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "effective date relative fields mapped",
+          "termination relative-date fields mapped",
+          "instrument id and units mapped to observable and quantity",
+          "dividend terms mapped"
+        ],
+        "importantTransformation": "exchange code normalized (NASDAQ -> XNAS)",
+        "uncertainty": [
+          "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+        ]
+      }
+    ],
+    "agentPlaybook": {
+      "summary": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction. Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged).",
+      "canonicalSteps": [
+        "Start from the repeated FPML sections seen across matched files: party, trade.",
+        "Map trade identifiers, party references, and trade dates before product-specific economics.",
+        "Apply recurring mapping rules only when the exact source cues appear in the document.",
+        "Then apply the repeated non-literal transformations that reshape identifiers, dates, wrappers, or references.",
+        "Assemble the result under repeated CDM scaffolding such as meta, trade.",
+        "Treat generated identifiers, global keys, and unmatched party identifiers as enrichments unless the source proves otherwise."
+      ],
+      "recurringRules": [
+        "instrumentId / instrument description (FpML trade instrument sections) -> security identifier entries (CDM security/observable identifiers): Equity instruments in the FpML examples are consistently represented as security/observable identifiers in CDM.",
+        "FpML exchangeId values (e.g., 'NASDAQ', 'Milan Stock Exchange') -> CDM exchange.code normalized values (e.g., 'XNAS', 'XMIL'): Exchange identifiers present in FpML are mapped to canonical exchange codes in CDM in multiple examples.",
+        "tradeheader.partytradeidentifier.tradeid (FpML) -> tradeIdentifier.assignedIdentifier.identifier.value (CDM): FpML tradeId values are carried into CDM assignedIdentifier entries repeatedly in multiple examples.",
+        "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value. [tentative 2 examples]"
+      ],
+      "transformationPatterns": [
+        "normalization: Date/time strings in FpML that include timezone offsets are normalized by removing the timezone suffix when populating CDM date fields.",
+        "normalization: Dividend-related fields and performance payout roles from FpML are translated into CDM dividend/performance payout structures."
+      ],
+      "productSpecificBranches": [
+        {
+          "name": "trs-ex01-equity-basket.xml",
+          "whenToUse": "Use this branch when the source document resembles trade, party.",
+          "sourceSignals": [
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+            "Unadjusted date copied, timezone removed",
+            "Equity instrumentId and description -> Security identifiers"
+          ],
+          "cautions": [
+            "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+            "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference"
+          ]
+        },
+        {
+          "name": "trs-ex02-single-equity.xml",
+          "whenToUse": "Use this branch when the source document resembles trade, party.",
+          "sourceSignals": [
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "product type value",
+            "date normalized",
+            "equity id -> security identifier",
+            "tradeId -> assignedIdentifier"
+          ],
+          "cautions": [
+            "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+            "Why does CDM contain duplicate tradeIdentifier entries?"
+          ]
+        },
+        {
+          "name": "trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "effective date relative fields mapped",
+            "termination relative-date fields mapped",
+            "instrument id and units mapped to observable and quantity",
+            "dividend terms mapped"
+          ],
+          "cautions": [
+            "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+          ]
+        }
+      ],
+      "validationChecks": [
+        "Check unresolved question: Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+        "Check unresolved question: CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference",
+        "Check unresolved question: Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+        "Check unresolved question: Why does CDM contain duplicate tradeIdentifier entries?",
+        "Check unresolved question: Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?",
+        "Check enrichment/default behavior: CDM party identifier elements often include generated or default identifier values that are not present in the source FpML (example: LEI values added)."
+      ],
+      "doNotAssume": [
+        "Do not treat Party identifiers enriched with generated/default identifiers (e.g., LEI) as a guaranteed direct mapping rule yet.",
+        "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+        "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference",
+        "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+        "Why does CDM contain duplicate tradeIdentifier entries?",
+        "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+      ]
+    },
+    "draftConclusion": {
+      "mostReusableFindings": [
+        "Trade identifier preservation: map FpML tradeId -> CDM tradeIdentifier.assignedIdentifier.",
+        "Date normalization: remove timezone suffixes from FpML date strings when populating CDM.",
+        "Equity instruments become CDM security/observable identifiers; instrument id/description are primary inputs for those identifiers.",
+        "Exchange identifiers are normalized to a canonical code in CDM; mapping must be verified against a code table."
+      ],
+      "safeToGeneralize": [
+        "Apply tradeId -> assignedIdentifier mapping as a default rule.",
+        "Normalize/remove timezone information from date strings before CDM assignment.",
+        "Populate CDM security/observable identifier fields from FpML instrument id/description."
+      ],
+      "remainTentative": [
+        "Rationale and mapping rules for exchange code normalization (e.g., NASDAQ -> XNAS, Milan Stock Exchange -> XMIL).",
+        "Handling and deduplication of duplicate tradeIdentifier entries in CDM.",
+        "Exact semantics for PerformancePayout party role mapping where examples show inversion.",
+        "Whether party identifier LEI additions are always applied or conditional enrichment."
+      ]
+    },
+    "sourceAppendixNotes": [
+      "Included pairs: 3",
+      "Ignored pairs: 0",
+      "Semantic pair analyses recovered: 3",
+      "Tentative repeated semantic signals: 2"
+    ]
+  },
+  "synthesisDiagnostics": {
+    "modelUsed": "openai/gpt-5-mini",
+    "promptChars": 5308,
+    "rawResponseChars": 10145,
+    "rawResponsePreview": "{\n  \"stableMappingPatterns\": [\n    {\n      \"id\": \"TENT-002\",\n      \"name\": \"tradeId -> tradeIdentifier.assignedIdentifier\",\n      \"strength\": \"moderate recurring pattern\",\n      \"evidenceCount\": 2,\n      \"sourcePattern\": \"tradeheader.partytradeidentifier.tradeid (FpML)\",\n      \"targetPattern\": \"tradeIdentifier.assignedIdentifier.identifier.value (CDM)\",\n      \"explanation\": \"FpML tradeId values are carried into CDM assignedIdentifier entries repeatedly in multiple examples.\",\n      \"whyItWorksThisWay\": \"Trade-level identifier preservation is required for traceability; examples show a direct mapping from FpML tradeId to CDM assignedIdentifier.\",\n      \"exampleFiles\": [\n        \"total-return-swaps/trs-ex01-equity-basket.xml\",\n        \"total-return-swaps/trs-ex02-single-equity.xml\"\n      ],\n      \"caveats\": [\n        \"Some CDM outputs show duplicate tradeIdentifier entries; deduplication rules are not provided and should be verified.\"\n      ]\n    },\n    {\n      \"id\": \"MAP-002\",\n      \"name\": \"Equity instrument id/description -> Security identifiers\",\n      \"strength\": \"moderate recurring pattern\",\n      \"evidenceCount\": 3,\n      \"sourcePattern\": \"instrumentId / instrument description ...[truncated preview]"
+  },
+  "integrity": {
+    "ok": true,
+    "issues": []
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 7.6,
+    "rating": "good",
+    "reasons": [
+      "Only 3 stable mapping rules were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "1 stable rule sit only at the minimum evidence threshold.",
+      "1 repeated transformation still have thin supporting evidence."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 3,
+      "repeatedTransformationCount": 2,
+      "tentativePatternCount": 2,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 5,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 1,
+      "lowEvidenceTransformationCount": 1,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is good, below the broad-rollout target of strong."
+    ]
+  },
+  "runLog": [
+    {
+      "timestamp": "2026-04-26T14:09:50.922Z",
+      "level": "info",
+      "stage": "run",
+      "message": "Draft phase run started.",
+      "data": {
+        "folder": "total-return-swaps",
+        "maxPairs": null,
+        "pairConcurrency": 8,
+        "llmEnabled": true
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.927Z",
+      "level": "info",
+      "stage": "pair_selection",
+      "message": "Selected pairs from manifest.",
+      "data": {
+        "folder": "total-return-swaps",
+        "includedPairs": 3,
+        "missingExamples": 0,
+        "ignoredExamples": 0,
+        "exactMatches": 3,
+        "normalizedMatches": 0,
+        "aliasMatches": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.928Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "pairIndex": 1,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "1/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.929Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+        "pairIndex": 2,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "2/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.929Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Starting pair analysis.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "pairIndex": 3,
+        "totalPairs": 3,
+        "strategy": "exact",
+        "progress": "3/3"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.954Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 45708,
+        "retryAttempt": 0,
+        "fpmlChars": 18479,
+        "cdmChars": 21975,
+        "fpmlFields": 169,
+        "cdmFields": 265
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:50.986Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 42470,
+        "retryAttempt": 0,
+        "fpmlChars": 15712,
+        "cdmChars": 21393,
+        "fpmlFields": 153,
+        "cdmFields": 286
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:09:51.002Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Sending pair analysis request to LLM.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 43655,
+        "retryAttempt": 0,
+        "fpmlChars": 18196,
+        "cdmChars": 20225,
+        "fpmlFields": 157,
+        "cdmFields": 257
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:35.275Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Pair analysis completed successfully.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 44346,
+        "promptChars": 45708,
+        "responseChars": 3807,
+        "retryAttempt": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:37.398Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Pair analysis completed successfully.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 46468,
+        "promptChars": 42470,
+        "responseChars": 3896,
+        "retryAttempt": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:39.543Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Pair analysis completed successfully.",
+      "data": {
+        "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+        "model": "openai/gpt-5-mini",
+        "durationMs": 48614,
+        "promptChars": 43655,
+        "responseChars": 2836,
+        "retryAttempt": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:39.544Z",
+      "level": "info",
+      "stage": "pair_analysis",
+      "message": "Pair analysis stage completed.",
+      "data": {
+        "successfulPairCount": 3,
+        "failedPairCount": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:39.545Z",
+      "level": "info",
+      "stage": "synthesis",
+      "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+      "data": {
+        "folder": "total-return-swaps",
+        "successfulPairCount": 3,
+        "failedPairCount": 0,
+        "salvagedPairCount": 0,
+        "structuralPairCount": 3
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:10:39.578Z",
+      "level": "info",
+      "stage": "synthesis",
+      "message": "Sending folder synthesis request to LLM.",
+      "data": {
+        "folder": "total-return-swaps",
+        "model": "openai/gpt-5-mini",
+        "maxTokens": 128000,
+        "promptChars": 5308,
+        "retryAttempt": 0,
+        "semanticPairCount": 3,
+        "structuralPairCount": 3,
+        "includedPairCount": 3,
+        "missingExampleCount": 0
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.641Z",
+      "level": "info",
+      "stage": "synthesis",
+      "message": "Folder synthesis completed successfully.",
+      "data": {
+        "folder": "total-return-swaps",
+        "model": "openai/gpt-5-mini",
+        "promptChars": 5308,
+        "responseChars": 10145,
+        "retryAttempt": 0,
+        "stableRuleCount": 3,
+        "transformationCount": 2
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.643Z",
+      "level": "info",
+      "stage": "validation",
+      "message": "Integrity validation passed for synthesized draft.",
+      "data": {
+        "successfulPairCount": 3
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.645Z",
+      "level": "info",
+      "stage": "publish",
+      "message": "Publication decision computed.",
+      "data": {
+        "status": "success",
+        "publishFinal": true,
+        "reasons": [
+          "Draft passed quality and integrity checks."
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.648Z",
+      "level": "info",
+      "stage": "validation",
+      "message": "Draft quality assessment computed.",
+      "data": {
+        "score": 7.6,
+        "rating": "good",
+        "rolloutDecision": "pilot_only",
+        "readyForBroadRollout": false
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.654Z",
+      "level": "info",
+      "stage": "publish",
+      "message": "Writing draft artifacts to disk.",
+      "data": {
+        "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps",
+        "publishFinal": true,
+        "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.md",
+        "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+        "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json",
+        "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\run-log.json"
+      }
+    },
+    {
+      "timestamp": "2026-04-26T14:11:41.655Z",
+      "level": "info",
+      "stage": "run",
+      "message": "Draft phase run completed.",
+      "data": {
+        "folder": "total-return-swaps",
+        "status": "success",
+        "durationMs": 110733,
+        "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.md",
+        "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+        "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json",
+        "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\run-log.json"
+      }
+    }
+  ]
+}

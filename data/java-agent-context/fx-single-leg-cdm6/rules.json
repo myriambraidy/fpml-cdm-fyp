@@ -1,0 +1,98 @@
+[
+  {
+    "ruleId": "fx.trade-identifier.001",
+    "sourceKind": "cookbook",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.tradeHeader.partyTradeIdentifier.tradeId"
+    ],
+    "cdmPaths": [
+      "trade.tradeIdentifier.assignedIdentifier.identifier.value"
+    ],
+    "transformation": "copy",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.trade-date.001",
+    "sourceKind": "cookbook",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.tradeHeader.tradeDate"
+    ],
+    "cdmPaths": [
+      "trade.tradeDate.value"
+    ],
+    "transformation": "normalize-date",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.quantities.001",
+    "sourceKind": "cookbook",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.fxSingleLeg.exchangedCurrency1.paymentAmount",
+      "FpML.trade.fxSingleLeg.exchangedCurrency2.paymentAmount"
+    ],
+    "cdmPaths": [
+      "trade.tradeLot.priceQuantity.quantity"
+    ],
+    "transformation": "derive-currency-quantities",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.exchange-rate.001",
+    "sourceKind": "cookbook",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.fxSingleLeg.exchangeRate.rate",
+      "FpML.trade.fxSingleLeg.exchangeRate.quotedCurrencyPair"
+    ],
+    "cdmPaths": [
+      "trade.tradeLot.priceQuantity.price.value"
+    ],
+    "transformation": "derive-exchange-rate-price",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.settlement-date.001",
+    "sourceKind": "rosetta",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.fxSingleLeg.valueDate"
+    ],
+    "cdmPaths": [
+      "trade.product.economicTerms.payout.SettlementPayout.settlementTerms.settlementDate.valueDate"
+    ],
+    "transformation": "normalize-date",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.counterparty.001",
+    "sourceKind": "rosetta",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.trade.fxSingleLeg.exchangedCurrency1.payerPartyReference",
+      "FpML.trade.fxSingleLeg.exchangedCurrency1.receiverPartyReference"
+    ],
+    "cdmPaths": [
+      "trade.counterparty.partyReference.externalReference"
+    ],
+    "transformation": "derive-counterparties",
+    "status": "ready"
+  },
+  {
+    "ruleId": "fx.party.001",
+    "sourceKind": "example",
+    "productFamily": "fx-derivatives",
+    "fpmlPaths": [
+      "FpML.party.@id",
+      "FpML.party.partyId"
+    ],
+    "cdmPaths": [
+      "trade.party.partyId.identifier.value",
+      "trade.party.meta.externalKey"
+    ],
+    "transformation": "derive-parties",
+    "status": "ready"
+  }
+]

@@ -1,0 +1,147 @@
+{
+  "className": "cdm.product.template.Product",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "Product",
+  "methods": [
+    {
+      "name": "getTransferableProduct",
+      "returnType": "cdm.product.template.TransferableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TransferableProduct getTransferableProduct()"
+    },
+    {
+      "name": "getNonTransferableProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct getNonTransferableProduct()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.Product",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.Product$ProductBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Product>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Product> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.Product>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.Product> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.Product$ProductBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateTransferableProduct",
+      "returnType": "cdm.product.template.TransferableProduct$TransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TransferableProduct$TransferableProductBuilder getOrCreateTransferableProduct()"
+    },
+    {
+      "name": "getTransferableProduct",
+      "returnType": "cdm.product.template.TransferableProduct$TransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TransferableProduct$TransferableProductBuilder getTransferableProduct()"
+    },
+    {
+      "name": "getOrCreateNonTransferableProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder getOrCreateNonTransferableProduct()"
+    },
+    {
+      "name": "getNonTransferableProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder getNonTransferableProduct()"
+    },
+    {
+      "name": "setTransferableProduct",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [
+        "cdm.product.template.TransferableProduct"
+      ],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder setTransferableProduct(cdm.product.template.TransferableProduct)"
+    },
+    {
+      "name": "setNonTransferableProduct",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [
+        "cdm.product.template.NonTransferableProduct"
+      ],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder setNonTransferableProduct(cdm.product.template.NonTransferableProduct)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder prune()"
+    },
+    {
+      "name": "getNonTransferableProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct",
+      "parameters": [],
+      "raw": "public default cdm.product.template.NonTransferableProduct getNonTransferableProduct()"
+    },
+    {
+      "name": "getTransferableProduct",
+      "returnType": "cdm.product.template.TransferableProduct",
+      "parameters": [],
+      "raw": "public default cdm.product.template.TransferableProduct getTransferableProduct()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "className": "cdm.base.staticdata.party.Account",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "Account",
+  "methods": [
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "getAccountNumber",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString getAccountNumber()"
+    },
+    {
+      "name": "getAccountName",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString getAccountName()"
+    },
+    {
+      "name": "getAccountType",
+      "returnType": "cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum getAccountType()"
+    },
+    {
+      "name": "getAccountBeneficiary",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getAccountBeneficiary()"
+    },
+    {
+      "name": "getServicingParty",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getServicingParty()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.party.Account",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Account build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.Account$AccountBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.Account>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.Account> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.party.Account>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.party.Account> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.party.Account$AccountBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreatePartyReference()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getPartyReference()"
+    },
+    {
+      "name": "getOrCreateAccountNumber",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getOrCreateAccountNumber()"
+    },
+    {
+      "name": "getAccountNumber",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getAccountNumber()"
+    },
+    {
+      "name": "getOrCreateAccountName",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getOrCreateAccountName()"
+    },
+    {
+      "name": "getAccountName",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getAccountName()"
+    },
+    {
+      "name": "getOrCreateAccountType",
+      "returnType": "cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum$FieldWithMetaAccountTypeEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum$FieldWithMetaAccountTypeEnumBuilder getOrCreateAccountType()"
+    },
+    {
+      "name": "getAccountType",
+      "returnType": "cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum$FieldWithMetaAccountTypeEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum$FieldWithMetaAccountTypeEnumBuilder getAccountType()"
+    },
+    {
+      "name": "getOrCreateAccountBeneficiary",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreateAccountBeneficiary()"
+    },
+    {
+      "name": "getAccountBeneficiary",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getAccountBeneficiary()"
+    },
+    {
+      "name": "getOrCreateServicingParty",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreateServicingParty()"
+    },
+    {
+      "name": "getServicingParty",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getServicingParty()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setPartyReference",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setPartyReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setAccountNumber",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountNumber(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setAccountNumberValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountNumberValue(java.lang.String)"
+    },
+    {
+      "name": "setAccountName",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountName(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setAccountNameValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountNameValue(java.lang.String)"
+    },
+    {
+      "name": "setAccountType",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountType(cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum)"
+    },
+    {
+      "name": "setAccountTypeValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AccountTypeEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountTypeValue(cdm.base.staticdata.party.AccountTypeEnum)"
+    },
+    {
+      "name": "setAccountBeneficiary",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountBeneficiary(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setAccountBeneficiaryValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setAccountBeneficiaryValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setServicingParty",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setServicingParty(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setServicingPartyValue",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setServicingPartyValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.party.Account$AccountBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Account$AccountBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getServicingParty",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getServicingParty()"
+    },
+    {
+      "name": "getAccountBeneficiary",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getAccountBeneficiary()"
+    },
+    {
+      "name": "getAccountType",
+      "returnType": "cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.FieldWithMetaAccountTypeEnum getAccountType()"
+    },
+    {
+      "name": "getAccountName",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaString getAccountName()"
+    },
+    {
+      "name": "getAccountNumber",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaString getAccountNumber()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

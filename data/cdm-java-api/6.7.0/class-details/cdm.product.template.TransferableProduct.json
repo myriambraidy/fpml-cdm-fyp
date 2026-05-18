@@ -1,0 +1,78 @@
+{
+  "className": "cdm.product.template.TransferableProduct",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "TransferableProduct",
+  "methods": [
+    {
+      "name": "getEconomicTerms",
+      "returnType": "cdm.product.template.EconomicTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms getEconomicTerms()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.TransferableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TransferableProduct build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.TransferableProduct$TransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TransferableProduct$TransferableProductBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.TransferableProduct$TransferableProductBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.TransferableProduct$TransferableProductBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TransferableProduct>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TransferableProduct> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.TransferableProduct>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.TransferableProduct> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Asset$AssetBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Asset build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderMethods": []
+}

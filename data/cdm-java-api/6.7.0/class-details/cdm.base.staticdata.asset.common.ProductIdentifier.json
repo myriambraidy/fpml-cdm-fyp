@@ -1,0 +1,193 @@
+{
+  "className": "cdm.base.staticdata.asset.common.ProductIdentifier",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.asset.common",
+  "simpleName": "ProductIdentifier",
+  "methods": [
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString getIdentifier()"
+    },
+    {
+      "name": "getSource",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdTypeEnum getSource()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.ProductIdentifier>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.ProductIdentifier> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.asset.common.ProductIdentifier>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.asset.common.ProductIdentifier> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getOrCreateIdentifier()"
+    },
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getIdentifier()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder setIdentifier(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setIdentifierValue",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder setIdentifierValue(java.lang.String)"
+    },
+    {
+      "name": "setSource",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.ProductIdTypeEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder setSource(cdm.base.staticdata.asset.common.ProductIdTypeEnum)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaString getIdentifier()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

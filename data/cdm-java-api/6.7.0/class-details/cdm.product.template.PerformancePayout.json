@@ -1,0 +1,689 @@
+{
+  "className": "cdm.product.template.PerformancePayout",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "PerformancePayout",
+  "methods": [
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms getObservationTerms()"
+    },
+    {
+      "name": "getValuationDates",
+      "returnType": "cdm.observable.asset.ValuationDates",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationDates getValuationDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getFxFeature",
+      "returnType": "java.util.List<? extends cdm.product.template.FxFeature>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.FxFeature> getFxFeature()"
+    },
+    {
+      "name": "getReturnTerms",
+      "returnType": "cdm.product.template.ReturnTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ReturnTerms getReturnTerms()"
+    },
+    {
+      "name": "getPortfolioReturnTerms",
+      "returnType": "java.util.List<? extends cdm.product.template.PortfolioReturnTerms>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.PortfolioReturnTerms> getPortfolioReturnTerms()"
+    },
+    {
+      "name": "getInitialValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule> getInitialValuationPrice()"
+    },
+    {
+      "name": "getInterimValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule> getInterimValuationPrice()"
+    },
+    {
+      "name": "getFinalValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule> getFinalValuationPrice()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.PerformancePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.PerformancePayout$PerformancePayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.PerformancePayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.PerformancePayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.PerformancePayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.PerformancePayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder getOrCreateObservationTerms()"
+    },
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ObservationTerms$ObservationTermsBuilder getObservationTerms()"
+    },
+    {
+      "name": "getOrCreateValuationDates",
+      "returnType": "cdm.observable.asset.ValuationDates$ValuationDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationDates$ValuationDatesBuilder getOrCreateValuationDates()"
+    },
+    {
+      "name": "getValuationDates",
+      "returnType": "cdm.observable.asset.ValuationDates$ValuationDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.ValuationDates$ValuationDatesBuilder getValuationDates()"
+    },
+    {
+      "name": "getOrCreatePaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getOrCreatePaymentDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getPaymentDates()"
+    },
+    {
+      "name": "getOrCreateUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getOrCreateUnderlier()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getUnderlier()"
+    },
+    {
+      "name": "getOrCreateFxFeature",
+      "returnType": "cdm.product.template.FxFeature$FxFeatureBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.FxFeature$FxFeatureBuilder getOrCreateFxFeature(int)"
+    },
+    {
+      "name": "getFxFeature",
+      "returnType": "java.util.List<? extends cdm.product.template.FxFeature$FxFeatureBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.FxFeature$FxFeatureBuilder> getFxFeature()"
+    },
+    {
+      "name": "getOrCreateReturnTerms",
+      "returnType": "cdm.product.template.ReturnTerms$ReturnTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ReturnTerms$ReturnTermsBuilder getOrCreateReturnTerms()"
+    },
+    {
+      "name": "getReturnTerms",
+      "returnType": "cdm.product.template.ReturnTerms$ReturnTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.ReturnTerms$ReturnTermsBuilder getReturnTerms()"
+    },
+    {
+      "name": "getOrCreatePortfolioReturnTerms",
+      "returnType": "cdm.product.template.PortfolioReturnTerms$PortfolioReturnTermsBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PortfolioReturnTerms$PortfolioReturnTermsBuilder getOrCreatePortfolioReturnTerms(int)"
+    },
+    {
+      "name": "getPortfolioReturnTerms",
+      "returnType": "java.util.List<? extends cdm.product.template.PortfolioReturnTerms$PortfolioReturnTermsBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.PortfolioReturnTerms$PortfolioReturnTermsBuilder> getPortfolioReturnTerms()"
+    },
+    {
+      "name": "getOrCreateInitialValuationPrice",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder getOrCreateInitialValuationPrice(int)"
+    },
+    {
+      "name": "getInitialValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder> getInitialValuationPrice()"
+    },
+    {
+      "name": "getOrCreateInterimValuationPrice",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder getOrCreateInterimValuationPrice(int)"
+    },
+    {
+      "name": "getInterimValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder> getInterimValuationPrice()"
+    },
+    {
+      "name": "getOrCreateFinalValuationPrice",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder getOrCreateFinalValuationPrice(int)"
+    },
+    {
+      "name": "getFinalValuationPrice",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder> getFinalValuationPrice()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setObservationTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.ObservationTerms"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setObservationTerms(cdm.product.common.schedule.ObservationTerms)"
+    },
+    {
+      "name": "setValuationDates",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.ValuationDates"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setValuationDates(cdm.observable.asset.ValuationDates)"
+    },
+    {
+      "name": "setPaymentDates",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.PaymentDates"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setPaymentDates(cdm.product.common.schedule.PaymentDates)"
+    },
+    {
+      "name": "setUnderlier",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.Underlier"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setUnderlier(cdm.product.template.Underlier)"
+    },
+    {
+      "name": "addFxFeature",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.FxFeature"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFxFeature(cdm.product.template.FxFeature)"
+    },
+    {
+      "name": "addFxFeature",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.FxFeature",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFxFeature(cdm.product.template.FxFeature, int)"
+    },
+    {
+      "name": "addFxFeature",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.FxFeature>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFxFeature(java.util.List<? extends cdm.product.template.FxFeature>)"
+    },
+    {
+      "name": "setFxFeature",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.FxFeature>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setFxFeature(java.util.List<? extends cdm.product.template.FxFeature>)"
+    },
+    {
+      "name": "setReturnTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.ReturnTerms"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setReturnTerms(cdm.product.template.ReturnTerms)"
+    },
+    {
+      "name": "addPortfolioReturnTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.PortfolioReturnTerms"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addPortfolioReturnTerms(cdm.product.template.PortfolioReturnTerms)"
+    },
+    {
+      "name": "addPortfolioReturnTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.PortfolioReturnTerms",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addPortfolioReturnTerms(cdm.product.template.PortfolioReturnTerms, int)"
+    },
+    {
+      "name": "addPortfolioReturnTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.PortfolioReturnTerms>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addPortfolioReturnTerms(java.util.List<? extends cdm.product.template.PortfolioReturnTerms>)"
+    },
+    {
+      "name": "setPortfolioReturnTerms",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.PortfolioReturnTerms>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setPortfolioReturnTerms(java.util.List<? extends cdm.product.template.PortfolioReturnTerms>)"
+    },
+    {
+      "name": "addInitialValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule)"
+    },
+    {
+      "name": "addInitialValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule, int)"
+    },
+    {
+      "name": "addInitialValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPriceValue(cdm.observable.asset.PriceSchedule)"
+    },
+    {
+      "name": "addInitialValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPriceValue(cdm.observable.asset.PriceSchedule, int)"
+    },
+    {
+      "name": "addInitialValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "setInitialValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setInitialValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "addInitialValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInitialValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setInitialValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setInitialValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "addInterimValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule)"
+    },
+    {
+      "name": "addInterimValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule, int)"
+    },
+    {
+      "name": "addInterimValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPriceValue(cdm.observable.asset.PriceSchedule)"
+    },
+    {
+      "name": "addInterimValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPriceValue(cdm.observable.asset.PriceSchedule, int)"
+    },
+    {
+      "name": "addInterimValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "setInterimValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setInterimValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "addInterimValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addInterimValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setInterimValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setInterimValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "addFinalValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule)"
+    },
+    {
+      "name": "addFinalValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPrice(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule, int)"
+    },
+    {
+      "name": "addFinalValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPriceValue(cdm.observable.asset.PriceSchedule)"
+    },
+    {
+      "name": "addFinalValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPriceValue(cdm.observable.asset.PriceSchedule, int)"
+    },
+    {
+      "name": "addFinalValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "setFinalValuationPrice",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setFinalValuationPrice(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "addFinalValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder addFinalValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setFinalValuationPriceValue",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder setFinalValuationPriceValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder prune()"
+    },
+    {
+      "name": "getReturnTerms",
+      "returnType": "cdm.product.template.ReturnTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.template.ReturnTerms getReturnTerms()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public default cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getValuationDates",
+      "returnType": "cdm.observable.asset.ValuationDates",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.ValuationDates getValuationDates()"
+    },
+    {
+      "name": "getObservationTerms",
+      "returnType": "cdm.product.common.schedule.ObservationTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.ObservationTerms getObservationTerms()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "className": "cdm.base.staticdata.party.AncillaryParty",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "AncillaryParty",
+  "methods": [
+    {
+      "name": "getRole",
+      "returnType": "cdm.base.staticdata.party.AncillaryRoleEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryRoleEnum getRole()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty> getPartyReference()"
+    },
+    {
+      "name": "getOnBehalfOf",
+      "returnType": "cdm.base.staticdata.party.CounterpartyRoleEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.CounterpartyRoleEnum getOnBehalfOf()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.AncillaryParty>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.AncillaryParty> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.party.AncillaryParty>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.party.AncillaryParty> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreatePartyReference(int)"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder> getPartyReference()"
+    },
+    {
+      "name": "setRole",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryRoleEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder setRole(cdm.base.staticdata.party.AncillaryRoleEnum)"
+    },
+    {
+      "name": "addPartyReference",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "addPartyReference",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty, int)"
+    },
+    {
+      "name": "addPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "addPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReferenceValue(cdm.base.staticdata.party.Party, int)"
+    },
+    {
+      "name": "addPartyReference",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReference(java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>)"
+    },
+    {
+      "name": "setPartyReference",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder setPartyReference(java.util.List<? extends cdm.base.staticdata.party.metafields.ReferenceWithMetaParty>)"
+    },
+    {
+      "name": "addPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Party>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder addPartyReferenceValue(java.util.List<? extends cdm.base.staticdata.party.Party>)"
+    },
+    {
+      "name": "setPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Party>"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder setPartyReferenceValue(java.util.List<? extends cdm.base.staticdata.party.Party>)"
+    },
+    {
+      "name": "setOnBehalfOf",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.CounterpartyRoleEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder setOnBehalfOf(cdm.base.staticdata.party.CounterpartyRoleEnum)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder prune()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

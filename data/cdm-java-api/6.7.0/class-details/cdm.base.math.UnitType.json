@@ -1,0 +1,165 @@
+{
+  "className": "cdm.base.math.UnitType",
+  "exists": true,
+  "packageName": "cdm.base.math",
+  "simpleName": "UnitType",
+  "methods": [
+    {
+      "name": "getCapacityUnit",
+      "returnType": "cdm.base.math.CapacityUnitEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.CapacityUnitEnum getCapacityUnit()"
+    },
+    {
+      "name": "getWeatherUnit",
+      "returnType": "cdm.base.math.WeatherUnitEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.WeatherUnitEnum getWeatherUnit()"
+    },
+    {
+      "name": "getFinancialUnit",
+      "returnType": "cdm.base.math.FinancialUnitEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.FinancialUnitEnum getFinancialUnit()"
+    },
+    {
+      "name": "getCurrency",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString getCurrency()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.UnitType",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.math.UnitType$UnitTypeBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.math.UnitType>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.math.UnitType> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.math.UnitType>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.math.UnitType> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.math.UnitType$UnitTypeBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateCurrency",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getOrCreateCurrency()"
+    },
+    {
+      "name": "getCurrency",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getCurrency()"
+    },
+    {
+      "name": "setCapacityUnit",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [
+        "cdm.base.math.CapacityUnitEnum"
+      ],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder setCapacityUnit(cdm.base.math.CapacityUnitEnum)"
+    },
+    {
+      "name": "setWeatherUnit",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [
+        "cdm.base.math.WeatherUnitEnum"
+      ],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder setWeatherUnit(cdm.base.math.WeatherUnitEnum)"
+    },
+    {
+      "name": "setFinancialUnit",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [
+        "cdm.base.math.FinancialUnitEnum"
+      ],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder setFinancialUnit(cdm.base.math.FinancialUnitEnum)"
+    },
+    {
+      "name": "setCurrency",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder setCurrency(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setCurrencyValue",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder setCurrencyValue(java.lang.String)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder prune()"
+    },
+    {
+      "name": "getCurrency",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaString getCurrency()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

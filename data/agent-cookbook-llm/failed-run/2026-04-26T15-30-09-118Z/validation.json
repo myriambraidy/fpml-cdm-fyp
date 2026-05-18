@@ -1,0 +1,8 @@
+[
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "index"
+  }
+]

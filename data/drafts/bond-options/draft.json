@@ -1,0 +1,1167 @@
+{
+  "generatedAt": "2026-04-23T18:36:20.304Z",
+  "config": {
+    "workspaceRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp",
+    "fpmlRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel",
+    "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+    "folder": "bond-options",
+    "pairConcurrency": 8,
+    "pairMaxRetries": 1,
+    "synthesisMaxRetries": 1,
+    "model": "openai/gpt-5-mini",
+    "synthesisModel": "openai/gpt-5-mini",
+    "pairMaxTokens": 128000,
+    "synthesisMaxTokens": 128000,
+    "storeFailedRawResponses": true
+  },
+  "selection": {
+    "manifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\manifest.json",
+    "folder": "bond-options",
+    "includedPairs": [
+      {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/bond-option.xml",
+        "cdmRelativePath": "bond-options/bond-option.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\bond-option.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\bond-option.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/cb-option-2.xml",
+        "cdmRelativePath": "bond-options/cb-option-2.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\cb-option-2.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\cb-option-2.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/cb-option.xml",
+        "cdmRelativePath": "bond-options/cb-option.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\cb-option.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\cb-option.json",
+        "pairingStrategy": "exact"
+      }
+    ],
+    "missingExamples": [],
+    "ignoredExamples": [],
+    "coverage": {
+      "totalFpmlFilesInFolder": 3,
+      "matchedPairsAvailable": 3,
+      "matchedPairsUsed": 3,
+      "missingCounterparts": 0,
+      "ignoredPairs": 0,
+      "exactMatches": 3,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  "pairAnalyses": [
+    {
+      "pair": {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/bond-option.xml",
+        "cdmRelativePath": "bond-options/bond-option.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\bond-option.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\bond-option.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "bond-options",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 7 paths.",
+          "Repeated nested structures include trade > bondOption (40 paths); trade > tradeHeader (3 paths); party > partyId (2 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > bondOption (40 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)",
+          "trade > calculationAgent (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/bondOption/buyerPartyReference",
+          "/FpML/trade/bondOption/sellerPartyReference",
+          "/FpML/trade/bondOption/optionType"
+        ],
+        "rawFieldCount": 51
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "transferHistory",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, transferHistory, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (47 paths); trade > tradeLot (26 paths); transferHistory > transfer (16 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (47 paths)",
+          "trade > tradeLot (26 paths)",
+          "transferHistory > transfer (16 paths)",
+          "trade > party (13 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)",
+          "trade > tradeDate (3 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 132
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/optionType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.optionType"
+          ],
+          "classification": "direct",
+          "mappingNote": "option type preserved",
+          "confidence": "high",
+          "whyNote": "FpML 'Call' equals CDM 'Call'"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/premium/paymentAmount/amount",
+            "/FpML/trade/bondOption/premium/paymentAmount/currency",
+            "/FpML/trade/bondOption/premium/payerPartyReference",
+            "/FpML/trade/bondOption/premium/receiverPartyReference"
+          ],
+          "targetPaths": [
+            "$.transferHistory[0].transfer.quantity.value",
+            "$.transferHistory[0].transfer.asset.Cash.identifier[0].identifier.value",
+            "$.transferHistory[0].transfer.payerReceiver.payerPartyReference",
+            "$.transferHistory[0].transfer.payerReceiver.receiverPartyReference"
+          ],
+          "classification": "direct",
+          "mappingNote": "premium mapped to transferHistory",
+          "confidence": "high",
+          "whyNote": "amount,currency,payer,receiver present in both"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/notionalAmount/amount",
+            "/FpML/trade/bondOption/notionalAmount/currency"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value",
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.unit.currency.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "notional mapped to tradeLot quantity",
+          "confidence": "high",
+          "whyNote": "numeric value and currency match"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/bondOption/settlementDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.unadjustedDate"
+          ],
+          "transformationNote": "strip timezone/time to date-only",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.strike.strikePrice.priceType"
+          ],
+          "enrichmentNote": "priceType 'AssetPrice' added",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+        "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "bond-options/bond-option.xml",
+        "cdmFile": "bond-options/bond-option.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "option type preserved",
+          "premium mapped to transferHistory",
+          "notional mapped to tradeLot quantity"
+        ],
+        "importantTransformation": "strip timezone/time to date-only",
+        "uncertainty": [
+          "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+          "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 20351,
+      "rawResponseChars": 2098,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"bond-options\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/bondOption/optionType\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].OptionPayout.optionType\"],\"classification\":\"direct\",\"mappingNote\":\"option type preserved\",\"confidence\":\"high\",\"whyNote\":\"FpML 'Call' equals CDM 'Call'\"},{\"sourcePaths\":[\"/FpML/trade/bondOption/premium/paymentAmount/amount\",\"/FpML/trade/bondOption/premium/paymentAmount/currency\",\"/FpML/trade/bondOption/premium/payerPartyReference\",\"/FpML/trade/bondOption/premium/receiverPartyReference\"],\"targetPaths\":[\"$.transferHistory[0].transfer.quantity.value\",\"$.transferHistory[0].transfer.asset.Cash.identifier[0].identifier.value\",\"$.transferHistory[0].transfer.payerReceiver.payerPartyReference\",\"$.transferHistory[0].transfer.payerReceiver.receiverPartyReference\"],\"classification\":\"direct\",\"mappingNote\":\"premium mapped to transferHistory\",\"confidence\":\"high\",\"whyNote\":\"amount,currency,payer,receiver present in both\"},{\"sourcePaths\":[\"/FpML/trade/bondOption/notionalAmount/amount\",\"/FpML/trade/bondOption/notionalAmount/currency\"],\"targetPaths\":[\"$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value\",\"$.trade.tradeLot[0]....[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/cb-option-2.xml",
+        "cdmRelativePath": "bond-options/cb-option-2.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\cb-option-2.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\cb-option-2.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "bond-options",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 7 paths.",
+          "Repeated nested structures include trade > bondOption (50 paths); trade > tradeHeader (3 paths); party > partyId (2 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > bondOption (50 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)",
+          "trade > calculationAgent (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/bondOption/buyerPartyReference",
+          "/FpML/trade/bondOption/sellerPartyReference",
+          "/FpML/trade/bondOption/optionType"
+        ],
+        "rawFieldCount": 61
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (69 paths); trade > tradeLot (21 paths); trade > party (13 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (69 paths)",
+          "trade > tradeLot (21 paths)",
+          "trade > party (13 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)",
+          "trade > tradeDate (2 paths)",
+          "meta > globalKey (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 130
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/buyerPartyReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.counterparty[0].partyReference.externalReference",
+            "$.trade.product.economicTerms.payout[0].OptionPayout.buyerSeller.buyer"
+          ],
+          "classification": "direct",
+          "mappingNote": "buyer reference maps to counterparty and OptionPayout buyer",
+          "confidence": "high",
+          "whyNote": "FpML href PartyB; CDM externalReference PartyB and buyer Party1"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/sellerPartyReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.counterparty[1].partyReference.externalReference",
+            "$.trade.product.economicTerms.payout[0].OptionPayout.buyerSeller.seller"
+          ],
+          "classification": "direct",
+          "mappingNote": "seller reference maps to counterparty and OptionPayout seller",
+          "confidence": "high",
+          "whyNote": "FpML href PartyA; CDM externalReference PartyA and seller Party2"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/optionType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.optionType"
+          ],
+          "classification": "direct",
+          "mappingNote": "optionType copied",
+          "confidence": "high",
+          "whyNote": "FpML 'Call' and CDM optionType 'Call'"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/bondOption/settlementType"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementType"
+          ],
+          "classification": "direct",
+          "mappingNote": "settlementType copied",
+          "confidence": "high",
+          "whyNote": "FpML 'Physical' and CDM settlementType 'Physical'"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "trim timezone to YYYY-MM-DD",
+          "confidence": "high"
+        },
+        {
+          "type": "merge",
+          "sourcePaths": [
+            "/FpML/trade/bondOption/optionEntitlement",
+            "/FpML/trade/bondOption/numberOfOptions",
+            "/FpML/trade/bondOption/entitlementCurrency"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.multiplier.value",
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value",
+            "$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.multiplier.unit.currency.value"
+          ],
+          "transformationNote": "map entitlement and count into quantity and multiplier",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.taxonomy[0].productQualifier"
+          ],
+          "enrichmentNote": "taxonomy added (ISDA product qualifier)",
+          "confidence": "low"
+        }
+      ],
+      "openQuestions": [
+        "Why is payerReceiver inverted versus buyerSeller in CDM?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "bond-options/cb-option-2.xml",
+        "cdmFile": "bond-options/cb-option-2.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "buyer reference maps to counterparty and OptionPayout buyer",
+          "seller reference maps to counterparty and OptionPayout seller",
+          "optionType copied",
+          "settlementType copied"
+        ],
+        "importantTransformation": "trim timezone to YYYY-MM-DD",
+        "uncertainty": [
+          "Why is payerReceiver inverted versus buyerSeller in CDM?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 20883,
+      "rawResponseChars": 2560,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"bond-options\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/bondOption/buyerPartyReference/@href\"],\"targetPaths\":[\"$.trade.counterparty[0].partyReference.externalReference\",\"$.trade.product.economicTerms.payout[0].OptionPayout.buyerSeller.buyer\"],\"classification\":\"direct\",\"mappingNote\":\"buyer reference maps to counterparty and OptionPayout buyer\",\"confidence\":\"high\",\"whyNote\":\"FpML href PartyB; CDM externalReference PartyB and buyer Party1\"},{\"sourcePaths\":[\"/FpML/trade/bondOption/sellerPartyReference/@href\"],\"targetPaths\":[\"$.trade.counterparty[1].partyReference.externalReference\",\"$.trade.product.economicTerms.payout[0].OptionPayout.buyerSeller.seller\"],\"classification\":\"direct\",\"mappingNote\":\"seller reference maps to counterparty and OptionPayout seller\",\"confidence\":\"high\",\"whyNote\":\"FpML href PartyA; CDM externalReference PartyA and seller Party2\"},{\"sourcePaths\":[\"/FpML/trade/bondOption/optionType\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].OptionPayout.optionType\"],\"classification\":\"direct\",\"mappingNote\":\"optionType copied\",\"confidence\":\"high\",\"whyNote\":\"FpML 'Call' and CDM optionType 'Call'\"},{\"sourcePaths\":[\"/FpML/trade/bondOpti...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "bond-options",
+        "fpmlRelativePath": "bond-options/cb-option.xml",
+        "cdmRelativePath": "bond-options/cb-option.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\bond-options\\cb-option.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\bond-options\\cb-option.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "bond-options",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 7 paths.",
+          "Repeated nested structures include trade > bondOption (55 paths); trade > tradeHeader (3 paths); party > partyId (2 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "nestedStructureSignals": [
+          "trade > bondOption (55 paths)",
+          "trade > tradeHeader (3 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)",
+          "trade > calculationAgent (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate",
+          "/FpML/trade/bondOption/buyerPartyReference",
+          "/FpML/trade/bondOption/sellerPartyReference",
+          "/FpML/trade/bondOption/optionType"
+        ],
+        "rawFieldCount": 66
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (73 paths); trade > tradeLot (21 paths); trade > party (13 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.relativeDate.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (73 paths)",
+          "trade > tradeLot (21 paths)",
+          "trade > party (13 paths)",
+          "trade > tradeIdentifier (11 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)",
+          "trade > tradeDate (3 paths)",
+          "meta > globalKey (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementType"
+        ],
+        "rawFieldCount": 135
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/optionType"
+          ],
+          "targetPaths": [
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.optionType"
+          ],
+          "classification": "direct",
+          "mappingNote": "optionType value mapped",
+          "confidence": "high",
+          "whyNote": "literal 'Call' present in both"
+        },
+        {
+          "sourcePaths": [
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/buyerPartyReference@href",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/sellerPartyReference@href"
+          ],
+          "targetPaths": [
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.payer",
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.receiver"
+          ],
+          "classification": "direct",
+          "mappingNote": "buyer->payer, seller->receiver",
+          "confidence": "high",
+          "whyNote": "hrefs Party2 and Party1 match payer/receiver"
+        },
+        {
+          "sourcePaths": [
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/unadjustedDate",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/dateAdjustments/businessCenters/businessCenter",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/dateAdjustments/businessDayConvention"
+          ],
+          "targetPaths": [
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.unadjustedDate",
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.businessCenters.businessCenter",
+            "bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.commencementDate.adjustableDate.dateAdjustments.businessDayConvention"
+          ],
+          "classification": "normalized",
+          "mappingNote": "date normalized and centers mapped",
+          "confidence": "high",
+          "whyNote": "dates truncated to yyyy-mm-dd; centers and convention preserved"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "split",
+          "sourcePaths": [
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/numberOfOptions",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/optionEntitlement",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/entitlementCurrency",
+            "bond-options/cb-option.xml#/FpML/trade/bondOption/convertibleBond/parValue"
+          ],
+          "targetPaths": [
+            "bond-options/cb-option.json#$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value",
+            "bond-options/cb-option.json#$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.multiplier.value",
+            "bond-options/cb-option.json#$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.multiplier.unit.currency.value"
+          ],
+          "transformationNote": "numberOfOptions->quantity, parValue->multiplier, currency->currency",
+          "confidence": "medium"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "bond-options/cb-option.json#$.trade.product.taxonomy[0].source"
+          ],
+          "enrichmentNote": "taxonomy source added",
+          "confidence": "low"
+        }
+      ],
+      "openQuestions": [
+        "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+        "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "bond-options/cb-option.xml",
+        "cdmFile": "bond-options/cb-option.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "optionType value mapped",
+          "buyer->payer, seller->receiver",
+          "date normalized and centers mapped"
+        ],
+        "importantTransformation": "numberOfOptions->quantity, parValue->multiplier, currency->currency",
+        "uncertainty": [
+          "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+          "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 21462,
+      "rawResponseChars": 3143,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"bond-options\",\"mappingObservations\":[{\"sourcePaths\":[\"bond-options/cb-option.xml#/FpML/trade/bondOption/optionType\"],\"targetPaths\":[\"bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.optionType\"],\"classification\":\"direct\",\"mappingNote\":\"optionType value mapped\",\"confidence\":\"high\",\"whyNote\":\"literal 'Call' present in both\"},{\"sourcePaths\":[\"bond-options/cb-option.xml#/FpML/trade/bondOption/buyerPartyReference@href\",\"bond-options/cb-option.xml#/FpML/trade/bondOption/sellerPartyReference@href\"],\"targetPaths\":[\"bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.payer\",\"bond-options/cb-option.json#$.trade.product.economicTerms.payout[0].OptionPayout.payerReceiver.receiver\"],\"classification\":\"direct\",\"mappingNote\":\"buyer->payer, seller->receiver\",\"confidence\":\"high\",\"whyNote\":\"hrefs Party2 and Party1 match payer/receiver\"},{\"sourcePaths\":[\"bond-options/cb-option.xml#/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/unadjustedDate\",\"bond-options/cb-option.xml#/FpML/trade/bondOption/americanExercise/commencementDate/adjustableDate/dateAdjustments/businessCenters/busine...[truncated preview]"
+    }
+  ],
+  "synthesis": {
+    "folder": "bond-options",
+    "evidenceCoverage": {
+      "matchedPairCount": 3,
+      "structuralPairCount": 3,
+      "semanticPairCount": 3,
+      "fullSemanticPairCount": 3,
+      "salvagedSemanticPairCount": 0,
+      "failedSemanticPairCount": 0,
+      "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+      "semanticBasisNote": "Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged)."
+    },
+    "repeatedFpmlStructure": {
+      "headerAndBoilerplate": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+        "/FpML/trade/tradeHeader/tradeDate"
+      ],
+      "topLevelSections": [
+        {
+          "section": "header",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "party",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "nestedStructures": [
+        "trade > bondOption (40 paths)",
+        "trade > tradeHeader (3 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > calculationAgent (1 paths)"
+      ],
+      "optionalSections": []
+    },
+    "repeatedCdmStructure": {
+      "topLevelSections": [
+        {
+          "section": "meta",
+          "count": 3,
+          "total": 3
+        },
+        {
+          "section": "trade",
+          "count": 3,
+          "total": 3
+        }
+      ],
+      "wrappersAndScaffolding": [
+        "trade > product (47 paths)",
+        "trade > tradeLot (26 paths)",
+        "transferHistory > transfer (16 paths)",
+        "trade > party (13 paths)",
+        "trade > tradeIdentifier (11 paths)",
+        "trade > counterparty (7 paths)",
+        "trade > ancillaryParty (5 paths)",
+        "trade > tradeDate (3 paths)"
+      ],
+      "optionalSections": [
+        {
+          "section": "transferHistory",
+          "count": 1,
+          "total": 3
+        }
+      ]
+    },
+    "stableMappingPatterns": [
+      {
+        "id": "TENT-001",
+        "name": "optionType copied from trade.bondoption.optiontype to payout.optionpayout.optiontype",
+        "strength": "strong recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "trade.bondoption.optionType",
+        "targetPattern": "payout.optionPayout.optionType",
+        "explanation": "Option type values in the FPML bond/convertible bond option trades are preserved and placed into the CDM OptionPayout.optionType field.",
+        "whyItWorksThisWay": "Option type represents an option semantic that is preserved across the source and CDM target and therefore is mapped directly without transformation.",
+        "exampleFiles": [
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option-2.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "caveats": []
+      }
+    ],
+    "repeatedNonLiteralTransformations": [
+      {
+        "id": "TNT-001",
+        "name": "date/time trimmed to date-only",
+        "type": "normalization",
+        "description": "Date/time values in FPML are trimmed/normalized to date-only (YYYY-MM-DD) in the CDM.",
+        "sourceSide": "FPML dateTime (often with timezone or time component)",
+        "targetSide": "CDM date (YYYY-MM-DD)",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "bond-options/cb-option-2.xml",
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "notes": [
+          "Representative notes mention 'trim timezone to YYYY-MM-DD' and 'strip timezone/time to date-only' across examples.",
+          "Applied to trade dates and centers where present."
+        ]
+      },
+      {
+        "id": "TNT-002",
+        "name": "party role mapping: buyer/seller -> payer/receiver",
+        "type": "reference resolution",
+        "description": "FPML buyer and seller references are mapped to CDM counterparties and used as OptionPayout buyer/payer and seller/receiver roles (buyer->payer, seller->receiver).",
+        "sourceSide": "FPML buyer/seller references and trade party references",
+        "targetSide": "CDM counterparty entries and OptionPayout buyer/payer and seller/receiver",
+        "evidenceCount": 2,
+        "exampleFiles": [
+          "bond-options/cb-option-2.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "notes": [
+          "Examples show buyer reference mapping to counterparty and OptionPayout buyer/payer; seller to counterparty and OptionPayout seller/receiver.",
+          "There is repeated uncertainty about payer/receiver inversion which suggests mapping exists but its direction/semantics should be verified."
+        ]
+      },
+      {
+        "id": "TNT-003",
+        "name": "numberOfOptions -> tradeLot.quantity and parValue -> multiplier",
+        "type": "normalization",
+        "description": "FPML numberOfOptions becomes a CDM quantity; FPML parValue becomes a multiplier on the CDM trade lot.",
+        "sourceSide": "FPML numberOfOptions, parValue",
+        "targetSide": "CDM tradeLot.quantity, tradeLot.multiplier",
+        "evidenceCount": 1,
+        "exampleFiles": [
+          "bond-options/cb-option.xml"
+        ],
+        "notes": [
+          "Represented in cb-option mapping: 'numberOfOptions->quantity, parValue->multiplier, currency->currency'."
+        ]
+      },
+      {
+        "id": "TNT-004",
+        "name": "premium mapped to transferHistory entry",
+        "type": "wrapper insertion",
+        "description": "FPML premium information is represented as a transfer/transferHistory entry in the CDM.",
+        "sourceSide": "FPML premium element",
+        "targetSide": "CDM transferHistory / transfer entries",
+        "evidenceCount": 1,
+        "exampleFiles": [
+          "bond-options/bond-option.xml"
+        ],
+        "notes": [
+          "bond-option shows premium mapped to transferHistory; appears as a transfer wrapper in target."
+        ]
+      },
+      {
+        "id": "TNT-005",
+        "name": "notional/par value mapping to tradeLot quantity",
+        "type": "normalization",
+        "description": "FPML notional/par value is used to produce tradeLot.quantity in CDM (notional-sized quantity representation).",
+        "sourceSide": "FPML notional / nominal / par value fields",
+        "targetSide": "CDM tradeLot.quantity (and possibly multiplier per above)",
+        "evidenceCount": 1,
+        "exampleFiles": [
+          "bond-options/bond-option.xml"
+        ],
+        "notes": [
+          "bond-option highlights notional mapped to tradeLot quantity."
+        ]
+      },
+      {
+        "id": "TNT-006",
+        "name": "currency preserved",
+        "type": "normalization",
+        "description": "Currency values are preserved from FPML into CDM currency fields for quantity/amounts.",
+        "sourceSide": "FPML currency attributes",
+        "targetSide": "CDM currency fields",
+        "evidenceCount": 1,
+        "exampleFiles": [
+          "bond-options/cb-option.xml"
+        ],
+        "notes": [
+          "Explicit mention in cb-option: 'currency->currency'."
+        ]
+      }
+    ],
+    "tentativeRepeatedPatterns": [
+      {
+        "id": "TENT-001",
+        "kind": "mapping",
+        "strength": "strong recurring pattern",
+        "description": "Option-specific terms repeatedly map from trade.bondoption.optiontype into payout.optionpayout.optiontype.",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option-2.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: option type preserved",
+          "Representative note: optionType copied",
+          "Representative note: optionType value mapped"
+        ]
+      }
+    ],
+    "folderLevelPrinciples": [
+      "Option semantic elements (optionType) are copied from FPML option sections into CDM OptionPayout.optionType.",
+      "FPML party references for buyer/seller are material to CDM counterparties and are reused as payer/receiver roles within OptionPayouts (verify direction semantics).",
+      "Monetary and quantity-like fields (numberOfOptions, parValue, notional) are normalized into CDM tradeLot quantity/multiplier and preserved currency."
+    ],
+    "variantsAndExceptions": [
+      {
+        "id": "VAR-001",
+        "name": "OptionPayout.payerReceiver inversion",
+        "description": "Several examples show payer/receiver values that appear inverted relative to FPML buyer/seller; mapping direction may differ or be intentionally inverted in CDM.",
+        "seenIn": [
+          "bond-options/cb-option-2.xml",
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "impactOnGeneralization": "Mapping of buyer/seller to payer/receiver should be treated as a variant; automated rules should include a verification step. This reduces confidence in blindly swapping roles without checking contextual semantics."
+      },
+      {
+        "id": "VAR-002",
+        "name": "calculationAgent mapping to CalculationAgentIndependent ancillaryParty",
+        "description": "Some examples show FPML calculationAgentPartyReference becoming a CDM ancillary party typed 'CalculationAgentIndependent' rather than a straightforward party reference.",
+        "seenIn": [
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option.xml",
+          "bond-options/cb-option-2.xml"
+        ],
+        "impactOnGeneralization": "This appears to be an enrichment/normalization choice; treat as an exception that requires explicit handling or confirmation rather than an automatic party reference mapping."
+      }
+    ],
+    "suspectedEnrichmentOrDefaultBehavior": [
+      {
+        "id": "ENR-001",
+        "name": "calculationAgentPartyReference -> CalculationAgentIndependent ancillaryParty",
+        "description": "FPML calculationAgent references are turned into an ancillaryParty entry with role 'CalculationAgentIndependent' in the CDM (appears to be an enrichment or normalization).",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option.xml",
+          "bond-options/cb-option-2.xml"
+        ],
+        "caution": [
+          "Representation changes party reference semantics; require confirmation whether this is always desired or only for specific agent types."
+        ]
+      },
+      {
+        "id": "ENR-002",
+        "name": "payer/receiver role normalization",
+        "description": "The translation from FPML buyer/seller to CDM payer/receiver may include normalization logic that inverts or reinterprets roles.",
+        "classification": "unclear",
+        "evidence": [
+          "bond-options/cb-option-2.xml",
+          "bond-options/bond-option.xml",
+          "bond-options/cb-option.xml"
+        ],
+        "caution": [
+          "Observed inversion or unexpected assignment of payer/receiver; treat as a potential enrichment or domain-specific reinterpretation and validate against business rules."
+        ]
+      }
+    ],
+    "repeatedHeaderAndCommonBoilerplateSummary": {
+      "commonFpmlHeaderBehavior": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId",
+        "/FpML/trade/tradeHeader/tradeDate"
+      ],
+      "commonTradeScaffolding": [
+        "trade > bondOption (40 paths)",
+        "trade > tradeHeader (3 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)",
+        "trade > calculationAgent (1 paths)"
+      ],
+      "commonCdmBoilerplateBehavior": [
+        "$.trade.product.economicTerms.payout[0].OptionPayout.priceQuantity.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.dateAdjustments.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.adjustableOrRelativeDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.settlementDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.settlementTerms.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].OptionPayout.exerciseTerms.expirationDate[0].adjustableDate.meta.globalKey"
+      ]
+    },
+    "openQuestions": [
+      "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+      "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?",
+      "Why is payerReceiver inverted versus buyerSeller in CDM?",
+      "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+      "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+    ],
+    "pairLevelHighlights": [
+      {
+        "fpmlFile": "bond-options/cb-option-2.xml",
+        "cdmFile": "bond-options/cb-option-2.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "buyer reference maps to counterparty and OptionPayout buyer",
+          "seller reference maps to counterparty and OptionPayout seller",
+          "optionType copied",
+          "settlementType copied"
+        ],
+        "importantTransformation": "trim timezone to YYYY-MM-DD",
+        "uncertainty": [
+          "Why is payerReceiver inverted versus buyerSeller in CDM?"
+        ]
+      },
+      {
+        "fpmlFile": "bond-options/bond-option.xml",
+        "cdmFile": "bond-options/bond-option.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "option type preserved",
+          "premium mapped to transferHistory",
+          "notional mapped to tradeLot quantity"
+        ],
+        "importantTransformation": "strip timezone/time to date-only",
+        "uncertainty": [
+          "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+          "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?"
+        ]
+      },
+      {
+        "fpmlFile": "bond-options/cb-option.xml",
+        "cdmFile": "bond-options/cb-option.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "optionType value mapped",
+          "buyer->payer, seller->receiver",
+          "date normalized and centers mapped"
+        ],
+        "importantTransformation": "numberOfOptions->quantity, parValue->multiplier, currency->currency",
+        "uncertainty": [
+          "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+          "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+        ]
+      }
+    ],
+    "agentPlaybook": {
+      "summary": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction. Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged).",
+      "canonicalSteps": [
+        "Start from the repeated FPML sections seen across matched files: header, party, trade.",
+        "Map trade identifiers, party references, and trade dates before product-specific economics.",
+        "Apply recurring mapping rules only when the exact source cues appear in the document.",
+        "Then apply the repeated non-literal transformations that reshape identifiers, dates, wrappers, or references.",
+        "Assemble the result under repeated CDM scaffolding such as meta, trade.",
+        "Treat generated identifiers, global keys, and unmatched party identifiers as enrichments unless the source proves otherwise."
+      ],
+      "recurringRules": [
+        "trade.bondoption.optionType -> payout.optionPayout.optionType: Option type values in the FPML bond/convertible bond option trades are preserved and placed into the CDM OptionPayout.optionType field.",
+        "Option-specific terms repeatedly map from trade.bondoption.optiontype into payout.optionpayout.optiontype. [tentative 3 examples]"
+      ],
+      "transformationPatterns": [
+        "normalization: Date/time values in FPML are trimmed/normalized to date-only (YYYY-MM-DD) in the CDM.",
+        "reference resolution: FPML buyer and seller references are mapped to CDM counterparties and used as OptionPayout buyer/payer and seller/receiver roles (buyer->payer, seller->receiver).",
+        "normalization: FPML numberOfOptions becomes a CDM quantity; FPML parValue becomes a multiplier on the CDM trade lot.",
+        "wrapper insertion: FPML premium information is represented as a transfer/transferHistory entry in the CDM.",
+        "normalization: FPML notional/par value is used to produce tradeLot.quantity in CDM (notional-sized quantity representation).",
+        "normalization: Currency values are preserved from FPML into CDM currency fields for quantity/amounts."
+      ],
+      "productSpecificBranches": [
+        {
+          "name": "cb-option-2.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "buyer reference maps to counterparty and OptionPayout buyer",
+            "seller reference maps to counterparty and OptionPayout seller",
+            "optionType copied",
+            "settlementType copied"
+          ],
+          "cautions": [
+            "Why is payerReceiver inverted versus buyerSeller in CDM?"
+          ]
+        },
+        {
+          "name": "bond-option.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "option type preserved",
+            "premium mapped to transferHistory",
+            "notional mapped to tradeLot quantity"
+          ],
+          "cautions": [
+            "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+            "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?"
+          ]
+        },
+        {
+          "name": "cb-option.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "optionType value mapped",
+            "buyer->payer, seller->receiver",
+            "date normalized and centers mapped"
+          ],
+          "cautions": [
+            "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+            "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+          ]
+        }
+      ],
+      "validationChecks": [
+        "Check unresolved question: Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+        "Check unresolved question: How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?",
+        "Check unresolved question: Why is payerReceiver inverted versus buyerSeller in CDM?",
+        "Check unresolved question: How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+        "Check unresolved question: Is underlier Observable explicitly linked to convertibleBond.instrumentId?",
+        "Check enrichment/default behavior: FPML calculationAgent references are turned into an ancillaryParty entry with role 'CalculationAgentIndependent' in the CDM (appears to be an enrichment or normalization)."
+      ],
+      "doNotAssume": [
+        "Do not treat calculationAgentPartyReference -> CalculationAgentIndependent ancillaryParty as a guaranteed direct mapping rule yet.",
+        "Do not treat payer/receiver role normalization as a guaranteed direct mapping rule yet.",
+        "Why is payerReceiver inverted versus buyerSeller in CDM?",
+        "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+        "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?",
+        "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?"
+      ]
+    },
+    "draftConclusion": {
+      "mostReusableFindings": [
+        "Option type values are reliably copied from FPML option sections into CDM OptionPayout.optionType.",
+        "Dates/times are normalized to date-only (YYYY-MM-DD) in the CDM.",
+        "Buyer/seller party references are used to populate CDM counterparties and OptionPayout payer/receiver roles (but direction requires verification).",
+        "Quantity-related fields (numberOfOptions, parValue, notional) are normalized into CDM tradeLot quantity and multiplier; currency is preserved."
+      ],
+      "safeToGeneralize": [
+        "Mapping of optionType from FPML to CDM OptionPayout.optionType (strong evidence).",
+        "Trimming/normalizing FPML dateTimes to CDM date-only (strong evidence across examples)."
+      ],
+      "remainTentative": [
+        "Exact semantics/direction when mapping buyer/seller to payer/receiver (observed inversions).",
+        "Transformation of calculationAgent references into CalculationAgentIndependent ancillaryParty (suspected enrichment).",
+        "Explicit linking of underlier Observable to convertibleBond.instrumentId (unresolved).",
+        "Any automated rule that assumes payer/receiver direction without validation."
+      ]
+    },
+    "sourceAppendixNotes": [
+      "Included pairs: 3",
+      "Ignored pairs: 0",
+      "Semantic pair analyses recovered: 3",
+      "Tentative repeated semantic signals: 1"
+    ]
+  }
+}

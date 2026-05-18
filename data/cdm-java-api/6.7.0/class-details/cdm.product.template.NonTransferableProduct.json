@@ -1,0 +1,277 @@
+{
+  "className": "cdm.product.template.NonTransferableProduct",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "NonTransferableProduct",
+  "methods": [
+    {
+      "name": "getIdentifier",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier> getIdentifier()"
+    },
+    {
+      "name": "getTaxonomy",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy> getTaxonomy()"
+    },
+    {
+      "name": "getEconomicTerms",
+      "returnType": "cdm.product.template.EconomicTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms getEconomicTerms()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.NonTransferableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.NonTransferableProduct>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.NonTransferableProduct> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.NonTransferableProduct>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.NonTransferableProduct> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateIdentifier",
+      "returnType": "cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder getOrCreateIdentifier(int)"
+    },
+    {
+      "name": "getIdentifier",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier$ProductIdentifierBuilder> getIdentifier()"
+    },
+    {
+      "name": "getOrCreateTaxonomy",
+      "returnType": "cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder getOrCreateTaxonomy(int)"
+    },
+    {
+      "name": "getTaxonomy",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy$ProductTaxonomyBuilder> getTaxonomy()"
+    },
+    {
+      "name": "getOrCreateEconomicTerms",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder getOrCreateEconomicTerms()"
+    },
+    {
+      "name": "getEconomicTerms",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder getEconomicTerms()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.ProductIdentifier"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addIdentifier(cdm.base.staticdata.asset.common.ProductIdentifier)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.ProductIdentifier",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addIdentifier(cdm.base.staticdata.asset.common.ProductIdentifier, int)"
+    },
+    {
+      "name": "addIdentifier",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addIdentifier(java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>)"
+    },
+    {
+      "name": "setIdentifier",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder setIdentifier(java.util.List<? extends cdm.base.staticdata.asset.common.ProductIdentifier>)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.ProductTaxonomy"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addTaxonomy(cdm.base.staticdata.asset.common.ProductTaxonomy)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.ProductTaxonomy",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addTaxonomy(cdm.base.staticdata.asset.common.ProductTaxonomy, int)"
+    },
+    {
+      "name": "addTaxonomy",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder addTaxonomy(java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>)"
+    },
+    {
+      "name": "setTaxonomy",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder setTaxonomy(java.util.List<? extends cdm.base.staticdata.asset.common.ProductTaxonomy>)"
+    },
+    {
+      "name": "setEconomicTerms",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "cdm.product.template.EconomicTerms"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder setEconomicTerms(cdm.product.template.EconomicTerms)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getEconomicTerms",
+      "returnType": "cdm.product.template.EconomicTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.template.EconomicTerms getEconomicTerms()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

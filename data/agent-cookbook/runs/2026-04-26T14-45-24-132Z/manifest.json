@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-04-26T14:45:24.132Z",
+  "mode": "append",
+  "sourceDraftRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+  "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\agent-cookbook\\runs\\2026-04-26T14-45-24-132Z",
+  "families": [
+    {
+      "folder": "bond-options",
+      "operationalStatus": "review_only",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 0,
+        "low": 2,
+        "blocked": 10
+      },
+      "markdownPath": "review-only/bond-options.md",
+      "evidencePath": "references/bond-options.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\debug.json"
+    },
+    {
+      "folder": "commodity-derivatives",
+      "operationalStatus": "ready",
+      "confidenceSummary": {
+        "high": 2,
+        "medium": 6,
+        "low": 10,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/commodity-derivatives.md",
+      "evidencePath": "references/commodity-derivatives.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\debug.json"
+    },
+    {
+      "folder": "correlation-swaps",
+      "operationalStatus": "pilot_only",
+      "confidenceSummary": {
+        "high": 5,
+        "medium": 4,
+        "low": 5,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/correlation-swaps.md",
+      "evidencePath": "references/correlation-swaps.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\correlation-swaps\\debug.json"
+    },
+    {
+      "folder": "credit-derivatives",
+      "operationalStatus": "pilot_only",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 5,
+        "low": 13,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/credit-derivatives.md",
+      "evidencePath": "references/credit-derivatives.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\debug.json"
+    },
+    {
+      "folder": "dividend-swaps",
+      "operationalStatus": "blocked",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "blocked": 0
+      },
+      "markdownPath": "review-only/dividend-swaps.md",
+      "evidencePath": "references/dividend-swaps.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\dividend-swaps\\debug.json"
+    },
+    {
+      "folder": "equity-options",
+      "operationalStatus": "review_only",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "blocked": 0
+      },
+      "markdownPath": "review-only/equity-options.md",
+      "evidencePath": "references/equity-options.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\debug.json"
+    },
+    {
+      "folder": "equity-swaps",
+      "operationalStatus": "review_only",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 0,
+        "low": 3,
+        "blocked": 21
+      },
+      "markdownPath": "review-only/equity-swaps.md",
+      "evidencePath": "references/equity-swaps.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-swaps\\debug.json"
+    },
+    {
+      "folder": "fx-derivatives",
+      "operationalStatus": "ready",
+      "confidenceSummary": {
+        "high": 3,
+        "medium": 11,
+        "low": 14,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/fx-derivatives.md",
+      "evidencePath": "references/fx-derivatives.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\debug.json"
+    },
+    {
+      "folder": "inflation-swaps",
+      "operationalStatus": "pilot_only",
+      "confidenceSummary": {
+        "high": 5,
+        "medium": 4,
+        "low": 5,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/inflation-swaps.md",
+      "evidencePath": "references/inflation-swaps.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\debug.json"
+    },
+    {
+      "folder": "interest-rate-derivatives",
+      "operationalStatus": "review_only",
+      "confidenceSummary": {
+        "high": 0,
+        "medium": 0,
+        "low": 3,
+        "blocked": 26
+      },
+      "markdownPath": "review-only/interest-rate-derivatives.md",
+      "evidencePath": "references/interest-rate-derivatives.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\debug.json"
+    },
+    {
+      "folder": "total-return-swaps",
+      "operationalStatus": "pilot_only",
+      "confidenceSummary": {
+        "high": 4,
+        "medium": 3,
+        "low": 3,
+        "blocked": 0
+      },
+      "markdownPath": "product-families/total-return-swaps.md",
+      "evidencePath": "references/total-return-swaps.evidence.json",
+      "draftPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json"
+    }
+  ],
+  "globalDocuments": [
+    {
+      "name": "identifier-handling",
+      "markdownPath": "global/identifier-handling.md",
+      "ruleCount": 32
+    },
+    {
+      "name": "temporal-normalization",
+      "markdownPath": "global/temporal-normalization.md",
+      "ruleCount": 29
+    },
+    {
+      "name": "party-reference-resolution",
+      "markdownPath": "global/party-reference-resolution.md",
+      "ruleCount": 11
+    },
+    {
+      "name": "quantity-and-unit-normalization",
+      "markdownPath": "global/quantity-and-unit-normalization.md",
+      "ruleCount": 24
+    },
+    {
+      "name": "cdm-wrapper-construction",
+      "markdownPath": "global/cdm-wrapper-construction.md",
+      "ruleCount": 4
+    },
+    {
+      "name": "enrichment-and-defaults",
+      "markdownPath": "global/enrichment-and-defaults.md",
+      "ruleCount": 1
+    }
+  ]
+}

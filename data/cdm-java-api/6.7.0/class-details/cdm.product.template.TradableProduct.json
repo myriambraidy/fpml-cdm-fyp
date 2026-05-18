@@ -1,0 +1,288 @@
+{
+  "className": "cdm.product.template.TradableProduct",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "TradableProduct",
+  "methods": [
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct getProduct()"
+    },
+    {
+      "name": "getTradeLot",
+      "returnType": "java.util.List<? extends cdm.product.template.TradeLot>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.TradeLot> getTradeLot()"
+    },
+    {
+      "name": "getCounterparty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Counterparty>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Counterparty> getCounterparty()"
+    },
+    {
+      "name": "getAncillaryParty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.AncillaryParty> getAncillaryParty()"
+    },
+    {
+      "name": "getAdjustment",
+      "returnType": "cdm.product.common.NotionalAdjustmentEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.NotionalAdjustmentEnum getAdjustment()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.TradableProduct",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradableProduct build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.TradableProduct$TradableProductBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TradableProduct>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TradableProduct> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.TradableProduct>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.TradableProduct> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.TradableProduct$TradableProductBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder getOrCreateProduct()"
+    },
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.NonTransferableProduct$NonTransferableProductBuilder getProduct()"
+    },
+    {
+      "name": "getOrCreateTradeLot",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder getOrCreateTradeLot(int)"
+    },
+    {
+      "name": "getTradeLot",
+      "returnType": "java.util.List<? extends cdm.product.template.TradeLot$TradeLotBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.TradeLot$TradeLotBuilder> getTradeLot()"
+    },
+    {
+      "name": "getOrCreateCounterparty",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder getOrCreateCounterparty(int)"
+    },
+    {
+      "name": "getCounterparty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.Counterparty$CounterpartyBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.Counterparty$CounterpartyBuilder> getCounterparty()"
+    },
+    {
+      "name": "getOrCreateAncillaryParty",
+      "returnType": "cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder getOrCreateAncillaryParty(int)"
+    },
+    {
+      "name": "getAncillaryParty",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.party.AncillaryParty$AncillaryPartyBuilder> getAncillaryParty()"
+    },
+    {
+      "name": "setProduct",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.NonTransferableProduct"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder setProduct(cdm.product.template.NonTransferableProduct)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(cdm.product.template.TradeLot)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.template.TradeLot",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(cdm.product.template.TradeLot, int)"
+    },
+    {
+      "name": "addTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.TradeLot>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addTradeLot(java.util.List<? extends cdm.product.template.TradeLot>)"
+    },
+    {
+      "name": "setTradeLot",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.TradeLot>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder setTradeLot(java.util.List<? extends cdm.product.template.TradeLot>)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(cdm.base.staticdata.party.Counterparty)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Counterparty",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(cdm.base.staticdata.party.Counterparty, int)"
+    },
+    {
+      "name": "addCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Counterparty>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addCounterparty(java.util.List<? extends cdm.base.staticdata.party.Counterparty>)"
+    },
+    {
+      "name": "setCounterparty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.Counterparty>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder setCounterparty(java.util.List<? extends cdm.base.staticdata.party.Counterparty>)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.AncillaryParty",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(cdm.base.staticdata.party.AncillaryParty, int)"
+    },
+    {
+      "name": "addAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder addAncillaryParty(java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>)"
+    },
+    {
+      "name": "setAncillaryParty",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder setAncillaryParty(java.util.List<? extends cdm.base.staticdata.party.AncillaryParty>)"
+    },
+    {
+      "name": "setAdjustment",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [
+        "cdm.product.common.NotionalAdjustmentEnum"
+      ],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder setAdjustment(cdm.product.common.NotionalAdjustmentEnum)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.TradableProduct$TradableProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradableProduct$TradableProductBuilder prune()"
+    },
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.NonTransferableProduct",
+      "parameters": [],
+      "raw": "public default cdm.product.template.NonTransferableProduct getProduct()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

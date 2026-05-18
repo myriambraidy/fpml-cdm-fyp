@@ -1,0 +1,282 @@
+{
+  "className": "cdm.product.asset.CreditDefaultPayout",
+  "exists": true,
+  "packageName": "cdm.product.asset",
+  "simpleName": "CreditDefaultPayout",
+  "methods": [
+    {
+      "name": "getGeneralTerms",
+      "returnType": "cdm.product.asset.GeneralTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.GeneralTerms getGeneralTerms()"
+    },
+    {
+      "name": "getProtectionTerms",
+      "returnType": "java.util.List<? extends cdm.product.asset.ProtectionTerms>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.asset.ProtectionTerms> getProtectionTerms()"
+    },
+    {
+      "name": "getTransactedPrice",
+      "returnType": "cdm.observable.asset.TransactedPrice",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.TransactedPrice getTransactedPrice()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.asset.CreditDefaultPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.CreditDefaultPayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.CreditDefaultPayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.asset.CreditDefaultPayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.asset.CreditDefaultPayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateGeneralTerms",
+      "returnType": "cdm.product.asset.GeneralTerms$GeneralTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.GeneralTerms$GeneralTermsBuilder getOrCreateGeneralTerms()"
+    },
+    {
+      "name": "getGeneralTerms",
+      "returnType": "cdm.product.asset.GeneralTerms$GeneralTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.GeneralTerms$GeneralTermsBuilder getGeneralTerms()"
+    },
+    {
+      "name": "getOrCreateProtectionTerms",
+      "returnType": "cdm.product.asset.ProtectionTerms$ProtectionTermsBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.asset.ProtectionTerms$ProtectionTermsBuilder getOrCreateProtectionTerms(int)"
+    },
+    {
+      "name": "getProtectionTerms",
+      "returnType": "java.util.List<? extends cdm.product.asset.ProtectionTerms$ProtectionTermsBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.asset.ProtectionTerms$ProtectionTermsBuilder> getProtectionTerms()"
+    },
+    {
+      "name": "getOrCreateTransactedPrice",
+      "returnType": "cdm.observable.asset.TransactedPrice$TransactedPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.TransactedPrice$TransactedPriceBuilder getOrCreateTransactedPrice()"
+    },
+    {
+      "name": "getTransactedPrice",
+      "returnType": "cdm.observable.asset.TransactedPrice$TransactedPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.TransactedPrice$TransactedPriceBuilder getTransactedPrice()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setGeneralTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.GeneralTerms"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setGeneralTerms(cdm.product.asset.GeneralTerms)"
+    },
+    {
+      "name": "addProtectionTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.ProtectionTerms"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder addProtectionTerms(cdm.product.asset.ProtectionTerms)"
+    },
+    {
+      "name": "addProtectionTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.ProtectionTerms",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder addProtectionTerms(cdm.product.asset.ProtectionTerms, int)"
+    },
+    {
+      "name": "addProtectionTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.asset.ProtectionTerms>"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder addProtectionTerms(java.util.List<? extends cdm.product.asset.ProtectionTerms>)"
+    },
+    {
+      "name": "setProtectionTerms",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.asset.ProtectionTerms>"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setProtectionTerms(java.util.List<? extends cdm.product.asset.ProtectionTerms>)"
+    },
+    {
+      "name": "setTransactedPrice",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [
+        "cdm.observable.asset.TransactedPrice"
+      ],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder setTransactedPrice(cdm.observable.asset.TransactedPrice)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder prune()"
+    },
+    {
+      "name": "getTransactedPrice",
+      "returnType": "cdm.observable.asset.TransactedPrice",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.TransactedPrice getTransactedPrice()"
+    },
+    {
+      "name": "getGeneralTerms",
+      "returnType": "cdm.product.asset.GeneralTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.GeneralTerms getGeneralTerms()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "className": "cdm.product.template.Payout",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "Payout",
+  "methods": [
+    {
+      "name": "getAssetPayout",
+      "returnType": "cdm.product.template.AssetPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout getAssetPayout()"
+    },
+    {
+      "name": "getCommodityPayout",
+      "returnType": "cdm.product.asset.CommodityPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout getCommodityPayout()"
+    },
+    {
+      "name": "getCreditDefaultPayout",
+      "returnType": "cdm.product.asset.CreditDefaultPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout getCreditDefaultPayout()"
+    },
+    {
+      "name": "getFixedPricePayout",
+      "returnType": "cdm.product.template.FixedPricePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout getFixedPricePayout()"
+    },
+    {
+      "name": "getInterestRatePayout",
+      "returnType": "cdm.product.asset.InterestRatePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.InterestRatePayout getInterestRatePayout()"
+    },
+    {
+      "name": "getOptionPayout",
+      "returnType": "cdm.product.template.OptionPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout getOptionPayout()"
+    },
+    {
+      "name": "getPerformancePayout",
+      "returnType": "cdm.product.template.PerformancePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout getPerformancePayout()"
+    },
+    {
+      "name": "getSettlementPayout",
+      "returnType": "cdm.product.template.SettlementPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.SettlementPayout getSettlementPayout()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.Payout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Payout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.Payout$PayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Payout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Payout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.Payout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.Payout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.Payout$PayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateAssetPayout",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder getOrCreateAssetPayout()"
+    },
+    {
+      "name": "getAssetPayout",
+      "returnType": "cdm.product.template.AssetPayout$AssetPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AssetPayout$AssetPayoutBuilder getAssetPayout()"
+    },
+    {
+      "name": "getOrCreateCommodityPayout",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder getOrCreateCommodityPayout()"
+    },
+    {
+      "name": "getCommodityPayout",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder getCommodityPayout()"
+    },
+    {
+      "name": "getOrCreateCreditDefaultPayout",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder getOrCreateCreditDefaultPayout()"
+    },
+    {
+      "name": "getCreditDefaultPayout",
+      "returnType": "cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CreditDefaultPayout$CreditDefaultPayoutBuilder getCreditDefaultPayout()"
+    },
+    {
+      "name": "getOrCreateFixedPricePayout",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder getOrCreateFixedPricePayout()"
+    },
+    {
+      "name": "getFixedPricePayout",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder getFixedPricePayout()"
+    },
+    {
+      "name": "getOrCreateInterestRatePayout",
+      "returnType": "cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder getOrCreateInterestRatePayout()"
+    },
+    {
+      "name": "getInterestRatePayout",
+      "returnType": "cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder getInterestRatePayout()"
+    },
+    {
+      "name": "getOrCreateOptionPayout",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder getOrCreateOptionPayout()"
+    },
+    {
+      "name": "getOptionPayout",
+      "returnType": "cdm.product.template.OptionPayout$OptionPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.OptionPayout$OptionPayoutBuilder getOptionPayout()"
+    },
+    {
+      "name": "getOrCreatePerformancePayout",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder getOrCreatePerformancePayout()"
+    },
+    {
+      "name": "getPerformancePayout",
+      "returnType": "cdm.product.template.PerformancePayout$PerformancePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.PerformancePayout$PerformancePayoutBuilder getPerformancePayout()"
+    },
+    {
+      "name": "getOrCreateSettlementPayout",
+      "returnType": "cdm.product.template.SettlementPayout$SettlementPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.SettlementPayout$SettlementPayoutBuilder getOrCreateSettlementPayout()"
+    },
+    {
+      "name": "getSettlementPayout",
+      "returnType": "cdm.product.template.SettlementPayout$SettlementPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.SettlementPayout$SettlementPayoutBuilder getSettlementPayout()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setAssetPayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.template.AssetPayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setAssetPayout(cdm.product.template.AssetPayout)"
+    },
+    {
+      "name": "setCommodityPayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.CommodityPayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setCommodityPayout(cdm.product.asset.CommodityPayout)"
+    },
+    {
+      "name": "setCreditDefaultPayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.CreditDefaultPayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setCreditDefaultPayout(cdm.product.asset.CreditDefaultPayout)"
+    },
+    {
+      "name": "setFixedPricePayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.template.FixedPricePayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setFixedPricePayout(cdm.product.template.FixedPricePayout)"
+    },
+    {
+      "name": "setInterestRatePayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.InterestRatePayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setInterestRatePayout(cdm.product.asset.InterestRatePayout)"
+    },
+    {
+      "name": "setOptionPayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.template.OptionPayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setOptionPayout(cdm.product.template.OptionPayout)"
+    },
+    {
+      "name": "setPerformancePayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.template.PerformancePayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setPerformancePayout(cdm.product.template.PerformancePayout)"
+    },
+    {
+      "name": "setSettlementPayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "cdm.product.template.SettlementPayout"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setSettlementPayout(cdm.product.template.SettlementPayout)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getSettlementPayout",
+      "returnType": "cdm.product.template.SettlementPayout",
+      "parameters": [],
+      "raw": "public default cdm.product.template.SettlementPayout getSettlementPayout()"
+    },
+    {
+      "name": "getPerformancePayout",
+      "returnType": "cdm.product.template.PerformancePayout",
+      "parameters": [],
+      "raw": "public default cdm.product.template.PerformancePayout getPerformancePayout()"
+    },
+    {
+      "name": "getOptionPayout",
+      "returnType": "cdm.product.template.OptionPayout",
+      "parameters": [],
+      "raw": "public default cdm.product.template.OptionPayout getOptionPayout()"
+    },
+    {
+      "name": "getInterestRatePayout",
+      "returnType": "cdm.product.asset.InterestRatePayout",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.InterestRatePayout getInterestRatePayout()"
+    },
+    {
+      "name": "getFixedPricePayout",
+      "returnType": "cdm.product.template.FixedPricePayout",
+      "parameters": [],
+      "raw": "public default cdm.product.template.FixedPricePayout getFixedPricePayout()"
+    },
+    {
+      "name": "getCreditDefaultPayout",
+      "returnType": "cdm.product.asset.CreditDefaultPayout",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.CreditDefaultPayout getCreditDefaultPayout()"
+    },
+    {
+      "name": "getCommodityPayout",
+      "returnType": "cdm.product.asset.CommodityPayout",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.CommodityPayout getCommodityPayout()"
+    },
+    {
+      "name": "getAssetPayout",
+      "returnType": "cdm.product.template.AssetPayout",
+      "parameters": [],
+      "raw": "public default cdm.product.template.AssetPayout getAssetPayout()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

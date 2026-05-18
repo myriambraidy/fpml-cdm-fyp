@@ -1,0 +1,43 @@
+{
+  "className": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.identifier",
+  "simpleName": "TradeIdentifierTypeEnum",
+  "methods": [
+    {
+      "name": "values",
+      "returnType": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum[]",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.identifier.TradeIdentifierTypeEnum[] values()"
+    },
+    {
+      "name": "valueOf",
+      "returnType": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.identifier.TradeIdentifierTypeEnum valueOf(java.lang.String)"
+    },
+    {
+      "name": "fromDisplayName",
+      "returnType": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.identifier.TradeIdentifierTypeEnum fromDisplayName(java.lang.String)"
+    },
+    {
+      "name": "toString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toString()"
+    },
+    {
+      "name": "toDisplayString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toDisplayString()"
+    }
+  ],
+  "builderMethods": []
+}

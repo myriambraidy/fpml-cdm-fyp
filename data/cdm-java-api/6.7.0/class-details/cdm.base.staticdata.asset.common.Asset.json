@@ -1,0 +1,211 @@
+{
+  "className": "cdm.base.staticdata.asset.common.Asset",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.asset.common",
+  "simpleName": "Asset",
+  "methods": [
+    {
+      "name": "getCash",
+      "returnType": "cdm.base.staticdata.asset.common.Cash",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash getCash()"
+    },
+    {
+      "name": "getCommodity",
+      "returnType": "cdm.base.staticdata.asset.common.Commodity",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Commodity getCommodity()"
+    },
+    {
+      "name": "getDigitalAsset",
+      "returnType": "cdm.base.staticdata.asset.common.DigitalAsset",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.DigitalAsset getDigitalAsset()"
+    },
+    {
+      "name": "getInstrument",
+      "returnType": "cdm.base.staticdata.asset.common.Instrument",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Instrument getInstrument()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.asset.common.Asset",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.asset.common.Asset$AssetBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.Asset>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.asset.common.Asset> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.asset.common.Asset>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.asset.common.Asset> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateCash",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder getOrCreateCash()"
+    },
+    {
+      "name": "getCash",
+      "returnType": "cdm.base.staticdata.asset.common.Cash$CashBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Cash$CashBuilder getCash()"
+    },
+    {
+      "name": "getOrCreateCommodity",
+      "returnType": "cdm.base.staticdata.asset.common.Commodity$CommodityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Commodity$CommodityBuilder getOrCreateCommodity()"
+    },
+    {
+      "name": "getCommodity",
+      "returnType": "cdm.base.staticdata.asset.common.Commodity$CommodityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Commodity$CommodityBuilder getCommodity()"
+    },
+    {
+      "name": "getOrCreateDigitalAsset",
+      "returnType": "cdm.base.staticdata.asset.common.DigitalAsset$DigitalAssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.DigitalAsset$DigitalAssetBuilder getOrCreateDigitalAsset()"
+    },
+    {
+      "name": "getDigitalAsset",
+      "returnType": "cdm.base.staticdata.asset.common.DigitalAsset$DigitalAssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.DigitalAsset$DigitalAssetBuilder getDigitalAsset()"
+    },
+    {
+      "name": "getOrCreateInstrument",
+      "returnType": "cdm.base.staticdata.asset.common.Instrument$InstrumentBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Instrument$InstrumentBuilder getOrCreateInstrument()"
+    },
+    {
+      "name": "getInstrument",
+      "returnType": "cdm.base.staticdata.asset.common.Instrument$InstrumentBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Instrument$InstrumentBuilder getInstrument()"
+    },
+    {
+      "name": "setCash",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Cash"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder setCash(cdm.base.staticdata.asset.common.Cash)"
+    },
+    {
+      "name": "setCommodity",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Commodity"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder setCommodity(cdm.base.staticdata.asset.common.Commodity)"
+    },
+    {
+      "name": "setDigitalAsset",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.DigitalAsset"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder setDigitalAsset(cdm.base.staticdata.asset.common.DigitalAsset)"
+    },
+    {
+      "name": "setInstrument",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [
+        "cdm.base.staticdata.asset.common.Instrument"
+      ],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder setInstrument(cdm.base.staticdata.asset.common.Instrument)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.asset.common.Asset$AssetBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.asset.common.Asset$AssetBuilder prune()"
+    },
+    {
+      "name": "getInstrument",
+      "returnType": "cdm.base.staticdata.asset.common.Instrument",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Instrument getInstrument()"
+    },
+    {
+      "name": "getDigitalAsset",
+      "returnType": "cdm.base.staticdata.asset.common.DigitalAsset",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.DigitalAsset getDigitalAsset()"
+    },
+    {
+      "name": "getCommodity",
+      "returnType": "cdm.base.staticdata.asset.common.Commodity",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Commodity getCommodity()"
+    },
+    {
+      "name": "getCash",
+      "returnType": "cdm.base.staticdata.asset.common.Cash",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.asset.common.Cash getCash()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

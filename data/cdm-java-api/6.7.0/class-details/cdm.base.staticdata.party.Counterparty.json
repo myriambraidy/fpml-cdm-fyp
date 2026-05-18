@@ -1,0 +1,137 @@
+{
+  "className": "cdm.base.staticdata.party.Counterparty",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "Counterparty",
+  "methods": [
+    {
+      "name": "getRole",
+      "returnType": "cdm.base.staticdata.party.CounterpartyRoleEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.CounterpartyRoleEnum getRole()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.party.Counterparty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.Counterparty$CounterpartyBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.Counterparty>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.Counterparty> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.party.Counterparty>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.party.Counterparty> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreatePartyReference()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getPartyReference()"
+    },
+    {
+      "name": "setRole",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.CounterpartyRoleEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder setRole(cdm.base.staticdata.party.CounterpartyRoleEnum)"
+    },
+    {
+      "name": "setPartyReference",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder setPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder setPartyReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.party.Counterparty$CounterpartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.Counterparty$CounterpartyBuilder prune()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

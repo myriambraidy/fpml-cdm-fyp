@@ -1,0 +1,1159 @@
+[
+  {
+    "timestamp": "2026-04-23T19:30:46.060Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.065Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "includedPairs": 23,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 14,
+      "normalizedMatches": 9,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.066Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+      "pairIndex": 1,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "1/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.067Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex10-physical-oil-pipeline-crude-wti-floating-price.xml",
+      "pairIndex": 2,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "2/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.067Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+      "pairIndex": 3,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "3/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.068Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+      "pairIndex": 4,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "4/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.068Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+      "pairIndex": 5,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "5/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.068Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+      "pairIndex": 6,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "6/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.068Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+      "pairIndex": 7,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "7/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.069Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+      "pairIndex": 8,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "8/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.082Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex10-physical-oil-pipeline-crude-wti-floating-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17981,
+      "retryAttempt": 0,
+      "fpmlChars": 4704,
+      "cdmChars": 7526,
+      "fpmlFields": 42,
+      "cdmFields": 112
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.088Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25186,
+      "retryAttempt": 0,
+      "fpmlChars": 5928,
+      "cdmChars": 13643,
+      "fpmlFields": 60,
+      "cdmFields": 196
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.091Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16407,
+      "retryAttempt": 0,
+      "fpmlChars": 4239,
+      "cdmChars": 6467,
+      "fpmlFields": 39,
+      "cdmFields": 100
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.095Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16240,
+      "retryAttempt": 0,
+      "fpmlChars": 4100,
+      "cdmChars": 6459,
+      "fpmlFields": 39,
+      "cdmFields": 100
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.100Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18115,
+      "retryAttempt": 0,
+      "fpmlChars": 4436,
+      "cdmChars": 7915,
+      "fpmlFields": 41,
+      "cdmFields": 115
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.102Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16021,
+      "retryAttempt": 0,
+      "fpmlChars": 4438,
+      "cdmChars": 5913,
+      "fpmlFields": 43,
+      "cdmFields": 91
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.105Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16135,
+      "retryAttempt": 0,
+      "fpmlChars": 4541,
+      "cdmChars": 5911,
+      "fpmlFields": 43,
+      "cdmFields": 89
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:30:46.108Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18896,
+      "retryAttempt": 0,
+      "fpmlChars": 5643,
+      "cdmChars": 7535,
+      "fpmlFields": 55,
+      "cdmFields": 106
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:15.157Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 29088,
+      "promptChars": 18896,
+      "responseChars": 2082,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:15.157Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+      "pairIndex": 9,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "9/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:15.162Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14849,
+      "retryAttempt": 0,
+      "fpmlChars": 4863,
+      "cdmChars": 4404,
+      "fpmlFields": 48,
+      "cdmFields": 67
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:17.949Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 31881,
+      "promptChars": 18115,
+      "responseChars": 2124,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:17.949Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+      "pairIndex": 10,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "10/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:17.952Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18290,
+      "retryAttempt": 0,
+      "fpmlChars": 8278,
+      "cdmChars": 4404,
+      "fpmlFields": 97,
+      "cdmFields": 67
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:19.615Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 33548,
+      "promptChars": 25186,
+      "responseChars": 2521,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:19.615Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex19-physical-bullion-forward.xml",
+      "pairIndex": 11,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "11/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:19.617Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex19-physical-bullion-forward.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 12195,
+      "retryAttempt": 0,
+      "fpmlChars": 3631,
+      "cdmChars": 3327,
+      "fpmlFields": 42,
+      "cdmFields": 52
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:25.479Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 39411,
+      "promptChars": 16240,
+      "responseChars": 2614,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:25.480Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+      "pairIndex": 12,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "12/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:25.490Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24552,
+      "retryAttempt": 0,
+      "fpmlChars": 5846,
+      "cdmChars": 13111,
+      "fpmlFields": 58,
+      "cdmFields": 190
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:35.415Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49346,
+      "promptChars": 16135,
+      "responseChars": 2802,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:35.415Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+      "pairIndex": 13,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "13/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:35.421Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 14886,
+      "retryAttempt": 0,
+      "fpmlChars": 4019,
+      "cdmChars": 5262,
+      "fpmlFields": 41,
+      "cdmFields": 81
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:40.019Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex10-physical-oil-pipeline-crude-wti-floating-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 53952,
+      "promptChars": 17981,
+      "responseChars": 3131,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:40.020Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+      "pairIndex": 14,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "14/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:40.030Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20578,
+      "retryAttempt": 0,
+      "fpmlChars": 9873,
+      "cdmChars": 5040,
+      "fpmlFields": 116,
+      "cdmFields": 78
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.043Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex19-physical-bullion-forward.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 31428,
+      "promptChars": 12195,
+      "responseChars": 1941,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.045Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex22-physical-gas-option-multiple-expiration.xml",
+      "pairIndex": 15,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "15/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.054Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex22-physical-gas-option-multiple-expiration.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20927,
+      "retryAttempt": 0,
+      "fpmlChars": 6859,
+      "cdmChars": 7542,
+      "fpmlFields": 64,
+      "cdmFields": 96
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.751Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 65683,
+      "promptChars": 16021,
+      "responseChars": 3294,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.752Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex23-physical-power-option-daily-expiration-efet.xml",
+      "pairIndex": 16,
+      "totalPairs": 23,
+      "strategy": "exact",
+      "progress": "16/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:51.761Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex23-physical-power-option-daily-expiration-efet.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22150,
+      "retryAttempt": 0,
+      "fpmlChars": 8294,
+      "cdmChars": 7322,
+      "fpmlFields": 81,
+      "cdmFields": 94
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:59.345Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41396,
+      "promptChars": 18290,
+      "responseChars": 2702,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:59.346Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+      "pairIndex": 17,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "17/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:31:59.355Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25473,
+      "retryAttempt": 0,
+      "fpmlChars": 6032,
+      "cdmChars": 13834,
+      "fpmlFields": 62,
+      "cdmFields": 198
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.803Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 75735,
+      "promptChars": 16407,
+      "responseChars": 2938,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.804Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml",
+      "pairIndex": 18,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "18/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.814Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25082,
+      "retryAttempt": 0,
+      "fpmlChars": 5948,
+      "cdmChars": 13525,
+      "fpmlFields": 60,
+      "cdmFields": 195
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.880Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46723,
+      "promptChars": 14849,
+      "responseChars": 2693,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.880Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex5-gas-v-electricity-spark-spread.xml",
+      "pairIndex": 19,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "19/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:01.885Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex5-gas-v-electricity-spark-spread.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 27470,
+      "retryAttempt": 0,
+      "fpmlChars": 6528,
+      "cdmChars": 15337,
+      "fpmlFields": 66,
+      "cdmFields": 213
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:16.117Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50636,
+      "promptChars": 24552,
+      "responseChars": 2934,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:16.118Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex6-gas-call-option.xml",
+      "pairIndex": 20,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "20/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:16.124Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex6-gas-call-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22938,
+      "retryAttempt": 0,
+      "fpmlChars": 5329,
+      "cdmChars": 12051,
+      "fpmlFields": 53,
+      "cdmFields": 167
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:18.268Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42852,
+      "promptChars": 14886,
+      "responseChars": 2394,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:18.269Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex7-gas-put-option.xml",
+      "pairIndex": 21,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "21/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:18.281Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex7-gas-put-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22604,
+      "retryAttempt": 0,
+      "fpmlChars": 5202,
+      "cdmChars": 11846,
+      "fpmlFields": 51,
+      "cdmFields": 165
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:23.330Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex22-physical-gas-option-multiple-expiration.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 32285,
+      "promptChars": 20927,
+      "responseChars": 2399,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:23.331Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex8-oil-call-option-strip.xml",
+      "pairIndex": 22,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "22/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:23.338Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex8-oil-call-option-strip.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22388,
+      "retryAttempt": 0,
+      "fpmlChars": 5276,
+      "cdmChars": 11542,
+      "fpmlFields": 52,
+      "cdmFields": 163
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:31.911Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 51891,
+      "promptChars": 20578,
+      "responseChars": 3486,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:31.912Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex9-oil-put-option-american.xml",
+      "pairIndex": 23,
+      "totalPairs": 23,
+      "strategy": "normalized",
+      "progress": "23/23"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:31.920Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex9-oil-put-option-american.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20637,
+      "retryAttempt": 0,
+      "fpmlChars": 5768,
+      "cdmChars": 9408,
+      "fpmlFields": 59,
+      "cdmFields": 139
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:41.783Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 39979,
+      "promptChars": 25082,
+      "responseChars": 2452,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:46.057Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46711,
+      "promptChars": 25473,
+      "responseChars": 2667,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:32:50.869Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex23-physical-power-option-daily-expiration-efet.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 59116,
+      "promptChars": 22150,
+      "responseChars": 3531,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:00.704Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex6-gas-call-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44585,
+      "promptChars": 22938,
+      "responseChars": 2401,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:05.001Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex8-oil-call-option-strip.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41670,
+      "promptChars": 22388,
+      "responseChars": 2823,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:07.069Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex7-gas-put-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48799,
+      "promptChars": 22604,
+      "responseChars": 2273,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:12.627Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex5-gas-v-electricity-spark-spread.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 70746,
+      "promptChars": 27470,
+      "responseChars": 3861,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:32.394Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "commodity-derivatives/com-ex9-oil-put-option-american.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 60481,
+      "promptChars": 20637,
+      "responseChars": 3207,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:32.394Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 23,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:32.395Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "successfulPairCount": 23,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 23
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:33:32.422Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 16610,
+      "retryAttempt": 0,
+      "semanticPairCount": 23,
+      "structuralPairCount": 23,
+      "includedPairCount": 23,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.392Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 16610,
+      "responseChars": 14905,
+      "retryAttempt": 0,
+      "stableRuleCount": 4,
+      "transformationCount": 2
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.393Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 23
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.394Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.397Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 9,
+      "rating": "strong",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.399Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-23T19:34:59.400Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "commodity-derivatives",
+      "status": "success",
+      "durationMs": 253340,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\run-log.json"
+    }
+  }
+]

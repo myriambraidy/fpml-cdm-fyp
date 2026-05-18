@@ -1,0 +1,342 @@
+{
+  "className": "cdm.product.template.EconomicTerms",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "EconomicTerms",
+  "methods": [
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()"
+    },
+    {
+      "name": "getTerminationDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate getTerminationDate()"
+    },
+    {
+      "name": "getDateAdjustments",
+      "returnType": "cdm.base.datetime.BusinessDayAdjustments",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDayAdjustments getDateAdjustments()"
+    },
+    {
+      "name": "getPayout",
+      "returnType": "java.util.List<? extends cdm.product.template.Payout>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.Payout> getPayout()"
+    },
+    {
+      "name": "getTerminationProvision",
+      "returnType": "cdm.product.template.TerminationProvision",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TerminationProvision getTerminationProvision()"
+    },
+    {
+      "name": "getCalculationAgent",
+      "returnType": "cdm.observable.asset.CalculationAgent",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CalculationAgent getCalculationAgent()"
+    },
+    {
+      "name": "getNonStandardisedTerms",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getNonStandardisedTerms()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral getCollateral()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.EconomicTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.EconomicTerms$EconomicTermsBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.EconomicTerms>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.EconomicTerms> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.EconomicTerms>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.EconomicTerms> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getOrCreateEffectiveDate()"
+    },
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getEffectiveDate()"
+    },
+    {
+      "name": "getOrCreateTerminationDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getOrCreateTerminationDate()"
+    },
+    {
+      "name": "getTerminationDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrRelativeDate$AdjustableOrRelativeDateBuilder getTerminationDate()"
+    },
+    {
+      "name": "getOrCreateDateAdjustments",
+      "returnType": "cdm.base.datetime.BusinessDayAdjustments$BusinessDayAdjustmentsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDayAdjustments$BusinessDayAdjustmentsBuilder getOrCreateDateAdjustments()"
+    },
+    {
+      "name": "getDateAdjustments",
+      "returnType": "cdm.base.datetime.BusinessDayAdjustments$BusinessDayAdjustmentsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDayAdjustments$BusinessDayAdjustmentsBuilder getDateAdjustments()"
+    },
+    {
+      "name": "getOrCreatePayout",
+      "returnType": "cdm.product.template.Payout$PayoutBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.Payout$PayoutBuilder getOrCreatePayout(int)"
+    },
+    {
+      "name": "getPayout",
+      "returnType": "java.util.List<? extends cdm.product.template.Payout$PayoutBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.product.template.Payout$PayoutBuilder> getPayout()"
+    },
+    {
+      "name": "getOrCreateTerminationProvision",
+      "returnType": "cdm.product.template.TerminationProvision$TerminationProvisionBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TerminationProvision$TerminationProvisionBuilder getOrCreateTerminationProvision()"
+    },
+    {
+      "name": "getTerminationProvision",
+      "returnType": "cdm.product.template.TerminationProvision$TerminationProvisionBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TerminationProvision$TerminationProvisionBuilder getTerminationProvision()"
+    },
+    {
+      "name": "getOrCreateCalculationAgent",
+      "returnType": "cdm.observable.asset.CalculationAgent$CalculationAgentBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CalculationAgent$CalculationAgentBuilder getOrCreateCalculationAgent()"
+    },
+    {
+      "name": "getCalculationAgent",
+      "returnType": "cdm.observable.asset.CalculationAgent$CalculationAgentBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CalculationAgent$CalculationAgentBuilder getCalculationAgent()"
+    },
+    {
+      "name": "getOrCreateCollateral",
+      "returnType": "cdm.product.collateral.Collateral$CollateralBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral$CollateralBuilder getOrCreateCollateral()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral$CollateralBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.collateral.Collateral$CollateralBuilder getCollateral()"
+    },
+    {
+      "name": "setEffectiveDate",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.base.datetime.AdjustableOrRelativeDate"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setEffectiveDate(cdm.base.datetime.AdjustableOrRelativeDate)"
+    },
+    {
+      "name": "setTerminationDate",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.base.datetime.AdjustableOrRelativeDate"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setTerminationDate(cdm.base.datetime.AdjustableOrRelativeDate)"
+    },
+    {
+      "name": "setDateAdjustments",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.base.datetime.BusinessDayAdjustments"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setDateAdjustments(cdm.base.datetime.BusinessDayAdjustments)"
+    },
+    {
+      "name": "addPayout",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.product.template.Payout"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder addPayout(cdm.product.template.Payout)"
+    },
+    {
+      "name": "addPayout",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.product.template.Payout",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder addPayout(cdm.product.template.Payout, int)"
+    },
+    {
+      "name": "addPayout",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.Payout>"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder addPayout(java.util.List<? extends cdm.product.template.Payout>)"
+    },
+    {
+      "name": "setPayout",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.product.template.Payout>"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setPayout(java.util.List<? extends cdm.product.template.Payout>)"
+    },
+    {
+      "name": "setTerminationProvision",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.product.template.TerminationProvision"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setTerminationProvision(cdm.product.template.TerminationProvision)"
+    },
+    {
+      "name": "setCalculationAgent",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.observable.asset.CalculationAgent"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setCalculationAgent(cdm.observable.asset.CalculationAgent)"
+    },
+    {
+      "name": "setNonStandardisedTerms",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setNonStandardisedTerms(java.lang.Boolean)"
+    },
+    {
+      "name": "setCollateral",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [
+        "cdm.product.collateral.Collateral"
+      ],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder setCollateral(cdm.product.collateral.Collateral)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.EconomicTerms$EconomicTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.EconomicTerms$EconomicTermsBuilder prune()"
+    },
+    {
+      "name": "getCollateral",
+      "returnType": "cdm.product.collateral.Collateral",
+      "parameters": [],
+      "raw": "public default cdm.product.collateral.Collateral getCollateral()"
+    },
+    {
+      "name": "getCalculationAgent",
+      "returnType": "cdm.observable.asset.CalculationAgent",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.CalculationAgent getCalculationAgent()"
+    },
+    {
+      "name": "getTerminationProvision",
+      "returnType": "cdm.product.template.TerminationProvision",
+      "parameters": [],
+      "raw": "public default cdm.product.template.TerminationProvision getTerminationProvision()"
+    },
+    {
+      "name": "getDateAdjustments",
+      "returnType": "cdm.base.datetime.BusinessDayAdjustments",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.BusinessDayAdjustments getDateAdjustments()"
+    },
+    {
+      "name": "getTerminationDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.AdjustableOrRelativeDate getTerminationDate()"
+    },
+    {
+      "name": "getEffectiveDate",
+      "returnType": "cdm.base.datetime.AdjustableOrRelativeDate",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.AdjustableOrRelativeDate getEffectiveDate()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

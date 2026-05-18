@@ -1,0 +1,232 @@
+{
+  "className": "cdm.event.common.ContractDetails",
+  "exists": true,
+  "packageName": "cdm.event.common",
+  "simpleName": "ContractDetails",
+  "methods": [
+    {
+      "name": "getDocumentation",
+      "returnType": "java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement> getDocumentation()"
+    },
+    {
+      "name": "getGoverningLaw",
+      "returnType": "cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum getGoverningLaw()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.event.common.ContractDetails",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [],
+      "raw": "public static cdm.event.common.ContractDetails$ContractDetailsBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.ContractDetails>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.ContractDetails> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.event.common.ContractDetails>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.event.common.ContractDetails> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateDocumentation",
+      "returnType": "cdm.legaldocumentation.common.LegalAgreement$LegalAgreementBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.legaldocumentation.common.LegalAgreement$LegalAgreementBuilder getOrCreateDocumentation(int)"
+    },
+    {
+      "name": "getDocumentation",
+      "returnType": "java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement$LegalAgreementBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement$LegalAgreementBuilder> getDocumentation()"
+    },
+    {
+      "name": "getOrCreateGoverningLaw",
+      "returnType": "cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum$FieldWithMetaGoverningLawEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum$FieldWithMetaGoverningLawEnumBuilder getOrCreateGoverningLaw()"
+    },
+    {
+      "name": "getGoverningLaw",
+      "returnType": "cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum$FieldWithMetaGoverningLawEnumBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum$FieldWithMetaGoverningLawEnumBuilder getGoverningLaw()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "addDocumentation",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "cdm.legaldocumentation.common.LegalAgreement"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder addDocumentation(cdm.legaldocumentation.common.LegalAgreement)"
+    },
+    {
+      "name": "addDocumentation",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "cdm.legaldocumentation.common.LegalAgreement",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder addDocumentation(cdm.legaldocumentation.common.LegalAgreement, int)"
+    },
+    {
+      "name": "addDocumentation",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder addDocumentation(java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>)"
+    },
+    {
+      "name": "setDocumentation",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder setDocumentation(java.util.List<? extends cdm.legaldocumentation.common.LegalAgreement>)"
+    },
+    {
+      "name": "setGoverningLaw",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder setGoverningLaw(cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum)"
+    },
+    {
+      "name": "setGoverningLawValue",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "cdm.legaldocumentation.common.GoverningLawEnum"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder setGoverningLawValue(cdm.legaldocumentation.common.GoverningLawEnum)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.event.common.ContractDetails$ContractDetailsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.ContractDetails$ContractDetailsBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getGoverningLaw",
+      "returnType": "cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum",
+      "parameters": [],
+      "raw": "public default cdm.legaldocumentation.common.metafields.FieldWithMetaGoverningLawEnum getGoverningLaw()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

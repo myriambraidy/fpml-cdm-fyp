@@ -1,0 +1,279 @@
+[
+  {
+    "timestamp": "2026-04-26T14:09:50.922Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "total-return-swaps",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.927Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "total-return-swaps",
+      "includedPairs": 3,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 3,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.928Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+      "pairIndex": 1,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "1/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.929Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+      "pairIndex": 2,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "2/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.929Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+      "pairIndex": 3,
+      "totalPairs": 3,
+      "strategy": "exact",
+      "progress": "3/3"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.954Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 45708,
+      "retryAttempt": 0,
+      "fpmlChars": 18479,
+      "cdmChars": 21975,
+      "fpmlFields": 169,
+      "cdmFields": 265
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:50.986Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 42470,
+      "retryAttempt": 0,
+      "fpmlChars": 15712,
+      "cdmChars": 21393,
+      "fpmlFields": 153,
+      "cdmFields": 286
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:09:51.002Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 43655,
+      "retryAttempt": 0,
+      "fpmlChars": 18196,
+      "cdmChars": 20225,
+      "fpmlFields": 157,
+      "cdmFields": 257
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:35.275Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex01-equity-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44346,
+      "promptChars": 45708,
+      "responseChars": 3807,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:37.398Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46468,
+      "promptChars": 42470,
+      "responseChars": 3896,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:39.543Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "total-return-swaps/trs-ex02-single-equity.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48614,
+      "promptChars": 43655,
+      "responseChars": 2836,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:39.544Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 3,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:39.545Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "total-return-swaps",
+      "successfulPairCount": 3,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:10:39.578Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "total-return-swaps",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 5308,
+      "retryAttempt": 0,
+      "semanticPairCount": 3,
+      "structuralPairCount": 3,
+      "includedPairCount": 3,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.641Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "total-return-swaps",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 5308,
+      "responseChars": 10145,
+      "retryAttempt": 0,
+      "stableRuleCount": 3,
+      "transformationCount": 2
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.643Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.645Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.648Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 7.6,
+      "rating": "good",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.654Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:11:41.655Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "total-return-swaps",
+      "status": "success",
+      "durationMs": 110733,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\run-log.json"
+    }
+  }
+]

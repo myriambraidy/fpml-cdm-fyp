@@ -1,0 +1,371 @@
+{
+  "className": "cdm.observable.asset.PriceSchedule",
+  "exists": true,
+  "packageName": "cdm.observable.asset",
+  "simpleName": "PriceSchedule",
+  "methods": [
+    {
+      "name": "getPerUnitOf",
+      "returnType": "cdm.base.math.UnitType",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType getPerUnitOf()"
+    },
+    {
+      "name": "getPriceType",
+      "returnType": "cdm.observable.asset.PriceTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceTypeEnum getPriceType()"
+    },
+    {
+      "name": "getPriceExpression",
+      "returnType": "cdm.observable.asset.PriceExpressionEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceExpressionEnum getPriceExpression()"
+    },
+    {
+      "name": "getComposite",
+      "returnType": "cdm.observable.asset.PriceComposite",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceComposite getComposite()"
+    },
+    {
+      "name": "getArithmeticOperator",
+      "returnType": "cdm.base.math.ArithmeticOperationEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.ArithmeticOperationEnum getArithmeticOperator()"
+    },
+    {
+      "name": "getCashPrice",
+      "returnType": "cdm.observable.asset.CashPrice",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CashPrice getCashPrice()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.observable.asset.PriceSchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [],
+      "raw": "public static cdm.observable.asset.PriceSchedule$PriceScheduleBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.PriceSchedule>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.observable.asset.PriceSchedule> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.observable.asset.PriceSchedule>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.observable.asset.PriceSchedule> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.MeasureSchedule",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.MeasureBase",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePerUnitOf",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder getOrCreatePerUnitOf()"
+    },
+    {
+      "name": "getPerUnitOf",
+      "returnType": "cdm.base.math.UnitType$UnitTypeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.UnitType$UnitTypeBuilder getPerUnitOf()"
+    },
+    {
+      "name": "getOrCreateComposite",
+      "returnType": "cdm.observable.asset.PriceComposite$PriceCompositeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceComposite$PriceCompositeBuilder getOrCreateComposite()"
+    },
+    {
+      "name": "getComposite",
+      "returnType": "cdm.observable.asset.PriceComposite$PriceCompositeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceComposite$PriceCompositeBuilder getComposite()"
+    },
+    {
+      "name": "getOrCreateCashPrice",
+      "returnType": "cdm.observable.asset.CashPrice$CashPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CashPrice$CashPriceBuilder getOrCreateCashPrice()"
+    },
+    {
+      "name": "getCashPrice",
+      "returnType": "cdm.observable.asset.CashPrice$CashPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.CashPrice$CashPriceBuilder getCashPrice()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder addDatedValue(cdm.base.math.DatedValue)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue",
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder addDatedValue(cdm.base.math.DatedValue, int)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.DatedValue>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder addDatedValue(java.util.List<? extends cdm.base.math.DatedValue>)"
+    },
+    {
+      "name": "setDatedValue",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.DatedValue>"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setDatedValue(java.util.List<? extends cdm.base.math.DatedValue>)"
+    },
+    {
+      "name": "setPerUnitOf",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setPerUnitOf(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setPriceType",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceTypeEnum"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setPriceType(cdm.observable.asset.PriceTypeEnum)"
+    },
+    {
+      "name": "setPriceExpression",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceExpressionEnum"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setPriceExpression(cdm.observable.asset.PriceExpressionEnum)"
+    },
+    {
+      "name": "setComposite",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceComposite"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setComposite(cdm.observable.asset.PriceComposite)"
+    },
+    {
+      "name": "setArithmeticOperator",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.ArithmeticOperationEnum"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setArithmeticOperator(cdm.base.math.ArithmeticOperationEnum)"
+    },
+    {
+      "name": "setCashPrice",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [
+        "cdm.observable.asset.CashPrice"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder setCashPrice(cdm.observable.asset.CashPrice)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.observable.asset.PriceSchedule$PriceScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.PriceSchedule$PriceScheduleBuilder prune()"
+    },
+    {
+      "name": "getCashPrice",
+      "returnType": "cdm.observable.asset.CashPrice",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.CashPrice getCashPrice()"
+    },
+    {
+      "name": "getComposite",
+      "returnType": "cdm.observable.asset.PriceComposite",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.PriceComposite getComposite()"
+    },
+    {
+      "name": "getPerUnitOf",
+      "returnType": "cdm.base.math.UnitType",
+      "parameters": [],
+      "raw": "public default cdm.base.math.UnitType getPerUnitOf()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder prune()"
+    },
+    {
+      "name": "setDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue",
+        "int"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(cdm.base.math.DatedValue, int)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(cdm.base.math.DatedValue)"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder prune()"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

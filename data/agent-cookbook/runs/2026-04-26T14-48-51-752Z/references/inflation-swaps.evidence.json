@@ -1,0 +1,305 @@
+{
+  "folder": "inflation-swaps",
+  "generatedAt": "2026-04-26T14:48:51.752Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 5,
+    "structuralPairCount": 5,
+    "semanticPairCount": 5,
+    "fullSemanticPairCount": 5,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 5/5 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 5/5 successful or salvaged pair analyses (5 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 9,
+    "rating": "strong",
+    "reasons": [
+      "Only 3 stable mapping rules were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 3,
+      "repeatedTransformationCount": 4,
+      "tentativePatternCount": 3,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 8,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Date normalization: unadjustedDate -> adjustableDate.unadjustedDate (YYYY-MM-DD)",
+      "strength": "strong recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "calculationperioddates.effectivedate.unadjusteddate (FpML datetime with timezone)",
+      "targetPattern": "effectivedate.adjustabledate.unadjusteddate (CDM date formatted YYYY-MM-DD)",
+      "explanation": "Dates from multiple FpML examples are copied into CDM unadjusted date fields after removing timezone and trimming to date (YYYY-MM-DD).",
+      "whyItWorksThisWay": "CDM fields expect date-only values; repeated examples show timezone-stripping and formatting applied deterministically.",
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "caveats": [
+        "Some datetime inputs include timezones and times - transformation removes timezone and time component.",
+        "Ensure resulting value is validated as ISO date (YYYY-MM-DD)."
+      ]
+    },
+    {
+      "id": "RULE-002",
+      "name": "Party reference resolution: swapstream payer/receiver href -> interestratepayout.payerreceiver.payer|receiver",
+      "strength": "strong recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "swapstream.payerpartyreference.href | swapstream.receiverpartyreference.href (FpML party hrefs)",
+      "targetPattern": "interestratepayout.payerreceiver.payer | interestratepayout.payerreceiver.receiver (CDM party role labels/externalReference)",
+      "explanation": "Party hrefs are consistently resolved into CDM payer/receiver role entries. Multiple examples show this resolution and that the order/assignment may be inverted relative to the raw href order.",
+      "whyItWorksThisWay": "FpML uses href references to identify payer/receiver; CDM represents explicit payer/receiver role objects, so hrefs are mapped to those objects. Repeated examples indicate a consistent mapping rule was applied (with inversion in some outputs).",
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "caveats": [
+        "Several outputs show the payer/receiver assignment reversed versus the original hrefs - treat inversion as active behavior to investigate rather than an isolated error.",
+        "Mapping should preserve party identity (externalKey/partyId) even when role assignment appears inverted."
+      ]
+    },
+    {
+      "id": "RULE-003",
+      "name": "Trade identifier copy: tradeHeader.tradeId -> assignedIdentifier.identifier.value",
+      "strength": "strong recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "tradeheader.partytradeidentifier.tradeid (FpML tradeId)",
+      "targetPattern": "assignedidentifier.identifier.value (CDM tradeIdentifier/assignedIdentifier value)",
+      "explanation": "FpML tradeId values are repeatedly copied into CDM assignedIdentifier/identifier.value fields.",
+      "whyItWorksThisWay": "Trade identifiers are preserved to maintain traceability; examples show direct copying of FpML tradeId into CDM identifier structures.",
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "caveats": [
+        "CDM may include additional identifier metadata (scheme) not present in the FpML field - mapping preserves core id value but external scheme population may vary."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Date/time normalization and trimming",
+      "type": "normalization",
+      "description": "Strip timezone and time component from FpML datetimes and format as date (YYYY-MM-DD) when populating CDM unadjusted date fields.",
+      "sourceSide": "FpML datetime fields (e.g., calculationPeriodDates.effectivedate.unadjusteddate with timezone)",
+      "targetSide": "CDM adjustableDate.unadjustedDate as date-only string (YYYY-MM-DD)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Representative notes indicate removal of timezone is applied consistently.",
+        "Be explicit about validating resulting date format after transformation."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Timezone removal as normalization",
+      "type": "normalization",
+      "description": "Removal of timezone and trimming datetimes to date is a normalization behavior applied consistently in examples.",
+      "sourceSide": "Normalization cue inferred from source-side values.",
+      "targetSide": "Timezone removal as normalization",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Normalization should be implemented deterministically (strip timezone, drop time component).",
+        "Confirm timezone handling policy if any timezone-aware logic is required."
+      ]
+    },
+    {
+      "id": "TR-003",
+      "name": "Copy tradeId into assignedIdentifier",
+      "type": "normalization",
+      "description": "Copy FpML tradeId values into CDM assignedIdentifier.identifier.value (preserve identifier value).",
+      "sourceSide": "tradeheader.partytradeidentifier.tradeid (FpML)",
+      "targetSide": "tradeIdentifier.assignedIdentifier.identifier.value (CDM)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Examples show direct copying; scheme or namespace for assignedIdentifier may need separate handling."
+      ]
+    },
+    {
+      "id": "TR-004",
+      "name": "Party href resolution to payer/receiver role",
+      "type": "reference resolution",
+      "description": "Resolve FpML party hrefs used in swapStream payer/receiver references into CDM payer/receiver role objects (party.externalKey or partyId).",
+      "sourceSide": "swapstream.payerpartyreference.href | swapstream.receiverpartyreference.href",
+      "targetSide": "interestratepayout.payerreceiver.payer | interestratepayout.payerreceiver.receiver (CDM party role entries)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Outputs frequently map href -> role label, but examples show role assignment may be inverted; mapping must reliably reference the correct party object even if role order differs."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "transformation",
+      "strength": "strong recurring pattern",
+      "description": "Normalization repeatedly reshapes calculationperioddates.effectivedate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Strip timezone and format as YYYY-MM-DD",
+        "Representative note: strip timezone from date",
+        "Representative note: remove timezone from datetime"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "mapping",
+      "strength": "strong recurring pattern",
+      "description": "Party references repeatedly resolve from swapstream.payerpartyreference.href|swapstream.receiverpartyreference.href into interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: payer/receiver mapping appears inverted",
+        "Representative note: party hrefs mapped to role labels; order reversed",
+        "Confidence mix includes high."
+      ]
+    },
+    {
+      "id": "TENT-003",
+      "kind": "mapping",
+      "strength": "strong recurring pattern",
+      "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: tradeId -> tradeIdentifier.assignedIdentifier.value",
+        "Representative note: tradeId -> tradeIdentifier.value",
+        "Representative note: FpML tradeId values copied to CDM assignedIdentifier"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "Payer/receiver role inversion",
+      "description": "Although party hrefs are resolved into CDM payer/receiver roles consistently, multiple examples show the CDM payer/receiver assignment is reversed relative to the FpML href ordering.",
+      "seenIn": [
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "impactOnGeneralization": "Mapping logic should account for possible systematic inversion; do not assume first href -> payer without verifying role semantics. Treat inversion as an important exception to validate."
+    },
+    {
+      "id": "VAR-002",
+      "name": "Unmapped bondReference",
+      "description": "Some FpML fields such as bondReference appear in inputs but do not have an obvious CDM target in the provided examples.",
+      "seenIn": [
+        "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml"
+      ],
+      "impactOnGeneralization": "Fields without repeated mapping evidence should be treated as exceptions; avoid inventing CDM targets without additional mappings or stakeholder guidance."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "Unmapped interpolation/publication metadata",
+      "description": "Index source, mainPublication and interpolationMethod fields in FpML are present in inputs but their CDM targets are unclear or not represented in examples.",
+      "classification": "unclear",
+      "evidence": [
+        "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "inflation-swaps/inflation-swap-ex05-zc.xml"
+      ],
+      "caution": [
+        "Do not assume these fields are omitted intentionally; seek domain guidance on where such metadata should go in CDM (if at all)."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "Quantity scaling hypothesis",
+      "description": "Observed CDM quantity values (e.g., 1000000) may be derived by scaling FpML input values (example mentions initialValue 1). The transformation is not explicitly shown but is suspected.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "inflation-swaps/inflation-swap-ex01-yoy.xml"
+      ],
+      "caution": [
+        "Scaling logic is not demonstrated across multiple examples - treat as tentative and verify with canonical rules or source system metadata before applying.",
+        "Do not apply automatic scaling unless mapping rule is confirmed."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Why CDM counterparty roles reference opposite externalReference?",
+    "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?",
+    "bondReference in FpML not represented in CDM; where mapped?",
+    "Why is CDM payer value reversed versus FpML hrefs?",
+    "Where were indexSource/mainPublication/interpolation mapped?",
+    "Why CDM payer role labels invert FpML hrefs?",
+    "Where interpolationMethod (LinearZeroYield) should map in CDM?",
+    "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?"
+  ]
+}

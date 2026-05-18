@@ -1,0 +1,322 @@
+namespace cdm.base.math : <"Basic maths concepts: quantity and unit, rounding, curve / schedule, non-negativity constraint etc.">
+version "${project.version}"
+
+import cdm.base.math.util.*
+
+func CompareNumbers:
+    inputs:
+        n1 number (1..1)
+        op CompareOp (1..1)
+        n2 number (1..1)
+    output:
+        result boolean (1..1)
+
+    set result:
+        if op = CompareOp -> GreaterThan
+        then n1 > n2 = True
+        else if op = CompareOp -> GreaterThanOrEquals
+        then n1 >= n2 = True
+        else if op = CompareOp -> Equals
+        then n1 = n2 = True
+        else if op = CompareOp -> LessThanOrEquals
+        then n1 <= n2 = True
+        else if op = CompareOp -> LessThan
+        then n1 < n2 = True
+        else False
+
+func Abs: <"Returns the absolute value of a number. If the argument is not negative, the argument is returned. If the argument is negative, the negation of the argument is returned.">
+    inputs:
+        arg number (1..1)
+    output:
+        result number (1..1)
+    set result: if arg < 0 then -1 * arg else arg
+
+func Max: <"Returns the greater number of two supplied numbers.">
+    inputs:
+        a number (1..1)
+        b number (1..1)
+    output:
+        result number (1..1)
+    set result: if a > b then a else b
+
+func Min: <"Returns the lesser number of two supplied numbers.">
+    inputs:
+        a number (1..1)
+        b number (1..1)
+    output:
+        result number (1..1)
+    set result: if a > b then b else a
+
+func RoundToNearest: <"Round a number to the supplied nearest, using the supplied rounding mode.">
+    [codeImplementation]
+    inputs:
+        value number (1..1) <"The original (unrounded) number.">
+        nearest number (1..1) <"The nearest number to round to.">
+        roundingMode RoundingModeEnum (1..1) <"The method of rounding (up to nearest/down to nearest).">
+    output:
+        roundedValue number (1..1)
+    condition PositiveNearest:
+        nearest > 0
+
+func RoundToPrecision: <"Round a number to the supplied precision, using the supplied rounding direction.">
+    [codeImplementation]
+    inputs:
+        value number (1..1) <"The original (unrounded) number.">
+        precision int (1..1) <"The number of decimal digits of precision.">
+        roundingMode RoundingDirectionEnum (1..1) <"The method of rounding (up/down/nearest).">
+        removeTrailingZeros boolean (1..1) <"Flag to specify whether to strip trailing zeros.">
+    output:
+        roundedValue number (1..1) <"The value to the desired precision">
+
+    condition NonNegativePrecision: <"The number of decimal digits of precision should be greater than or equal to zero.">
+        precision >= 0
+
+func RoundToSignificantFigures: <"Round a number to the supplied significant figures, using the supplied rounding direction.">
+    [codeImplementation]
+    inputs:
+        value number (1..1) <"The original (unrounded) number.">
+        significantFigures int (1..1) <"The number of significant figures.">
+        roundingMode RoundingDirectionEnum (1..1) <"The method of rounding (up/down/nearest).">
+    output:
+        roundedValue number (1..1) <"The value to the desired number of significant figures.">
+
+    condition NonZeroSignificantFigures: <"The number of significant figures should be greater than zero.">
+        significantFigures > 0
+
+func CompareQuantityByUnitOfAmount:
+    inputs:
+        quantity1 Quantity (0..*)
+        op CompareOp (1..1)
+        quantity2 Quantity (0..*)
+        unitOfAmount UnitType (1..1)
+    output:
+        result boolean (1..1)
+
+    set result:
+        FilterQuantity(quantity1, unitOfAmount)
+            extract q1 [
+                FilterQuantity(quantity2, unitOfAmount)
+                    extract q2 [ CompareNumbers(q1 -> value, op, q2 -> value) ]
+            ]
+            then flatten all = True
+
+func UnitEquals: <"Compares two UnitType to check if all attributes match.">
+    inputs:
+        u1 UnitType (0..1)
+        u2 UnitType (0..1)
+    output:
+        result boolean (1..1)
+
+    set result:
+        if u1 -> currency exists
+        then StringEquals(u1 -> currency, u2 -> currency) // ignore scheme when comparing
+        else u1 = u2
+
+func StringEquals: <"Used by UnitEquals to compare two strings while ignoring the scheme.">
+    inputs:
+        s1 string (0..1)
+        s2 string (0..1)
+    output:
+        result boolean (1..1)
+
+    set result: s1 = s2
+
+func UpdateAmount: <"Updates an amount based on the given QuantityChangeDirectionEnum.  If the direction is Increase, the old amount and change amount are summed, if the direction is Decrease, then the change amount is subtracted from the old amount, and if the direction is Replace then the change amount replaces the old amount.">
+    inputs:
+        oldAmount number (0..1)
+        changeAmount number (0..1)
+        direction QuantityChangeDirectionEnum (1..1)
+    output:
+        newAmount number (0..1)
+
+    set newAmount:
+        direction switch
+            Increase then oldAmount + changeAmount,
+            Decrease then oldAmount - changeAmount,
+            Replace then changeAmount
+
+func UpdateDatedValues: <"Updates the amounts of the dated values based on the given QuantityChangeDirectionEnum. For all periods after the effective date of the change, if the direction is Increase, the old amount and change amount are summed, if the direction is Decrease, then the change amount is subtracted from the old amount, and if the direction is Replace then the change amount replaces the old amount.">
+    inputs:
+        datedValues DatedValue (0..*)
+        changeAmount number (0..1)
+        direction QuantityChangeDirectionEnum (1..1)
+        effectiveDate date (0..1)
+    output:
+        newdatedValues DatedValue (0..*)
+
+    add newdatedValues:
+        datedValues
+            extract
+                DatedValue {
+                    date: item -> date,
+                    value: if item -> date >= effectiveDate
+                            then (if direction = QuantityChangeDirectionEnum -> Increase
+                            then item -> value + changeAmount
+                            else if direction = QuantityChangeDirectionEnum -> Decrease
+                            then item -> value - changeAmount
+                            else if direction = QuantityChangeDirectionEnum -> Replace
+                            then changeAmount)
+                        else item -> value
+                }
+
+func FilterQuantity: <"Filter list of quantities based on unit type.">
+    inputs:
+        quantities Quantity (0..*) <"List of quantities to filter.">
+        unit UnitType (1..1) <"Currency unit type.">
+    output:
+        filteredQuantities Quantity (0..*)
+
+    add filteredQuantities: quantities filter item -> unit = unit
+
+func FilterQuantityByCurrency: <"Filter list of quantities based on unit type.">
+    inputs:
+        quantities QuantitySchedule (0..*) <"List of quantities to filter.">
+        currency string (1..1) <"Currency unit type.">
+    output:
+        filteredQuantities QuantitySchedule (0..*)
+
+    add filteredQuantities: quantities filter item -> unit -> currency = currency
+
+func FilterQuantityByCurrencyExists: <"Filter list of quantities based on unit type.">
+    inputs:
+        quantities QuantitySchedule (0..*) <"List of quantities to filter.">
+    output:
+        filteredQuantities QuantitySchedule (0..*)
+
+    add filteredQuantities: quantities filter item -> unit -> currency exists
+
+func FilterQuantityByFinancialUnit: <"Filter list of quantities based on unit type.">
+    inputs:
+        quantities QuantitySchedule (0..*) <"List of quantities to filter.">
+        financialUnit FinancialUnitEnum (1..1) <"FinancialUnitEnum unit type.">
+    output:
+        filteredQuantities QuantitySchedule (0..*)
+
+    add filteredQuantities: quantities filter item -> unit -> financialUnit = financialUnit
+
+func AppendToVector: <"Append a single value to a vector (list of numbers).">
+    inputs:
+        vector number (0..*) <"Input vector.">
+        value number (1..1) <"Value to add to the vector.">
+    output:
+        resultVector number (0..*) <"Resulting vector.">
+
+    add resultVector: vector
+    add resultVector: value
+
+func VectorOperation: <"Generates a result vector by applying the supplied arithmetic operation to each element of the supplied left and right vectors in turn.  i.e. result[n] = left[n] <op> right[n], where <op> is the arithmetic operation defined by ArithmeticOperationEnum.">
+    [codeImplementation]
+    inputs:
+        arithmeticOp ArithmeticOperationEnum (1..1) <"Vector operator.">
+        left number (0..*) <"Left vector.">
+        right number (0..*) <"Right vector.">
+    output:
+        result number (0..*) <"Result vector.">
+
+func VectorScalarOperation: <"Generates a result vector by applying the supplied arithmetic operation and scalar right value to each element of the supplied left vector in turn. i.e. result[n] = left[n] <op> right, where <op> is the arithmetic operation defined by ArithmeticOperationEnum.">
+    inputs:
+        arithmeticOp ArithmeticOperationEnum (1..1) <"Arithmetic operator to be applied.">
+        left number (0..*) <"Left vector.">
+        right number (0..1) <"Scalar number - a single value to be applied to all elements of vector.">
+    output:
+        result number (0..*) <"Result vector.">
+
+    alias rightOrDefault: if right exists then right else 0.0
+
+    add result: left extract ArithmeticOperation(item, arithmeticOp, rightOrDefault)
+
+func VectorGrowthOperation: <"Generates a result vector by starting with the supplied base value (typically 1), and then multiplying it in turn by each growth factor, which is typically a number just above 1. For instance, a growth factor of 1.1 reprsents a 10% increase, and 0.9 a 10% decrease. The results will show the successive results of applying the successive growth factors, with the first value of the list being the supplied baseValue, and final value of the results list being the product of all of the supplied values.  i.e. result[1] = baseValue * factor[1], result[n] = result[n-1] * factor[n]. The resulting list will have the one more element than the supplied list of factors.">
+    [codeImplementation]
+    inputs:
+        baseValue number (1..1) <"Original value, typically 1.0.">
+        factor number (0..*) <"Vector of growth factors, which are all typically slightly greater than 1.0.">
+    output:
+        result number (0..*) <"Result vector, showing all of the interim growth values">
+
+func ArithmeticOperation:
+    inputs:
+        n1 number (1..1)
+        op ArithmeticOperationEnum (1..1)
+        n2 number (1..1)
+    output:
+        result number (1..1)
+
+    set result:
+        if op = ArithmeticOperationEnum -> Add
+        then n1 + n2
+        else if op = ArithmeticOperationEnum -> Subtract
+        then n1 - n2
+        else if op = ArithmeticOperationEnum -> Multiply
+        then n1 * n2
+        else if op = ArithmeticOperationEnum -> Divide
+        then n1 / n2
+        else if op = ArithmeticOperationEnum -> Max
+        then Max(n1, n2)
+        else if op = ArithmeticOperationEnum -> Min
+        then Min(n1, n2)
+
+// ==============
+// EXPONENTIAL
+// ==============
+func Exp: <"Calculates the exponential function e^x. Handles zero and negative inputs by utilizing the inverse property exp(-x) = 1/exp(x), and delegates positive inputs to an argument reduction router to ensure numerical stability.">
+    inputs: x number (1..1)
+    output: result number (1..1)
+     set result:
+        if x = 0.0 then 1.0
+        else if x < 0.0 then 1.0 / Exp_Pos_Router(x * -1.0)
+        else Exp_Pos_Router(x)
+
+// ==============
+// SQUARE ROOT
+// ==============
+func Sqrt: <"Approximates the square root of a number using the Newton-Raphson method (Babylonian method). Utilizes a tiered initial guess strategy based on input magnitude followed by 10 unrolled iterations to ensure convergence to double precision.">
+    inputs: x number (1..1)
+    output: result number (1..1)
+
+    // SMART INITIAL GUESS LADDER
+    alias g0:
+        if x > 1000000.0 then 1000.0
+        else if x > 10000.0 then 100.0
+        else if x > 100.0 then 10.0
+        else if x > 1.0 then 1.5 // Generic guess for small numbers > 1
+        else 0.5 // Generic guess for small numbers < 1
+
+    // 10 Iterations are enough if g0 is good
+    alias g1: 0.5 * (g0 + (x/g0))
+    alias g2: 0.5 * (g1 + (x/g1))
+    alias g3: 0.5 * (g2 + (x/g2))
+    alias g4: 0.5 * (g3 + (x/g3))
+    alias g5: 0.5 * (g4 + (x/g4))
+    alias g6: 0.5 * (g5 + (x/g5))
+    alias g7: 0.5 * (g6 + (x/g6))
+    alias g8: 0.5 * (g7 + (x/g7))
+    alias g9: 0.5 * (g8 + (x/g8))
+    alias g10: 0.5 * (g9 + (x/g9))
+
+    set result:
+        if x < 0.0 then empty
+        else if x = 0.0 then 0.0
+        else if x = 1.0 then 1.0
+        else g10
+
+// ============
+// LOGARITHM
+// ============
+func Log: <"Calculates the natural logarithm ln(x). Uses argument scaling to shift inputs into the optimal series convergence range (0.5 to 2.0) by applying logarithmic identities (e.g., ln(x) = ln(x*C) - ln(C)) for small or large inputs.">
+    inputs: x number (1..1)
+    output: result number (1..1)
+
+    // SCALING ROUTER
+    set result:
+        if x <= 0.0 then empty
+        else if x < 0.1 then
+            // x=0.01 -> Log(1) - 4.605...
+            Log_Internal_Series(x * 100.0) - 4.605170186
+        else if x < 0.5 then
+            // x=0.1 -> Log(1) - 2.302...
+            Log_Internal_Series(x * 10.0) - 2.302585093
+        else if x > 2.0 then
+             // x=10 -> Log(1) + 2.302...
+             Log_Internal_Series(x / 10.0) + 2.302585093
+        else
+            Log_Internal_Series(x)

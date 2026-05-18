@@ -1,0 +1,644 @@
+[
+  {
+    "timestamp": "2026-04-26T14:04:41.423Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.428Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "includedPairs": 11,
+      "missingExamples": 24,
+      "ignoredExamples": 0,
+      "exactMatches": 2,
+      "normalizedMatches": 9,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.429Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+      "pairIndex": 1,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "1/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.430Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+      "pairIndex": 2,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "2/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.431Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+      "pairIndex": 3,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "3/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.431Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+      "pairIndex": 4,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "4/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.431Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+      "pairIndex": 5,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "5/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.432Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+      "pairIndex": 6,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "6/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.432Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex07-ois-swap.xml",
+      "pairIndex": 7,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "7/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.432Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex08-fra.xml",
+      "pairIndex": 8,
+      "totalPairs": 11,
+      "strategy": "exact",
+      "progress": "8/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.451Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 30220,
+      "retryAttempt": 0,
+      "fpmlChars": 8108,
+      "cdmChars": 16276,
+      "fpmlFields": 68,
+      "cdmFields": 195
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.463Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 57567,
+      "retryAttempt": 0,
+      "fpmlChars": 21118,
+      "cdmChars": 30593,
+      "fpmlFields": 187,
+      "cdmFields": 400
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.471Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 47155,
+      "retryAttempt": 0,
+      "fpmlChars": 16700,
+      "cdmChars": 24614,
+      "fpmlFields": 151,
+      "cdmFields": 314
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.475Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 33293,
+      "retryAttempt": 0,
+      "fpmlChars": 8896,
+      "cdmChars": 18473,
+      "fpmlFields": 78,
+      "cdmFields": 230
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.480Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 34912,
+      "retryAttempt": 0,
+      "fpmlChars": 9824,
+      "cdmChars": 19247,
+      "fpmlFields": 84,
+      "cdmFields": 232
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.490Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 58491,
+      "retryAttempt": 0,
+      "fpmlChars": 20261,
+      "cdmChars": 32280,
+      "fpmlFields": 176,
+      "cdmFields": 397
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.494Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex07-ois-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 30598,
+      "retryAttempt": 0,
+      "fpmlChars": 8116,
+      "cdmChars": 16601,
+      "fpmlFields": 69,
+      "cdmFields": 203
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:04:41.498Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex08-fra.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 21349,
+      "retryAttempt": 0,
+      "fpmlChars": 2823,
+      "cdmChars": 13404,
+      "fpmlFields": 31,
+      "cdmFields": 171
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:27.415Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex04-arrears-stepup-fee-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 45984,
+      "promptChars": 33293,
+      "responseChars": 3455,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:27.417Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+      "pairIndex": 9,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "9/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:27.438Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 41009,
+      "retryAttempt": 0,
+      "fpmlChars": 10797,
+      "cdmChars": 23768,
+      "fpmlFields": 91,
+      "cdmFields": 243
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:29.277Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex01-vanilla-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47847,
+      "promptChars": 30220,
+      "responseChars": 2969,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:29.278Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+      "pairIndex": 10,
+      "totalPairs": 11,
+      "strategy": "normalized",
+      "progress": "10/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:29.297Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 41952,
+      "retryAttempt": 0,
+      "fpmlChars": 11326,
+      "cdmChars": 24181,
+      "fpmlFields": 97,
+      "cdmFields": 247
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:36.560Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex07-ois-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 55128,
+      "promptChars": 30598,
+      "responseChars": 3610,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:36.561Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml",
+      "pairIndex": 11,
+      "totalPairs": 11,
+      "strategy": "exact",
+      "progress": "11/11"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:36.581Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 42005,
+      "retryAttempt": 0,
+      "fpmlChars": 10991,
+      "cdmChars": 24563,
+      "fpmlFields": 95,
+      "cdmFields": 255
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:40.236Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex05-long-stub-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 58804,
+      "promptChars": 34912,
+      "responseChars": 2588,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:42.143Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex03-compound-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 60712,
+      "promptChars": 47155,
+      "responseChars": 3995,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:42.566Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex06-xccy-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 61134,
+      "promptChars": 58491,
+      "responseChars": 2818,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:54.525Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex08-fra.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 73092,
+      "promptChars": 21349,
+      "responseChars": 2275,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:05:58.129Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex02-stub-amort-swap.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 76699,
+      "promptChars": 57567,
+      "responseChars": 4647,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:08.107Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex10-euro-swaption-relative.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 38828,
+      "promptChars": 41952,
+      "responseChars": 2035,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:23.244Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex09-euro-swaption-explicit.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 55824,
+      "promptChars": 41009,
+      "responseChars": 3378,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:24.659Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "interest-rate-derivatives/ird-ex11-euro-swaption-partial-auto-ex.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48097,
+      "promptChars": 42005,
+      "responseChars": 2374,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:24.661Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 11,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:24.661Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "successfulPairCount": 11,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 11
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:06:24.694Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15655,
+      "retryAttempt": 0,
+      "semanticPairCount": 11,
+      "structuralPairCount": 11,
+      "includedPairCount": 11,
+      "missingExampleCount": 24
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.023Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 15655,
+      "responseChars": 22243,
+      "retryAttempt": 0,
+      "stableRuleCount": 4,
+      "transformationCount": 7
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.029Z",
+    "level": "error",
+    "stage": "validation",
+    "message": "Integrity validation failed for synthesized draft.",
+    "data": {
+      "issueCount": 6,
+      "issues": [
+        "Representative highlights mention multiple CDM tradeIdentifier issuer entries lack clear FpML source (ird-ex04).",
+        "Trade id mismatches noted in ird-ex01 and ird-ex07.",
+        "Examples: ird-ex01, ird-ex04, ird-ex07 show CDM party identifiers not matching FpML partyId.",
+        "Representative open questions and highlights noting CDM party.partyId LEIs differ from FpML partyId values.",
+        "Multiple examples and uncertainties about how Party1/Party2 derived (see ird-ex03, ird-ex05).",
+        "Representative open questions asking how Party1/Party2 labels were derived."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.030Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "failed_integrity_validation",
+      "publishFinal": false,
+      "reasons": [
+        "Enrichment ENR-001 references an unexpected example.",
+        "Enrichment ENR-001 references an unexpected example.",
+        "Enrichment ENR-002 references an unexpected example.",
+        "Enrichment ENR-002 references an unexpected example.",
+        "Enrichment ENR-003 references an unexpected example.",
+        "Enrichment ENR-003 references an unexpected example."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.034Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 6.8,
+      "rating": "good",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.040Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives",
+      "publishFinal": false,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:08:13.041Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "interest-rate-derivatives",
+      "status": "failed_integrity_validation",
+      "durationMs": 211618,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\draft.partial.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\interest-rate-derivatives\\run-log.json"
+    }
+  }
+]

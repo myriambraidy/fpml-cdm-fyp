@@ -1,0 +1,1721 @@
+{
+  "generatedAt": "2026-04-26T14:03:47.629Z",
+  "config": {
+    "workspaceRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp",
+    "fpmlRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml",
+    "cdmRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel",
+    "outputRoot": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts",
+    "folder": "inflation-swaps",
+    "pairConcurrency": 8,
+    "pairMaxRetries": 1,
+    "synthesisMaxRetries": 1,
+    "model": "openai/gpt-5-mini",
+    "synthesisModel": "openai/gpt-5-mini",
+    "pairMaxTokens": 128000,
+    "synthesisMaxTokens": 128000,
+    "storeFailedRawResponses": true
+  },
+  "selection": {
+    "manifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\manifest.json",
+    "folder": "inflation-swaps",
+    "includedPairs": [
+      {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex01-yoy.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex01-yoy.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex01-yoy.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex03-yoy-initial-level.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex04-yoy-interp.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex04-yoy-interp.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex04-yoy-interp.json",
+        "pairingStrategy": "exact"
+      },
+      {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex05-zc.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex05-zc.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex05-zc.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex05-zc.json",
+        "pairingStrategy": "exact"
+      }
+    ],
+    "missingExamples": [],
+    "ignoredExamples": [],
+    "coverage": {
+      "totalFpmlFilesInFolder": 5,
+      "matchedPairsAvailable": 5,
+      "matchedPairsUsed": 5,
+      "missingCounterparts": 0,
+      "ignoredPairs": 0,
+      "exactMatches": 5,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  "pairAnalyses": [
+    {
+      "pair": {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex01-yoy.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex01-yoy.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex01-yoy.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "inflation-swap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > swap (82 paths); party > account (6 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > swap (82 paths)",
+          "party > account (6 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 102
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "transferHistory",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, transferHistory, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (101 paths); trade > tradeLot (33 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (101 paths)",
+          "trade > tradeLot (33 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "transferHistory > transfer (17 paths)",
+          "trade > account (13 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.scope"
+        ],
+        "rawFieldCount": 216
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeIdentifier[].assignedIdentifier[].identifier.value",
+            "$.trade.tradeIdentifier[].assignedIdentifier[].identifier.meta.scheme"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML tradeId -> CDM tradeIdentifier value and scheme",
+          "confidence": "high",
+          "whyNote": "Values and schemes match in both documents"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/party/partyId"
+          ],
+          "targetPaths": [
+            "$.trade.party[].partyId[].identifier.value",
+            "$.trade.party[].meta.externalKey"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML party id -> CDM party.partyId and externalKey",
+          "confidence": "high",
+          "whyNote": "partyId values and externalKey party1/party2 correspond"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "Timezone removed, date normalized to YYYY-MM-DD",
+          "confidence": "high",
+          "whyNote": "FpML contains '+05:00', CDM uses '2003-11-20' format"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream/calculationPeriodAmount/calculation/inflationRateCalculation/floatingRateIndex"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[].priceQuantity[].observable.value.Index.InterestRateIndex.value.InflationIndex.inflationRateIndex.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML floatingRateIndex -> CDM inflationRateIndex.value",
+          "confidence": "high",
+          "whyNote": "Index 'USA-CPI-U' appears in both documents"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "Strip timezone and format as YYYY-MM-DD",
+          "confidence": "high"
+        },
+        {
+          "type": "reference_resolution",
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream/calculationPeriodDates/@id",
+            "/FpML/trade/swap/swapStream/paymentDates/calculationPeriodDatesReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[].InterestRatePayout.calculationPeriodDates.meta.externalKey"
+          ],
+          "transformationNote": "FpML id/href preserved as CDM externalKey",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.tradeLot[].priceQuantity[].quantity[].value.value"
+          ],
+          "enrichmentNote": "Quantity 1000000 present in CDM, not explicit in FpML",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why CDM counterparty roles reference opposite externalReference?",
+        "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex01-yoy.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "FpML tradeId -> CDM tradeIdentifier value and scheme",
+          "FpML party id -> CDM party.partyId and externalKey",
+          "Timezone removed, date normalized to YYYY-MM-DD",
+          "FpML floatingRateIndex -> CDM inflationRateIndex.value"
+        ],
+        "importantTransformation": "Strip timezone and format as YYYY-MM-DD",
+        "uncertainty": [
+          "Why CDM counterparty roles reference opposite externalReference?",
+          "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 34222,
+      "rawResponseChars": 2737,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"inflation-swap\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/tradeHeader/partyTradeIdentifier/tradeId\"],\"targetPaths\":[\"$.trade.tradeIdentifier[].assignedIdentifier[].identifier.value\",\"$.trade.tradeIdentifier[].assignedIdentifier[].identifier.meta.scheme\"],\"classification\":\"direct\",\"mappingNote\":\"FpML tradeId -> CDM tradeIdentifier value and scheme\",\"confidence\":\"high\",\"whyNote\":\"Values and schemes match in both documents\"},{\"sourcePaths\":[\"/FpML/party/partyId\"],\"targetPaths\":[\"$.trade.party[].partyId[].identifier.value\",\"$.trade.party[].meta.externalKey\"],\"classification\":\"direct\",\"mappingNote\":\"FpML party id -> CDM party.partyId and externalKey\",\"confidence\":\"high\",\"whyNote\":\"partyId values and externalKey party1/party2 correspond\"},{\"sourcePaths\":[\"/FpML/trade/swap/swapStream/calculationPeriodDates/effectiveDate/unadjustedDate\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate\"],\"classification\":\"normalized\",\"mappingNote\":\"Timezone removed, date normalized to YYYY-MM-DD\",\"confidence\":\"high\",\"whyNote\":\"FpML contains '+05:00', CDM uses '2003-11-20' format\"},...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex02-yoy-bond-reference.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "inflation-swap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > swap (86 paths); party > account (6 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > swap (86 paths)",
+          "party > account (6 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 106
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "transferHistory",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, transferHistory, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (141 paths); trade > tradeLot (36 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (141 paths)",
+          "trade > tradeLot (36 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "transferHistory > transfer (17 paths)",
+          "trade > account (13 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.scope"
+        ],
+        "rawFieldCount": 259
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "tradeId -> tradeIdentifier.assignedIdentifier.value",
+          "confidence": "high",
+          "whyNote": "identical value and scheme present in target"
+        },
+        {
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/party[@id='party1']/partyId",
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/party[@id='party1']"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.party[0].partyId[0].identifier.value",
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.party[0].meta.externalKey"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML party id and partyId -> CDM party.externalKey and partyId",
+          "confidence": "high",
+          "whyNote": "matching values and externalKey present in CDM"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/trade/swap/swapStream/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "strip timezone from date",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.product.taxonomy[0].source"
+          ],
+          "enrichmentNote": "taxonomy.source 'ISDA' not in FpML",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "bondReference in FpML not represented in CDM; where mapped?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "tradeId -> tradeIdentifier.assignedIdentifier.value",
+          "FpML party id and partyId -> CDM party.externalKey and partyId"
+        ],
+        "importantTransformation": "strip timezone from date",
+        "uncertainty": [
+          "bondReference in FpML not represented in CDM; where mapped?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 38450,
+      "rawResponseChars": 1879,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"inflation-swap\",\"mappingObservations\":[{\"sourcePaths\":[\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId\"],\"targetPaths\":[\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value\"],\"classification\":\"direct\",\"mappingNote\":\"tradeId -> tradeIdentifier.assignedIdentifier.value\",\"confidence\":\"high\",\"whyNote\":\"identical value and scheme present in target\"},{\"sourcePaths\":[\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/party[@id='party1']/partyId\",\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml#/FpML/party[@id='party1']\"],\"targetPaths\":[\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.party[0].partyId[0].identifier.value\",\"inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json#$.trade.party[0].meta.externalKey\"],\"classification\":\"direct\",\"mappingNote\":\"FpML party id and partyId -> CDM party.externalKey and partyId\",\"confidence\":\"high\",\"whyNote\":\"matching values and externalKey present in CDM\"}],\"transformations\":[{\"type\":\"normalization\",\"sourcePaths\":[\"inflation-swaps/inflati...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex03-yoy-initial-level.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "inflation-swaps",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > swap (83 paths); party > account (6 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > swap (83 paths)",
+          "party > account (6 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 103
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "transferHistory",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, transferHistory, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (141 paths); trade > tradeLot (36 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (141 paths)",
+          "trade > tradeLot (36 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "transferHistory > transfer (17 paths)",
+          "trade > account (13 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > ancillaryParty (5 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.scope"
+        ],
+        "rawFieldCount": 259
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId"
+          ],
+          "targetPaths": [
+            "$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "tradeId -> tradeIdentifier.value",
+          "confidence": "high",
+          "whyNote": "E2000098N10184 matches"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "datetime trimmed to date",
+          "confidence": "high",
+          "whyNote": "2003-11-20+05:00 -> 2003-11-20"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/payerPartyReference/@href",
+            "/FpML/trade/swap/swapStream[1]/receiverPartyReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver"
+          ],
+          "classification": "unclear",
+          "mappingNote": "payer/receiver mapping appears inverted",
+          "confidence": "medium",
+          "whyNote": "FpML payer=party2 but CDM payer=Party1"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[2]/calculationPeriodAmount/calculation/inflationRateCalculation/floatingRateIndex",
+            "/FpML/trade/swap/swapStream[2]/calculationPeriodAmount/calculation/inflationRateCalculation/indexTenor/periodMultiplier",
+            "/FpML/trade/swap/swapStream[2]/calculationPeriodAmount/calculation/inflationRateCalculation/indexTenor/period"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[1].observable.value.Index.InterestRateIndex.value.InflationIndex.inflationRateIndex.value",
+            "$.trade.tradeLot[0].priceQuantity[1].observable.value.Index.InterestRateIndex.value.InflationIndex.indexTenor.periodMultiplier",
+            "$.trade.tradeLot[0].priceQuantity[1].observable.value.Index.InterestRateIndex.value.InflationIndex.indexTenor.period"
+          ],
+          "classification": "direct",
+          "mappingNote": "floatingRateIndex and tenor -> InflationIndex fields",
+          "confidence": "high",
+          "whyNote": "USA-CPI-U and tenor 1 Y present in both"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "remove timezone from datetime",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.taxonomy[0].productQualifier"
+          ],
+          "enrichmentNote": "productQualifier injected",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why is CDM payer value reversed versus FpML hrefs?",
+        "Where were indexSource/mainPublication/interpolation mapped?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "tradeId -> tradeIdentifier.value",
+          "datetime trimmed to date",
+          "payer/receiver mapping appears inverted",
+          "floatingRateIndex and tenor -> InflationIndex fields"
+        ],
+        "importantTransformation": "remove timezone from datetime",
+        "uncertainty": [
+          "Why is CDM payer value reversed versus FpML hrefs?",
+          "Where were indexSource/mainPublication/interpolation mapped?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 38057,
+      "rawResponseChars": 2779,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"inflation-swaps\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId\"],\"targetPaths\":[\"$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value\"],\"classification\":\"direct\",\"mappingNote\":\"tradeId -> tradeIdentifier.value\",\"confidence\":\"high\",\"whyNote\":\"E2000098N10184 matches\"},{\"sourcePaths\":[\"/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate\"],\"classification\":\"normalized\",\"mappingNote\":\"datetime trimmed to date\",\"confidence\":\"high\",\"whyNote\":\"2003-11-20+05:00 -> 2003-11-20\"},{\"sourcePaths\":[\"/FpML/trade/swap/swapStream[1]/payerPartyReference/@href\",\"/FpML/trade/swap/swapStream[1]/receiverPartyReference/@href\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer\",\"$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver\"],\"classification\":\"unclear\",\"mappingNote\":\"payer/receiver mapping appears inverted\",\"confidence\":\"medium\",\"whyNote\":\"FpML payer=party2 but CDM pay...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex04-yoy-interp.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex04-yoy-interp.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex04-yoy-interp.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "inflation-swap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > swap (74 paths); party > account (6 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > swap (74 paths)",
+          "party > account (6 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 93
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (140 paths); trade > tradeLot (36 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (140 paths)",
+          "trade > tradeLot (36 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > account (13 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (2 paths)",
+          "meta > globalKey (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.taxonomy",
+          "$.trade.product.taxonomy[0].source",
+          "$.trade.product.taxonomy[0].productQualifier",
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.scope"
+        ],
+        "rawFieldCount": 234
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/payerPartyReference/@href",
+            "/FpML/trade/swap/swapStream[1]/receiverPartyReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver"
+          ],
+          "classification": "normalized",
+          "mappingNote": "party hrefs mapped to role labels; order reversed",
+          "confidence": "medium",
+          "whyNote": "FpML payer=party2 but CDM payout[0].payer=Party1 implies role normalization and reversal"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate",
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/terminationDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate",
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "unadjustedDate copied with timezone removed",
+          "confidence": "high",
+          "whyNote": "FpML has +05:00 timezone; CDM stores date without timezone"
+        },
+        {
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[2]/calculationPeriodAmount/calculation/inflationRateCalculation/floatingRateIndex",
+            "/FpML/trade/swap/swapStream[2]/calculationPeriodAmount/calculation/inflationRateCalculation/indexTenor"
+          ],
+          "targetPaths": [
+            "$.trade.tradeLot[0].priceQuantity[1].observable.value.Index.InterestRateIndex.value.InflationIndex.inflationRateIndex.value",
+            "$.trade.tradeLot[0].priceQuantity[1].observable.value.Index.InterestRateIndex.value.InflationIndex.indexTenor"
+          ],
+          "classification": "direct",
+          "mappingNote": "inflation index and tenor mapped into observable InflationIndex",
+          "confidence": "high",
+          "whyNote": "FPML UK-RPI and tenor present in CDM observable node"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/payerPartyReference/@href",
+            "/FpML/trade/swap/swapStream[1]/receiverPartyReference/@href"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver"
+          ],
+          "transformationNote": "map party ids to canonical role labels and invert order",
+          "confidence": "medium"
+        },
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate",
+            "/FpML/trade/swap/swapStream[1]/calculationPeriodDates/terminationDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate",
+            "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "strip timezone from dates",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "$.trade.product.economicTerms.payout[0].meta.globalKey",
+            "$.trade.product.economicTerms.payout[1].meta.globalKey"
+          ],
+          "enrichmentNote": "meta.globalKey values added in CDM",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why CDM payer role labels invert FpML hrefs?",
+        "Where interpolationMethod (LinearZeroYield) should map in CDM?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex04-yoy-interp.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "party hrefs mapped to role labels; order reversed",
+          "unadjustedDate copied with timezone removed",
+          "inflation index and tenor mapped into observable InflationIndex"
+        ],
+        "importantTransformation": "map party ids to canonical role labels and invert order",
+        "uncertainty": [
+          "Why CDM payer role labels invert FpML hrefs?",
+          "Where interpolationMethod (LinearZeroYield) should map in CDM?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 35349,
+      "rawResponseChars": 3303,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"inflation-swap\",\"mappingObservations\":[{\"sourcePaths\":[\"/FpML/trade/swap/swapStream[1]/payerPartyReference/@href\",\"/FpML/trade/swap/swapStream[1]/receiverPartyReference/@href\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer\",\"$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver\"],\"classification\":\"normalized\",\"mappingNote\":\"party hrefs mapped to role labels; order reversed\",\"confidence\":\"medium\",\"whyNote\":\"FpML payer=party2 but CDM payout[0].payer=Party1 implies role normalization and reversal\"},{\"sourcePaths\":[\"/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate\",\"/FpML/trade/swap/swapStream[1]/calculationPeriodDates/terminationDate/unadjustedDate\"],\"targetPaths\":[\"$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate\",\"$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.unadjustedDate\"],\"classification\":\"normalized\",\"mappingNote\":\"unadjustedDate copied with timezone removed\",\"confidence\":\"high\",\"whyNote\":\"FpML has +05:...[truncated preview]"
+    },
+    {
+      "pair": {
+        "folder": "inflation-swaps",
+        "fpmlRelativePath": "inflation-swaps/inflation-swap-ex05-zc.xml",
+        "cdmRelativePath": "inflation-swaps/inflation-swap-ex05-zc.json",
+        "fpmlAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\fpml\\inflation-swaps\\inflation-swap-ex05-zc.xml",
+        "cdmAbsolutePath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data_to_learn_from\\cdm_parallel\\inflation-swaps\\inflation-swap-ex05-zc.json",
+        "pairingStrategy": "exact"
+      },
+      "status": "success",
+      "productOrTradeFamily": "inflation-swap",
+      "fpmlSummary": {
+        "format": "xml",
+        "root": "FpML",
+        "topLevelSections": [
+          "header",
+          "trade",
+          "party"
+        ],
+        "structuralNotes": [
+          "Document root is FpML.",
+          "Top-level sections include header, trade, party.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > swap (70 paths); party > account (6 paths); trade > tradeHeader (6 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+        ],
+        "nestedStructureSignals": [
+          "trade > swap (70 paths)",
+          "party > account (6 paths)",
+          "trade > tradeHeader (6 paths)",
+          "party > partyId (2 paths)",
+          "header > creationTimestamp (1 paths)",
+          "header > messageId (1 paths)",
+          "header > sendTo (1 paths)",
+          "header > sentBy (1 paths)"
+        ],
+        "samplePaths": [
+          "/FpML/header/messageId",
+          "/FpML/header/sentBy",
+          "/FpML/header/sendTo",
+          "/FpML/header/creationTimestamp",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference",
+          "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/tradeId",
+          "/FpML/trade/tradeHeader/tradeDate"
+        ],
+        "rawFieldCount": 89
+      },
+      "cdmSummary": {
+        "format": "json",
+        "root": "$",
+        "topLevelSections": [
+          "trade",
+          "meta"
+        ],
+        "structuralNotes": [
+          "Document root is $.",
+          "Top-level sections include trade, meta.",
+          "Header or boilerplate signals were detected in 8 paths.",
+          "Repeated nested structures include trade > product (102 paths); trade > tradeLot (33 paths); trade > tradeIdentifier (21 paths)."
+        ],
+        "headerBoilerplateSignals": [
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+        ],
+        "nestedStructureSignals": [
+          "trade > product (102 paths)",
+          "trade > tradeLot (33 paths)",
+          "trade > tradeIdentifier (21 paths)",
+          "trade > account (13 paths)",
+          "trade > party (13 paths)",
+          "trade > counterparty (7 paths)",
+          "trade > tradeDate (2 paths)",
+          "meta > globalKey (1 paths)"
+        ],
+        "samplePaths": [
+          "$.trade.product.economicTerms.payout",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.quantitySchedule.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.scope",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.rateSchedule.price.address.value",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+          "$.trade.product.economicTerms.payout[0].InterestRatePayout.dayCountFraction.value"
+        ],
+        "rawFieldCount": 193
+      },
+      "mappingObservations": [
+        {
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[0]/payerPartyReference/@href",
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[0]/receiverPartyReference/@href"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer",
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver"
+          ],
+          "classification": "direct",
+          "mappingNote": "payer/receiver href mapped to payer/receiver roles",
+          "confidence": "high",
+          "whyNote": "fpml hrefs 'party1'/'party2' correspond to CDM Party1/Party2"
+        },
+        {
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value",
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeIdentifier[2].assignedIdentifier[0].identifier.value"
+          ],
+          "classification": "direct",
+          "mappingNote": "FpML tradeId values copied to CDM assignedIdentifier",
+          "confidence": "high",
+          "whyNote": "values and schemes preserved in CDM assignedIdentifier"
+        },
+        {
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[0]/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "classification": "normalized",
+          "mappingNote": "unadjustedDate timezone stripped",
+          "confidence": "high",
+          "whyNote": "FpML has '2005-02-22+05:00', CDM has '2005-02-22'"
+        }
+      ],
+      "transformations": [
+        {
+          "type": "reference_resolution",
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[1]/payerPartyReference/@href"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[1].InterestRatePayout.payerReceiver.payer"
+          ],
+          "transformationNote": "href resolved to party role label",
+          "confidence": "high"
+        },
+        {
+          "type": "normalization",
+          "sourcePaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[1]/calculationPeriodDates/effectiveDate/unadjustedDate"
+          ],
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[1].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.unadjustedDate"
+          ],
+          "transformationNote": "date normalized (timezone removed)",
+          "confidence": "high"
+        }
+      ],
+      "enrichments": [
+        {
+          "targetPaths": [
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeLot[0].priceQuantity[0].price.value.value",
+            "inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeLot[0].priceQuantity[0].quantity[0].value.value"
+          ],
+          "enrichmentNote": "numeric price/quantity values added in CDM",
+          "confidence": "medium"
+        }
+      ],
+      "openQuestions": [
+        "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?",
+        "FpML interpolationMethod 'LinearZeroYield' not represented in CDM?"
+      ],
+      "pairHighlight": {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex05-zc.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex05-zc.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "payer/receiver href mapped to payer/receiver roles",
+          "FpML tradeId values copied to CDM assignedIdentifier",
+          "unadjustedDate timezone stripped"
+        ],
+        "importantTransformation": "href resolved to party role label",
+        "uncertainty": [
+          "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?",
+          "FpML interpolationMethod 'LinearZeroYield' not represented in CDM?"
+        ]
+      },
+      "semanticRecovery": "full",
+      "modelUsed": "openai/gpt-5-mini",
+      "promptChars": 31843,
+      "rawResponseChars": 3095,
+      "rawResponsePreview": "{\"productOrTradeFamily\":\"inflation-swap\",\"mappingObservations\":[{\"sourcePaths\":[\"inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[0]/payerPartyReference/@href\",\"inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/swap/swapStream[0]/receiverPartyReference/@href\"],\"targetPaths\":[\"inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.payer\",\"inflation-swaps/inflation-swap-ex05-zc.json:$.trade.product.economicTerms.payout[0].InterestRatePayout.payerReceiver.receiver\"],\"classification\":\"direct\",\"mappingNote\":\"payer/receiver href mapped to payer/receiver roles\",\"confidence\":\"high\",\"whyNote\":\"fpml hrefs 'party1'/'party2' correspond to CDM Party1/Party2\"},{\"sourcePaths\":[\"inflation-swaps/inflation-swap-ex05-zc.xml:/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId\"],\"targetPaths\":[\"inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeIdentifier[0].assignedIdentifier[0].identifier.value\",\"inflation-swaps/inflation-swap-ex05-zc.json:$.trade.tradeIdentifier[2].assignedIdentifier[0].identifier.value\"],\"classification\":\"direct\",\"mappingNote\":\"FpML tradeId values copied to CDM assignedIdentifier\",\"co...[truncated preview]"
+    }
+  ],
+  "synthesis": {
+    "folder": "inflation-swaps",
+    "evidenceCoverage": {
+      "matchedPairCount": 5,
+      "structuralPairCount": 5,
+      "semanticPairCount": 5,
+      "fullSemanticPairCount": 5,
+      "salvagedSemanticPairCount": 0,
+      "failedSemanticPairCount": 0,
+      "structuralBasisNote": "Structural summaries are computed from all 5/5 matched pairs, including pairs without semantic extraction.",
+      "semanticBasisNote": "Semantic rules are computed from 5/5 successful or salvaged pair analyses (5 full, 0 salvaged)."
+    },
+    "repeatedFpmlStructure": {
+      "headerAndBoilerplate": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+      ],
+      "topLevelSections": [
+        {
+          "section": "header",
+          "count": 5,
+          "total": 5
+        },
+        {
+          "section": "party",
+          "count": 5,
+          "total": 5
+        },
+        {
+          "section": "trade",
+          "count": 5,
+          "total": 5
+        }
+      ],
+      "nestedStructures": [
+        "trade > swap (82 paths)",
+        "party > account (6 paths)",
+        "trade > tradeHeader (6 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)"
+      ],
+      "optionalSections": []
+    },
+    "repeatedCdmStructure": {
+      "topLevelSections": [
+        {
+          "section": "meta",
+          "count": 5,
+          "total": 5
+        },
+        {
+          "section": "trade",
+          "count": 5,
+          "total": 5
+        },
+        {
+          "section": "transferHistory",
+          "count": 3,
+          "total": 5
+        }
+      ],
+      "wrappersAndScaffolding": [
+        "trade > product (101 paths)",
+        "trade > tradeLot (33 paths)",
+        "trade > tradeIdentifier (21 paths)",
+        "transferHistory > transfer (17 paths)",
+        "trade > account (13 paths)",
+        "trade > party (13 paths)",
+        "trade > counterparty (7 paths)",
+        "trade > ancillaryParty (5 paths)"
+      ],
+      "optionalSections": []
+    },
+    "stableMappingPatterns": [
+      {
+        "id": "RULE-001",
+        "name": "Date normalization: unadjustedDate -> adjustableDate.unadjustedDate (YYYY-MM-DD)",
+        "strength": "strong recurring pattern",
+        "evidenceCount": 4,
+        "sourcePattern": "calculationperioddates.effectivedate.unadjusteddate (FpML datetime with timezone)",
+        "targetPattern": "effectivedate.adjustabledate.unadjusteddate (CDM date formatted YYYY-MM-DD)",
+        "explanation": "Dates from multiple FpML examples are copied into CDM unadjusted date fields after removing timezone and trimming to date (YYYY-MM-DD).",
+        "whyItWorksThisWay": "CDM fields expect date-only values; repeated examples show timezone-stripping and formatting applied deterministically.",
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex01-yoy.xml",
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "caveats": [
+          "Some datetime inputs include timezones and times - transformation removes timezone and time component.",
+          "Ensure resulting value is validated as ISO date (YYYY-MM-DD)."
+        ]
+      },
+      {
+        "id": "RULE-002",
+        "name": "Party reference resolution: swapstream payer/receiver href -> interestratepayout.payerreceiver.payer|receiver",
+        "strength": "strong recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "swapstream.payerpartyreference.href | swapstream.receiverpartyreference.href (FpML party hrefs)",
+        "targetPattern": "interestratepayout.payerreceiver.payer | interestratepayout.payerreceiver.receiver (CDM party role labels/externalReference)",
+        "explanation": "Party hrefs are consistently resolved into CDM payer/receiver role entries. Multiple examples show this resolution and that the order/assignment may be inverted relative to the raw href order.",
+        "whyItWorksThisWay": "FpML uses href references to identify payer/receiver; CDM represents explicit payer/receiver role objects, so hrefs are mapped to those objects. Repeated examples indicate a consistent mapping rule was applied (with inversion in some outputs).",
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "caveats": [
+          "Several outputs show the payer/receiver assignment reversed versus the original hrefs - treat inversion as active behavior to investigate rather than an isolated error.",
+          "Mapping should preserve party identity (externalKey/partyId) even when role assignment appears inverted."
+        ]
+      },
+      {
+        "id": "RULE-003",
+        "name": "Trade identifier copy: tradeHeader.tradeId -> assignedIdentifier.identifier.value",
+        "strength": "strong recurring pattern",
+        "evidenceCount": 3,
+        "sourcePattern": "tradeheader.partytradeidentifier.tradeid (FpML tradeId)",
+        "targetPattern": "assignedidentifier.identifier.value (CDM tradeIdentifier/assignedIdentifier value)",
+        "explanation": "FpML tradeId values are repeatedly copied into CDM assignedIdentifier/identifier.value fields.",
+        "whyItWorksThisWay": "Trade identifiers are preserved to maintain traceability; examples show direct copying of FpML tradeId into CDM identifier structures.",
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "caveats": [
+          "CDM may include additional identifier metadata (scheme) not present in the FpML field - mapping preserves core id value but external scheme population may vary."
+        ]
+      }
+    ],
+    "repeatedNonLiteralTransformations": [
+      {
+        "id": "TR-001",
+        "name": "Date/time normalization and trimming",
+        "type": "normalization",
+        "description": "Strip timezone and time component from FpML datetimes and format as date (YYYY-MM-DD) when populating CDM unadjusted date fields.",
+        "sourceSide": "FpML datetime fields (e.g., calculationPeriodDates.effectivedate.unadjusteddate with timezone)",
+        "targetSide": "CDM adjustableDate.unadjustedDate as date-only string (YYYY-MM-DD)",
+        "evidenceCount": 4,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex01-yoy.xml",
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Representative notes indicate removal of timezone is applied consistently.",
+          "Be explicit about validating resulting date format after transformation."
+        ]
+      },
+      {
+        "id": "TR-002",
+        "name": "Timezone removal as normalization",
+        "type": "normalization",
+        "description": "Removal of timezone and trimming datetimes to date is a normalization behavior applied consistently in examples.",
+        "sourceSide": "Normalization cue inferred from source-side values.",
+        "targetSide": "Timezone removal as normalization",
+        "evidenceCount": 4,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex01-yoy.xml",
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Normalization should be implemented deterministically (strip timezone, drop time component).",
+          "Confirm timezone handling policy if any timezone-aware logic is required."
+        ]
+      },
+      {
+        "id": "TR-003",
+        "name": "Copy tradeId into assignedIdentifier",
+        "type": "normalization",
+        "description": "Copy FpML tradeId values into CDM assignedIdentifier.identifier.value (preserve identifier value).",
+        "sourceSide": "tradeheader.partytradeidentifier.tradeid (FpML)",
+        "targetSide": "tradeIdentifier.assignedIdentifier.identifier.value (CDM)",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Examples show direct copying; scheme or namespace for assignedIdentifier may need separate handling."
+        ]
+      },
+      {
+        "id": "TR-004",
+        "name": "Party href resolution to payer/receiver role",
+        "type": "reference resolution",
+        "description": "Resolve FpML party hrefs used in swapStream payer/receiver references into CDM payer/receiver role objects (party.externalKey or partyId).",
+        "sourceSide": "swapstream.payerpartyreference.href | swapstream.receiverpartyreference.href",
+        "targetSide": "interestratepayout.payerreceiver.payer | interestratepayout.payerreceiver.receiver (CDM party role entries)",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Outputs frequently map href -> role label, but examples show role assignment may be inverted; mapping must reliably reference the correct party object even if role order differs."
+        ]
+      }
+    ],
+    "tentativeRepeatedPatterns": [
+      {
+        "id": "TENT-001",
+        "kind": "transformation",
+        "strength": "strong recurring pattern",
+        "description": "Normalization repeatedly reshapes calculationperioddates.effectivedate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate.",
+        "evidenceCount": 4,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex01-yoy.xml",
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: Strip timezone and format as YYYY-MM-DD",
+          "Representative note: strip timezone from date",
+          "Representative note: remove timezone from datetime"
+        ]
+      },
+      {
+        "id": "TENT-002",
+        "kind": "mapping",
+        "strength": "strong recurring pattern",
+        "description": "Party references repeatedly resolve from swapstream.payerpartyreference.href|swapstream.receiverpartyreference.href into interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver.",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Confidence mix includes medium.",
+          "Representative note: payer/receiver mapping appears inverted",
+          "Representative note: party hrefs mapped to role labels; order reversed",
+          "Confidence mix includes high."
+        ]
+      },
+      {
+        "id": "TENT-003",
+        "kind": "mapping",
+        "strength": "strong recurring pattern",
+        "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+        "evidenceCount": 3,
+        "exampleFiles": [
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "notes": [
+          "Confidence mix includes high.",
+          "Representative note: tradeId -> tradeIdentifier.assignedIdentifier.value",
+          "Representative note: tradeId -> tradeIdentifier.value",
+          "Representative note: FpML tradeId values copied to CDM assignedIdentifier"
+        ]
+      }
+    ],
+    "folderLevelPrinciples": [
+      "Normalize FpML datetimes to CDM date-only fields by removing timezone and time; use ISO YYYY-MM-DD.",
+      "Resolve FpML party hrefs into CDM party role objects (payer/receiver) and populate party externalKey/partyId accordingly.",
+      "Preserve FpML trade identifiers by copying tradeId into CDM assignedIdentifier/identifier.value for traceability."
+    ],
+    "variantsAndExceptions": [
+      {
+        "id": "VAR-001",
+        "name": "Payer/receiver role inversion",
+        "description": "Although party hrefs are resolved into CDM payer/receiver roles consistently, multiple examples show the CDM payer/receiver assignment is reversed relative to the FpML href ordering.",
+        "seenIn": [
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "impactOnGeneralization": "Mapping logic should account for possible systematic inversion; do not assume first href -> payer without verifying role semantics. Treat inversion as an important exception to validate."
+      },
+      {
+        "id": "VAR-002",
+        "name": "Unmapped bondReference",
+        "description": "Some FpML fields such as bondReference appear in inputs but do not have an obvious CDM target in the provided examples.",
+        "seenIn": [
+          "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml"
+        ],
+        "impactOnGeneralization": "Fields without repeated mapping evidence should be treated as exceptions; avoid inventing CDM targets without additional mappings or stakeholder guidance."
+      }
+    ],
+    "suspectedEnrichmentOrDefaultBehavior": [
+      {
+        "id": "ENR-001",
+        "name": "Unmapped interpolation/publication metadata",
+        "description": "Index source, mainPublication and interpolationMethod fields in FpML are present in inputs but their CDM targets are unclear or not represented in examples.",
+        "classification": "unclear",
+        "evidence": [
+          "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+          "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+          "inflation-swaps/inflation-swap-ex05-zc.xml"
+        ],
+        "caution": [
+          "Do not assume these fields are omitted intentionally; seek domain guidance on where such metadata should go in CDM (if at all)."
+        ]
+      },
+      {
+        "id": "ENR-002",
+        "name": "Quantity scaling hypothesis",
+        "description": "Observed CDM quantity values (e.g., 1000000) may be derived by scaling FpML input values (example mentions initialValue 1). The transformation is not explicitly shown but is suspected.",
+        "classification": "suspected enrichment",
+        "evidence": [
+          "inflation-swaps/inflation-swap-ex01-yoy.xml"
+        ],
+        "caution": [
+          "Scaling logic is not demonstrated across multiple examples - treat as tentative and verify with canonical rules or source system metadata before applying.",
+          "Do not apply automatic scaling unless mapping rule is confirmed."
+        ]
+      }
+    ],
+    "repeatedHeaderAndCommonBoilerplateSummary": {
+      "commonFpmlHeaderBehavior": [
+        "/FpML/header/messageId",
+        "/FpML/header/sentBy",
+        "/FpML/header/sendTo",
+        "/FpML/header/creationTimestamp",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/partyReference",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[0]/tradeId",
+        "/FpML/trade/tradeHeader/partyTradeIdentifier[1]/partyReference"
+      ],
+      "commonTradeScaffolding": [
+        "trade > swap (82 paths)",
+        "party > account (6 paths)",
+        "trade > tradeHeader (6 paths)",
+        "party > partyId (2 paths)",
+        "header > creationTimestamp (1 paths)",
+        "header > messageId (1 paths)",
+        "header > sendTo (1 paths)",
+        "header > sentBy (1 paths)"
+      ],
+      "commonCdmBoilerplateBehavior": [
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.priceQuantity.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.rateSpecification.FixedRateSpecification.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.dateAdjustments.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.adjustableDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.effectiveDate.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.businessCenters.meta.globalKey",
+        "$.trade.product.economicTerms.payout[0].InterestRatePayout.calculationPeriodDates.terminationDate.adjustableDate.dateAdjustments.meta.globalKey"
+      ]
+    },
+    "openQuestions": [
+      "Why CDM counterparty roles reference opposite externalReference?",
+      "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?",
+      "bondReference in FpML not represented in CDM; where mapped?",
+      "Why is CDM payer value reversed versus FpML hrefs?",
+      "Where were indexSource/mainPublication/interpolation mapped?",
+      "Why CDM payer role labels invert FpML hrefs?",
+      "Where interpolationMethod (LinearZeroYield) should map in CDM?",
+      "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?"
+    ],
+    "pairLevelHighlights": [
+      {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex01-yoy.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "FpML tradeId -> CDM tradeIdentifier value and scheme",
+          "FpML party id -> CDM party.partyId and externalKey",
+          "Timezone removed, date normalized to YYYY-MM-DD",
+          "FpML floatingRateIndex -> CDM inflationRateIndex.value"
+        ],
+        "importantTransformation": "Strip timezone and format as YYYY-MM-DD",
+        "uncertainty": [
+          "Why CDM counterparty roles reference opposite externalReference?",
+          "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?"
+        ]
+      },
+      {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "tradeId -> tradeIdentifier.assignedIdentifier.value",
+          "FpML party id and partyId -> CDM party.externalKey and partyId"
+        ],
+        "importantTransformation": "strip timezone from date",
+        "uncertainty": [
+          "bondReference in FpML not represented in CDM; where mapped?"
+        ]
+      },
+      {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, transferHistory, meta",
+        "importantMappings": [
+          "tradeId -> tradeIdentifier.value",
+          "datetime trimmed to date",
+          "payer/receiver mapping appears inverted",
+          "floatingRateIndex and tenor -> InflationIndex fields"
+        ],
+        "importantTransformation": "remove timezone from datetime",
+        "uncertainty": [
+          "Why is CDM payer value reversed versus FpML hrefs?",
+          "Where were indexSource/mainPublication/interpolation mapped?"
+        ]
+      },
+      {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex04-yoy-interp.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "party hrefs mapped to role labels; order reversed",
+          "unadjustedDate copied with timezone removed",
+          "inflation index and tenor mapped into observable InflationIndex"
+        ],
+        "importantTransformation": "map party ids to canonical role labels and invert order",
+        "uncertainty": [
+          "Why CDM payer role labels invert FpML hrefs?",
+          "Where interpolationMethod (LinearZeroYield) should map in CDM?"
+        ]
+      },
+      {
+        "fpmlFile": "inflation-swaps/inflation-swap-ex05-zc.xml",
+        "cdmFile": "inflation-swaps/inflation-swap-ex05-zc.json",
+        "mainFpmlSections": "header, trade, party",
+        "mainCdmSections": "trade, meta",
+        "importantMappings": [
+          "payer/receiver href mapped to payer/receiver roles",
+          "FpML tradeId values copied to CDM assignedIdentifier",
+          "unadjustedDate timezone stripped"
+        ],
+        "importantTransformation": "href resolved to party role label",
+        "uncertainty": [
+          "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?",
+          "FpML interpolationMethod 'LinearZeroYield' not represented in CDM?"
+        ]
+      }
+    ],
+    "agentPlaybook": {
+      "summary": "Structural summaries are computed from all 5/5 matched pairs, including pairs without semantic extraction. Semantic rules are computed from 5/5 successful or salvaged pair analyses (5 full, 0 salvaged).",
+      "canonicalSteps": [
+        "Start from the repeated FPML sections seen across matched files: header, party, trade.",
+        "Map trade identifiers, party references, and trade dates before product-specific economics.",
+        "Apply recurring mapping rules only when the exact source cues appear in the document.",
+        "Then apply the repeated non-literal transformations that reshape identifiers, dates, wrappers, or references.",
+        "Assemble the result under repeated CDM scaffolding such as meta, trade, transferHistory.",
+        "Treat generated identifiers, global keys, and unmatched party identifiers as enrichments unless the source proves otherwise."
+      ],
+      "recurringRules": [
+        "calculationperioddates.effectivedate.unadjusteddate (FpML datetime with timezone) -> effectivedate.adjustabledate.unadjusteddate (CDM date formatted YYYY-MM-DD): Dates from multiple FpML examples are copied into CDM unadjusted date fields after removing timezone and trimming to date (YYYY-MM-DD).",
+        "swapstream.payerpartyreference.href | swapstream.receiverpartyreference.href (FpML party hrefs) -> interestratepayout.payerreceiver.payer | interestratepayout.payerreceiver.receiver (CDM party role labels/externalReference): Party hrefs are consistently resolved into CDM payer/receiver role entries. Multiple examples show this resolution and that the order/assignment may be inverted relative to the raw href order.",
+        "tradeheader.partytradeidentifier.tradeid (FpML tradeId) -> assignedidentifier.identifier.value (CDM tradeIdentifier/assignedIdentifier value): FpML tradeId values are repeatedly copied into CDM assignedIdentifier/identifier.value fields.",
+        "Party references repeatedly resolve from swapstream.payerpartyreference.href|swapstream.receiverpartyreference.href into interestratepayout.payerreceiver.payer|interestratepayout.payerreceiver.receiver. [tentative 3 examples]",
+        "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value. [tentative 3 examples]"
+      ],
+      "transformationPatterns": [
+        "normalization: Strip timezone and time component from FpML datetimes and format as date (YYYY-MM-DD) when populating CDM unadjusted date fields.",
+        "normalization: Removal of timezone and trimming datetimes to date is a normalization behavior applied consistently in examples.",
+        "normalization: Copy FpML tradeId values into CDM assignedIdentifier.identifier.value (preserve identifier value).",
+        "reference resolution: Resolve FpML party hrefs used in swapStream payer/receiver references into CDM payer/receiver role objects (party.externalKey or partyId).",
+        "Normalization repeatedly reshapes calculationperioddates.effectivedate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate. [tentative 4 examples]"
+      ],
+      "productSpecificBranches": [
+        {
+          "name": "inflation-swap-ex01-yoy.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "FpML tradeId -> CDM tradeIdentifier value and scheme",
+            "FpML party id -> CDM party.partyId and externalKey",
+            "Timezone removed, date normalized to YYYY-MM-DD",
+            "FpML floatingRateIndex -> CDM inflationRateIndex.value"
+          ],
+          "cautions": [
+            "Why CDM counterparty roles reference opposite externalReference?",
+            "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?"
+          ]
+        },
+        {
+          "name": "inflation-swap-ex02-yoy-bond-reference.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "tradeId -> tradeIdentifier.assignedIdentifier.value",
+            "FpML party id and partyId -> CDM party.externalKey and partyId"
+          ],
+          "cautions": [
+            "bondReference in FpML not represented in CDM; where mapped?"
+          ]
+        },
+        {
+          "name": "inflation-swap-ex03-yoy-initial-level.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "tradeId -> tradeIdentifier.value",
+            "datetime trimmed to date",
+            "payer/receiver mapping appears inverted",
+            "floatingRateIndex and tenor -> InflationIndex fields"
+          ],
+          "cautions": [
+            "Why is CDM payer value reversed versus FpML hrefs?",
+            "Where were indexSource/mainPublication/interpolation mapped?"
+          ]
+        },
+        {
+          "name": "inflation-swap-ex04-yoy-interp.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "party hrefs mapped to role labels; order reversed",
+            "unadjustedDate copied with timezone removed",
+            "inflation index and tenor mapped into observable InflationIndex"
+          ],
+          "cautions": [
+            "Why CDM payer role labels invert FpML hrefs?",
+            "Where interpolationMethod (LinearZeroYield) should map in CDM?"
+          ]
+        },
+        {
+          "name": "inflation-swap-ex05-zc.xml",
+          "whenToUse": "Use this branch when the source document resembles header, trade, party.",
+          "sourceSignals": [
+            "header",
+            "trade",
+            "party"
+          ],
+          "mappingFocus": [
+            "payer/receiver href mapped to payer/receiver roles",
+            "FpML tradeId values copied to CDM assignedIdentifier",
+            "unadjustedDate timezone stripped"
+          ],
+          "cautions": [
+            "Why calculationPeriodFrequency.periodMultiplier changes (FpML 30 vs CDM 1)?",
+            "FpML interpolationMethod 'LinearZeroYield' not represented in CDM?"
+          ]
+        }
+      ],
+      "validationChecks": [
+        "Check unresolved question: Why CDM counterparty roles reference opposite externalReference?",
+        "Check unresolved question: Is quantity 1000000 derived from FpML initialValue 1 (scaling)?",
+        "Check unresolved question: bondReference in FpML not represented in CDM; where mapped?",
+        "Check unresolved question: Why is CDM payer value reversed versus FpML hrefs?",
+        "Check unresolved question: Where were indexSource/mainPublication/interpolation mapped?",
+        "Check unresolved question: Why CDM payer role labels invert FpML hrefs?"
+      ],
+      "doNotAssume": [
+        "Do not treat Unmapped interpolation/publication metadata as a guaranteed direct mapping rule yet.",
+        "Do not treat Quantity scaling hypothesis as a guaranteed direct mapping rule yet.",
+        "Why CDM counterparty roles reference opposite externalReference?",
+        "Is quantity 1000000 derived from FpML initialValue 1 (scaling)?",
+        "bondReference in FpML not represented in CDM; where mapped?",
+        "Why is CDM payer value reversed versus FpML hrefs?"
+      ]
+    },
+    "draftConclusion": {
+      "mostReusableFindings": [
+        "Strip timezone and normalize FpML datetimes to date-only (YYYY-MM-DD) when populating CDM unadjusted date fields.",
+        "Resolve party hrefs into CDM payer/receiver role objects and populate party externalKey/partyId for role entries.",
+        "Copy FpML tradeId values into CDM assignedIdentifier.identifier.value to preserve traceability."
+      ],
+      "safeToGeneralize": [
+        "Date normalization (timezone removal and date trimming) - well supported across examples.",
+        "Trade identifier copying into CDM assignedIdentifier - repeated and consistent.",
+        "Resolving FpML party hrefs into CDM party role structures - repeated, but see inversion caveat."
+      ],
+      "remainTentative": [
+        "The reason and intended direction for payer/receiver inversion - repeated but semantically ambiguous.",
+        "Quantity scaling behavior (e.g., initialValue -> large quantity) - suspected but not confirmed.",
+        "Mapping targets for bondReference, interpolationMethod, indexSource/mainPublication - unclear from examples.",
+        "Why calculationPeriodFrequency.periodMultiplier differs between FpML and CDM in examples."
+      ]
+    },
+    "sourceAppendixNotes": [
+      "Included pairs: 5",
+      "Ignored pairs: 0",
+      "Semantic pair analyses recovered: 5",
+      "Tentative repeated semantic signals: 3"
+    ]
+  }
+}

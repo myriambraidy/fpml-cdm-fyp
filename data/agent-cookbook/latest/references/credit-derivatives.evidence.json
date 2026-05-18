@@ -1,0 +1,431 @@
+{
+  "folder": "credit-derivatives",
+  "generatedAt": "2026-04-26T14:59:22.253Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 40,
+    "structuralPairCount": 40,
+    "semanticPairCount": 40,
+    "fullSemanticPairCount": 40,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 40/40 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 40/40 successful or salvaged pair analyses (40 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 7,
+    "rating": "good",
+    "reasons": [
+      "Only 0 stable mapping rules were recovered."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 0,
+      "repeatedTransformationCount": 3,
+      "tentativePatternCount": 11,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 8,
+      "openQuestionDensity": 0.2,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "not_ready",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Quality rating is good, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "effectiveDate reshaped into adjustableDate",
+      "type": "normalization",
+      "description": "Date-like fields under generalTerms.effectivedate.unadjustedDate are moved into an adjustableDate structure under effectivedate.adjustabledate.unadjusteddate and reformatted.",
+      "sourceSide": "generalTerms.effectivedate.unadjustedDate (FpML)",
+      "targetSide": "effectivedate.adjustableDate.unadjustedDate (CDM)",
+      "evidenceCount": 8,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex01-cdx.xml",
+        "credit-derivatives/cds-basket-tranche.xml",
+        "credit-derivatives/cds-basket.xml",
+        "credit-derivatives/cds-custom-basket.xml",
+        "credit-derivatives/cds-ELCDS-ReferenceObligation.xml"
+      ],
+      "notes": [
+        "Normalization commonly strips trailing 'Z' and standardizes to YYYY-MM-DD.",
+        "High confidence in recurring pattern across multiple trade types."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "reshape effective/termination date locations and normalize format",
+      "type": "normalization",
+      "description": "Normalization reshapes generalterms.effectivedate.unadjusteddate and scheduledterminationdate.adjustabledate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate and terminationdate.adjustabledate.unadjusteddate, with date format normalization.",
+      "sourceSide": "generalTerms.effectivedate.unadjustedDate | scheduledTerminationDate.adjustableDate.unadjustedDate (FpML)",
+      "targetSide": "effectivedate.adjustableDate.unadjustedDate | terminationdate.adjustableDate.unadjustedDate (CDM)",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+        "credit-derivatives/cdindex-ex01-cdx.xml",
+        "credit-derivatives/cds-basket.xml"
+      ],
+      "notes": [
+        "Representative behavior: remove trailing 'Z' timezone marker and format as YYYY-MM-DD.",
+        "Apply consistently where unadjustedDate strings present; business-day adjustments need separate consideration."
+      ]
+    },
+    {
+      "id": "TR-003",
+      "name": "multiple date fields normalized and relocated",
+      "type": "normalization",
+      "description": "Normalization repeatedly relocates and reformats several date fields: generalterms.effectivedate.unadjusteddate, scheduledterminationdate.adjustabledate.unadjusteddate, and trade.tradeHeader.tradeDate into CDM targets effectivedate.adjustabledate.unadjusteddate, terminationdate.adjustabledate.unadjusteddate, and trade.tradedate.value respectively.",
+      "sourceSide": "generalTerms.effectivedate.unadjustedDate | scheduledTerminationDate.adjustableDate.unadjustedDate | trade.tradeHeader.tradeDate (FpML)",
+      "targetSide": "effectivedate.adjustableDate.unadjustedDate | terminationdate.adjustableDate.unadjustedDate | trade.tradedate.value (CDM)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-short-us-corp-fixreg.xml",
+        "credit-derivatives/cds-loan-ReferenceObligation.xml",
+        "credit-derivatives/cds-mortgage-RMBS.xml"
+      ],
+      "notes": [
+        "Consistent step: strip trailing 'Z' and format to ISO date (YYYY-MM-DD).",
+        "When tradeDate contains timezone info, timezone is removed in examples."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under partyid.identifier.value.",
+      "evidenceCount": 12,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+        "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex09-long-euro-sov-fixreg.xml",
+        "credit-derivatives/cd-ex18-standard-north-american-corp.xml",
+        "credit-derivatives/cd-indamt-ex01-short-us-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+        "credit-derivatives/cds-mortgage-RMBS.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: LEI added for party entries not in FpML",
+        "Representative note: LEI values present in CDM not in FpML",
+        "Representative note: LEI values present in CDM but not in FpML"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under adjustabledate.meta.globalkey.",
+      "evidenceCount": 10,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex12-long-emasia-sov-fixreg.xml",
+        "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+        "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+        "credit-derivatives/cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+        "credit-derivatives/cd-ex17-short-us-corp-portfolio-compression.xml",
+        "credit-derivatives/cds-basket-tranche.xml",
+        "credit-derivatives/cds-custom-basket.xml",
+        "credit-derivatives/cds-loan-ReferenceObligation.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: meta.globalKey generated in CDM, not present in FpML",
+        "Confidence mix includes medium.",
+        "Representative note: globalKey metadata present only in CDM"
+      ]
+    },
+    {
+      "id": "TENT-003",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Date-like fields repeatedly normalize from generalterms.effectivedate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 8,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex01-cdx.xml",
+        "credit-derivatives/cds-basket-tranche.xml",
+        "credit-derivatives/cds-basket.xml",
+        "credit-derivatives/cds-custom-basket.xml",
+        "credit-derivatives/cds-ELCDS-ReferenceObligation.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: effective date mapped, timezone Z removed",
+        "Representative note: effective date mapped and reformatted",
+        "Representative note: unadjusted effective date"
+      ]
+    },
+    {
+      "id": "TENT-004",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes generalterms.effectivedate.unadjusteddate|scheduledterminationdate.adjustabledate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate|terminationdate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+        "credit-derivatives/cdindex-ex01-cdx.xml",
+        "credit-derivatives/cds-basket.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: remove trailing 'Z', standardize to YYYY-MM-DD",
+        "Representative note: removed trailing 'Z' from date strings",
+        "Representative note: Strip trailing 'Z' timezone from dates"
+      ]
+    },
+    {
+      "id": "TENT-005",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Scheduled termination date values found in FpML are mapped into CDM terminationDate.adjustableDate.unadjustedDate, with normalization applied to format. (scheduledTerminationDate.adjustableDate.unadjustedDate -> terminationDate.adjustableDate.unadjustedDate)",
+      "evidenceCount": 5,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex02-iTraxx.xml",
+        "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+        "credit-derivatives/cds-index-tranche.xml"
+      ],
+      "notes": [
+        "CDM expects a terminationDate field; scheduledTerminationDate in FpML is the semantic equivalent and is therefore normalized into the CDM terminationDate slot.",
+        "Date strings are typically normalized (see repeated normalizations): time zone designator 'Z' is removed and format standardized to YYYY-MM-DD.",
+        "Confirm handling when FpML provides business-day adjustments or offsets in addition to raw unadjusted dates."
+      ]
+    },
+    {
+      "id": "TENT-006",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "termination date normalized (normalized mapping; scheduledterminationdate.adjustabledate.unadjusteddate -> terminationdate.adjustabledate.unadjusteddate)",
+      "evidenceCount": 5,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex02-iTraxx.xml",
+        "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+        "credit-derivatives/cds-index-tranche.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: termination date normalized",
+        "Representative note: Termination date normalized"
+      ]
+    },
+    {
+      "id": "TENT-007",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+      "evidenceCount": 5,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+        "credit-derivatives/cd-swaption-2.xml",
+        "credit-derivatives/cdindex-ex02-iTraxx.xml",
+        "credit-derivatives/cds-basket-tranche.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: tradeId copied to assignedIdentifier",
+        "Representative note: trade ids to assignedIdentifier",
+        "Representative note: tradeId -> tradeIdentifier.assignedIdentifier.value"
+      ]
+    },
+    {
+      "id": "TENT-008",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Trade-level tradeId values are repeatedly copied into the CDM assignedIdentifier.identifier.value; schemes and original tradeId strings are generally preserved. (tradeHeader.partyTradeIdentifier.tradeId (and scheme) -> assignedIdentifier.identifier.value (preserve scheme where present))",
+      "evidenceCount": 5,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+        "credit-derivatives/cd-swaption-2.xml",
+        "credit-derivatives/cdindex-ex02-iTraxx.xml",
+        "credit-derivatives/cds-basket-tranche.xml"
+      ],
+      "notes": [
+        "Trade identifiers are a clear canonical identifier for the trade and are preserved in CDM as assigned identifiers for lookup and provenance.",
+        "Some CDM outputs show multiple assignedIdentifier entries derived from multiple partyTradeIdentifier elements - duplication occurs in examples and needs confirmation.",
+        "Preservation of scheme is typical but verify whether scheme is moved into a separate field or kept inline."
+      ]
+    },
+    {
+      "id": "TENT-009",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes generalterms.effectivedate.unadjusteddate|scheduledterminationdate.adjustabledate.unadjusteddate|trade.tradeheader.tradedate into effectivedate.adjustabledate.unadjusteddate|terminationdate.adjustabledate.unadjusteddate|trade.tradedate.value.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex11-short-us-corp-fixreg.xml",
+        "credit-derivatives/cds-loan-ReferenceObligation.xml",
+        "credit-derivatives/cds-mortgage-RMBS.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: strip trailing 'Z' and format ISO date",
+        "Representative note: remove trailing Z and format as YYYY-MM-DD",
+        "Representative note: strip 'Z' and format YYYY-MM-DD"
+      ]
+    },
+    {
+      "id": "TENT-010",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "reference entity name copied (direct mapping; referenceinformation.referenceentity.entityname -> referenceentity.name.value)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cds-loan-SecuredList.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: reference entity name copied"
+      ]
+    },
+    {
+      "id": "TENT-011",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Reference entity names are copied verbatim from FpML referenceInformation into the CDM referenceEntity.name.value field. (referenceInformation.referenceEntity.entityName -> referenceEntity.name.value)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cds-loan-SecuredList.xml"
+      ],
+      "notes": [
+        "Reference entity name is a direct, human-readable attribute used in both representations and is mapped directly to retain the entity label.",
+        "In some examples an identifier (scheme/id) is also provided alongside the name; consumers should check both name and id when present."
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "calculationAgentPartyReference -> CalculationAgentIndependent mapping",
+      "description": "A non-obvious mapping was observed where calculationAgentPartyReference in FpML becomes a CDM value labeled 'CalculationAgentIndependent' in several examples.",
+      "seenIn": [
+        "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex05-long-emasia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml"
+      ],
+      "impactOnGeneralization": "This transformation is ambiguous based on available examples; treat this mapping as a special-case until rule provenance is clarified-do not assume party reference-to-role mapping is identity."
+    },
+    {
+      "id": "VAR-002",
+      "name": "duplicated assignedIdentifier entries",
+      "description": "Some CDM outputs show multiple assignedIdentifier entries for a single trade derived from multiple partyTradeIdentifier elements; duplication behavior varies by example.",
+      "seenIn": [
+        "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml"
+      ],
+      "impactOnGeneralization": "When generalizing, consumers should expect multiple assignedIdentifier entries and avoid assuming uniqueness without additional de-duplication rules; provenance of each identifier (scheme/href) should be inspected."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "LEI or generated party identifiers added",
+      "description": "Generated identifiers or defaults repeatedly appear under partyId.identifier.value (e.g., LEI values present in CDM though not present in FpML).",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+        "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+        "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+        "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex09-long-euro-sov-fixreg.xml",
+        "credit-derivatives/cd-ex18-standard-north-american-corp.xml",
+        "credit-derivatives/cd-indamt-ex01-short-us-corp-fixreg.xml",
+        "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+        "credit-derivatives/cds-mortgage-RMBS.xml"
+      ],
+      "caution": [
+        "These identifier values appear to be generated or enriched by the mapping process; do not assume they originate from the source FpML without provenance metadata.",
+        "Consumers should treat added identifiers as derived metadata and validate against authoritative registries if required."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "meta.globalKey generated on adjustableDate",
+      "description": "Generated identifiers or defaults repeatedly appear under adjustableDate.meta.globalKey (meta.globalKey present in CDM but not in FpML).",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+        "credit-derivatives/cd-ex12-long-emasia-sov-fixreg.xml",
+        "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+        "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+        "credit-derivatives/cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+        "credit-derivatives/cd-ex17-short-us-corp-portfolio-compression.xml",
+        "credit-derivatives/cds-basket-tranche.xml",
+        "credit-derivatives/cds-custom-basket.xml",
+        "credit-derivatives/cds-loan-ReferenceObligation.xml"
+      ],
+      "caution": [
+        "meta.globalKey appears to be generated during transformation; consumers should not rely on it as a source-supplied identifier without verification.",
+        "Document provenance of generated keys when persisting or reconciling data."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Why is calculationAgentPartyReference mapped to CalculationAgentIndependent instead of party1?",
+    "Why tradeId 37209 appears multiple times in CDM tradeIdentifier array?",
+    "Mapping of party role labels Party1/Party2 to FpML hrefs is ambiguous",
+    "Why are tradeIdentifier assignedIdentifier entries duplicated in CDM?",
+    "How was calculationAgentParty 'CalculationAgentIndependent' derived from calculationAgentPartyReference?",
+    "Is guarantorReference intended to map to CDM referenceEntity or omitted?",
+    "Why is calculationAgentParty set to 'CalculationAgentIndependent' instead of party1?",
+    "Where did LEI partyId values in CDM come from (not in FpML parties)?"
+  ]
+}

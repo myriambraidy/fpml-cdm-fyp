@@ -1,0 +1,256 @@
+{
+  "folder": "bond-options",
+  "generatedAt": "2026-04-26T14:45:24.132Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\bond-options\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 3,
+    "structuralPairCount": 3,
+    "semanticPairCount": 3,
+    "fullSemanticPairCount": 3,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "failed_integrity_validation",
+    "publishFinal": false,
+    "reasons": [
+      "Enrichment ENR-001 references an unexpected example.",
+      "Enrichment ENR-001 references an unexpected example.",
+      "Enrichment ENR-002 references an unexpected example."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 3.9,
+    "rating": "weak",
+    "reasons": [
+      "Only 1 stable mapping rule were recovered.",
+      "Only 1 repeated transformation were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "1 repeated transformation still have thin supporting evidence.",
+      "Integrity validation reported 3 issue(s)."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 1,
+      "repeatedTransformationCount": 1,
+      "tentativePatternCount": 2,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 3,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 1,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "not_ready",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Repeated transformation count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is weak, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "TENT-001",
+      "name": "optionType copied from trade.bondoption.optiontype to payout.optionpayout.optiontype",
+      "strength": "strong recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "trade.bondoption.optionType",
+      "targetPattern": "payout.optionPayout.optionType",
+      "explanation": "Option type values in the FPML bond/convertible bond option trades are preserved and placed into the CDM OptionPayout.optionType field.",
+      "whyItWorksThisWay": "Option type represents an option semantic that is preserved across the source and CDM target and therefore is mapped directly without transformation.",
+      "exampleFiles": [
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option-2.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "caveats": []
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TNT-001",
+      "name": "date/time trimmed to date-only",
+      "type": "normalization",
+      "description": "Date/time values in FPML are trimmed/normalized to date-only (YYYY-MM-DD) in the CDM.",
+      "sourceSide": "FPML dateTime (often with timezone or time component)",
+      "targetSide": "CDM date (YYYY-MM-DD)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "bond-options/cb-option-2.xml",
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "notes": [
+        "Representative notes mention 'trim timezone to YYYY-MM-DD' and 'strip timezone/time to date-only' across examples.",
+        "Applied to trade dates and centers where present."
+      ]
+    },
+    {
+      "id": "TNT-002",
+      "name": "party role mapping: buyer/seller -> payer/receiver",
+      "type": "reference resolution",
+      "description": "FPML buyer and seller references are mapped to CDM counterparties and used as OptionPayout buyer/payer and seller/receiver roles (buyer->payer, seller->receiver).",
+      "sourceSide": "FPML buyer/seller references and trade party references",
+      "targetSide": "CDM counterparty entries and OptionPayout buyer/payer and seller/receiver",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "bond-options/cb-option-2.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "notes": [
+        "Examples show buyer reference mapping to counterparty and OptionPayout buyer/payer; seller to counterparty and OptionPayout seller/receiver.",
+        "There is repeated uncertainty about payer/receiver inversion which suggests mapping exists but its direction/semantics should be verified."
+      ]
+    },
+    {
+      "id": "TNT-003",
+      "name": "numberOfOptions -> tradeLot.quantity and parValue -> multiplier",
+      "type": "normalization",
+      "description": "FPML numberOfOptions becomes a CDM quantity; FPML parValue becomes a multiplier on the CDM trade lot.",
+      "sourceSide": "FPML numberOfOptions, parValue",
+      "targetSide": "CDM tradeLot.quantity, tradeLot.multiplier",
+      "evidenceCount": 1,
+      "exampleFiles": [
+        "bond-options/cb-option.xml"
+      ],
+      "notes": [
+        "Represented in cb-option mapping: 'numberOfOptions->quantity, parValue->multiplier, currency->currency'."
+      ]
+    },
+    {
+      "id": "TNT-004",
+      "name": "premium mapped to transferHistory entry",
+      "type": "wrapper insertion",
+      "description": "FPML premium information is represented as a transfer/transferHistory entry in the CDM.",
+      "sourceSide": "FPML premium element",
+      "targetSide": "CDM transferHistory / transfer entries",
+      "evidenceCount": 1,
+      "exampleFiles": [
+        "bond-options/bond-option.xml"
+      ],
+      "notes": [
+        "bond-option shows premium mapped to transferHistory; appears as a transfer wrapper in target."
+      ]
+    },
+    {
+      "id": "TNT-005",
+      "name": "notional/par value mapping to tradeLot quantity",
+      "type": "normalization",
+      "description": "FPML notional/par value is used to produce tradeLot.quantity in CDM (notional-sized quantity representation).",
+      "sourceSide": "FPML notional / nominal / par value fields",
+      "targetSide": "CDM tradeLot.quantity (and possibly multiplier per above)",
+      "evidenceCount": 1,
+      "exampleFiles": [
+        "bond-options/bond-option.xml"
+      ],
+      "notes": [
+        "bond-option highlights notional mapped to tradeLot quantity."
+      ]
+    },
+    {
+      "id": "TNT-006",
+      "name": "currency preserved",
+      "type": "normalization",
+      "description": "Currency values are preserved from FPML into CDM currency fields for quantity/amounts.",
+      "sourceSide": "FPML currency attributes",
+      "targetSide": "CDM currency fields",
+      "evidenceCount": 1,
+      "exampleFiles": [
+        "bond-options/cb-option.xml"
+      ],
+      "notes": [
+        "Explicit mention in cb-option: 'currency->currency'."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "mapping",
+      "strength": "strong recurring pattern",
+      "description": "Option-specific terms repeatedly map from trade.bondoption.optiontype into payout.optionpayout.optiontype.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option-2.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: option type preserved",
+        "Representative note: optionType copied",
+        "Representative note: optionType value mapped"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "OptionPayout.payerReceiver inversion",
+      "description": "Several examples show payer/receiver values that appear inverted relative to FPML buyer/seller; mapping direction may differ or be intentionally inverted in CDM.",
+      "seenIn": [
+        "bond-options/cb-option-2.xml",
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "impactOnGeneralization": "Mapping of buyer/seller to payer/receiver should be treated as a variant; automated rules should include a verification step. This reduces confidence in blindly swapping roles without checking contextual semantics."
+    },
+    {
+      "id": "VAR-002",
+      "name": "calculationAgent mapping to CalculationAgentIndependent ancillaryParty",
+      "description": "Some examples show FPML calculationAgentPartyReference becoming a CDM ancillary party typed 'CalculationAgentIndependent' rather than a straightforward party reference.",
+      "seenIn": [
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option.xml",
+        "bond-options/cb-option-2.xml"
+      ],
+      "impactOnGeneralization": "This appears to be an enrichment/normalization choice; treat as an exception that requires explicit handling or confirmation rather than an automatic party reference mapping."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "calculationAgentPartyReference -> CalculationAgentIndependent ancillaryParty",
+      "description": "FPML calculationAgent references are turned into an ancillaryParty entry with role 'CalculationAgentIndependent' in the CDM (appears to be an enrichment or normalization).",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option.xml",
+        "bond-options/cb-option-2.xml"
+      ],
+      "caution": [
+        "Representation changes party reference semantics; require confirmation whether this is always desired or only for specific agent types."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "payer/receiver role normalization",
+      "description": "The translation from FPML buyer/seller to CDM payer/receiver may include normalization logic that inverts or reinterprets roles.",
+      "classification": "unclear",
+      "evidence": [
+        "bond-options/cb-option-2.xml",
+        "bond-options/bond-option.xml",
+        "bond-options/cb-option.xml"
+      ],
+      "caution": [
+        "Observed inversion or unexpected assignment of payer/receiver; treat as a potential enrichment or domain-specific reinterpretation and validate against business rules."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Why OptionPayout.payerReceiver shows payer/receiver reversed?",
+    "How calculationAgent became 'CalculationAgentIndependent' ancillaryParty?",
+    "Why is payerReceiver inverted versus buyerSeller in CDM?",
+    "How is calculationAgentPartyReference mapped to CalculationAgentIndependent?",
+    "Is underlier Observable explicitly linked to convertibleBond.instrumentId?"
+  ]
+}

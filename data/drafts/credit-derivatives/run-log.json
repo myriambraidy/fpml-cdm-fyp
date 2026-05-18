@@ -1,0 +1,1907 @@
+[
+  {
+    "timestamp": "2026-04-26T13:52:57.195Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "credit-derivatives",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.201Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "credit-derivatives",
+      "includedPairs": 40,
+      "missingExamples": 1,
+      "ignoredExamples": 0,
+      "exactMatches": 40,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.202Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+      "pairIndex": 1,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "1/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.204Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+      "pairIndex": 2,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "2/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.204Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+      "pairIndex": 3,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "3/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.204Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+      "pairIndex": 4,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "4/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.205Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+      "pairIndex": 5,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "5/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.205Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex05-long-emasia-corp-fixreg.xml",
+      "pairIndex": 6,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "6/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.205Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+      "pairIndex": 7,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "7/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.206Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+      "pairIndex": 8,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "8/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.223Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19083,
+      "retryAttempt": 0,
+      "fpmlChars": 3673,
+      "cdmChars": 9774,
+      "fpmlFields": 32,
+      "cdmFields": 135
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.234Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29130,
+      "retryAttempt": 0,
+      "fpmlChars": 7402,
+      "cdmChars": 15966,
+      "fpmlFields": 77,
+      "cdmFields": 215
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.238Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19226,
+      "retryAttempt": 0,
+      "fpmlChars": 3747,
+      "cdmChars": 9883,
+      "fpmlFields": 31,
+      "cdmFields": 136
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.247Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29688,
+      "retryAttempt": 0,
+      "fpmlChars": 8028,
+      "cdmChars": 15894,
+      "fpmlFields": 85,
+      "cdmFields": 213
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.252Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19173,
+      "retryAttempt": 0,
+      "fpmlChars": 3872,
+      "cdmChars": 9701,
+      "fpmlFields": 32,
+      "cdmFields": 134
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.257Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex05-long-emasia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29576,
+      "retryAttempt": 0,
+      "fpmlChars": 7584,
+      "cdmChars": 16226,
+      "fpmlFields": 83,
+      "cdmFields": 221
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.264Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28488,
+      "retryAttempt": 0,
+      "fpmlChars": 7122,
+      "cdmChars": 15604,
+      "fpmlFields": 75,
+      "cdmFields": 213
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:52:57.270Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28738,
+      "retryAttempt": 0,
+      "fpmlChars": 7482,
+      "cdmChars": 15531,
+      "fpmlFields": 73,
+      "cdmFields": 211
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:26.467Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-2003-long-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 29261,
+      "promptChars": 28738,
+      "responseChars": 2902,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:26.468Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+      "pairIndex": 9,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "9/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:26.478Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28815,
+      "retryAttempt": 0,
+      "fpmlChars": 7242,
+      "cdmChars": 15811,
+      "fpmlFields": 74,
+      "cdmFields": 212
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:28.237Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex06-long-emeur-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 31031,
+      "promptChars": 28488,
+      "responseChars": 2185,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:28.239Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+      "pairIndex": 10,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "10/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:28.246Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18703,
+      "retryAttempt": 0,
+      "fpmlChars": 3843,
+      "cdmChars": 9254,
+      "fpmlFields": 32,
+      "cdmFields": 129
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:36.145Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-2003-short-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 38941,
+      "promptChars": 19083,
+      "responseChars": 2259,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:36.146Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+      "pairIndex": 11,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "11/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:36.153Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 18677,
+      "retryAttempt": 0,
+      "fpmlChars": 3835,
+      "cdmChars": 9246,
+      "fpmlFields": 32,
+      "cdmFields": 129
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.338Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex01-long-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 40134,
+      "promptChars": 29130,
+      "responseChars": 3266,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.339Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex09-long-euro-sov-fixreg.xml",
+      "pairIndex": 12,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "12/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.348Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex09-long-euro-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28094,
+      "retryAttempt": 0,
+      "fpmlChars": 6950,
+      "cdmChars": 15431,
+      "fpmlFields": 70,
+      "cdmFields": 208
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.659Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex02-short-asia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 40455,
+      "promptChars": 19226,
+      "responseChars": 4093,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.659Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-2003-long-us-corp-fixreg.xml",
+      "pairIndex": 13,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "13/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:37.670Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-2003-long-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28201,
+      "retryAttempt": 0,
+      "fpmlChars": 7007,
+      "cdmChars": 15473,
+      "fpmlFields": 72,
+      "cdmFields": 210
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:43.264Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex05-long-emasia-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46059,
+      "promptChars": 29576,
+      "responseChars": 2837,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:43.264Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-long-us-corp-fixreg.xml",
+      "pairIndex": 14,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "14/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:43.274Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-long-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29096,
+      "retryAttempt": 0,
+      "fpmlChars": 7382,
+      "cdmChars": 15956,
+      "fpmlFields": 75,
+      "cdmFields": 213
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:45.153Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex04-short-aussie-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47948,
+      "promptChars": 19173,
+      "responseChars": 5887,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:45.154Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+      "pairIndex": 15,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "15/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:45.160Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19078,
+      "retryAttempt": 0,
+      "fpmlChars": 3676,
+      "cdmChars": 9800,
+      "fpmlFields": 31,
+      "cdmFields": 135
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:49.121Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex03-long-aussie-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 51916,
+      "promptChars": 29688,
+      "responseChars": 2761,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:49.122Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-short-us-corp-fixreg.xml",
+      "pairIndex": 16,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "16/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:53:49.129Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19245,
+      "retryAttempt": 0,
+      "fpmlChars": 3756,
+      "cdmChars": 9897,
+      "fpmlFields": 31,
+      "cdmFields": 136
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:08.389Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-2003-long-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 30729,
+      "promptChars": 28201,
+      "responseChars": 3698,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:08.390Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex12-long-emasia-sov-fixreg.xml",
+      "pairIndex": 17,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "17/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:08.404Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex12-long-emasia-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29123,
+      "retryAttempt": 0,
+      "fpmlChars": 7373,
+      "cdmChars": 15986,
+      "fpmlFields": 79,
+      "cdmFields": 218
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:09.077Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex07-long-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42609,
+      "promptChars": 28815,
+      "responseChars": 2794,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:09.078Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+      "pairIndex": 18,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "18/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:09.087Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28168,
+      "retryAttempt": 0,
+      "fpmlChars": 6952,
+      "cdmChars": 15456,
+      "fpmlFields": 71,
+      "cdmFields": 209
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:15.262Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex09-long-euro-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 37922,
+      "promptChars": 28094,
+      "responseChars": 3479,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:15.262Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+      "pairIndex": 19,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "19/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:15.269Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 29479,
+      "retryAttempt": 0,
+      "fpmlChars": 7535,
+      "cdmChars": 16176,
+      "fpmlFields": 81,
+      "cdmFields": 219
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:17.122Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-2003-short-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48883,
+      "promptChars": 18703,
+      "responseChars": 3184,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:17.123Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex15-long-emlatin-sov-fixreg.xml",
+      "pairIndex": 20,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "20/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:17.130Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex15-long-emlatin-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28663,
+      "retryAttempt": 0,
+      "fpmlChars": 7175,
+      "cdmChars": 15722,
+      "fpmlFields": 76,
+      "cdmFields": 214
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.113Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex10-long-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 43848,
+      "promptChars": 29096,
+      "responseChars": 2981,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.114Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+      "pairIndex": 21,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "21/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.125Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19684,
+      "retryAttempt": 0,
+      "fpmlChars": 3870,
+      "cdmChars": 10255,
+      "fpmlFields": 32,
+      "cdmFields": 141
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.127Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex08-short-euro-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50980,
+      "promptChars": 18677,
+      "responseChars": 2863,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.128Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex17-short-us-corp-portfolio-compression.xml",
+      "pairIndex": 22,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "22/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:27.132Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex17-short-us-corp-portfolio-compression.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20705,
+      "retryAttempt": 0,
+      "fpmlChars": 4194,
+      "cdmChars": 10876,
+      "fpmlFields": 36,
+      "cdmFields": 150
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:29.349Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-2003-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 44194,
+      "promptChars": 19078,
+      "responseChars": 4608,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:29.350Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex18-standard-north-american-corp.xml",
+      "pairIndex": 23,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "23/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:29.359Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex18-standard-north-american-corp.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 20611,
+      "retryAttempt": 0,
+      "fpmlChars": 3984,
+      "cdmChars": 10968,
+      "fpmlFields": 35,
+      "cdmFields": 150
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:38.326Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex11-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49203,
+      "promptChars": 19245,
+      "responseChars": 3273,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:38.326Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-indamt-ex01-short-us-corp-fixreg.xml",
+      "pairIndex": 24,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "24/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:38.334Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-indamt-ex01-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 19806,
+      "retryAttempt": 0,
+      "fpmlChars": 4241,
+      "cdmChars": 9954,
+      "fpmlFields": 35,
+      "cdmFields": 137
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:41.400Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex13-long-asia-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 32321,
+      "promptChars": 28168,
+      "responseChars": 3210,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:41.400Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-1.xml",
+      "pairIndex": 25,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "25/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:41.415Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-1.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 34788,
+      "retryAttempt": 0,
+      "fpmlChars": 8950,
+      "cdmChars": 19946,
+      "fpmlFields": 86,
+      "cdmFields": 229
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:44.236Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex14-long-emlatin-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 28973,
+      "promptChars": 29479,
+      "responseChars": 2566,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:44.237Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-2.xml",
+      "pairIndex": 26,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "26/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:44.252Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-2.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 37810,
+      "retryAttempt": 0,
+      "fpmlChars": 10154,
+      "cdmChars": 21763,
+      "fpmlFields": 105,
+      "cdmFields": 248
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:50.984Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex12-long-emasia-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 42594,
+      "promptChars": 29123,
+      "responseChars": 2552,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:50.985Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex01-cdx.xml",
+      "pairIndex": 27,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "27/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:50.993Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex01-cdx.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17132,
+      "retryAttempt": 0,
+      "fpmlChars": 3175,
+      "cdmChars": 8504,
+      "fpmlFields": 28,
+      "cdmFields": 124
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:51.629Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex15-long-emlatin-sov-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 34506,
+      "promptChars": 28663,
+      "responseChars": 2834,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:51.629Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex02-iTraxx.xml",
+      "pairIndex": 28,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "28/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:54:51.635Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex02-iTraxx.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15373,
+      "retryAttempt": 0,
+      "fpmlChars": 2981,
+      "cdmChars": 6839,
+      "fpmlFields": 26,
+      "cdmFields": 103
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:05.789Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex18-standard-north-american-corp.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 36438,
+      "promptChars": 20611,
+      "responseChars": 3698,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:05.789Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+      "pairIndex": 29,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "29/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:05.807Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17917,
+      "retryAttempt": 0,
+      "fpmlChars": 3675,
+      "cdmChars": 8595,
+      "fpmlFields": 33,
+      "cdmFields": 132
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:09.116Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex17-short-us-corp-portfolio-compression.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41988,
+      "promptChars": 20705,
+      "responseChars": 2653,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:09.117Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket-tranche.xml",
+      "pairIndex": 30,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "30/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:09.126Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket-tranche.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 26097,
+      "retryAttempt": 0,
+      "fpmlChars": 7198,
+      "cdmChars": 13404,
+      "fpmlFields": 57,
+      "cdmFields": 163
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:20.180Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-2.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 35942,
+      "promptChars": 37810,
+      "responseChars": 2133,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:20.180Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket.xml",
+      "pairIndex": 31,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "31/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:20.188Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25882,
+      "retryAttempt": 0,
+      "fpmlChars": 7113,
+      "cdmChars": 13290,
+      "fpmlFields": 56,
+      "cdmFields": 162
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:26.529Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-ex16-short-us-corp-fixreg-recovery-factor.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 59415,
+      "promptChars": 19684,
+      "responseChars": 3855,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:26.535Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-custom-basket.xml",
+      "pairIndex": 32,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "32/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:26.554Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-custom-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 34582,
+      "retryAttempt": 0,
+      "fpmlChars": 10615,
+      "cdmChars": 18472,
+      "fpmlFields": 88,
+      "cdmFields": 210
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:27.849Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-indamt-ex01-short-us-corp-fixreg.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49522,
+      "promptChars": 19806,
+      "responseChars": 2689,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:27.850Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-ELCDS-ReferenceObligation.xml",
+      "pairIndex": 33,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "33/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:27.858Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-ELCDS-ReferenceObligation.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 22052,
+      "retryAttempt": 0,
+      "fpmlChars": 5624,
+      "cdmChars": 10902,
+      "fpmlFields": 50,
+      "cdmFields": 148
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:30.729Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cd-swaption-1.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49328,
+      "promptChars": 34788,
+      "responseChars": 2708,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:30.729Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-index-tranche.xml",
+      "pairIndex": 34,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "34/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:30.733Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-index-tranche.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 15268,
+      "retryAttempt": 0,
+      "fpmlChars": 3148,
+      "cdmChars": 6656,
+      "fpmlFields": 28,
+      "cdmFields": 101
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:41.538Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex02-iTraxx.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 49908,
+      "promptChars": 15373,
+      "responseChars": 2303,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:41.538Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-ReferenceObligation.xml",
+      "pairIndex": 35,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "35/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:41.547Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-ReferenceObligation.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 27034,
+      "retryAttempt": 0,
+      "fpmlChars": 7369,
+      "cdmChars": 14103,
+      "fpmlFields": 78,
+      "cdmFields": 195
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:50.011Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket-tranche.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 40893,
+      "promptChars": 26097,
+      "responseChars": 2979,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:50.012Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-SecuredList.xml",
+      "pairIndex": 36,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "36/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:50.021Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-SecuredList.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25799,
+      "retryAttempt": 0,
+      "fpmlChars": 6735,
+      "cdmChars": 13518,
+      "fpmlFields": 72,
+      "cdmFields": 188
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.275Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex03-iTraxx-contractual-supplement.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50485,
+      "promptChars": 17917,
+      "responseChars": 4478,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.276Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-CMBS.xml",
+      "pairIndex": 37,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "37/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.285Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-CMBS.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 24841,
+      "retryAttempt": 0,
+      "fpmlChars": 6880,
+      "cdmChars": 12242,
+      "fpmlFields": 70,
+      "cdmFields": 172
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.533Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cdindex-ex01-cdx.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 65547,
+      "promptChars": 17132,
+      "responseChars": 5103,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.534Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-RMBS.xml",
+      "pairIndex": 38,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "38/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:55:56.544Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-RMBS.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 25027,
+      "retryAttempt": 0,
+      "fpmlChars": 6858,
+      "cdmChars": 12419,
+      "fpmlFields": 71,
+      "cdmFields": 174
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:04.248Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-ELCDS-ReferenceObligation.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 36398,
+      "promptChars": 22052,
+      "responseChars": 3229,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:04.249Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/cdx-index-option.xml",
+      "pairIndex": 39,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "39/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:04.258Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/cdx-index-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 28137,
+      "retryAttempt": 0,
+      "fpmlChars": 6442,
+      "cdmChars": 15806,
+      "fpmlFields": 67,
+      "cdmFields": 200
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:13.109Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 52928,
+      "promptChars": 25882,
+      "responseChars": 4120,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:13.110Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "credit-derivatives/itraxx-index-option.xml",
+      "pairIndex": 40,
+      "totalPairs": 40,
+      "strategy": "exact",
+      "progress": "40/40"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:13.130Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "credit-derivatives/itraxx-index-option.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 32536,
+      "retryAttempt": 0,
+      "fpmlChars": 8154,
+      "cdmChars": 18485,
+      "fpmlFields": 81,
+      "cdmFields": 210
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:14.567Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-index-tranche.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 43837,
+      "promptChars": 15268,
+      "responseChars": 3385,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:14.730Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-custom-basket.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48194,
+      "promptChars": 34582,
+      "responseChars": 3443,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:22.871Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-ReferenceObligation.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41332,
+      "promptChars": 27034,
+      "responseChars": 2714,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:26.817Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-loan-SecuredList.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 36805,
+      "promptChars": 25799,
+      "responseChars": 2382,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:38.217Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-RMBS.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 41683,
+      "promptChars": 25027,
+      "responseChars": 3494,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:44.891Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cds-mortgage-CMBS.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 48614,
+      "promptChars": 24841,
+      "responseChars": 4059,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:56:50.860Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/cdx-index-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 46610,
+      "promptChars": 28137,
+      "responseChars": 3072,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:57:00.211Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "credit-derivatives/itraxx-index-option.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 47100,
+      "promptChars": 32536,
+      "responseChars": 2902,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:57:00.217Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 40,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:57:00.217Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "credit-derivatives",
+      "successfulPairCount": 40,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 40
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:57:00.276Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "credit-derivatives",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 17762,
+      "retryAttempt": 0,
+      "semanticPairCount": 40,
+      "structuralPairCount": 40,
+      "includedPairCount": 40,
+      "missingExampleCount": 1
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.019Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "credit-derivatives",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 17762,
+      "responseChars": 15151,
+      "retryAttempt": 0,
+      "stableRuleCount": 0,
+      "transformationCount": 3
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.020Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 40
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.024Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.025Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 7,
+      "rating": "good",
+      "rolloutDecision": "not_ready",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.027Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T13:58:13.028Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "credit-derivatives",
+      "status": "success",
+      "durationMs": 315833,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\credit-derivatives\\run-log.json"
+    }
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "index"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "global:temporal-normalization"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "global:party-reference-resolution"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "global:cdm-wrapper-construction"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:bond-options"
+  },
+  {
+    "severity": "error",
+    "code": "missing_required_section",
+    "message": "Missing section: Operational Limitations",
+    "packetId": "family:bond-options"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:commodity-derivatives"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:correlation-swaps"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:equity-options"
+  },
+  {
+    "severity": "error",
+    "code": "missing_required_section",
+    "message": "Missing section: Operational Limitations",
+    "packetId": "family:equity-options"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:equity-swaps"
+  },
+  {
+    "severity": "error",
+    "code": "missing_required_section",
+    "message": "Missing section: Operational Limitations",
+    "packetId": "family:equity-swaps"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:inflation-swaps"
+  },
+  {
+    "severity": "error",
+    "code": "authoring_not_passed",
+    "message": "Authoring loop ended with decision fail.",
+    "packetId": "family:total-return-swaps"
+  }
+]

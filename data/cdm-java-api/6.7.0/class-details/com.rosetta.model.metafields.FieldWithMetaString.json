@@ -1,0 +1,173 @@
+{
+  "className": "com.rosetta.model.metafields.FieldWithMetaString",
+  "exists": true,
+  "packageName": "com.rosetta.model.metafields",
+  "simpleName": "FieldWithMetaString",
+  "methods": [
+    {
+      "name": "getValue",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getValue()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public static com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends com.rosetta.model.metafields.FieldWithMetaString>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends com.rosetta.model.metafields.FieldWithMetaString> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends com.rosetta.model.metafields.FieldWithMetaString>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends com.rosetta.model.metafields.FieldWithMetaString> getType()"
+    },
+    {
+      "name": "getValueType",
+      "returnType": "java.lang.Class<java.lang.String>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<java.lang.String> getValueType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getValue",
+      "returnType": "java.lang.Object",
+      "parameters": [],
+      "raw": "public default java.lang.Object getValue()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder setValue(java.lang.String)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "setValue",
+      "returnType": "com.rosetta.model.lib.meta.FieldWithMeta$FieldWithMetaBuilder",
+      "parameters": [
+        "java.lang.Object"
+      ],
+      "raw": "public default com.rosetta.model.lib.meta.FieldWithMeta$FieldWithMetaBuilder setValue(java.lang.Object)"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "className": "cdm.product.common.settlement.ResolvablePriceQuantity",
+  "exists": true,
+  "packageName": "cdm.product.common.settlement",
+  "simpleName": "ResolvablePriceQuantity",
+  "methods": [
+    {
+      "name": "getResolvedQuantity",
+      "returnType": "cdm.base.math.Quantity",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.Quantity getResolvedQuantity()"
+    },
+    {
+      "name": "getQuantitySchedule",
+      "returnType": "cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule getQuantitySchedule()"
+    },
+    {
+      "name": "getQuantityReference",
+      "returnType": "cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity getQuantityReference()"
+    },
+    {
+      "name": "getQuantityMultiplier",
+      "returnType": "cdm.product.common.settlement.QuantityMultiplier",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.QuantityMultiplier getQuantityMultiplier()"
+    },
+    {
+      "name": "getReset",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getReset()"
+    },
+    {
+      "name": "getFutureValueNotional",
+      "returnType": "cdm.product.asset.FutureValueAmount",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.FutureValueAmount getFutureValueNotional()"
+    },
+    {
+      "name": "getPriceSchedule",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule> getPriceSchedule()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.ResolvablePriceQuantity>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.ResolvablePriceQuantity> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.common.settlement.ResolvablePriceQuantity>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.common.settlement.ResolvablePriceQuantity> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateResolvedQuantity",
+      "returnType": "cdm.base.math.Quantity$QuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.Quantity$QuantityBuilder getOrCreateResolvedQuantity()"
+    },
+    {
+      "name": "getResolvedQuantity",
+      "returnType": "cdm.base.math.Quantity$QuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.Quantity$QuantityBuilder getResolvedQuantity()"
+    },
+    {
+      "name": "getOrCreateQuantitySchedule",
+      "returnType": "cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule$ReferenceWithMetaNonNegativeQuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule$ReferenceWithMetaNonNegativeQuantityScheduleBuilder getOrCreateQuantitySchedule()"
+    },
+    {
+      "name": "getQuantitySchedule",
+      "returnType": "cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule$ReferenceWithMetaNonNegativeQuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule$ReferenceWithMetaNonNegativeQuantityScheduleBuilder getQuantitySchedule()"
+    },
+    {
+      "name": "getOrCreateQuantityReference",
+      "returnType": "cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity$ReferenceWithMetaResolvablePriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity$ReferenceWithMetaResolvablePriceQuantityBuilder getOrCreateQuantityReference()"
+    },
+    {
+      "name": "getQuantityReference",
+      "returnType": "cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity$ReferenceWithMetaResolvablePriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity$ReferenceWithMetaResolvablePriceQuantityBuilder getQuantityReference()"
+    },
+    {
+      "name": "getOrCreateQuantityMultiplier",
+      "returnType": "cdm.product.common.settlement.QuantityMultiplier$QuantityMultiplierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.QuantityMultiplier$QuantityMultiplierBuilder getOrCreateQuantityMultiplier()"
+    },
+    {
+      "name": "getQuantityMultiplier",
+      "returnType": "cdm.product.common.settlement.QuantityMultiplier$QuantityMultiplierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.QuantityMultiplier$QuantityMultiplierBuilder getQuantityMultiplier()"
+    },
+    {
+      "name": "getOrCreateFutureValueNotional",
+      "returnType": "cdm.product.asset.FutureValueAmount$FutureValueAmountBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.FutureValueAmount$FutureValueAmountBuilder getOrCreateFutureValueNotional()"
+    },
+    {
+      "name": "getFutureValueNotional",
+      "returnType": "cdm.product.asset.FutureValueAmount$FutureValueAmountBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.FutureValueAmount$FutureValueAmountBuilder getFutureValueNotional()"
+    },
+    {
+      "name": "getOrCreatePriceSchedule",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder getOrCreatePriceSchedule(int)"
+    },
+    {
+      "name": "getPriceSchedule",
+      "returnType": "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule$ReferenceWithMetaPriceScheduleBuilder> getPriceSchedule()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setResolvedQuantity",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.Quantity"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setResolvedQuantity(cdm.base.math.Quantity)"
+    },
+    {
+      "name": "setQuantitySchedule",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setQuantitySchedule(cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule)"
+    },
+    {
+      "name": "setQuantityScheduleValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.base.math.NonNegativeQuantitySchedule"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setQuantityScheduleValue(cdm.base.math.NonNegativeQuantitySchedule)"
+    },
+    {
+      "name": "setQuantityReference",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setQuantityReference(cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity)"
+    },
+    {
+      "name": "setQuantityReferenceValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setQuantityReferenceValue(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setQuantityMultiplier",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.QuantityMultiplier"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setQuantityMultiplier(cdm.product.common.settlement.QuantityMultiplier)"
+    },
+    {
+      "name": "setReset",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setReset(java.lang.Boolean)"
+    },
+    {
+      "name": "setFutureValueNotional",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.product.asset.FutureValueAmount"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setFutureValueNotional(cdm.product.asset.FutureValueAmount)"
+    },
+    {
+      "name": "addPriceSchedule",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceSchedule(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule)"
+    },
+    {
+      "name": "addPriceSchedule",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceSchedule(cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule, int)"
+    },
+    {
+      "name": "addPriceScheduleValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceScheduleValue(cdm.observable.asset.PriceSchedule)"
+    },
+    {
+      "name": "addPriceScheduleValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceSchedule",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceScheduleValue(cdm.observable.asset.PriceSchedule, int)"
+    },
+    {
+      "name": "addPriceSchedule",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceSchedule(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "setPriceSchedule",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setPriceSchedule(java.util.List<? extends cdm.observable.asset.metafields.ReferenceWithMetaPriceSchedule>)"
+    },
+    {
+      "name": "addPriceScheduleValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder addPriceScheduleValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setPriceScheduleValue",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceSchedule>"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setPriceScheduleValue(java.util.List<? extends cdm.observable.asset.PriceSchedule>)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.ResolvablePriceQuantity$ResolvablePriceQuantityBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getFutureValueNotional",
+      "returnType": "cdm.product.asset.FutureValueAmount",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.FutureValueAmount getFutureValueNotional()"
+    },
+    {
+      "name": "getQuantityMultiplier",
+      "returnType": "cdm.product.common.settlement.QuantityMultiplier",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.QuantityMultiplier getQuantityMultiplier()"
+    },
+    {
+      "name": "getQuantityReference",
+      "returnType": "cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.metafields.ReferenceWithMetaResolvablePriceQuantity getQuantityReference()"
+    },
+    {
+      "name": "getQuantitySchedule",
+      "returnType": "cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule",
+      "parameters": [],
+      "raw": "public default cdm.base.math.metafields.ReferenceWithMetaNonNegativeQuantitySchedule getQuantitySchedule()"
+    },
+    {
+      "name": "getResolvedQuantity",
+      "returnType": "cdm.base.math.Quantity",
+      "parameters": [],
+      "raw": "public default cdm.base.math.Quantity getResolvedQuantity()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

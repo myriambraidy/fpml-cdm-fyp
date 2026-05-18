@@ -1,0 +1,332 @@
+{
+  "className": "cdm.base.math.NonNegativeQuantitySchedule",
+  "exists": true,
+  "packageName": "cdm.base.math",
+  "simpleName": "NonNegativeQuantitySchedule",
+  "methods": [
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.math.NonNegativeQuantitySchedule>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.math.NonNegativeQuantitySchedule> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.math.NonNegativeQuantitySchedule>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.math.NonNegativeQuantitySchedule> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.QuantitySchedule",
+      "parameters": [],
+      "raw": "public default cdm.base.math.QuantitySchedule build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.MeasureSchedule",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.math.MeasureBase",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+  "builderMethods": [
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder addDatedValue(cdm.base.math.DatedValue)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue",
+        "int"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder addDatedValue(cdm.base.math.DatedValue, int)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.DatedValue>"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder addDatedValue(java.util.List<? extends cdm.base.math.DatedValue>)"
+    },
+    {
+      "name": "setDatedValue",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.math.DatedValue>"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder setDatedValue(java.util.List<? extends cdm.base.math.DatedValue>)"
+    },
+    {
+      "name": "setMultiplier",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.Measure"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder setMultiplier(cdm.base.math.Measure)"
+    },
+    {
+      "name": "setFrequency",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.datetime.Frequency"
+      ],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder setFrequency(cdm.base.datetime.Frequency)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.math.NonNegativeQuantitySchedule$NonNegativeQuantityScheduleBuilder prune()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder prune()"
+    },
+    {
+      "name": "setFrequency",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.datetime.Frequency"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder setFrequency(cdm.base.datetime.Frequency)"
+    },
+    {
+      "name": "setMultiplier",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.Measure"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder setMultiplier(cdm.base.math.Measure)"
+    },
+    {
+      "name": "setDatedValue",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder setDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder addDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue",
+        "int"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder addDatedValue(cdm.base.math.DatedValue, int)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder addDatedValue(cdm.base.math.DatedValue)"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.QuantitySchedule$QuantityScheduleBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public default cdm.base.math.QuantitySchedule$QuantityScheduleBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder prune()"
+    },
+    {
+      "name": "setDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(java.util.List)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue",
+        "int"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(cdm.base.math.DatedValue, int)"
+    },
+    {
+      "name": "addDatedValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.DatedValue"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder addDatedValue(cdm.base.math.DatedValue)"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.MeasureSchedule$MeasureScheduleBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public default cdm.base.math.MeasureSchedule$MeasureScheduleBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder prune()"
+    },
+    {
+      "name": "setUnit",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [
+        "cdm.base.math.UnitType"
+      ],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder setUnit(cdm.base.math.UnitType)"
+    },
+    {
+      "name": "setValue",
+      "returnType": "cdm.base.math.MeasureBase$MeasureBaseBuilder",
+      "parameters": [
+        "java.math.BigDecimal"
+      ],
+      "raw": "public default cdm.base.math.MeasureBase$MeasureBaseBuilder setValue(java.math.BigDecimal)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

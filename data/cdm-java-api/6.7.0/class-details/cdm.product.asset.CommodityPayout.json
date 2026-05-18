@@ -1,0 +1,453 @@
+{
+  "className": "cdm.product.asset.CommodityPayout",
+  "exists": true,
+  "packageName": "cdm.product.asset",
+  "simpleName": "CommodityPayout",
+  "methods": [
+    {
+      "name": "getAveragingFeature",
+      "returnType": "cdm.product.template.AveragingCalculation",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AveragingCalculation getAveragingFeature()"
+    },
+    {
+      "name": "getCommodityPriceReturnTerms",
+      "returnType": "cdm.product.common.settlement.CommodityPriceReturnTerms",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CommodityPriceReturnTerms getCommodityPriceReturnTerms()"
+    },
+    {
+      "name": "getPricingDates",
+      "returnType": "cdm.product.common.settlement.PricingDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PricingDates getPricingDates()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "getCalculationPeriodDates",
+      "returnType": "cdm.product.common.schedule.CalculationPeriodDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.CalculationPeriodDates getCalculationPeriodDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getFxFeature",
+      "returnType": "cdm.product.template.FxFeature",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FxFeature getFxFeature()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation getDelivery()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.asset.CommodityPayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.asset.CommodityPayout$CommodityPayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.CommodityPayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.CommodityPayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.asset.CommodityPayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.asset.CommodityPayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateAveragingFeature",
+      "returnType": "cdm.product.template.AveragingCalculation$AveragingCalculationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AveragingCalculation$AveragingCalculationBuilder getOrCreateAveragingFeature()"
+    },
+    {
+      "name": "getAveragingFeature",
+      "returnType": "cdm.product.template.AveragingCalculation$AveragingCalculationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.AveragingCalculation$AveragingCalculationBuilder getAveragingFeature()"
+    },
+    {
+      "name": "getOrCreateCommodityPriceReturnTerms",
+      "returnType": "cdm.product.common.settlement.CommodityPriceReturnTerms$CommodityPriceReturnTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CommodityPriceReturnTerms$CommodityPriceReturnTermsBuilder getOrCreateCommodityPriceReturnTerms()"
+    },
+    {
+      "name": "getCommodityPriceReturnTerms",
+      "returnType": "cdm.product.common.settlement.CommodityPriceReturnTerms$CommodityPriceReturnTermsBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.CommodityPriceReturnTerms$CommodityPriceReturnTermsBuilder getCommodityPriceReturnTerms()"
+    },
+    {
+      "name": "getOrCreatePricingDates",
+      "returnType": "cdm.product.common.settlement.PricingDates$PricingDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PricingDates$PricingDatesBuilder getOrCreatePricingDates()"
+    },
+    {
+      "name": "getPricingDates",
+      "returnType": "cdm.product.common.settlement.PricingDates$PricingDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.PricingDates$PricingDatesBuilder getPricingDates()"
+    },
+    {
+      "name": "getOrCreateSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getOrCreateSchedule()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getSchedule()"
+    },
+    {
+      "name": "getOrCreateCalculationPeriodDates",
+      "returnType": "cdm.product.common.schedule.CalculationPeriodDates$CalculationPeriodDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.CalculationPeriodDates$CalculationPeriodDatesBuilder getOrCreateCalculationPeriodDates()"
+    },
+    {
+      "name": "getCalculationPeriodDates",
+      "returnType": "cdm.product.common.schedule.CalculationPeriodDates$CalculationPeriodDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.CalculationPeriodDates$CalculationPeriodDatesBuilder getCalculationPeriodDates()"
+    },
+    {
+      "name": "getOrCreatePaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getOrCreatePaymentDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getPaymentDates()"
+    },
+    {
+      "name": "getOrCreateUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getOrCreateUnderlier()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder getUnderlier()"
+    },
+    {
+      "name": "getOrCreateFxFeature",
+      "returnType": "cdm.product.template.FxFeature$FxFeatureBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FxFeature$FxFeatureBuilder getOrCreateFxFeature()"
+    },
+    {
+      "name": "getFxFeature",
+      "returnType": "cdm.product.template.FxFeature$FxFeatureBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FxFeature$FxFeatureBuilder getFxFeature()"
+    },
+    {
+      "name": "getOrCreateDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder getOrCreateDelivery()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.AssetDeliveryInformation$AssetDeliveryInformationBuilder getDelivery()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setAveragingFeature",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.AveragingCalculation"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setAveragingFeature(cdm.product.template.AveragingCalculation)"
+    },
+    {
+      "name": "setCommodityPriceReturnTerms",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.CommodityPriceReturnTerms"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setCommodityPriceReturnTerms(cdm.product.common.settlement.CommodityPriceReturnTerms)"
+    },
+    {
+      "name": "setPricingDates",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PricingDates"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setPricingDates(cdm.product.common.settlement.PricingDates)"
+    },
+    {
+      "name": "setSchedule",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.CalculationSchedule"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setSchedule(cdm.product.template.CalculationSchedule)"
+    },
+    {
+      "name": "setCalculationPeriodDates",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.CalculationPeriodDates"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setCalculationPeriodDates(cdm.product.common.schedule.CalculationPeriodDates)"
+    },
+    {
+      "name": "setPaymentDates",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.PaymentDates"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setPaymentDates(cdm.product.common.schedule.PaymentDates)"
+    },
+    {
+      "name": "setUnderlier",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.Underlier"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setUnderlier(cdm.product.template.Underlier)"
+    },
+    {
+      "name": "setFxFeature",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.template.FxFeature"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setFxFeature(cdm.product.template.FxFeature)"
+    },
+    {
+      "name": "setDelivery",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [
+        "cdm.product.asset.AssetDeliveryInformation"
+      ],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder setDelivery(cdm.product.asset.AssetDeliveryInformation)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.asset.CommodityPayout$CommodityPayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CommodityPayout$CommodityPayoutBuilder prune()"
+    },
+    {
+      "name": "getDelivery",
+      "returnType": "cdm.product.asset.AssetDeliveryInformation",
+      "parameters": [],
+      "raw": "public default cdm.product.asset.AssetDeliveryInformation getDelivery()"
+    },
+    {
+      "name": "getFxFeature",
+      "returnType": "cdm.product.template.FxFeature",
+      "parameters": [],
+      "raw": "public default cdm.product.template.FxFeature getFxFeature()"
+    },
+    {
+      "name": "getUnderlier",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public default cdm.product.template.Underlier getUnderlier()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getCalculationPeriodDates",
+      "returnType": "cdm.product.common.schedule.CalculationPeriodDates",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.CalculationPeriodDates getCalculationPeriodDates()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public default cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "getPricingDates",
+      "returnType": "cdm.product.common.settlement.PricingDates",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PricingDates getPricingDates()"
+    },
+    {
+      "name": "getCommodityPriceReturnTerms",
+      "returnType": "cdm.product.common.settlement.CommodityPriceReturnTerms",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.CommodityPriceReturnTerms getCommodityPriceReturnTerms()"
+    },
+    {
+      "name": "getAveragingFeature",
+      "returnType": "cdm.product.template.AveragingCalculation",
+      "parameters": [],
+      "raw": "public default cdm.product.template.AveragingCalculation getAveragingFeature()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "className": "cdm.product.template.TradeLot",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "TradeLot",
+  "methods": [
+    {
+      "name": "getLotIdentifier",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.identifier.Identifier>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.identifier.Identifier> getLotIdentifier()"
+    },
+    {
+      "name": "getPriceQuantity",
+      "returnType": "java.util.List<? extends cdm.observable.asset.PriceQuantity>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.PriceQuantity> getPriceQuantity()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.TradeLot",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradeLot build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.TradeLot$TradeLotBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TradeLot>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.TradeLot> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.TradeLot>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.TradeLot> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.TradeLot$TradeLotBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateLotIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.base.staticdata.identifier.Identifier$IdentifierBuilder getOrCreateLotIdentifier(int)"
+    },
+    {
+      "name": "getLotIdentifier",
+      "returnType": "java.util.List<? extends cdm.base.staticdata.identifier.Identifier$IdentifierBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.base.staticdata.identifier.Identifier$IdentifierBuilder> getLotIdentifier()"
+    },
+    {
+      "name": "getOrCreatePriceQuantity",
+      "returnType": "cdm.observable.asset.PriceQuantity$PriceQuantityBuilder",
+      "parameters": [
+        "int"
+      ],
+      "raw": "public abstract cdm.observable.asset.PriceQuantity$PriceQuantityBuilder getOrCreatePriceQuantity(int)"
+    },
+    {
+      "name": "getPriceQuantity",
+      "returnType": "java.util.List<? extends cdm.observable.asset.PriceQuantity$PriceQuantityBuilder>",
+      "parameters": [],
+      "raw": "public abstract java.util.List<? extends cdm.observable.asset.PriceQuantity$PriceQuantityBuilder> getPriceQuantity()"
+    },
+    {
+      "name": "addLotIdentifier",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.Identifier"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addLotIdentifier(cdm.base.staticdata.identifier.Identifier)"
+    },
+    {
+      "name": "addLotIdentifier",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.Identifier",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addLotIdentifier(cdm.base.staticdata.identifier.Identifier, int)"
+    },
+    {
+      "name": "addLotIdentifier",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.identifier.Identifier>"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addLotIdentifier(java.util.List<? extends cdm.base.staticdata.identifier.Identifier>)"
+    },
+    {
+      "name": "setLotIdentifier",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.identifier.Identifier>"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder setLotIdentifier(java.util.List<? extends cdm.base.staticdata.identifier.Identifier>)"
+    },
+    {
+      "name": "addPriceQuantity",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addPriceQuantity(cdm.observable.asset.PriceQuantity)"
+    },
+    {
+      "name": "addPriceQuantity",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "cdm.observable.asset.PriceQuantity",
+        "int"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addPriceQuantity(cdm.observable.asset.PriceQuantity, int)"
+    },
+    {
+      "name": "addPriceQuantity",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceQuantity>"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder addPriceQuantity(java.util.List<? extends cdm.observable.asset.PriceQuantity>)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.observable.asset.PriceQuantity>"
+      ],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder setPriceQuantity(java.util.List<? extends cdm.observable.asset.PriceQuantity>)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.TradeLot$TradeLotBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.TradeLot$TradeLotBuilder prune()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

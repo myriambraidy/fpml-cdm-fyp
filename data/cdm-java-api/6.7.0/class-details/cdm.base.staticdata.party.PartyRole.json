@@ -1,0 +1,177 @@
+{
+  "className": "cdm.base.staticdata.party.PartyRole",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "PartyRole",
+  "methods": [
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "getRole",
+      "returnType": "cdm.base.staticdata.party.PartyRoleEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRoleEnum getRole()"
+    },
+    {
+      "name": "getOwnershipPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getOwnershipPartyReference()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.party.PartyRole",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.PartyRole$PartyRoleBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.PartyRole>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.party.PartyRole> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.party.PartyRole>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.party.PartyRole> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreatePartyReference()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getPartyReference()"
+    },
+    {
+      "name": "getOrCreateOwnershipPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOrCreateOwnershipPartyReference()"
+    },
+    {
+      "name": "getOwnershipPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.metafields.ReferenceWithMetaParty$ReferenceWithMetaPartyBuilder getOwnershipPartyReference()"
+    },
+    {
+      "name": "setPartyReference",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder setPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder setPartyReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setRole",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PartyRoleEnum"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder setRole(cdm.base.staticdata.party.PartyRoleEnum)"
+    },
+    {
+      "name": "setOwnershipPartyReference",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder setOwnershipPartyReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setOwnershipPartyReferenceValue",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder setOwnershipPartyReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.party.PartyRole$PartyRoleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.party.PartyRole$PartyRoleBuilder prune()"
+    },
+    {
+      "name": "getOwnershipPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getOwnershipPartyReference()"
+    },
+    {
+      "name": "getPartyReference",
+      "returnType": "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.party.metafields.ReferenceWithMetaParty getPartyReference()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "className": "cdm.product.template.Underlier",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "Underlier",
+  "methods": [
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaObservable",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaObservable getObservable()"
+    },
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.Product",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product getProduct()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.Underlier",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.Underlier$UnderlierBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Underlier>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.Underlier> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.Underlier>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.Underlier> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.Underlier$UnderlierBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateObservable",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaObservable$ReferenceWithMetaObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaObservable$ReferenceWithMetaObservableBuilder getOrCreateObservable()"
+    },
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaObservable$ReferenceWithMetaObservableBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.observable.asset.metafields.ReferenceWithMetaObservable$ReferenceWithMetaObservableBuilder getObservable()"
+    },
+    {
+      "name": "getOrCreateProduct",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder getOrCreateProduct()"
+    },
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.Product$ProductBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Product$ProductBuilder getProduct()"
+    },
+    {
+      "name": "setObservable",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [
+        "cdm.observable.asset.metafields.ReferenceWithMetaObservable"
+      ],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder setObservable(cdm.observable.asset.metafields.ReferenceWithMetaObservable)"
+    },
+    {
+      "name": "setObservableValue",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [
+        "cdm.observable.asset.Observable"
+      ],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder setObservableValue(cdm.observable.asset.Observable)"
+    },
+    {
+      "name": "setProduct",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [
+        "cdm.product.template.Product"
+      ],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder setProduct(cdm.product.template.Product)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.Underlier$UnderlierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.Underlier$UnderlierBuilder prune()"
+    },
+    {
+      "name": "getProduct",
+      "returnType": "cdm.product.template.Product",
+      "parameters": [],
+      "raw": "public default cdm.product.template.Product getProduct()"
+    },
+    {
+      "name": "getObservable",
+      "returnType": "cdm.observable.asset.metafields.ReferenceWithMetaObservable",
+      "parameters": [],
+      "raw": "public default cdm.observable.asset.metafields.ReferenceWithMetaObservable getObservable()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

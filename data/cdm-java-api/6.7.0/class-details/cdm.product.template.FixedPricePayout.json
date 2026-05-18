@@ -1,0 +1,261 @@
+{
+  "className": "cdm.product.template.FixedPricePayout",
+  "exists": true,
+  "packageName": "cdm.product.template",
+  "simpleName": "FixedPricePayout",
+  "methods": [
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getFixedPrice",
+      "returnType": "cdm.product.common.settlement.FixedPrice",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.FixedPrice getFixedPrice()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.template.FixedPricePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.FixedPricePayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.template.FixedPricePayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.template.FixedPricePayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.template.FixedPricePayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreatePaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getOrCreatePaymentDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates$PaymentDatesBuilder getPaymentDates()"
+    },
+    {
+      "name": "getOrCreateFixedPrice",
+      "returnType": "cdm.product.common.settlement.FixedPrice$FixedPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.FixedPrice$FixedPriceBuilder getOrCreateFixedPrice()"
+    },
+    {
+      "name": "getFixedPrice",
+      "returnType": "cdm.product.common.settlement.FixedPrice$FixedPriceBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.FixedPrice$FixedPriceBuilder getFixedPrice()"
+    },
+    {
+      "name": "getOrCreateSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getOrCreateSchedule()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule$CalculationScheduleBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.CalculationSchedule$CalculationScheduleBuilder getSchedule()"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPaymentDates",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.schedule.PaymentDates"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setPaymentDates(cdm.product.common.schedule.PaymentDates)"
+    },
+    {
+      "name": "setFixedPrice",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.FixedPrice"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setFixedPrice(cdm.product.common.settlement.FixedPrice)"
+    },
+    {
+      "name": "setSchedule",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [
+        "cdm.product.template.CalculationSchedule"
+      ],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder setSchedule(cdm.product.template.CalculationSchedule)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.template.FixedPricePayout$FixedPricePayoutBuilder prune()"
+    },
+    {
+      "name": "getSchedule",
+      "returnType": "cdm.product.template.CalculationSchedule",
+      "parameters": [],
+      "raw": "public default cdm.product.template.CalculationSchedule getSchedule()"
+    },
+    {
+      "name": "getFixedPrice",
+      "returnType": "cdm.product.common.settlement.FixedPrice",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.FixedPrice getFixedPrice()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public default cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder prune()"
+    },
+    {
+      "name": "setSettlementTerms",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.SettlementTerms"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setSettlementTerms(cdm.product.common.settlement.SettlementTerms)"
+    },
+    {
+      "name": "setPrincipalPayment",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.PrincipalPayments"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPrincipalPayment(cdm.product.common.settlement.PrincipalPayments)"
+    },
+    {
+      "name": "setPriceQuantity",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.product.common.settlement.ResolvablePriceQuantity"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPriceQuantity(cdm.product.common.settlement.ResolvablePriceQuantity)"
+    },
+    {
+      "name": "setPayerReceiver",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.PayerReceiver"
+      ],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder setPayerReceiver(cdm.base.staticdata.party.PayerReceiver)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

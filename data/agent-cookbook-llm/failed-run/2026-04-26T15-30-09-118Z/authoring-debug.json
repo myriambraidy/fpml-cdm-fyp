@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-04-26T15:30:09.118Z",
+  "configSummary": {
+    "maxRepairLoops": 3,
+    "models": {
+      "author": "meta-llama/llama-3.3-70b-instruct:free",
+      "critic": "meta-llama/llama-3.3-70b-instruct:free",
+      "auditor": "meta-llama/llama-3.3-70b-instruct:free",
+      "repair": "meta-llama/llama-3.3-70b-instruct:free",
+      "judge": "meta-llama/llama-3.3-70b-instruct:free"
+    }
+  },
+  "results": [
+    {
+      "packetId": "index",
+      "subjectType": "index",
+      "title": "FPML -> CDM Agent Cookbook",
+      "finalPage": {
+        "markdown": "# FPML -> CDM Agent Cookbook\n\nThis provider-neutral cookbook gives an LLM the operational rules needed to propose a CDM representation from FPML while preserving evidence, confidence, and analyst review triggers.\n\n## How To Use This Cookbook\n\n1. Identify the FPML product family from root, trade, and product elements.\n2. Open the matching product-family document when its status is ready or pilot_only.\n3. Apply global rules for identifiers, dates, parties, quantities, wrappers, and enrichment policy.\n4. Apply product-family rules only when source trigger signals match.\n5. Build a proposed CDM representation with explicit target paths and transformation notes.\n6. Attach confidence and evidence rule ids to each material mapping.\n7. Run the validation checklist before presenting the proposal.\n8. Mark unresolved party direction, generated identifiers, exchange-code normalization, unsupported enrichment, and partial-folder evidence for analyst review.\n9. Do not invent CDM fields, party roles, identifiers, or economic terms when evidence is missing.\n\n## Operational Statuses\n\n- `ready`: agents may apply these rules during normal proposal generation.\n- `pilot_only`: agents may apply these rules but must mark material proposals for analyst confirmation.\n- `review_only`: agents must not apply these rules automatically; use only as background evidence.\n- `blocked`: agents must not use this folder as semantic mapping knowledge.\n\n## Global Documents\n\n- `identifier-handling.md`: Use these rules when preserving, normalizing, or reviewing trade and party identifiers.\n- `temporal-normalization.md`: Use these rules when moving FPML dates, dateTimes, and adjustable-date structures into CDM.\n- `party-reference-resolution.md`: Use these rules when resolving party hrefs, counterparties, payer/receiver roles, and party direction.\n- `quantity-and-unit-normalization.md`: Use these rules when mapping amounts, notionals, prices, currencies, and units.\n- `cdm-wrapper-construction.md`: Use these rules when CDM requires wrapper structures around source values.\n- `enrichment-and-defaults.md`: Use these rules to decide when generated or default CDM values require analyst review.\n\n## Product Family Routing\n\n- `bond-options`: `review_only` - Agents must not apply these rules automatically; use only as background evidence for analyst review.\n- `commodity-derivatives`: `ready` - Agents may apply these rules during normal FPML to CDM proposal generation.\n- `correlation-swaps`: `pilot_only` - Agents may apply these rules, but must mark material proposals as requiring analyst confirmation.\n- `credit-derivatives`: `pilot_only` - Agents may apply these rules, but must mark material proposals as requiring analyst confirmation.\n- `dividend-swaps`: `blocked` - Agents must not use this folder as semantic mapping knowledge.\n- `equity-options`: `review_only` - Agents must not apply these rules automatically; use only as background evidence for analyst review.\n- `equity-swaps`: `review_only` - Agents must not apply these rules automatically; use only as background evidence for analyst review.\n- `fx-derivatives`: `ready` - Agents may apply these rules during normal FPML to CDM proposal generation.\n- `inflation-swaps`: `pilot_only` - Agents may apply these rules, but must mark material proposals as requiring analyst confirmation.\n- `interest-rate-derivatives`: `review_only` - Agents must not apply these rules automatically; use only as background evidence for analyst review.\n- `total-return-swaps`: `pilot_only` - Agents may apply these rules, but must mark material proposals as requiring analyst confirmation.\n\n## Proposed CDM Representation Format\n\nWhen using this cookbook, return a proposal with this provider-neutral shape:\n\n```ts\ninterface CdmMappingProposal {\n  productFamily: string\n  operationalStatusUsed: string\n  proposedRepresentation: JsonValue\n  fieldMappings: Array<{\n    sourcePath: string\n    targetPath: string\n    transformation: string\n    confidence: string\n    evidenceRuleIds: string[]\n    needsReview: boolean\n    reviewReason?: string\n  }>\n  assumptions: string[]\n  unresolvedQuestions: string[]\n  validationResults: Array<{\n    check: string\n    status: 'passed' | 'failed' | 'needs_review'\n    details: string\n  }>\n}\n```\n\n## Universal Do Not Assume\n\n- Do not infer Party1/Party2, buyer/seller, or payer/receiver direction from document order alone.\n- Do not invent identifiers, global keys, external keys, LEIs, exchange codes, or taxonomy values.\n- Do not treat suspected enrichment as source-backed mapping.\n- Do not apply a product-family rule when the source trigger signal is absent.\n- Do not hide unresolved questions; put them in the proposal.\n\nGenerated at: `2026-04-26T14:59:22.253Z`\n",
+        "claims": [],
+        "unresolvedQuestions": [
+          "OpenRouter HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.3-70b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false}},\"user_id\":\"user_2vniFe0aarhGQ8WWKHmo6PLkcO7\"}"
+        ],
+        "doNotAssume": [
+          "Do not publish this LLM-authored page until the authoring loop succeeds."
+        ]
+      },
+      "iterations": [],
+      "llmCalls": [],
+      "finalDecision": "fail",
+      "failureReason": "OpenRouter HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"meta-llama/llama-3.3-70b-instruct:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Venice\",\"is_byok\":false}},\"user_id\":\"user_2vniFe0aarhGQ8WWKHmo6PLkcO7\"}"
+    }
+  ],
+  "validationIssues": [
+    {
+      "severity": "error",
+      "code": "authoring_not_passed",
+      "message": "Authoring loop ended with decision fail.",
+      "packetId": "index"
+    }
+  ]
+}

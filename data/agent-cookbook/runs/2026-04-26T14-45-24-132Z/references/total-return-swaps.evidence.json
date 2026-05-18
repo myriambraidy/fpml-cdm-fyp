@@ -1,0 +1,228 @@
+{
+  "folder": "total-return-swaps",
+  "generatedAt": "2026-04-26T14:45:24.132Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\total-return-swaps\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 3,
+    "structuralPairCount": 3,
+    "semanticPairCount": 3,
+    "fullSemanticPairCount": 3,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 3/3 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 3/3 successful or salvaged pair analyses (3 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 7.6,
+    "rating": "good",
+    "reasons": [
+      "Only 3 stable mapping rules were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "1 stable rule sit only at the minimum evidence threshold.",
+      "1 repeated transformation still have thin supporting evidence."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 3,
+      "repeatedTransformationCount": 2,
+      "tentativePatternCount": 2,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 5,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 1,
+      "lowEvidenceTransformationCount": 1,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is good, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Equity instrument id/description -> Security identifiers",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "instrumentId / instrument description (FpML trade instrument sections)",
+      "targetPattern": "security identifier entries (CDM security/observable identifiers)",
+      "explanation": "Equity instruments in the FpML examples are consistently represented as security/observable identifiers in CDM.",
+      "whyItWorksThisWay": "Equity product identity is expressed in CDM via security/observable identifier structures; instrument id and description from FpML are used to populate those fields.",
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml",
+        "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+      ],
+      "caveats": [
+        "Normalization of identifier namespaces (e.g., exchange codes) occurs in some examples - see exchange-code normalization caveat.",
+        "Mapping may combine id + descriptive text to populate multiple CDM identifier fields."
+      ]
+    },
+    {
+      "id": "RULE-002",
+      "name": "Exchange identifier normalization (FpML exchangeId -> CDM exchange.code)",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 3,
+      "sourcePattern": "FpML exchangeId values (e.g., 'NASDAQ', 'Milan Stock Exchange')",
+      "targetPattern": "CDM exchange.code normalized values (e.g., 'XNAS', 'XMIL')",
+      "explanation": "Exchange identifiers present in FpML are mapped to canonical exchange codes in CDM in multiple examples.",
+      "whyItWorksThisWay": "Target model uses standardized exchange codes; examples show FpML exchange names/ids translated to a different code space in CDM.",
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml",
+        "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+      ],
+      "caveats": [
+        "The precise mapping table or rationale is not present in examples - open questions remain about mapping rules (e.g., 'NASDAQ' -> 'XNAS').",
+        "Normalization may be context-dependent (local exchange names vs. global codes)."
+      ]
+    },
+    {
+      "id": "RULE-003",
+      "name": "tradeId -> tradeIdentifier.assignedIdentifier",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 2,
+      "sourcePattern": "tradeheader.partytradeidentifier.tradeid (FpML)",
+      "targetPattern": "tradeIdentifier.assignedIdentifier.identifier.value (CDM)",
+      "explanation": "FpML tradeId values are carried into CDM assignedIdentifier entries repeatedly in multiple examples.",
+      "whyItWorksThisWay": "Trade-level identifier preservation is required for traceability; examples show a direct mapping from FpML tradeId to CDM assignedIdentifier.",
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml"
+      ],
+      "caveats": [
+        "Some CDM outputs show duplicate tradeIdentifier entries; deduplication rules are not provided and should be verified."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Remove timezone suffix from date strings",
+      "type": "normalization",
+      "description": "Date/time strings in FpML that include timezone offsets are normalized by removing the timezone suffix when populating CDM date fields.",
+      "sourceSide": "FpML unadjusted/adjusted dates with timezone offsets",
+      "targetSide": "CDM date strings without timezone offset",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml",
+        "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+      ],
+      "notes": [
+        "Described explicitly as an important transformation in multiple pair highlights.",
+        "Consider canonicalization of date format as a deterministic step prior to CDM population."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Dividend and performance terms mapping",
+      "type": "normalization",
+      "description": "Dividend-related fields and performance payout roles from FpML are translated into CDM dividend/performance payout structures.",
+      "sourceSide": "FpML dividend terms, payout role references",
+      "targetSide": "CDM dividend terms, PerformancePayout structures",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex03-single-stock-execution-swap-with-fixing-and-dividend-payment-dates.xml"
+      ],
+      "notes": [
+        "Mapping occurs in examples but role directionality/party mapping shows inconsistencies in at least one example - treat role mapping carefully."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under partyid.identifier.value.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: LEI values added in CDM not in FpML",
+        "Confidence mix includes high."
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: FpML tradeId -> CDM tradeIdentifier.assignedIdentifier",
+        "Confidence mix includes medium.",
+        "Representative note: tradeId -> assignedIdentifier"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "Duplicate tradeIdentifier entries in CDM",
+      "description": "Some CDM outputs contain duplicate tradeIdentifier entries for the same FpML tradeId.",
+      "seenIn": [
+        "total-return-swaps/trs-ex02-single-equity.xml"
+      ],
+      "impactOnGeneralization": "Introduces ambiguity for deduplication logic; consumers should not assume a 1:1 mapping without additional deduplication or identity rules."
+    },
+    {
+      "id": "VAR-002",
+      "name": "PerformancePayout payer/receiver direction mismatch",
+      "description": "In at least one example, CDM PerformancePayout payer/receiver roles appear inverted relative to FpML payerPartyReference.",
+      "seenIn": [
+        "total-return-swaps/trs-ex01-equity-basket.xml"
+      ],
+      "impactOnGeneralization": "Role mapping for payouts may require explicit verification per trade; do not assume party reference semantics are identical between FpML and CDM without confirmation."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "Party identifiers enriched with generated/default identifiers (e.g., LEI)",
+      "description": "CDM party identifier elements often include generated or default identifier values that are not present in the source FpML (example: LEI values added).",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "total-return-swaps/trs-ex01-equity-basket.xml",
+        "total-return-swaps/trs-ex02-single-equity.xml"
+      ],
+      "caution": [
+        "Treat added identifiers as enrichment rather than source-canonical; do not assume they exist in FpML.",
+        "Verify whether enrichment is deterministic for all parties or applied selectively."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Why is FpML exchangeId 'Milan Stock Exchange' mapped to CDM exchange.code 'XMIL'?",
+    "CDM PerformancePayout payer/receiver roles appear inverted versus FpML payerPartyReference",
+    "Why is FpML exchangeId 'NASDAQ' represented as CDM exchange 'XNAS'?",
+    "Why does CDM contain duplicate tradeIdentifier entries?",
+    "Why is calculationAgentParty set to CalculationAgentIndependent instead of party1 reference?"
+  ]
+}

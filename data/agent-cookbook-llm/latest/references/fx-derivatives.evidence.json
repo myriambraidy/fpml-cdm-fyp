@@ -1,0 +1,589 @@
+{
+  "folder": "fx-derivatives",
+  "generatedAt": "2026-04-26T14:59:22.253Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\fx-derivatives\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 25,
+    "structuralPairCount": 25,
+    "semanticPairCount": 25,
+    "fullSemanticPairCount": 25,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 25/25 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 25/25 successful or salvaged pair analyses (25 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 9.8,
+    "rating": "strong",
+    "reasons": [
+      "2 stable rules sit only at the minimum evidence threshold.",
+      "1 repeated transformation still have thin supporting evidence."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 5,
+      "repeatedTransformationCount": 6,
+      "tentativePatternCount": 9,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 7,
+      "openQuestionDensity": 0.28,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 2,
+      "lowEvidenceTransformationCount": 1,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Too many stable rules are only barely above the minimum evidence threshold."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Trade identifier -> assignedIdentifier.value",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 11,
+      "sourcePattern": "tradeHeader.partyTradeIdentifier.tradeId (FpML tradeId elements)",
+      "targetPattern": "trade.tradeIdentifier.assignedIdentifier.identifier.value (CDM assignedIdentifier.value)",
+      "explanation": "FpML tradeId values are repeatedly copied into CDM assignedIdentifier.identifier.value preserving the trade identifier value (often with an associated scheme).",
+      "whyItWorksThisWay": "Trade-level ids are high-value stable keys in the source and are preserved to allow traceability to the original FpML trade.",
+      "exampleFiles": [
+        "fx-derivatives/fx-ex01-fx-spot.xml",
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex03-fx-fwd.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml",
+        "fx-derivatives/fx-ex09-euro-opt.xml",
+        "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml",
+        "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml"
+      ],
+      "caveats": [
+        "In some CDM outputs there are more assignedIdentifier entries than FpML tradeId elements (possible duplication or added identifiers).",
+        "AssignedIdentifier.scheme in CDM sometimes differs from FpML tradeIdScheme; reason not consistently evident from examples."
+      ]
+    },
+    {
+      "id": "RULE-002",
+      "name": "Trade date normalization (remove trailing 'Z')",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 7,
+      "sourcePattern": "trade.tradeHeader.tradeDate (FpML with timezone 'Z')",
+      "targetPattern": "trade.tradeDate.value (CDM normalized ISO date without trailing 'Z')",
+      "explanation": "Dates copied from FpML have their trailing 'Z' (UTC designator) trimmed in CDM date.value fields to produce a plain date string.",
+      "whyItWorksThisWay": "CDM date fields in these examples use a normalized date format without the timezone marker; mapping routine trims the 'Z' to conform to CDM expected value.",
+      "exampleFiles": [
+        "fx-derivatives/fx-ex03-fx-fwd.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml",
+        "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml"
+      ],
+      "caveats": [
+        "Normalization appears consistent in examples but rules for timezone-preserving conversions (if needed) are not shown."
+      ]
+    },
+    {
+      "id": "RULE-003",
+      "name": "Option product type -> CDM taxonomy name",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 5,
+      "sourcePattern": "trade.fxdigitaloption.productType (FpML productType strings)",
+      "targetPattern": "trade.product.taxonomyName.value or value.name.value (CDM normalized taxonomy name)",
+      "explanation": "FpML product type labels (e.g., 'Euro Binary') are normalized and mapped into a CDM taxonomy name value (e.g., 'EuroBinary').",
+      "whyItWorksThisWay": "CDM uses standardized taxonomy strings for product classification; mapping normalizes source labels to the expected CDM taxonomy representations.",
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex16-one-touch-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "caveats": [
+        "Normalization details (exact string transformations) are inferred from examples but not exhaustively specified across all possible productType variants."
+      ]
+    },
+    {
+      "id": "RULE-004",
+      "name": "Expiry date/time/businessCenter -> exerciseTerms.expiration",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "expiryDateTime.expiryDate and expiryTime (FpML) and businessCenter fields",
+      "targetPattern": "adjustableDate.adjustedDate.value and exerciseTerms.expirationTime.hourMinuteTime and expirationTime.businessCenter.value (CDM exerciseTerms.expiration)",
+      "explanation": "Expiry-related fields in FpML (date, time, business center) are reshaped into CDM exerciseTerms.expiration components and time fields.",
+      "whyItWorksThisWay": "Exercise/expiration in CDM is modeled with nested date/time/business-center pieces; mapping splits and assigns the corresponding FpML pieces into those CDM fields.",
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex16-one-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "caveats": [
+        "Business center/timezone handling is consistent in examples but may require further rules for edge cases (e.g., missing time or multiple business centers)."
+      ]
+    },
+    {
+      "id": "RULE-005",
+      "name": "Payment amounts -> CDM quantities (value + currency unit)",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "exchangedCurrencyX.paymentAmount.amount and .currency (FpML paymentAmount entries)",
+      "targetPattern": "trade.tradeLot.quantity.value and trade.tradeLot.quantity.unit.currency.value (CDM quantities with currency units)",
+      "explanation": "Each FpML paymentAmount (amount + currency) is converted to a CDM quantity with numeric value and currency unit.",
+      "whyItWorksThisWay": "CDM models cash/economic amounts as quantities with explicit units; mapping populates value and currency subfields from FpML paymentAmount.",
+      "exampleFiles": [
+        "fx-derivatives/fx-ex01-fx-spot.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex07-non-deliverable-forward.xml"
+      ],
+      "caveats": [
+        "When FpML uses splitSettlement or multiple paymentAmount entries some CDM examples aggregate or merge them into a single quantity."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Resolve party hrefs -> CDM party references and roles",
+      "type": "reference resolution",
+      "description": "FpML party references (hrefs) are resolved into CDM party objects and assigned CDM roles (Party1/Party2 labels appear in CDM).",
+      "sourceSide": "partyReference hrefs and buyer/seller/payer/receiver references (FpML)",
+      "targetSide": "CDM party references with party roles (e.g., Party1/Party2) used in buyerSeller and payout sections",
+      "evidenceCount": 8,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml",
+        "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+        "fx-derivatives/fx-ex12-fx-barrier-option.xml",
+        "fx-derivatives/fx-ex13-fx-dbl-barrier-option.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml"
+      ],
+      "notes": [
+        "Examples show consistent resolution of hrefs into CDM party objects but also show apparent inversions of buyer/seller roles (CDM Party1 vs FpML party2) in several cases.",
+        "Mapping logic for deriving Party1/Party2 labels from FpML hrefs is not explicit in examples."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Date normalization (trim trailing 'Z')",
+      "type": "normalization",
+      "description": "Remove trailing UTC designator 'Z' from trade/tradedate/time values when copying into CDM date.value.",
+      "sourceSide": "tradeHeader.tradeDate (FpML, may include 'Z')",
+      "targetSide": "trade.tradedate.value (CDM, ISO date without 'Z')",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex03-fx-fwd.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml",
+        "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml"
+      ],
+      "notes": [
+        "Examples show consistent trimming of trailing 'Z' to produce plain date strings.",
+        "No examples show alternative timezone conversion behavior."
+      ]
+    },
+    {
+      "id": "TR-003",
+      "name": "Expiry date/time/businessCenter -> exerciseTerms.expiration",
+      "type": "normalization",
+      "description": "Map expiry date, time and business center into CDM exerciseTerms.expiration fields and associated time components.",
+      "sourceSide": "expirydatetime.expiryDate and expiryTime and businessCenter (FpML)",
+      "targetSide": "adjustableDate.adjustedDate.value and exerciseterms.expirationTime.hourMinuteTime and expirationTime.businessCenter.value (CDM)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex16-one-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "notes": [
+        "High-confidence mapping in examples; business center and time components are preserved in CDM exerciseTerms."
+      ]
+    },
+    {
+      "id": "TR-004",
+      "name": "PaymentAmount -> Quantity mapping",
+      "type": "normalization",
+      "description": "Convert each FpML paymentAmount (amount + currency) into a CDM quantity with value and currency unit.",
+      "sourceSide": "exchangedCurrencyX.paymentAmount.amount and .currency (FpML)",
+      "targetSide": "trade.tradeLot.quantity.value and trade.tradeLot.quantity.unit.currency.value (CDM)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex01-fx-spot.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex07-non-deliverable-forward.xml"
+      ],
+      "notes": [
+        "When multiple paymentAmount/splitSettlement entries exist, examples show aggregation/merge into single CDM quantity in some cases."
+      ]
+    },
+    {
+      "id": "TR-005",
+      "name": "ExchangeRate + quoted pair -> Price assembly",
+      "type": "normalization",
+      "description": "Assemble CDM price object from FpML exchangeRate rate and quotedCurrencyPair (unit and perUnitOf currencies).",
+      "sourceSide": "exchangeRate.rate and quotedCurrencyPair.currency1/currency2 (FpML)",
+      "targetSide": "price.value.value, price.unit.currency.value, price.perUnitOf.currency.value (CDM)",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml"
+      ],
+      "notes": [
+        "Mapping sometimes relies on interpreting quoteBasis or strikeQuoteBasis to decide which currency is the unit versus perUnitOf."
+      ]
+    },
+    {
+      "id": "TR-006",
+      "name": "Split/Multiple settlement entries -> aggregated quantity",
+      "type": "merge",
+      "description": "When FpML includes splitSettlement entries or multiple payment legs, the mapping sometimes merges these into a single CDM quantity or aggregates tradeLot entries.",
+      "sourceSide": "splitSettlement / multiple paymentAmount entries (FpML)",
+      "targetSide": "single trade.tradeLot.quantity or aggregated quantity entries (CDM)",
+      "evidenceCount": 2,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml"
+      ],
+      "notes": [
+        "Examples show merged results but do not document the aggregation logic for all split cases (e.g., rounding, ordering, or omission of sub-fields)."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Trade identifiers repeatedly map from tradeheader.partytradeidentifier.tradeid into assignedidentifier.identifier.value.",
+      "evidenceCount": 11,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex01-fx-spot.xml",
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex03-fx-fwd.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml",
+        "fx-derivatives/fx-ex09-euro-opt.xml",
+        "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml",
+        "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: tradeIds copied",
+        "Representative note: tradeId mapped to CDM assignedIdentifier.value",
+        "Representative note: FpML tradeId -> CDM assignedIdentifier"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under partyid.identifier.value.",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: LEI identifiers present in CDM not in FpML",
+        "Representative note: LEI identifiers present in CDM but not in FpML",
+        "Representative note: LEI values present in CDM but not in FpML"
+      ]
+    },
+    {
+      "id": "TENT-003",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes trade.tradeheader.tradedate into trade.tradedate.value.",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex03-fx-fwd.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml",
+        "fx-derivatives/td-ex02-term-deposit-w-settlement-etc.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: removed trailing 'Z' from date",
+        "Representative note: trimmed trailing Z from date",
+        "Representative note: Stripped trailing 'Z' to produce date '2001-11-12'."
+      ]
+    },
+    {
+      "id": "TENT-004",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Option-specific terms repeatedly map from trade.fxdigitaloption.producttype into value.name.value.",
+      "evidenceCount": 5,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex16-one-touch-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: Product type maps to CDM taxonomy name.",
+        "Confidence mix includes high.",
+        "Representative note: product type normalized to taxonomy name"
+      ]
+    },
+    {
+      "id": "TENT-005",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Date-like fields repeatedly normalize from expirydatetime.expirytime.businesscenter|expirydatetime.expirytime.hourminutetime|fxdigitaloption.expirydatetime.expirydate into adjustabledate.adjusteddate.value|exerciseterms.expirationtime.hourminutetime|expirationtime.businesscenter.value.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex16-one-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: Expiry date/time and business center map to exerciseTerms expiration.",
+        "Representative note: expiry date and time normalized into exerciseTerms",
+        "Representative note: expiry date, time, center map to exercise expiration fields"
+      ]
+    },
+    {
+      "id": "TENT-006",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Economic terms repeatedly reshape from exchangedcurrency1.paymentamount.amount|exchangedcurrency1.paymentamount.currency|exchangedcurrency2.paymentamount.amount|exchangedcurrency2.paymentamount.currency into quantity.value.value|unit.currency.value.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex01-fx-spot.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex07-non-deliverable-forward.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: payment amounts to quantities",
+        "Representative note: Each paymentAmount mapped to a CDM quantity entry",
+        "Representative note: FpML paymentAmount amounts and currencies -> CDM quantities with currency units"
+      ]
+    },
+    {
+      "id": "TENT-007",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Economic terms repeatedly reshape from exchangerate.quotedcurrencypair.currency1|exchangerate.quotedcurrencypair.currency2|fxsingleleg.exchangerate.rate into perunitof.currency.value|price.value.value|unit.currency.value.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: exchangeRate and quoted pair -> price value and unit/perUnitOf",
+        "Representative note: FpML exchangeRate rate and currency pair -> CDM price value and perUnitOf currencies",
+        "Representative note: rate -> price value; quoted currencies -> unit/perUnitOf"
+      ]
+    },
+    {
+      "id": "TENT-008",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "FpML exchange rate entries and the quoted currency pair are used to create a CDM price object with numeric price and unit/perUnitOf currencies. (exchangeRate.quotedCurrencyPair.currency1|currency2 and fxSingleLeg.exchangeRate.rate (FpML) -> price.value.value and price.unit.currency.value and price.perUnitOf.currency.value (CDM price value, unit and perUnitOf))",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex05-fx-fwd-w-ssi.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml"
+      ],
+      "notes": [
+        "CDM separates price value and the two currencies involved (unit and perUnitOf); mapping derives these from the FpML rate and quotedCurrencyPair.",
+        "Mapping sometimes requires interpreting quoteBasis/strikeQuoteBasis to decide which currency is unit vs perUnitOf; examples show consistent but slightly different interpretations."
+      ]
+    },
+    {
+      "id": "TENT-009",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Metadata-like enrichments repeatedly appear under name.meta.scheme.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: Taxonomy scheme added in CDM not present in FpML.",
+        "Confidence mix includes high.",
+        "Representative note: Taxonomy scheme added in CDM, not present in FpML."
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "AssignedIdentifier.scheme differences",
+      "description": "AssignedIdentifier.scheme used in CDM sometimes differs from the tradeIdScheme present (or absent) in FpML examples.",
+      "seenIn": [
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex08-fx-swap.xml"
+      ],
+      "impactOnGeneralization": "Do not assume the scheme string is copied verbatim; mapping may normalize, override, or supplement scheme values."
+    },
+    {
+      "id": "VAR-002",
+      "name": "Buyer/Seller role inversion",
+      "description": "Several CDM examples show buyer/seller or payer/receiver roles appearing inverted compared to the FpML buyerPartyReference/sellerPartyReference hrefs.",
+      "seenIn": [
+        "fx-derivatives/fx-ex11-non-deliverable-option.xml",
+        "fx-derivatives/fx-ex12-fx-barrier-option.xml",
+        "fx-derivatives/fx-ex13-fx-dbl-barrier-option.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml"
+      ],
+      "impactOnGeneralization": "Role mapping cannot be safely generalized without clarifying the rule used to derive CDM Party1/Party2 from FpML hrefs; treat buyer/seller polarity as tentative in mappings."
+    },
+    {
+      "id": "VAR-003",
+      "name": "Duplicated tradeIdentifier entries",
+      "description": "Some CDM outputs contain more tradeIdentifier entries than FpML tradeId elements (duplicates or additional identifiers).",
+      "seenIn": [
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex14-euro-digital-option.xml"
+      ],
+      "impactOnGeneralization": "Avoid assuming a 1:1 correspondence between FpML tradeId elements and CDM tradeIdentifier list; additional identifiers may be added or duplicated during mapping."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "Generated/default party identifiers appear under partyid.identifier.value",
+      "description": "CDM representations frequently include LEI-like or other identifier values for parties even when the FpML example does not contain them. CDM party model expects canonical identifiers; mappings populate these fields with generated defaults or externally-sourced identifiers when not present in FpML.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml"
+      ],
+      "caution": [
+        "Source of the LEI or generated identifier is not present in the FpML examples and appears to be an enrichment from an external source or mapping rule.",
+        "Not all parties receive such generated identifiers in every example.",
+        "Do not treat Generated/default party identifiers appear under partyid.identifier.value as a guaranteed direct mapping rule yet."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "Party LEI or generated identifiers inserted",
+      "description": "CDM examples include LEI-like party identifiers or other generated identifier values where FpML does not provide them.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "fx-derivatives/fx-ex02-spot-cross-w-side-rates.xml",
+        "fx-derivatives/fx-ex04-fx-fwd-w-settlement.xml",
+        "fx-derivatives/fx-ex06-fx-fwd-w-splits.xml",
+        "fx-derivatives/fx-ex15-euro-range-digital-option.xml",
+        "fx-derivatives/fx-ex22-straddle.xml",
+        "fx-derivatives/fx-ex23-delta-hedge.xml",
+        "fx-derivatives/td-ex01-simple-term-deposit.xml"
+      ],
+      "caution": [
+        "Source of these identifiers is not visible in FpML examples; they may come from an external reference data feed or internal generation policy.",
+        "Treat mappings that rely on LEI presence as enriched and verify with source of truth if precise LEI data is required."
+      ]
+    },
+    {
+      "id": "ENR-003",
+      "name": "Metadata taxonomy scheme enrichment under name.meta.scheme",
+      "description": "CDM entries include a taxonomy scheme field under name.meta.scheme even when FpML does not provide an explicit scheme value. CDM product/name representation includes metadata about taxonomy scheme; mapping populates a scheme value (enrichment) to conform to CDM metadata expectations.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "caution": [
+        "The exact scheme value used in CDM is not present in FpML and appears to be added during mapping; scheme choice rationale is not documented in the examples.",
+        "Do not treat Metadata taxonomy scheme enrichment under name.meta.scheme as a guaranteed direct mapping rule yet."
+      ]
+    },
+    {
+      "id": "ENR-004",
+      "name": "Product type normalization -> taxonomy name and meta.scheme enrichment",
+      "description": "Normalize productType strings and add taxonomy scheme metadata under name.meta.scheme in CDM.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "caution": [
+        "Both normalization of the product name and insertion of a taxonomy scheme are observed; the scheme value appears to be an added enrichment rather than copied from FpML.",
+        "Do not treat Product type normalization -> taxonomy name and meta.scheme enrichment as a reusable direct mapping transformation yet."
+      ]
+    },
+    {
+      "id": "ENR-005",
+      "name": "Taxonomy scheme metadata added under name.meta.scheme",
+      "description": "CDM includes a taxonomy scheme metadata element under name.meta.scheme even when FpML lacks an explicit scheme.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "fx-derivatives/fx-ex14-euro-digital-option.xml",
+        "fx-derivatives/fx-ex17-no-touch-option.xml",
+        "fx-derivatives/fx-ex18-double-one-touch-option.xml"
+      ],
+      "caution": [
+        "Scheme selection rationale is not shown; different mapping implementations might choose different taxonomy scheme values."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "What is the authoritative source for the LEI / generated party identifiers present in CDM when absent from FpML?",
+    "Why do buyer/seller (payer/receiver) roles appear inverted between FpML hrefs and CDM Party1/Party2 in multiple examples?",
+    "How are CDM Party1/Party2 labels derived deterministically from FpML party references (what rule maps party hrefs to Party1 vs Party2)?",
+    "Why are some tradeIdentifier entries duplicated or augmented in CDM for a single FpML tradeId?",
+    "What logic determines when multiple FpML splitSettlement/paymentAmount entries are merged into a single CDM quantity versus preserved separately?",
+    "How is assignedIdentifier.scheme chosen or normalized when it differs from the FpML tradeId scheme?",
+    "Which fxSingleLeg exchangedCurrency (or leg) in FpML maps to SettlementPayout.payerReceiver in CDM when mapping payouts?"
+  ]
+}

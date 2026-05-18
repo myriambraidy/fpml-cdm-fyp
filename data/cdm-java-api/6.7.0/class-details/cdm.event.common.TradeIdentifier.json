@@ -1,0 +1,261 @@
+{
+  "className": "cdm.event.common.TradeIdentifier",
+  "exists": true,
+  "packageName": "cdm.event.common",
+  "simpleName": "TradeIdentifier",
+  "methods": [
+    {
+      "name": "getIdentifierType",
+      "returnType": "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.identifier.TradeIdentifierTypeEnum getIdentifierType()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.event.common.TradeIdentifier",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeIdentifier build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [],
+      "raw": "public static cdm.event.common.TradeIdentifier$TradeIdentifierBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.TradeIdentifier>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.event.common.TradeIdentifier> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.event.common.TradeIdentifier>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.event.common.TradeIdentifier> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.identifier.Identifier",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+  "builderMethods": [
+    {
+      "name": "setIssuerReference",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setIssuerReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "setIssuerReferenceValue",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setIssuerReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setIssuer",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setIssuer(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setIssuerValue",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setIssuerValue(java.lang.String)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.AssignedIdentifier"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder addAssignedIdentifier(cdm.base.staticdata.identifier.AssignedIdentifier)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.AssignedIdentifier",
+        "int"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder addAssignedIdentifier(cdm.base.staticdata.identifier.AssignedIdentifier, int)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.identifier.AssignedIdentifier>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder addAssignedIdentifier(java.util.List<? extends cdm.base.staticdata.identifier.AssignedIdentifier>)"
+    },
+    {
+      "name": "setAssignedIdentifier",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "java.util.List<? extends cdm.base.staticdata.identifier.AssignedIdentifier>"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setAssignedIdentifier(java.util.List<? extends cdm.base.staticdata.identifier.AssignedIdentifier>)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "setIdentifierType",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.TradeIdentifierTypeEnum"
+      ],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder setIdentifierType(cdm.base.staticdata.identifier.TradeIdentifierTypeEnum)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.event.common.TradeIdentifier$TradeIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.event.common.TradeIdentifier$TradeIdentifierBuilder prune()"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder prune()"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "setAssignedIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setAssignedIdentifier(java.util.List)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "java.util.List"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder addAssignedIdentifier(java.util.List)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.AssignedIdentifier",
+        "int"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder addAssignedIdentifier(cdm.base.staticdata.identifier.AssignedIdentifier, int)"
+    },
+    {
+      "name": "addAssignedIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.identifier.AssignedIdentifier"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder addAssignedIdentifier(cdm.base.staticdata.identifier.AssignedIdentifier)"
+    },
+    {
+      "name": "setIssuerValue",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setIssuerValue(java.lang.String)"
+    },
+    {
+      "name": "setIssuer",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setIssuer(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setIssuerReferenceValue",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.Party"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setIssuerReferenceValue(cdm.base.staticdata.party.Party)"
+    },
+    {
+      "name": "setIssuerReference",
+      "returnType": "cdm.base.staticdata.identifier.Identifier$IdentifierBuilder",
+      "parameters": [
+        "cdm.base.staticdata.party.metafields.ReferenceWithMetaParty"
+      ],
+      "raw": "public default cdm.base.staticdata.identifier.Identifier$IdentifierBuilder setIssuerReference(cdm.base.staticdata.party.metafields.ReferenceWithMetaParty)"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "folder": "commodity-derivatives",
+  "generatedAt": "2026-04-26T14:47:59.428Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\commodity-derivatives\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 23,
+    "structuralPairCount": 23,
+    "semanticPairCount": 23,
+    "fullSemanticPairCount": 23,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 0,
+    "structuralBasisNote": "Structural summaries are computed from all 23/23 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 23/23 successful or salvaged pair analyses (23 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "Draft passed quality and integrity checks."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 9,
+    "rating": "strong",
+    "reasons": [
+      "2 stable rules sit only at the minimum evidence threshold."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 1,
+      "fullParseRate": 1,
+      "stableRuleCount": 4,
+      "repeatedTransformationCount": 2,
+      "tentativePatternCount": 8,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 8,
+      "openQuestionDensity": 0.34782608695652173,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 2,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "full"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "pilot_only",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Draft quality is strong enough for a limited pilot on a few additional folders, but not for broad rollout yet.",
+      "Too many stable rules are only barely above the minimum evidence threshold."
+    ]
+  },
+  "stableMappingPatterns": [
+    {
+      "id": "RULE-001",
+      "name": "Effective date unadjustedDate copied",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 7,
+      "sourcePattern": "effectivedate.adjustabledate.unadjusteddate",
+      "targetPattern": "effectivedate.adjustabledate.unadjusteddate",
+      "explanation": "Effective (unadjusted) dates in FpML are repeatedly carried into the CDM effectiveDate.adjustableDate.unadjustedDate element without semantic transformation.",
+      "whyItWorksThisWay": "Multiple example trades show identical unadjusted date values preserved in CDM effective date fields, indicating a direct copy rule.",
+      "exampleFiles": [
+        "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "caveats": [
+        "This addresses the unadjustedDate element specifically; businessDayConvention and adjustment rules may also appear separately in examples."
+      ]
+    },
+    {
+      "id": "RULE-002",
+      "name": "Termination date unadjustedDate copied",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 7,
+      "sourcePattern": "terminationdate.adjustabledate.unadjusteddate",
+      "targetPattern": "terminationdate.adjustabledate.unadjusteddate",
+      "explanation": "Termination (unadjusted) dates in FpML are repeatedly carried into the CDM terminationDate.adjustableDate.unadjustedDate element without semantic transformation.",
+      "whyItWorksThisWay": "Representative examples consistently preserve the FpML termination unadjusted date in the CDM termination date field, indicating a direct mapping.",
+      "exampleFiles": [
+        "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "caveats": [
+        "This is specific to unadjustedDate copying; other termination-related metadata (conventions/adjustments) may require additional mapping rules."
+      ]
+    },
+    {
+      "id": "RULE-003",
+      "name": "Fixed price elements normalized into CDM price structure",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "fixedleg.fixedprice.price | fixedleg.fixedprice.pricecurrency | fixedleg.fixedprice.priceunit",
+      "targetPattern": "price.value.value | unit.currency.value | value.perunitof.capacityunit",
+      "explanation": "FpML fixed price, currency and unit elements are repeatedly reshaped into the CDM price object with nested value, currency and per-unit unit normalization.",
+      "whyItWorksThisWay": "Multiple fixed-price physical trades show the same normalization pattern: numeric price -> price.value.value, currency -> unit.currency.value, and unit normalized into per-unit capacityUnit.",
+      "exampleFiles": [
+        "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "caveats": [
+        "Unit normalization mapping (e.g., Gal -> USGAL) is applied in examples; some unit mappings are uncertain or context-dependent."
+      ]
+    },
+    {
+      "id": "RULE-004",
+      "name": "Option type mapping to payout.optionpayout.optiontype",
+      "strength": "moderate recurring pattern",
+      "evidenceCount": 4,
+      "sourcePattern": "trade.commodityoption.optiontype",
+      "targetPattern": "payout.optionpayout.optiontype",
+      "explanation": "Commodity option trades map the FpML option type into the CDM payout.optionPayout.optionType element (e.g., Call/Put -> OptionType).",
+      "whyItWorksThisWay": "All representative option examples show direct mapping of the option type from the FpML option section into the CDM payout structure.",
+      "exampleFiles": [
+        "commodity-derivatives/com-ex6-gas-call-option.xml",
+        "commodity-derivatives/com-ex7-gas-put-option.xml",
+        "commodity-derivatives/com-ex8-oil-call-option-strip.xml",
+        "commodity-derivatives/com-ex9-oil-put-option-american.xml"
+      ],
+      "caveats": [
+        "This covers option-type value mapping only; other option-specific fields (exercise style, expiries) may need separate handling."
+      ]
+    }
+  ],
+  "repeatedNonLiteralTransformations": [
+    {
+      "id": "TR-001",
+      "name": "Price fields reshaped and unit normalized",
+      "type": "normalization",
+      "description": "Fixed-price fields (price, currency, unit) are reshaped into the CDM price structure and units normalized to CDM canonical unit codes.",
+      "sourceSide": "fixedleg.fixedprice.price + fixedleg.fixedprice.pricecurrency + fixedleg.fixedprice.priceunit",
+      "targetSide": "price.value.value + unit.currency.value + value.perunitof.capacityunit",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "notes": [
+        "Example mappings include explicit unit normalization (e.g., Gal -> USGAL).",
+        "Mapping assumes a canonical CDM unit vocabulary; some source units require normalization rules."
+      ]
+    },
+    {
+      "id": "TR-002",
+      "name": "Spread amount+currency converted to CDM price structure",
+      "type": "normalization",
+      "description": "Calculation spread amounts with currency are repeatedly converted into the CDM price.value and unit.currency representation.",
+      "sourceSide": "calculation.spread.amount | calculation.spread.currency",
+      "targetSide": "price.value.value | unit.currency.value",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex5-gas-v-electricity-spark-spread.xml"
+      ],
+      "notes": [
+        "This converts 'spread' style pricing into the canonical CDM price representation used elsewhere in the folder.",
+        "Some spreads are expressed relative to indexes or references and may require additional resolution outside this normalization."
+      ]
+    }
+  ],
+  "tentativeRepeatedPatterns": [
+    {
+      "id": "TENT-001",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Date-like fields repeatedly normalize from effectivedate.adjustabledate.unadjusteddate into effectivedate.adjustabledate.unadjusteddate.",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: effective date copied",
+        "Representative note: effective date value copied"
+      ]
+    },
+    {
+      "id": "TENT-002",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under dateadjustments.meta.globalkey.",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+        "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: meta.globalKey added in CDM",
+        "Representative note: meta.globalKey added in CDM, no FpML source",
+        "Representative note: meta.globalKey entries generated"
+      ]
+    },
+    {
+      "id": "TENT-003",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "termination date copied (direct mapping; terminationdate.adjustabledate.unadjusteddate -> terminationdate.adjustabledate.unadjusteddate)",
+      "evidenceCount": 7,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex1-gas-swap-daily-delivery-prices-last.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: termination date copied"
+      ]
+    },
+    {
+      "id": "TENT-004",
+      "kind": "enrichment",
+      "strength": "moderate recurring pattern",
+      "description": "Generated identifiers or defaults repeatedly appear under partyid.identifier.value.",
+      "evidenceCount": 6,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+        "commodity-derivatives/com-ex19-physical-bullion-forward.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: LEI values inserted in CDM parties",
+        "Confidence mix includes high.",
+        "Representative note: LEI identifiers present only in CDM"
+      ]
+    },
+    {
+      "id": "TENT-005",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Economic terms repeatedly reshape from fixedleg.fixedprice.price|fixedleg.fixedprice.pricecurrency|fixedleg.fixedprice.priceunit into price.value.value|unit.currency.value|value.perunitof.capacityunit.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml",
+        "commodity-derivatives/com-ex4-electricity-swap-hourly-off-peak.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: price,currency,unit normalized into CDM price structure",
+        "Representative note: price, currency and unit mapped; unit normalized",
+        "Representative note: fixed price, currency and unit mapped"
+      ]
+    },
+    {
+      "id": "TENT-006",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "effectiveDate unadjustedDate (direct mapping; effectivedate.adjustabledate.unadjusteddate -> effectivedate.adjustabledate.unadjusteddate)",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+        "commodity-derivatives/com-ex22-physical-gas-option-multiple-expiration.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: effectiveDate unadjustedDate"
+      ]
+    },
+    {
+      "id": "TENT-007",
+      "kind": "mapping",
+      "strength": "moderate recurring pattern",
+      "description": "Option-specific terms repeatedly map from trade.commodityoption.optiontype into payout.optionpayout.optiontype.",
+      "evidenceCount": 4,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex6-gas-call-option.xml",
+        "commodity-derivatives/com-ex7-gas-put-option.xml",
+        "commodity-derivatives/com-ex8-oil-call-option-strip.xml",
+        "commodity-derivatives/com-ex9-oil-put-option-american.xml"
+      ],
+      "notes": [
+        "Confidence mix includes high.",
+        "Representative note: option type",
+        "Representative note: Option type 'Put' mapped",
+        "Representative note: Option type 'Call' mapped"
+      ]
+    },
+    {
+      "id": "TENT-008",
+      "kind": "transformation",
+      "strength": "moderate recurring pattern",
+      "description": "Normalization repeatedly reshapes calculation.spread.amount|calculation.spread.currency into price.value.value|unit.currency.value.",
+      "evidenceCount": 3,
+      "exampleFiles": [
+        "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex5-gas-v-electricity-spark-spread.xml"
+      ],
+      "notes": [
+        "Confidence mix includes medium.",
+        "Representative note: spread amount+currency converted to price value and unit currency",
+        "Confidence mix includes high.",
+        "Representative note: spread converted to price structure"
+      ]
+    }
+  ],
+  "variantsAndExceptions": [
+    {
+      "id": "VAR-001",
+      "name": "Duplicate tradeIdentifier entries in CDM",
+      "description": "Several CDM examples show duplicate tradeIdentifier entries (same assignedIdentifier or tradeId repeated). This is observed across multiple examples and is a deviation from a one-to-one identifier expectation.",
+      "seenIn": [
+        "commodity-derivatives/com-ex10-physical-oil-pipeline-crude-wti-floating-price.xml",
+        "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml"
+      ],
+      "impactOnGeneralization": "Post-processing or de-duplication logic may be required when consolidating CDM trade identifiers; treat duplicate entries as a special case requiring review."
+    },
+    {
+      "id": "VAR-002",
+      "name": "Unit code normalization exceptions",
+      "description": "Source unit codes are normalized to CDM canonical codes in examples (e.g., 'Gal' -> 'USGAL'). Other units appear with uncertain mappings (MMBTU -> USMMBTU, Therm -> USTHM) and may require specific rules.",
+      "seenIn": [
+        "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml"
+      ],
+      "impactOnGeneralization": "Unit normalization is necessary for price and volume fields. Some source units require explicit mapping rules; absent those rules, canonicalization may be inconsistent across trades."
+    }
+  ],
+  "suspectedEnrichmentOrDefaultBehavior": [
+    {
+      "id": "ENR-001",
+      "name": "meta.globalKey entries generated",
+      "description": "CDM files repeatedly contain meta.globalKey entries (generated identifiers/defaults) under dateAdjustments.meta.globalKey that are not sourced from FpML.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "commodity-derivatives/com-ex11-physical-oil-pipeline-heating-oil-fixed-price.xml",
+        "commodity-derivatives/com-ex13-physical-gas-us-tw-west-texas-pool-floating-price-4-days.xml",
+        "commodity-derivatives/com-ex15-physical-oil-pipeline-crude-wcs-fixed-price.xml",
+        "commodity-derivatives/com-ex16-physical-power-us-eei-floating-price.xml",
+        "commodity-derivatives/com-ex17-physical-power-uk-gtma-fixed-price.xml",
+        "commodity-derivatives/com-ex2-gas-swap-prices-first-day.xml",
+        "commodity-derivatives/com-ex20-physical-coal-us-fixed-price.xml"
+      ],
+      "caution": [
+        "meta.globalKey entries appear to be generated by CDM tooling; they should not be treated as authoritative mappings from FpML content.",
+        "Downstream consumers relying on meta.globalKey should be aware these values may not exist in the source FpML."
+      ]
+    },
+    {
+      "id": "ENR-002",
+      "name": "Party identifiers (LEI) added in CDM",
+      "description": "CDM party.partyId.identifier.value fields often contain LEI or generated identifier values that are not present in the FpML input; these appear to be inserted during CDM creation.",
+      "classification": "suspected enrichment",
+      "evidence": [
+        "commodity-derivatives/com-ex12-physical-gas-europe-zbt-fixed-price.xml",
+        "commodity-derivatives/com-ex14-physical-gas-europe-ttf-fixed-price.xml",
+        "commodity-derivatives/com-ex18-physical-power-us-eei-fixed-price-shaped-volume.xml",
+        "commodity-derivatives/com-ex19-physical-bullion-forward.xml",
+        "commodity-derivatives/com-ex21-physical-power-us-eei-fixed-price-shaped-volume-and-price.xml",
+        "commodity-derivatives/com-ex3-gas-swap-prices-last-three-days.xml"
+      ],
+      "caution": [
+        "LEI values in the CDM do not have an obvious FpML origin in these examples; treat them as supplied/enriched metadata rather than direct mappings.",
+        "If mapping requires authoritative party identifiers, a separate lookup or enrichment source is necessary."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Why CDM contains duplicate tradeIdentifier entries for same assignedIdentifier?",
+    "CDM party.partyId LEI values absent in FpML; source of LEIs?",
+    "Why CDM has duplicated tradeIdentifier entries for same tradeId?",
+    "Why does CDM contain duplicate tradeIdentifier entries for same tradeIds?",
+    "Why are tradeIdentifier entries duplicated with same assignedIdentifier?",
+    "MasterAgreementType mapped to 'ISDAMaster' in CDM; is this normalization?",
+    "deliveryPoint 'TW-WTX' not represented in CDM?",
+    "What rule maps Therm to USTHM?"
+  ]
+}

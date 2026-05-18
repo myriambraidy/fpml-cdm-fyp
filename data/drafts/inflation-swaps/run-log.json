@@ -1,0 +1,367 @@
+[
+  {
+    "timestamp": "2026-04-26T14:01:19.178Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run started.",
+    "data": {
+      "folder": "inflation-swaps",
+      "maxPairs": null,
+      "pairConcurrency": 8,
+      "llmEnabled": true
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.184Z",
+    "level": "info",
+    "stage": "pair_selection",
+    "message": "Selected pairs from manifest.",
+    "data": {
+      "folder": "inflation-swaps",
+      "includedPairs": 5,
+      "missingExamples": 0,
+      "ignoredExamples": 0,
+      "exactMatches": 5,
+      "normalizedMatches": 0,
+      "aliasMatches": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.185Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+      "pairIndex": 1,
+      "totalPairs": 5,
+      "strategy": "exact",
+      "progress": "1/5"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.186Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+      "pairIndex": 2,
+      "totalPairs": 5,
+      "strategy": "exact",
+      "progress": "2/5"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.187Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+      "pairIndex": 3,
+      "totalPairs": 5,
+      "strategy": "exact",
+      "progress": "3/5"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.187Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+      "pairIndex": 4,
+      "totalPairs": 5,
+      "strategy": "exact",
+      "progress": "4/5"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.188Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Starting pair analysis.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex05-zc.xml",
+      "pairIndex": 5,
+      "totalPairs": 5,
+      "strategy": "exact",
+      "progress": "5/5"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.215Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 34222,
+      "retryAttempt": 0,
+      "fpmlChars": 11567,
+      "cdmChars": 16683,
+      "fpmlFields": 102,
+      "cdmFields": 216
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.224Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 38450,
+      "retryAttempt": 0,
+      "fpmlChars": 12025,
+      "cdmChars": 20423,
+      "fpmlFields": 106,
+      "cdmFields": 259
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.234Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 38057,
+      "retryAttempt": 0,
+      "fpmlChars": 11634,
+      "cdmChars": 20423,
+      "fpmlFields": 103,
+      "cdmFields": 259
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.246Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 35349,
+      "retryAttempt": 0,
+      "fpmlChars": 10671,
+      "cdmChars": 18749,
+      "fpmlFields": 93,
+      "cdmFields": 234
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:01:19.251Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Sending pair analysis request to LLM.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex05-zc.xml",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 31843,
+      "retryAttempt": 0,
+      "fpmlChars": 10241,
+      "cdmChars": 15464,
+      "fpmlFields": 89,
+      "cdmFields": 193
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:09.721Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex02-yoy-bond-reference.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 50534,
+      "promptChars": 38450,
+      "responseChars": 1879,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:25.386Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex04-yoy-interp.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 66198,
+      "promptChars": 35349,
+      "responseChars": 3303,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:27.068Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex03-yoy-initial-level.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 67881,
+      "promptChars": 38057,
+      "responseChars": 2779,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:27.241Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex01-yoy.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 68055,
+      "promptChars": 34222,
+      "responseChars": 2737,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:36.456Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis completed successfully.",
+    "data": {
+      "pair": "inflation-swaps/inflation-swap-ex05-zc.xml",
+      "model": "openai/gpt-5-mini",
+      "durationMs": 77268,
+      "promptChars": 31843,
+      "responseChars": 3095,
+      "retryAttempt": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:36.457Z",
+    "level": "info",
+    "stage": "pair_analysis",
+    "message": "Pair analysis stage completed.",
+    "data": {
+      "successfulPairCount": 5,
+      "failedPairCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:36.458Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Starting folder synthesis from semantic pair analyses plus all structural pairs.",
+    "data": {
+      "folder": "inflation-swaps",
+      "successfulPairCount": 5,
+      "failedPairCount": 0,
+      "salvagedPairCount": 0,
+      "structuralPairCount": 5
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:02:36.495Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Sending folder synthesis request to LLM.",
+    "data": {
+      "folder": "inflation-swaps",
+      "model": "openai/gpt-5-mini",
+      "maxTokens": 128000,
+      "promptChars": 7987,
+      "retryAttempt": 0,
+      "semanticPairCount": 5,
+      "structuralPairCount": 5,
+      "includedPairCount": 5,
+      "missingExampleCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.622Z",
+    "level": "info",
+    "stage": "synthesis",
+    "message": "Folder synthesis completed successfully.",
+    "data": {
+      "folder": "inflation-swaps",
+      "model": "openai/gpt-5-mini",
+      "promptChars": 7987,
+      "responseChars": 12298,
+      "retryAttempt": 0,
+      "stableRuleCount": 3,
+      "transformationCount": 4
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.624Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Integrity validation passed for synthesized draft.",
+    "data": {
+      "successfulPairCount": 5
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.626Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Publication decision computed.",
+    "data": {
+      "status": "success",
+      "publishFinal": true,
+      "reasons": [
+        "Draft passed quality and integrity checks."
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.628Z",
+    "level": "info",
+    "stage": "validation",
+    "message": "Draft quality assessment computed.",
+    "data": {
+      "score": 9,
+      "rating": "strong",
+      "rolloutDecision": "pilot_only",
+      "readyForBroadRollout": false
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.635Z",
+    "level": "info",
+    "stage": "publish",
+    "message": "Writing draft artifacts to disk.",
+    "data": {
+      "outputDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps",
+      "publishFinal": true,
+      "markdownPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.md",
+      "jsonPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\run-log.json"
+    }
+  },
+  {
+    "timestamp": "2026-04-26T14:03:47.636Z",
+    "level": "info",
+    "stage": "run",
+    "message": "Draft phase run completed.",
+    "data": {
+      "folder": "inflation-swaps",
+      "status": "success",
+      "durationMs": 148458,
+      "publishedDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.md",
+      "publishedJson": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\draft.json",
+      "debugPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\debug.json",
+      "logPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\inflation-swaps\\run-log.json"
+    }
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-04-27T12:14:49.166Z",
+  "filesRead": 143,
+  "filesWithZeroBlocks": [
+    "rosetta-source/src/main/rosetta/base-desc.rosetta",
+    "rosetta-source/src/main/rosetta/base-staticdata-asset-desc.rosetta",
+    "rosetta-source/src/main/rosetta/base-staticdata-desc.rosetta",
+    "rosetta-source/src/main/rosetta/legaldocumentation-desc.rosetta",
+    "rosetta-source/src/main/rosetta/legaldocumentation-master-icma-type.rosetta",
+    "rosetta-source/src/main/rosetta/legaldocumentation-master-isla-type.rosetta",
+    "rosetta-source/src/main/rosetta/mapping-config-synonym.rosetta",
+    "rosetta-source/src/main/rosetta/mapping-createiq-synonym.rosetta",
+    "rosetta-source/src/main/rosetta/mapping-fis-synonym.rosetta",
+    "rosetta-source/src/main/rosetta/mapping-ore-synonym.rosetta",
+    "rosetta-source/src/main/rosetta/observable-desc.rosetta",
+    "rosetta-source/src/main/rosetta/product-common-type.rosetta",
+    "rosetta-source/src/main/rosetta/product-desc.rosetta"
+  ],
+  "largeBlocks": [
+    {
+      "id": "enum:base-staticdata-asset-rates-enum.rosetta:FloatingRateIndexEnum",
+      "sourcePath": "rosetta-source/src/main/rosetta/base-staticdata-asset-rates-enum.rosetta",
+      "startLine": 6,
+      "endLine": 668,
+      "lineCount": 663
+    },
+    {
+      "id": "func:ingest-fpml-confirmation-other-func.rosetta:MapFloatingRateIndexEnum",
+      "sourcePath": "rosetta-source/src/main/rosetta/ingest-fpml-confirmation-other-func.rosetta",
+      "startLine": 854,
+      "endLine": 1511,
+      "lineCount": 658
+    }
+  ],
+  "duplicateBlockIds": [],
+  "readFailures": [],
+  "warnings": [
+    "13 Rosetta file(s) had no top-level func/type/enum blocks."
+  ]
+}

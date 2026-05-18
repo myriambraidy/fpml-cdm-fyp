@@ -1,0 +1,73 @@
+{
+  "folder": "equity-options",
+  "generatedAt": "2026-04-26T14:48:51.752Z",
+  "sourceDraft": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\draft.json",
+  "sourceDebug": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\drafts\\equity-options\\debug.json",
+  "evidenceCoverage": {
+    "matchedPairCount": 27,
+    "structuralPairCount": 27,
+    "semanticPairCount": 6,
+    "fullSemanticPairCount": 6,
+    "salvagedSemanticPairCount": 0,
+    "failedSemanticPairCount": 21,
+    "structuralBasisNote": "Structural summaries are computed from all 27/27 matched pairs, including pairs without semantic extraction.",
+    "semanticBasisNote": "Semantic rules are computed from 6/27 successful or salvaged pair analyses (6 full, 0 salvaged)."
+  },
+  "publication": {
+    "status": "success",
+    "publishFinal": true,
+    "reasons": [
+      "21 pair analyses failed and were excluded from synthesis."
+    ]
+  },
+  "qualityAssessment": {
+    "score": 1.5,
+    "rating": "poor",
+    "reasons": [
+      "Semantic success rate is 22%, below the 70% target for strong folders.",
+      "Only 0 stable mapping rules were recovered.",
+      "Only 0 repeated transformations were recovered.",
+      "Open-question density is 100%, which is still high for a stable reusable draft.",
+      "Folder synthesis fell back to deterministic output instead of a clean model synthesis."
+    ],
+    "metrics": {
+      "semanticSuccessRate": 0.2222222222222222,
+      "fullParseRate": 1,
+      "stableRuleCount": 0,
+      "repeatedTransformationCount": 0,
+      "tentativePatternCount": 0,
+      "placeholderHighlightRate": 0,
+      "openQuestionCount": 6,
+      "openQuestionDensity": 1,
+      "criticalAmbiguityCount": 0,
+      "lowEvidenceStableRuleCount": 0,
+      "lowEvidenceTransformationCount": 0,
+      "synthesisReliability": "fallback"
+    }
+  },
+  "rolloutReadiness": {
+    "decision": "not_ready",
+    "readyForBroadRollout": false,
+    "reasons": [
+      "Semantic success rate is below the broad-rollout threshold.",
+      "Folder synthesis did not complete as a clean full parse.",
+      "Stable mapping rule count is below the broad-rollout threshold.",
+      "Repeated transformation count is below the broad-rollout threshold.",
+      "Open-question density is still too high for broad rollout.",
+      "Quality rating is poor, below the broad-rollout target of strong."
+    ]
+  },
+  "stableMappingPatterns": [],
+  "repeatedNonLiteralTransformations": [],
+  "tentativeRepeatedPatterns": [],
+  "variantsAndExceptions": [],
+  "suspectedEnrichmentOrDefaultBehavior": [],
+  "openQuestions": [
+    "CDM exchange name 'XWAR' differs from FpML 'WSE'; mapping rule?",
+    "Why is payerReceiver.payer Party2 though buyer is Party1?",
+    "Why FpML exchangeId 'NSE' became 'XNSE' in CDM?",
+    "Why buyer/seller role names appear swapped between FpML and CDM?",
+    "Why are buyer/seller values inverted between FpML and CDM?",
+    "Why was exchange 'NSE' converted to 'XNSE' in CDM?"
+  ]
+}

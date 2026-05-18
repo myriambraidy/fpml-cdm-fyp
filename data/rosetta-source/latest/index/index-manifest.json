@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-04-27T11:36:42.843Z",
+  "snapshotDirectory": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest",
+  "sourceManifestPath": "C:\\Users\\User\\Desktop\\fpml-cdm-fyp\\data\\rosetta-source\\latest\\manifest.json",
+  "sourceManifestGeneratedAt": "2026-04-27T11:15:02.829Z",
+  "sourceRepo": "finos/common-domain-model",
+  "sourceBranch": "master",
+  "sourceTreeSha": "372d4400ec925b0d132d4aa62d27a0d56694d644",
+  "indexedFileCount": 143,
+  "outputFiles": [
+    "index-manifest.json",
+    "files.json",
+    "categories.json",
+    "fpml-ingest-files.json",
+    "summary.md"
+  ],
+  "indexerVersion": 1
+}

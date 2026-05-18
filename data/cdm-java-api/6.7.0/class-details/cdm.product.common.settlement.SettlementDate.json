@@ -1,0 +1,277 @@
+{
+  "className": "cdm.product.common.settlement.SettlementDate",
+  "exists": true,
+  "packageName": "cdm.product.common.settlement",
+  "simpleName": "SettlementDate",
+  "methods": [
+    {
+      "name": "getAdjustableOrRelativeDate",
+      "returnType": "cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate getAdjustableOrRelativeDate()"
+    },
+    {
+      "name": "getValueDate",
+      "returnType": "com.rosetta.model.lib.records.Date",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.lib.records.Date getValueDate()"
+    },
+    {
+      "name": "getAdjustableDates",
+      "returnType": "cdm.base.datetime.AdjustableDates",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableDates getAdjustableDates()"
+    },
+    {
+      "name": "getBusinessDateRange",
+      "returnType": "cdm.base.datetime.BusinessDateRange",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDateRange getBusinessDateRange()"
+    },
+    {
+      "name": "getCashSettlementBusinessDays",
+      "returnType": "java.lang.Integer",
+      "parameters": [],
+      "raw": "public abstract java.lang.Integer getCashSettlementBusinessDays()"
+    },
+    {
+      "name": "getPaymentDelay",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getPaymentDelay()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.SettlementDate",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.common.settlement.SettlementDate$SettlementDateBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.SettlementDate>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.common.settlement.SettlementDate> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.common.settlement.SettlementDate>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.common.settlement.SettlementDate> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    }
+  ],
+  "builderClassName": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateAdjustableOrRelativeDate",
+      "returnType": "cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate$AdjustableOrAdjustedOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate$AdjustableOrAdjustedOrRelativeDateBuilder getOrCreateAdjustableOrRelativeDate()"
+    },
+    {
+      "name": "getAdjustableOrRelativeDate",
+      "returnType": "cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate$AdjustableOrAdjustedOrRelativeDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate$AdjustableOrAdjustedOrRelativeDateBuilder getAdjustableOrRelativeDate()"
+    },
+    {
+      "name": "getOrCreateAdjustableDates",
+      "returnType": "cdm.base.datetime.AdjustableDates$AdjustableDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableDates$AdjustableDatesBuilder getOrCreateAdjustableDates()"
+    },
+    {
+      "name": "getAdjustableDates",
+      "returnType": "cdm.base.datetime.AdjustableDates$AdjustableDatesBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableDates$AdjustableDatesBuilder getAdjustableDates()"
+    },
+    {
+      "name": "getOrCreateBusinessDateRange",
+      "returnType": "cdm.base.datetime.BusinessDateRange$BusinessDateRangeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDateRange$BusinessDateRangeBuilder getOrCreateBusinessDateRange()"
+    },
+    {
+      "name": "getBusinessDateRange",
+      "returnType": "cdm.base.datetime.BusinessDateRange$BusinessDateRangeBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.BusinessDateRange$BusinessDateRangeBuilder getBusinessDateRange()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.MetaFields$MetaFieldsBuilder getMeta()"
+    },
+    {
+      "name": "setAdjustableOrRelativeDate",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setAdjustableOrRelativeDate(cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate)"
+    },
+    {
+      "name": "setValueDate",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "com.rosetta.model.lib.records.Date"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setValueDate(com.rosetta.model.lib.records.Date)"
+    },
+    {
+      "name": "setAdjustableDates",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "cdm.base.datetime.AdjustableDates"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setAdjustableDates(cdm.base.datetime.AdjustableDates)"
+    },
+    {
+      "name": "setBusinessDateRange",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "cdm.base.datetime.BusinessDateRange"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setBusinessDateRange(cdm.base.datetime.BusinessDateRange)"
+    },
+    {
+      "name": "setCashSettlementBusinessDays",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "java.lang.Integer"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setCashSettlementBusinessDays(java.lang.Integer)"
+    },
+    {
+      "name": "setPaymentDelay",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "java.lang.Boolean"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setPaymentDelay(java.lang.Boolean)"
+    },
+    {
+      "name": "setMeta",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.MetaFields"
+      ],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder setMeta(com.rosetta.model.metafields.MetaFields)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.product.common.settlement.SettlementDate$SettlementDateBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.settlement.SettlementDate$SettlementDateBuilder prune()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.metafields.MetaFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.MetaFields getMeta()"
+    },
+    {
+      "name": "getBusinessDateRange",
+      "returnType": "cdm.base.datetime.BusinessDateRange",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.BusinessDateRange getBusinessDateRange()"
+    },
+    {
+      "name": "getAdjustableDates",
+      "returnType": "cdm.base.datetime.AdjustableDates",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.AdjustableDates getAdjustableDates()"
+    },
+    {
+      "name": "getAdjustableOrRelativeDate",
+      "returnType": "cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate",
+      "parameters": [],
+      "raw": "public default cdm.base.datetime.AdjustableOrAdjustedOrRelativeDate getAdjustableOrRelativeDate()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields getMeta()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    },
+    {
+      "name": "getOrCreateMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getOrCreateMeta()"
+    },
+    {
+      "name": "getMeta",
+      "returnType": "com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.GlobalKeyFields$GlobalKeyFieldsBuilder getMeta()"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "className": "cdm.base.staticdata.party.CounterpartyRoleEnum",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "CounterpartyRoleEnum",
+  "methods": [
+    {
+      "name": "values",
+      "returnType": "cdm.base.staticdata.party.CounterpartyRoleEnum[]",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.CounterpartyRoleEnum[] values()"
+    },
+    {
+      "name": "valueOf",
+      "returnType": "cdm.base.staticdata.party.CounterpartyRoleEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.party.CounterpartyRoleEnum valueOf(java.lang.String)"
+    },
+    {
+      "name": "fromDisplayName",
+      "returnType": "cdm.base.staticdata.party.CounterpartyRoleEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.party.CounterpartyRoleEnum fromDisplayName(java.lang.String)"
+    },
+    {
+      "name": "toString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toString()"
+    },
+    {
+      "name": "toDisplayString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toDisplayString()"
+    }
+  ],
+  "builderMethods": []
+}

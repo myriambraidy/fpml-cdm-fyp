@@ -1,0 +1,43 @@
+{
+  "className": "cdm.base.staticdata.party.PartyIdentifierTypeEnum",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.party",
+  "simpleName": "PartyIdentifierTypeEnum",
+  "methods": [
+    {
+      "name": "values",
+      "returnType": "cdm.base.staticdata.party.PartyIdentifierTypeEnum[]",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.party.PartyIdentifierTypeEnum[] values()"
+    },
+    {
+      "name": "valueOf",
+      "returnType": "cdm.base.staticdata.party.PartyIdentifierTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.party.PartyIdentifierTypeEnum valueOf(java.lang.String)"
+    },
+    {
+      "name": "fromDisplayName",
+      "returnType": "cdm.base.staticdata.party.PartyIdentifierTypeEnum",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public static cdm.base.staticdata.party.PartyIdentifierTypeEnum fromDisplayName(java.lang.String)"
+    },
+    {
+      "name": "toString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toString()"
+    },
+    {
+      "name": "toDisplayString",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public java.lang.String toDisplayString()"
+    }
+  ],
+  "builderMethods": []
+}

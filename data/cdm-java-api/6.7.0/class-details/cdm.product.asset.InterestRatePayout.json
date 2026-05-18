@@ -1,0 +1,162 @@
+{
+  "className": "cdm.product.asset.InterestRatePayout",
+  "exists": true,
+  "packageName": "cdm.product.asset",
+  "simpleName": "InterestRatePayout",
+  "methods": [
+    {
+      "name": "getRateSpecification",
+      "returnType": "cdm.product.asset.RateSpecification",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.RateSpecification getRateSpecification()"
+    },
+    {
+      "name": "getDayCountFraction",
+      "returnType": "cdm.base.datetime.daycount.metafields.FieldWithMetaDayCountFractionEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.daycount.metafields.FieldWithMetaDayCountFractionEnum getDayCountFraction()"
+    },
+    {
+      "name": "getCalculationPeriodDates",
+      "returnType": "cdm.product.common.schedule.CalculationPeriodDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.CalculationPeriodDates getCalculationPeriodDates()"
+    },
+    {
+      "name": "getPaymentDates",
+      "returnType": "cdm.product.common.schedule.PaymentDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.PaymentDates getPaymentDates()"
+    },
+    {
+      "name": "getPaymentDate",
+      "returnType": "cdm.base.datetime.AdjustableDate",
+      "parameters": [],
+      "raw": "public abstract cdm.base.datetime.AdjustableDate getPaymentDate()"
+    },
+    {
+      "name": "getPaymentDelay",
+      "returnType": "java.lang.Boolean",
+      "parameters": [],
+      "raw": "public abstract java.lang.Boolean getPaymentDelay()"
+    },
+    {
+      "name": "getResetDates",
+      "returnType": "cdm.product.common.schedule.ResetDates",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.ResetDates getResetDates()"
+    },
+    {
+      "name": "getDiscountingMethod",
+      "returnType": "cdm.product.asset.DiscountingMethod",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.DiscountingMethod getDiscountingMethod()"
+    },
+    {
+      "name": "getCompoundingMethod",
+      "returnType": "cdm.product.asset.CompoundingMethodEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CompoundingMethodEnum getCompoundingMethod()"
+    },
+    {
+      "name": "getCashflowRepresentation",
+      "returnType": "cdm.product.asset.CashflowRepresentation",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.CashflowRepresentation getCashflowRepresentation()"
+    },
+    {
+      "name": "getStubPeriod",
+      "returnType": "cdm.product.common.schedule.StubPeriod",
+      "parameters": [],
+      "raw": "public abstract cdm.product.common.schedule.StubPeriod getStubPeriod()"
+    },
+    {
+      "name": "getBondReference",
+      "returnType": "cdm.product.asset.BondReference",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.BondReference getBondReference()"
+    },
+    {
+      "name": "getFixedAmount",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getFixedAmount()"
+    },
+    {
+      "name": "getFloatingAmount",
+      "returnType": "java.lang.String",
+      "parameters": [],
+      "raw": "public abstract java.lang.String getFloatingAmount()"
+    },
+    {
+      "name": "getSpreadCalculationMethod",
+      "returnType": "cdm.product.asset.SpreadCalculationMethodEnum",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.SpreadCalculationMethodEnum getSpreadCalculationMethod()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.asset.InterestRatePayout",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.InterestRatePayout build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder",
+      "parameters": [],
+      "raw": "public static cdm.product.asset.InterestRatePayout$InterestRatePayoutBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.InterestRatePayout>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.product.asset.InterestRatePayout> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.product.asset.InterestRatePayout>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.product.asset.InterestRatePayout> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase$PayoutBaseBuilder toBuilder()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.product.common.settlement.PayoutBase",
+      "parameters": [],
+      "raw": "public default cdm.product.common.settlement.PayoutBase build()"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderMethods": []
+}

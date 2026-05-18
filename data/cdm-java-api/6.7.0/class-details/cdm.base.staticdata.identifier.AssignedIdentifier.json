@@ -1,0 +1,137 @@
+{
+  "className": "cdm.base.staticdata.identifier.AssignedIdentifier",
+  "exists": true,
+  "packageName": "cdm.base.staticdata.identifier",
+  "simpleName": "AssignedIdentifier",
+  "methods": [
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString getIdentifier()"
+    },
+    {
+      "name": "getVersion",
+      "returnType": "java.lang.Integer",
+      "parameters": [],
+      "raw": "public abstract java.lang.Integer getVersion()"
+    },
+    {
+      "name": "build",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder toBuilder()"
+    },
+    {
+      "name": "builder",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [],
+      "raw": "public static cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder builder()"
+    },
+    {
+      "name": "metaData",
+      "returnType": "com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.identifier.AssignedIdentifier>",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.meta.RosettaMetaData<? extends cdm.base.staticdata.identifier.AssignedIdentifier> metaData()"
+    },
+    {
+      "name": "getType",
+      "returnType": "java.lang.Class<? extends cdm.base.staticdata.identifier.AssignedIdentifier>",
+      "parameters": [],
+      "raw": "public default java.lang.Class<? extends cdm.base.staticdata.identifier.AssignedIdentifier> getType()"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.Processor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.Processor)"
+    },
+    {
+      "name": "build",
+      "returnType": "com.rosetta.model.lib.RosettaModelObject",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObject build()"
+    },
+    {
+      "name": "toBuilder",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder toBuilder()"
+    }
+  ],
+  "builderClassName": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+  "builderMethods": [
+    {
+      "name": "getOrCreateIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getOrCreateIdentifier()"
+    },
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder",
+      "parameters": [],
+      "raw": "public abstract com.rosetta.model.metafields.FieldWithMetaString$FieldWithMetaStringBuilder getIdentifier()"
+    },
+    {
+      "name": "setIdentifier",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [
+        "com.rosetta.model.metafields.FieldWithMetaString"
+      ],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder setIdentifier(com.rosetta.model.metafields.FieldWithMetaString)"
+    },
+    {
+      "name": "setIdentifierValue",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [
+        "java.lang.String"
+      ],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder setIdentifierValue(java.lang.String)"
+    },
+    {
+      "name": "setVersion",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [
+        "java.lang.Integer"
+      ],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder setVersion(java.lang.Integer)"
+    },
+    {
+      "name": "process",
+      "returnType": "void",
+      "parameters": [
+        "com.rosetta.model.lib.path.RosettaPath",
+        "com.rosetta.model.lib.process.BuilderProcessor"
+      ],
+      "raw": "public default void process(com.rosetta.model.lib.path.RosettaPath, com.rosetta.model.lib.process.BuilderProcessor)"
+    },
+    {
+      "name": "prune",
+      "returnType": "cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder",
+      "parameters": [],
+      "raw": "public abstract cdm.base.staticdata.identifier.AssignedIdentifier$AssignedIdentifierBuilder prune()"
+    },
+    {
+      "name": "getIdentifier",
+      "returnType": "com.rosetta.model.metafields.FieldWithMetaString",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.metafields.FieldWithMetaString getIdentifier()"
+    },
+    {
+      "name": "prune",
+      "returnType": "com.rosetta.model.lib.RosettaModelObjectBuilder",
+      "parameters": [],
+      "raw": "public default com.rosetta.model.lib.RosettaModelObjectBuilder prune()"
+    }
+  ]
+}
